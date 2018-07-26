@@ -1,3 +1,4 @@
+console.log(getJsDelivrUrl());
 require.config({
     baseUrl:'https://files.cnblogs.com/files/bndong/',
     waitSeconds: 100,
