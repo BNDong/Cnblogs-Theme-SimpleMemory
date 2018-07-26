@@ -137,12 +137,12 @@
         if (file && file.search('.min') == -1) {
             var fileArr = file.split('.');
             var suffix  = null;
-            if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css'])) {
+            if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1) {
                 suffix  = fileArr.pop();
             }
             fileArr.push('min');
             if (suffix != null) fileArr.push(suffix);
-            file = fileArr.join('.');
+            file = suffix != null ? (suffix + '/' + fileArr.join('.')) : (fileArr.join('.'));
         }
         return file;
     }

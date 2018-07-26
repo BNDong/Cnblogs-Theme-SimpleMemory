@@ -8,33 +8,33 @@ require.config({
     },
     paths: {
         //-- 滚动条
-        optiscroll: 'jquery.optiscroll',
+        optiscroll: setFileNameMin('jquery.optiscroll'),
         //-- 进度条
-        ToProgress: 'ToProgress.min',
+        ToProgress: setFileNameMin('ToProgress.min'),
         //-- 旋转
-        rotate: 'jquery.rotate.min',
+        rotate: setFileNameMin('jquery.rotate.min'),
         //-- snap svg
-        snapSvg: 'snap.svg-min',
+        snapSvg: setFileNameMin('snap.svg-min'),
         //-- 菜单
-        classie: 'classie',
-        main4: 'main4',
+        classie: setFileNameMin('classie'),
+        main4: setFileNameMin('main4'),
         //-- bootstrap
-        bootstrap: 'https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min',
+        bootstrap: setFileNameMin('bootstrap.min'),
         //-- baguetteBox 图片灯箱
-        baguetteBox: 'baguetteBox.min',
+        baguetteBox: setFileNameMin('baguetteBox.min'),
         //-- 文章目录
-        marvin: 'marvin.nav2',
+        marvin: setFileNameMin('marvin.nav2'),
         //-- 文章后缀
-        articleStatement: 'articleStatement',
+        articleStatement: setFileNameMin('articleStatement'),
         //-- 主页动画
-        circleMagic: 'circleMagic',
+        circleMagic: setFileNameMin('circleMagic'),
         //-- 非主页动画
-        TweenMax: 'TweenMax.min',
-        MyTween: 'MyTween',
+        TweenMax: setFileNameMin('TweenMax.min'),
+        MyTween: setFileNameMin('MyTween'),
         //-- tools
-        tools: 'SimpleMemory-tools',
+        tools: setFileNameMin('tools'),
         //-- base
-        base: 'SimpleMemory-base',
+        base: setFileNameMin('base'),
     },
     shim:{
         optiscroll: {
