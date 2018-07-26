@@ -38,20 +38,20 @@ require.config({
     },
     shim:{
         optiscroll: {
-            deps: ['css!'+setFileNameMin('optiscroll.css')]
+            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
         },
         classie: {
             deps: ['snapSvg'],
         },
         main4: {
-            deps: ['snapSvg','classie', 'css!'+setFileNameMin('menu_bubble.css')]
+            deps: ['snapSvg','classie', 'css!'+getJsDelivrUrl('menu_bubble.css')]
         },
         baguetteBox: {
             exports: 'baguetteBox',
-            deps: ['css!'+setFileNameMin('baguetteBox.min.css'), 'css!'+setFileNameMin('gallery-clean.css')]
+            deps: ['css!'+getJsDelivrUrl('baguetteBox.min.css'), 'css!'+getJsDelivrUrl('gallery-clean.css')]
         },
         marvin: {
-            deps: ['bootstrap', 'css!'+setFileNameMin('marvin.nav2.css')]
+            deps: ['bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
         },
         MyTween: {
             deps: ['TweenMax']

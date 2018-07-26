@@ -80,7 +80,7 @@
 
     // github versions 此处为GitHub提交版本哈希值 根据版本加载代码
     // https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-    var githubVersions = '636214712c37404bf46e8edb149a38f508ac3fd7';
+    var githubVersions = 'b0acbea3e3ef698f11190e77acb61544f96e5cac';
 
     // load loadingJs
     $.getScript(getJsDelivrUrl('loading.js'), function () {
@@ -120,10 +120,11 @@
     /**
      * JsDelivr文件地址
      * @param file
+     * @param directory 文件目录名称，如果不指定，以后缀为目录名称
      * @returns {string}
      */
-    function getJsDelivrUrl(file) {
-        file = setFileNameMin(file);
+    function getJsDelivrUrl(file, directory) {
+        file = setFileNameMin(file, directory);
         return 'https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@'+githubVersions+'/' + (file ? file : '');
     }
 
@@ -134,7 +135,7 @@
      * @returns {*}
      */
     function setFileNameMin(file, directory) {
-        if (!file) return file;
+        if (typeof file == 'undefined') return file;
 
         var suffix  = null;
         var fileArr = file.split('.');
@@ -144,11 +145,11 @@
             directory = suffix;
         }
 
-        if (file && file.search('.min') == -1) fileArr.push('min');
+        if (typeof file !== 'undefined' && file.search('.min') == -1) fileArr.push('min');
 
         if (suffix != null) fileArr.push(suffix);
 
-        return (directory ? (directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
+        return (typeof directory !== 'undefined' ? (directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
     }
 </script>
 <!-- global var end -->
