@@ -80,7 +80,7 @@
 
     // github versions 此处为GitHub提交版本哈希值 根据版本加载代码
     // https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-    var githubVersions = 'be3977d5fb5c28a4bfb7cccb9e70d1d9e2ce0b0d';
+    var githubVersions = 'ad73334ef172689542ff4637543281c539e5fabc';
 
     // load loadingJs
     $.getScript(getJsDelivrUrl('loading.js'), function () {
@@ -131,20 +131,25 @@
     /**
      * 文件名添加.min
      * @param file
+     * @param directory 文件目录名称，如果不指定以后缀为目录名称
      * @returns {*}
      */
-    function setFileNameMin(file) {
-        if (file && file.search('.min') == -1) {
-            var fileArr = file.split('.');
-            var suffix  = null;
-            if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1) {
-                suffix  = fileArr.pop();
-            }
-            fileArr.push('min');
-            if (suffix != null) fileArr.push(suffix);
-            file = suffix != null ? (suffix + '/' + fileArr.join('.')) : (fileArr.join('.'));
+    function setFileNameMin(file, directory) {
+        if (!file) return file;
+
+        var suffix  = null;
+        var fileArr = file.split('.');
+
+        if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1) {
+            suffix    = fileArr.pop();
+            directory = suffix;
         }
-        return file;
+
+        if (file && file.search('.min') == -1) fileArr.push('min');
+
+        if (suffix != null) fileArr.push(suffix);
+
+        return (directory ? (directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
     }
 </script>
 <!-- global var end -->

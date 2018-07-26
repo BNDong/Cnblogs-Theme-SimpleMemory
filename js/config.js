@@ -3,38 +3,38 @@ require.config({
     waitSeconds: 100,
     map: {
         '*': {
-            'css': setFileNameMin('css.min')
+            'css': setFileNameMin('css.min', 'js')
         }
     },
     paths: {
         //-- 滚动条
-        optiscroll: setFileNameMin('jquery.optiscroll'),
+        optiscroll: setFileNameMin('jquery.optiscroll', 'js'),
         //-- 进度条
-        ToProgress: setFileNameMin('ToProgress.min'),
+        ToProgress: setFileNameMin('ToProgress.min', 'js'),
         //-- 旋转
-        rotate: setFileNameMin('jquery.rotate.min'),
+        rotate: setFileNameMin('jquery.rotate.min', 'js'),
         //-- snap svg
-        snapSvg: setFileNameMin('snap.svg-min'),
+        snapSvg: setFileNameMin('snap.svg-min', 'js'),
         //-- 菜单
-        classie: setFileNameMin('classie'),
+        classie: setFileNameMin('classie', 'js'),
         main4: setFileNameMin('main4'),
         //-- bootstrap
-        bootstrap: setFileNameMin('bootstrap.min'),
+        bootstrap: setFileNameMin('bootstrap.min', 'js'),
         //-- baguetteBox 图片灯箱
-        baguetteBox: setFileNameMin('baguetteBox.min'),
+        baguetteBox: setFileNameMin('baguetteBox.min', 'js'),
         //-- 文章目录
-        marvin: setFileNameMin('marvin.nav2'),
+        marvin: setFileNameMin('marvin.nav2', 'js'),
         //-- 文章后缀
-        articleStatement: setFileNameMin('articleStatement'),
+        articleStatement: setFileNameMin('articleStatement', 'js'),
         //-- 主页动画
-        circleMagic: setFileNameMin('circleMagic'),
+        circleMagic: setFileNameMin('circleMagic', 'js'),
         //-- 非主页动画
-        TweenMax: setFileNameMin('TweenMax.min'),
-        MyTween: setFileNameMin('MyTween'),
+        TweenMax: setFileNameMin('TweenMax.min', 'js'),
+        MyTween: setFileNameMin('MyTween', 'js'),
         //-- tools
-        tools: setFileNameMin('tools'),
+        tools: setFileNameMin('tools', 'js'),
         //-- base
-        base: setFileNameMin('base'),
+        base: setFileNameMin('base', 'js'),
     },
     shim:{
         optiscroll: {
