@@ -80,7 +80,7 @@
 
     // github versions 此处为GitHub提交版本哈希值 根据版本加载代码
     // https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-    var githubVersions = '1243cebed72ec71ce7aa506ef1756eeb482ec39b';
+    var githubVersions = 'be3977d5fb5c28a4bfb7cccb9e70d1d9e2ce0b0d';
 
     // load loadingJs
     $.getScript(getJsDelivrUrl('loading.js'), function () {
@@ -124,14 +124,27 @@
      * @returns {string}
      */
     function getJsDelivrUrl(file) {
-        if (file.search('.min') == -1) {
+        file = setFileNameMin(file);
+        return 'https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@'+githubVersions+'/' + (file ? file : '');
+    }
+
+    /**
+     * 文件名添加.min
+     * @param file
+     * @returns {*}
+     */
+    function setFileNameMin(file) {
+        if (file && file.search('.min') == -1) {
             var fileArr = file.split('.');
-            var suffix  = fileArr.pop();
+            var suffix  = null;
+            if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css'])) {
+                suffix  = fileArr.pop();
+            }
             fileArr.push('min');
-            fileArr.push(suffix);
+            if (suffix != null) fileArr.push(suffix);
             file = fileArr.join('.');
         }
-        return 'https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@'+githubVersions+'/'+file ? file : '';
+        return file;
     }
 </script>
 <!-- global var end -->

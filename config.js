@@ -1,15 +1,12 @@
-console.log(getJsDelivrUrl());
 require.config({
-    baseUrl:'https://files.cnblogs.com/files/bndong/',
+    baseUrl: getJsDelivrUrl(),
     waitSeconds: 100,
     map: {
         '*': {
-            'css': 'css.min'
+            'css': setFileNameMin('css.min')
         }
     },
     paths: {
-        //-- loading
-        loading: 'loading',
         //-- 滚动条
         optiscroll: 'jquery.optiscroll',
         //-- 进度条
