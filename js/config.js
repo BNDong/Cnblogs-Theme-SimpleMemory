@@ -17,7 +17,7 @@ require.config({
         snapSvg: setFileNameMin('snap.svg-min', 'js'),
         //-- 菜单
         classie: setFileNameMin('classie', 'js'),
-        main4: setFileNameMin('main4'),
+        main4: setFileNameMin('main4', 'js'),
         //-- bootstrap
         bootstrap: setFileNameMin('bootstrap.min', 'js'),
         //-- baguetteBox 图片灯箱
@@ -57,11 +57,11 @@ require.config({
             deps: ['TweenMax']
         },
         base: {
-            deps: ['tools']
-        },
-        cssResources: [
-            'css!https://at.alicdn.com/t/font_543384_hfku19m6z8ouhaor.css', // 阿里云字体图标
-            'css!https://cdn.webfont.youziku.com/webfonts/nomal/111379/47284/5a531cbbf629dc07a8fbd011.css', // 有字库字体
-        ]
+            deps: [
+                'tools',
+                'css!https://at.alicdn.com/t/font_543384_hfku19m6z8ouhaor.css', // 阿里云字体图标
+                'css!https://cdn.webfont.youziku.com/webfonts/nomal/111379/47284/5a531cbbf629dc07a8fbd011.css', // 有字库字体
+            ]
+        }
     }
 });
