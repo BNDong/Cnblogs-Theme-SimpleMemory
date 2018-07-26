@@ -80,7 +80,7 @@
 
     // github versions 此处为GitHub提交版本哈希值 根据版本加载代码
     // https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-    var githubVersions = 'dee556f82d5875415e893de7d80496e649f473f6';
+    var githubVersions = '636214712c37404bf46e8edb149a38f508ac3fd7';
 
     // load loadingJs
     $.getScript(getJsDelivrUrl('loading.js'), function () {
@@ -95,7 +95,6 @@
             $.getScript(getJsDelivrUrl('config.js'), function () {
 
                 var staticResource = [
-                    'cssResources',
                     'optiscroll',
                     'ToProgress',
                     'rotate',
@@ -131,7 +130,7 @@
     /**
      * 文件名添加.min
      * @param file
-     * @param directory 文件目录名称，如果不指定以后缀为目录名称
+     * @param directory 文件目录名称，如果不指定，以后缀为目录名称
      * @returns {*}
      */
     function setFileNameMin(file, directory) {
