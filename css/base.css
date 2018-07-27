@@ -69,7 +69,7 @@ body:before {
     right: 0;
     bottom: 0;
     background: #fcfcfc;
-    background-image: linear-gradient(rgba(221, 221, 221, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(221, 221, 221, 0.3) 1px, transparent 1px);
+    /*background-image: linear-gradient(rgba(221, 221, 221, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(221, 221, 221, 0.3) 1px, transparent 1px);*/
     background-size: 20px 20px;
 }
 
