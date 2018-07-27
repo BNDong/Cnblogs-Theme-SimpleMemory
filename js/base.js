@@ -292,7 +292,7 @@ function Base() {
      */
     this.setNotHomeTopImg = function() {
         $('.main-header').css('height', '40vh');
-        $('.main-header').css('background', '#222 url(https://files.cnblogs.com/files/bndong/notHomtTopBg.gif)  center center no-repeat');
+        $('.main-header').css('background', '#222 url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png)  center center no-repeat');
         $('.main-header').css('background-size', 'cover');
         $('.vertical').css('display', 'none');
         $('.scroll-down').css('display', 'none');

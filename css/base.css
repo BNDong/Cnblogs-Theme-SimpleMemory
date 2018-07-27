@@ -1377,7 +1377,8 @@ button {
     height: 100vh;
     /*margin-bottom: 5rem;*/
     text-align: center;
-    background: #222 url(https://files.cnblogs.com/files/bndong/top_bg4.gif) center center no-repeat;
+    /*background: #222 url(https://files.cnblogs.com/files/bndong/top_bg4.gif) center center no-repeat;*/
+    background: #222 url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-9424.jpg) center center no-repeat;
     background-size: cover;
     overflow: hidden;
     position: absolute;
