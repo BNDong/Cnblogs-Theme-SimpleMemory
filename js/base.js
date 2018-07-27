@@ -3,7 +3,7 @@ function Base() {
         ,tools       = new myTools
         ,progressBar = new ToProgress({ // 进度条插件配置
         id: 'top-progress-bar',
-        color: '#F44336',
+        color: '#DBEDFF',
         height: '3px',
         duration: 0.2
     }, '#bottomProgressBar')
@@ -527,7 +527,7 @@ function Base() {
         // 请去 AmazingCounters.com 配置自己的，谢谢！！
         pvHtml += '<img border="0" src="https://cc.amazingcounters.com/counter.php?i=3217893&amp;c=9653992" s="AmazingCounters.com" style="opacity: 0.5; margin-left: 7px;cursor: pointer;">';
         pvHtml += '<div>【事实并非理所当然🌈世界总是欲盖弥彰】</div>';
-        pvHtml += "<div>关于博主：致力于前后端开发，没事喜欢瞎研究！<span class='my-face'>(●'◡'●)ﾉ♥</span></div>";
+        pvHtml += "<div>主攻：PHP \ Java \ Python \ Linux \ JavaScript<span class='my-face'>(●'◡'●)ﾉ♥</span></div>";
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
         $('#footer').prepend('<div class="footer-image"></div>');

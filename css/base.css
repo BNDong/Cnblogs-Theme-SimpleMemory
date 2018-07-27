@@ -1259,7 +1259,7 @@ button {
     left: 0;
     right: 0;
     background: #232323;
-    padding: 35px 0 27px;
+    padding: 17px 0 27px;
     text-align: center;
     color: #888;
     font-size: 12px;
@@ -3537,7 +3537,7 @@ button {
    ========================================================================== */
 #bottomProgressBar {
     position: fixed;
-    bottom: 0;
+    top: 0;
     width: 100%;
     z-index: 998;
 }
