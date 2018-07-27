@@ -1266,7 +1266,7 @@ button {
     line-height: 1.5;
 }
 .footer-image {
-    background: url(https://diygod.me/images/footer.png) no-repeat 50%;
+    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/footer.png) no-repeat 50%;
     height: 368px;
     z-index: 1;
     position: absolute;
