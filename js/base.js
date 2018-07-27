@@ -527,7 +527,7 @@ function Base() {
         // 请去 AmazingCounters.com 配置自己的，谢谢！！
         pvHtml += '<img border="0" src="https://cc.amazingcounters.com/counter.php?i=3217893&amp;c=9653992" s="AmazingCounters.com" style="opacity: 0.5; margin-left: 7px;cursor: pointer;">';
         pvHtml += '<div>【事实并非理所当然🌈世界总是欲盖弥彰】</div>';
-        pvHtml += "<div>PHP \\ Java \\ Python \\ Linux \\ JavaScript<span class='my-face'>(●'◡'●)ﾉ♥</span></div>";
+        pvHtml += "<div>PHP \\ Java \\ Python \\ Linux \\ JavaScript<span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
         $('#footer').prepend('<div class="footer-image"></div>');
