@@ -424,7 +424,7 @@ button {
 #sideBar {
     margin-top: -15px;
     width: 230px;
-    min-height: 200px;
+    /*min-height: 200px;*/
     padding: 0px 0 0px 5px;
     float: right;
     -o-text-overflow: ellipsis;
@@ -1251,13 +1251,28 @@ button {
 
 /*****留言页面开始*****************************/
 #footer {
-    color: #686868;
-    text-align: center;
     min-height: 15px;
     _height: 15px;
-    margin-top: 50px;
-    padding-top: 10px;
-    margin-bottom: 10px;
+    position: absolute;
+    margin: 0;
+    margin-top: 200px;
+    left: 0;
+    right: 0;
+    background: #232323;
+    padding: 35px 0 27px;
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.footer-image {
+    background: url(https://diygod.me/images/footer.png) no-repeat 50%;
+    height: 368px;
+    z-index: 1;
+    position: absolute;
+    bottom: 48px;
+    width: 100%;
+    pointer-events: none;
 }
 /*留言查看页面的个人信息*/
 .personInfo {

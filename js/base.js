@@ -529,6 +529,7 @@ function Base() {
         pvHtml += '<div>【事实并非理所当然🌈世界总是欲盖弥彰】</div>';
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
+        $('#footer').prepend('<div class="footer-image"></div>');
 
         setCnzzTId = window.setInterval( bndongJs.setCnzz, 1000 );
 
@@ -553,6 +554,7 @@ function Base() {
         }
     };
     this.setTheme = function () {
+        $('#footer').prepend('<div class="footer-image"></div>');
         setInterval(function(){
             var footer = $('#footer');
             var themeHtml = '<p id="ThemeAuthors" style="color:#ccc;">[ 主题提供：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#ccc;">@BNDong</a> ]</p></div>';
