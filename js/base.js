@@ -4,7 +4,7 @@ function Base() {
         ,progressBar = new ToProgress({ // 进度条插件配置
         id: 'top-progress-bar',
         color: '#77b6ff',
-        height: '3px',
+        height: '2px',
         duration: 0.2
     }, '#bottomProgressBar')
         ,temScroll       = 0           // 上一次页面滚动位置
