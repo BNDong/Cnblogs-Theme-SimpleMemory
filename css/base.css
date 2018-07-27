@@ -105,16 +105,16 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     outline: none;
-    color: #21759b;
+    color: #777;
 }
 
 a:link {
-    color: #21759b;
+    color: #777;
     text-decoration: none;
 }
 
 a:visited {
-    color: #21759b;
+    color: #777;
     text-decoration: none;
 }
 
@@ -723,7 +723,7 @@ button {
 }
 
 .feedbackListSubtitle a:link, .feedbackListSubtitle a:visited, .feedbackListSubtitle a:active {
-    color: #21759b;
+    color: #777;
     font-weight: bold;
 }
 
