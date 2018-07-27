@@ -3,7 +3,7 @@ function Base() {
         ,tools       = new myTools
         ,progressBar = new ToProgress({ // 进度条插件配置
         id: 'top-progress-bar',
-        color: '#DBEDFF',
+        color: '#77b6ff',
         height: '3px',
         duration: 0.2
     }, '#bottomProgressBar')
@@ -143,9 +143,11 @@ function Base() {
 
         function handleVisibilityChange() {
             if (document[hidden]) {
+                $('#myTopCanvas').hide();
                 var str = $('.main-header-content h1').eq(0).text();
                 document.title = ' (◍´꒳`◍) Hi, ' + (str != '' ? str : 'BNDong') + ' - ' + RelTitle.split(' - ')[0];
             } else {
+                $('#myTopCanvas').fadeIn(3000);
                 document.title = RelTitle;
             }
         }
