@@ -3410,6 +3410,7 @@ button {
 
 #rightMenu i {
     font-weight: bold;
+    text-shadow: 1px 1px 1px #eee;
     font-size: 24px !important;
 }
 
