@@ -15,13 +15,13 @@ var mouseX = mouseY = mouseOldX = mouseOldY = 0,
 
                     colors = [
                         //oranges
-                        '#8BA790', '#EBD695', //'#f5cb00', '#fbde1a', '#feeb31', '#fff163',
+                        '#96EDA6', '#5BC6A9', //'#f5cb00', '#fbde1a', '#feeb31', '#fff163',
                         //reds
-                        '#8AAC62', '#E4E7D6', //'#c11e1f', '#e52822', '#f43d0d', '#fb5c28', '#ff8547',
+                        '#38668C', '#374D84', //'#c11e1f', '#e52822', '#f43d0d', '#fb5c28', '#ff8547',
                         //greens
-                        '#D0CBC7', '#9FB4AD', //'#006d3c', '#059849', '#15ae44', '#52b933', '#78c340', '#b2cd53',
+                        '#BED5CB', '#62ADC6', //'#006d3c', '#059849', '#15ae44', '#52b933', '#78c340', '#b2cd53',
                         //blues
-                        '#EFD990', '#B09C91', //'#0b3f7a', '#0561a6', '#007ecb', '#32b2fa', '#54cefc', '#91dffa'
+                        '#8EE5DE', '#304E7B', //'#0b3f7a', '#0561a6', '#007ecb', '#32b2fa', '#54cefc', '#91dffa'
                     ];
 
             Triangle = function(pos, column, row) {
