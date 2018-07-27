@@ -3257,7 +3257,7 @@ button {
     transition-delay: 0.4s;
     outline: none;
     cursor: pointer;
-    background: #000 url(https://files.cnblogs.com/files/bndong/me_top_bg.gif) center no-repeat;
+    background: #000 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/menu_bg.jpeg) 0 -195px no-repeat;
     background-size: 100%;
 }
 
