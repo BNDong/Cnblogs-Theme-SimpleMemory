@@ -560,7 +560,7 @@ function Base() {
         $('#footer').prepend('<div class="footer-image"></div>');
         setInterval(function(){
             var footer = $('#footer');
-            var themeHtml = '<p id="ThemeAuthors" style="color:#ccc;">[ 主题提供：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#ccc;">@BNDong</a> ]</p></div>';
+            var themeHtml = '<p id="ThemeAuthors" style="top: -20px;position: absolute;color: #ddd;right: 5px;">[ 主题提供：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#ddd;">@BNDong</a> ]</p></div>';
             $('#ThemeAuthors').show();
             if ($('#ThemeAuthors').length == 0) {
                 $('#footer').append(themeHtml);
