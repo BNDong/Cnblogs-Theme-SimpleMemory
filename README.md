@@ -5,7 +5,8 @@
 ```
 ├─ css
 │  ├─ baguetteBox.min.css
-│  ├─ base.css - 页面定制CSS代码（禁用默认）
+│  ├─ base.css
+│  ├─ base.min.css - 页面定制CSS代码（禁用默认）
 │  ├─ gallery-clean.css
 │  ├─ marvin.nav2.css
 │  ├─ menu_bubble.css
@@ -40,7 +41,7 @@
 ### 设置
 进入管理后台设置界面依次设置
 * 博客皮肤 ---> SimpleMemory
-* 页面定制CSS代码 ---> /css/base.css(禁用模板默认CSS)
+* 页面定制CSS代码 ---> /css/base.min.css(禁用模板默认CSS)
 * 博客侧边栏公告 ---> /html/sidebar.html
 * 页首Html代码 ---> /html/pageHeading.html
 * 页脚Html代码 ---> /html/pageFooter.html
