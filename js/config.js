@@ -22,6 +22,8 @@ require.config({
         bootstrap: setFileNameMin('bootstrap.min', 'js'),
         //-- baguetteBox 图片灯箱
         baguetteBox: setFileNameMin('baguetteBox.min', 'js'),
+        //-- 文章标题
+        title: setFileNameMin('articleTitle', 'js'),
         //-- 文章目录
         marvin: setFileNameMin('marvin.nav2', 'js'),
         //-- 文章后缀
@@ -51,7 +53,7 @@ require.config({
             deps: ['css!'+getJsDelivrUrl('baguetteBox.min.css'), 'css!'+getJsDelivrUrl('gallery-clean.css')]
         },
         marvin: {
-            deps: ['bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
+            deps: ['title', 'bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
         },
         MyTween: {
             deps: ['TweenMax']

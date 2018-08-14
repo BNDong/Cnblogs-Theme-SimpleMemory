@@ -105,16 +105,16 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     outline: none;
-    color: #777;
+    color: #2daebf;
 }
 
 a:link {
-    color: #777;
+    color: #2daebf;
     text-decoration: none;
 }
 
 a:visited {
-    color: #777;
+    color: #2daebf;
     text-decoration: none;
 }
 
@@ -162,7 +162,7 @@ button {
 /*****home和头部开始**************************/
 #home {
     margin: 0 auto;
-    width: 60%;
+    width: 65%;
     max-width: 840px;
     background-color: rgba(255, 255, 255, 1);
     padding: 0 30px 30px 30px;
@@ -3341,41 +3341,15 @@ button {
     color: #313131;
     background-color: #f7f7f7;
     font-size: 13px;
-    border-left: 3px solid #666;
+    border-left: 4px solid #ddd;
     font-weight: 400;
 }
 
 #cnblogs_post_body h2 {
-    border-radius: 4px;
-    font-family: "Comic Sans MS","微软雅黑";
-    font-size: 1.6rem;
-    text-shadow: 2px 2px 3px #eee;
-    border-left: 6px solid #a3bb50;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 0;
+    font-size: 1.8rem;
     height: 32px;
     line-height: 32px;
-    padding: 0 0 0 10px;
-    box-shadow: 2px 2px 3px #eee;
-    margin: 16px 0;
-    color: #333;
-}
-
-#cnblogs_post_body h1 {
-    border-radius: 4px;
-    font-family: "Comic Sans MS","微软雅黑";
-    font-size: 1.7rem;
-    text-shadow: 2px 2px 3px #eee;
-    border-left: 6px solid #40749d;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 0;
-    height: 35px;
-    line-height: 35px;
-    padding: 0 0 0 10px;
-    box-shadow: 2px 2px 3px #eee;
-    margin: 18px 0;
+    padding: 0px 0 0 30px;
     color: #333;
 }
 
@@ -3522,6 +3496,149 @@ button {
     display: table-cell;
     padding: 0 20px;
 }
+/* ==========================================================================
+   文章标题
+   ========================================================================== */
+.header__span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    left: -35px;
+    margin: 20px 0 10px 0;
+}
+/* ---------------------------------------- */
+.header__dev {
+    font-family: Lato,Arial,sans-serif;
+    font-weight: 300!important;
+    position: absolute;
+    transition-delay: .5s;
+    z-index: 2;
+    margin: 0!important;
+    color: #222 !important;
+}
+.header__span h1 {
+    font-size: 28px!important;
+    height: 28px;
+    line-height: 28px!important;
+}
+.header__span h2 {
+    font-size: 20px!important;
+    height: 20px;
+    line-height: 20px!important;
+}
+/* ---------------------------------------- */
+.dev__slash {
+    font-weight: 300;
+    position: absolute;
+    z-index: 5;
+    -webkit-transform: rotateZ(22deg);
+    transform: rotateZ(22deg);
+}
+.header__span h1 .dev__slash {
+    color: #3E558B;
+    top: -24px;
+    left: 57px;
+    font-size: 35px;
+}
+.header__span h2 .dev__slash {
+    color: #85C7B0;
+    top: -20px;
+    left: 58px;
+    font-size: 26px;
+}
+/* ---------------------------------------- */
+.dev__fe, .dev__ux {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    -webkit-transform: rotateZ(22deg);
+    transform: rotateZ(22deg);
+}
+.dev__fe {
+    text-align: right;
+    direction: rtl;
+    top: -68px;
+    left: -40px;
+}
+.dev__ux {
+    left: 66px;
+    top: -57px;
+}
+/* ---------------------------------------- */
+.dev__fe i, .dev__ux i {
+    font-style: normal;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-weight: 400;
+    -webkit-transform: rotateZ(-22deg);
+    transform: rotateZ(-22deg);
+}
+.header__span h1 .dev__fe i {
+    text-indent: -9px;
+    top: 13px;
+    right: 0;
+}
+.header__span h2 .dev__fe i {
+    text-indent: -7px;
+    top: 12px;
+    right: 0;
+}
+.header__span h1 .dev__ux i {
+    text-indent: -6px;
+    top: 2px;
+    left: -3px;
+}
+.header__span h2 .dev__ux i {
+    text-indent: -8px;
+    top: 0;
+    left: 0;
+}
+/* ---------------------------------------- */
+.dev__developer {
+    position: absolute;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    font-family: "Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
+}
+.header__span h1 .dev__developer {
+    top: -20px;
+    left: 94px;
+}
+.header__span h2 .dev__developer {
+    top: -17px;
+    left: 94px;
+}
+/* ---------------------------------------- */
+.dev__fe, .dev__ux, .dev__fe i, .dev__ux i, .dev__developer, .dev__slash {
+    transition: all 0.6s cubic-bezier(0.555, -0.375, 0, 1.615);
+}
+
+.header__dev--open .dev__fe i, .header__dev--open .dev__ux i {
+    text-indent: 5px !important;
+}
+.header__dev--open .dev__developer {
+    -webkit-transform: translateX(15px);
+    transform: translateX(15px);
+    opacity: .6;
+}
+.header__dev--open .dev__slash {
+    -webkit-transform: scale(0.9) rotateZ(0deg);
+    transform: scale(0.9) rotateZ(0deg);
+}
+
+.header__dev--slow .dev__fe, .header__dev--slow .dev__ux, .header__dev--slow .dev__fe i, .header__dev--slow .dev__ux i, .header__dev--slow .dev__developer, .header__dev--slow .dev__slash {
+    transition: all 1.2s cubic-bezier(0.555, -0.375, 0, 1.615);
+}
 
 /* ==========================================================================
    隐藏不需要部分
@@ -3566,6 +3683,7 @@ span.cnblogs_code {
     border: 1px dashed #d9d9d9;
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
+    margin-bottom: 10px;
 }
 
 .cnblogs_code pre {
