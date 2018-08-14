@@ -3457,6 +3457,7 @@ button {
     border-right: 0;
     border-bottom: 0;
     border-collapse: initial !important;
+    margin-bottom: 10px;
 }
 
 #cnblogs_post_body table tr {

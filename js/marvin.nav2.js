@@ -37,19 +37,25 @@ a.ready(function () {
         var title=u.text();
         var text=u.text();
 
-        u.attr('id', 'autoid-' + l + '-' + m + '-' + n)
+        u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
 
         if (v.localName === 'h1') {
             l++;
             m = 0;
             if(text.length>26) text=text.substr(0,26)+"...";
-            j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.')) + '</a><span class="sideCatalog-dot"></span></li>';
+
+            var titleContent = text.replace(/^\d+\|[0-9]+/g, '');
+
+            j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.').replace(titleContent, '&nbsp;&nbsp;'+titleContent)) + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
             if(q){
                 if(text.length>30) text=text.substr(0,30)+"...";
-                j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.')) + '</a></li>';
+
+                var titleContent = text.replace(/^\d+\|[0-9]+/g, '');
+
+                j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.').replace(titleContent, '&nbsp;&nbsp;'+titleContent)) + '</a></li>';
             }
         }
     });
