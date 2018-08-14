@@ -43,13 +43,13 @@ a.ready(function () {
             l++;
             m = 0;
             if(text.length>26) text=text.substr(0,26)+"...";
-            j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.')) + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
             if(q){
                 if(text.length>30) text=text.substr(0,30)+"...";
-                j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a></li>';
+                j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.')) + '</a></li>';
             }
         }
     });
