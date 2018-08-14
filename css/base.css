@@ -3764,7 +3764,7 @@ span.cnblogs_code {
     padding: 10px;
     height: 200px;
     position: relative;
-    background: #fff url(https://files.cnblogs.com/files/bndong/comment_bg.gif) bottom right;
+    background: #fff url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/comment_bg.jpg) right -65px;
     background-size: 250px;
     background-repeat: no-repeat;
 }
