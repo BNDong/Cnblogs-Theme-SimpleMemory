@@ -3967,7 +3967,7 @@ a#green_channel_weibo {
     box-shadow: 0px 15px 18px -6px rgba(255,70,75, 0.65) !important;
     margin-left: 10px;
     width: 35px;
-    display:none;
+    /*display:none;*/
 }
 
 
@@ -3977,7 +3977,7 @@ a#green_channel_wechat {
     box-shadow: 0px 15px 18px -6px rgba(60,176,52, 0.65) !important;
     margin-left: 10px;
     width: 35px;
-    display:none;
+    /*display:none;*/
 }
 
 #author_profile_info img.author_avatar {
