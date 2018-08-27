@@ -80,10 +80,10 @@
 
     /**
      * source:"github" versions 处为GitHub提交版本哈希值 根据版本加载代码 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-     * source:"cnblogs" 从博客园文件加载代码，可以不配置版本号，博客园文件可能不会更新了，如有需求可以从github上挡下来最新代码，保存到自己的博客园文件中进行加载
+     * source:"cnblogs" 从博客园文件加载代码，可以不配置版本号，本人博客园文件不会更新了（实在操作太麻烦了），如有需求可以从github上挡下来最新代码，保存到自己的博客园文件中进行加载
      */
     var staticFileSetting = {
-        source   : 'github',  // 静态文件来源 cnblogs|github
+        source   : 'github',
         versions : '46624f677fbadd07f1bb97b3a41e1dbff9b0a4b4', // 版本号
     };
 
@@ -125,7 +125,7 @@
     /**
      * 文件地址
      * @param file
-     * @param directory 文件目录名称，如果不指定，以后缀为目录名称
+     * @param directory 文件目录名称
      * @returns {string}
      */
     function getJsDelivrUrl(file, directory) {
@@ -133,11 +133,11 @@
 
         switch (staticFileSetting.source) {
 
-            case 'github':
+            case 'github': // 注意：此处为GitHub加载源，如果需要加载自己分支的代码，修改此处URL，URL规则详见：https://www.jsdelivr.com/
                 return 'https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@'+staticFileSetting.versions+'/' + (file ? file : '');
                 break;
 
-            case 'cnblogs':
+            case 'cnblogs': // 注意：此处为博客园加载源，加载本人博客文件为老版本。本人博客园文件停止更新，如果需要可以修改至自己博客园文件
                 return 'https://blog-static.cnblogs.com/files/bndong/'+file;
                 break;
 
@@ -149,7 +149,7 @@
     /**
      * 文件名
      * @param file
-     * @param directory 文件目录名称，如果不指定，以后缀为目录名称
+     * @param directory 文件目录名称
      * @returns {*}
      */
     function setFileNameMin(file, directory) {
