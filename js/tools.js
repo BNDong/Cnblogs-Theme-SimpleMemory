@@ -101,7 +101,7 @@ function myTools() {
      * @param dateString 年-月-日
      */
     this.getRunDate = function (dateString) {
-        dateString = dateString.split('-');
+        dateString = (dateString).toString().split('-');
         var date = new Date();
         date.setUTCFullYear(dateString[0], dateString[1] - 1, dateString[2]);
         date.setUTCHours(0, 0, 0, 0);
