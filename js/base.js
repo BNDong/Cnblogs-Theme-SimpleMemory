@@ -1,17 +1,24 @@
 function Base() {
     var bndongJs     = this
+
+        /** 全局变量 **/
         ,tools       = new myTools
         ,progressBar = new ToProgress({ // 进度条插件配置
-        id: 'top-progress-bar',
-        color: '#77b6ff',
-        height: '2px',
-        duration: 0.2
-    }, '#bottomProgressBar')
+            id: 'top-progress-bar',
+            color: '#77b6ff',
+            height: '2px',
+            duration: 0.2
+        }, '#bottomProgressBar')
         ,temScroll       = 0           // 上一次页面滚动位置
+
+        /** 定时器 **/
         ,setMenuDataTId  = ''          // 菜单设置数据定时器ID
         ,setRightMenuTId = ''          // 右下角菜单设置定时器ID
-        ,setCnzzTId      = ''          // 网站统计设置定时器ID
-        ,setCatalogTId   = '';         // 文章目录设置定时器ID
+        ,setCnzzTId      = ''          // 网站统计Cnzz设置定时器ID
+        ,setAmazingTId   = ''          // 网站统计Amazing设置定时器ID
+        ,setCatalogTId   = ''          // 文章目录设置定时器ID
+
+    ;
 
     /**
      * 初始化
@@ -25,6 +32,8 @@ function Base() {
         bndongJs.endLoading();
         // Loading后初始化
         bndongJs.loadingAfterInit();
+        // 延时清除全部定时器
+        setTimeout(bndongJs.clearIntervalAll, 30000);
     };
 
     /**
@@ -91,7 +100,7 @@ function Base() {
         // 滚动监听
         $(window).scroll( function() { bndongJs.scrollMonitor(); });
 
-        // 窗口大小变化监听
+        // 窗口变化监听
         $(window).resize( function() { bndongJs.resizeMonitor(); });
 
         // 更换网站图标
@@ -112,15 +121,26 @@ function Base() {
         // 控制台输出
         tools.consoleText([], 'banner');
 
-        (function () {
-            var re = /x/;
-            var i = 0;
-            console.log(re);
+        // (function () {
+        //     var re = /x/;
+        //     var i = 0;
+        //     console.log(re);
+        //
+        //     re.toString = function () {
+        //         return '第 ' + (++i) + ' 次打开控制台';
+        //     };
+        // })();
+    };
 
-            re.toString = function () {
-                return '第 ' + (++i) + ' 次打开控制台';
-            };
-        })();
+    /**
+     * 清除全部定时器
+     */
+    this.clearIntervalAll = function () {
+        window.clearInterval(setMenuDataTId);
+        window.clearInterval(setRightMenuTId);
+        window.clearInterval(setCnzzTId);
+        window.clearInterval(setAmazingTId);
+        window.clearInterval(setCatalogTId);
     };
 
     /**
@@ -365,8 +385,7 @@ function Base() {
     /**
      * 播放器初始化
      */
-    this.musicInit = function() {
-    };
+    this.musicInit = function() {};
 
     /**
      * 结束Loading页面
@@ -534,11 +553,12 @@ function Base() {
         $('#footer').append(pvHtml);
         $('#footer').prepend('<div class="footer-image"></div>');
 
-        if ($('#amazingStat').length > 0) {
-            $('#amazingStat').appendTo('#amazingStatSpan').show();
+        if (window.location.href.search("www.cnblogs.com/bndong") == -1 ) {
+            bndongJs.setTheme();
         }
 
-        setCnzzTId = window.setInterval( bndongJs.setCnzz, 1000 );
+        setCnzzTId    = window.setInterval( bndongJs.setCnzz, 1000 );
+        setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
     };
     this.setCnzz = function() {
         // 请去 CNZZ 配置自己的，谢谢！！
@@ -557,9 +577,11 @@ function Base() {
             $('#cnzzInfo').text(cnzzInfo.join(' | '));
             window.clearInterval(setCnzzTId);
         }
-
-        if (window.location.href.search("www.cnblogs.com/bndong") == -1 ) {
-            bndongJs.setTheme();
+    };
+    this.setAmazing = function () {
+        if ($('#amazingStat').length > 0) {
+            $('#amazingStat').appendTo('#amazingStatSpan').show();
+            window.clearInterval(setAmazingTId);
         }
     };
     this.setTheme = function () {
