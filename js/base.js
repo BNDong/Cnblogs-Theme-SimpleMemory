@@ -527,20 +527,23 @@ function Base() {
     this.addWebPv = function() {
         var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
         // 请去 AmazingCounters.com 配置自己的，谢谢！！
-        pvHtml += '<img border="0" src="https://cc.amazingcounters.com/counter.php?i=3217893&amp;c=9653992" s="AmazingCounters.com" style="opacity: 0.5; margin-left: 7px;cursor: pointer;">';
+        pvHtml += '<span id="amazingStatSpan"></span>';
         pvHtml += '<div>【事实并非理所当然🌈世界总是欲盖弥彰】</div>';
         pvHtml += "<div>PHP \\ Java \\ Python \\ Linux \\ JavaScript<span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
         $('#footer').prepend('<div class="footer-image"></div>');
 
-        setCnzzTId = window.setInterval( bndongJs.setCnzz, 1000 );
+        if ($('#amazingStat').length > 0) {
+            $('#amazingStat').appendTo('#amazingStatSpan');
+        }
 
+        setCnzzTId = window.setInterval( bndongJs.setCnzz, 1000 );
     };
     this.setCnzz = function() {
         // 请去 CNZZ 配置自己的，谢谢！！
         var url = window.location.href;
-        var cnzzStat = $('#cnzz_stat_icon_1274152299 a');
+        var cnzzStat = $('.id_cnzz_stat_icon a');
         if (cnzzStat.length > 0) {
             var cnzzInfo = [];
             var cnzzArr  = $(cnzzStat[1]).text().split('|');
