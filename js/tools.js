@@ -95,4 +95,34 @@ function myTools() {
         var subStr = new RegExp('\<script.*\<\/script\>', 'ig');
         return str.replace(subStr,"");
     };
+
+    /**
+     * 运行时间
+     * @param dateString 年-月-日
+     */
+    this.getRunDate = function (dateString) {
+        dateString = dateString.split('-');
+        var date = new Date();
+        date.setUTCFullYear(dateString[0], dateString[1] - 1, dateString[2]);
+        date.setUTCHours(0, 0, 0, 0);
+        var birthDay = date;
+        var today = new Date();
+        var timeold = today.getTime() - birthDay.getTime();
+        var sectimeold = timeold / 1000;
+        var secondsold = Math.floor(sectimeold);
+        var msPerDay = 24 * 60 * 60 * 1000;
+        var e_daysold = timeold / msPerDay;
+        var daysold = Math.floor(e_daysold);
+        var e_hrsold = (daysold - e_daysold) * -24;
+        var hrsold = Math.floor(e_hrsold);
+        var e_minsold = (hrsold - e_hrsold) * -60;
+        var minsold = Math.floor((hrsold - e_hrsold) * -60);
+        var seconds = Math.floor((minsold - e_minsold) * -60).toString();
+        return {
+            daysold: daysold,
+            hrsold: hrsold,
+            minsold: minsold,
+            seconds: seconds
+        };
+    }
 }

@@ -545,10 +545,9 @@ function Base() {
      */
     this.addWebPv = function() {
         var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
-        // 请去 AmazingCounters.com 配置自己的，谢谢！！
         pvHtml += '<span id="amazingStatSpan"></span>';
         pvHtml += '<div>【事实并非理所当然🌈世界总是欲盖弥彰】</div>';
-        pvHtml += "<div>PHP \\ Java \\ Python \\ Linux \\ JavaScript<span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
+        pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
         $('#footer').prepend('<div class="footer-image"></div>');
@@ -557,8 +556,13 @@ function Base() {
             bndongJs.setTheme();
         }
 
+        window.setInterval( bndongJs.setRunTime, 500 );
         setCnzzTId    = window.setInterval( bndongJs.setCnzz, 1000 );
         setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
+    };
+    this.setRunTime = function () {
+        var runDate = tools.getRunDate('2016-08-27');
+        $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
     };
     this.setCnzz = function() {
         // 请去 CNZZ 配置自己的，谢谢！！
@@ -579,6 +583,7 @@ function Base() {
         }
     };
     this.setAmazing = function () {
+        // 请去 AmazingCounters.com 配置自己的，谢谢！！
         if ($('#amazingStat').length > 0) {
             $('#amazingStat').appendTo('#amazingStatSpan').show();
             window.clearInterval(setAmazingTId);
