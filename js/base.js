@@ -561,7 +561,9 @@ function Base() {
         setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
     };
     this.setRunTime = function () {
-        var runDate = tools.getRunDate('2016-08-27');
+        var str = $('#blogStartTimeInput').val();
+        str = str != '' ? str : '2016-11-19';
+        var runDate = tools.getRunDate(str);
         $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
     };
     this.setCnzz = function() {
