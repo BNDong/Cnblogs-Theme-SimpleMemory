@@ -562,7 +562,7 @@ function Base() {
     };
     this.setRunTime = function () {
         var str = $('#blogStartTimeInput').val();
-        str = str ? str : '2016-11-19';
+        str = str ? str : '2016-11-17';
         var runDate = tools.getRunDate(str);
         $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
     };
