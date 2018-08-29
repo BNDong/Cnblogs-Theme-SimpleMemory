@@ -5,8 +5,8 @@
 ```
 ├─ css
 │  ├─ baguetteBox.min.css
-│  ├─ base.css
-│  ├─ base.min.css - 页面定制CSS代码（禁用默认）
+│  ├─ base.css - 页面定制CSS代码未压缩版本（字符超限）
+│  ├─ base.min.css - 页面定制CSS代码压缩版本（使用此版本，禁用默认）
 │  ├─ gallery-clean.css
 │  ├─ marvin.nav2.css
 │  ├─ menu_bubble.css
@@ -25,13 +25,13 @@
 │  ├─ bootstrap.min.js
 │  ├─ circleMagic.js
 │  ├─ classie.js
-│  ├─ config.js
+│  ├─ config.js - 加载配置文件
 │  ├─ css.min.js
 │  ├─ jquery.optiscroll.js
 │  ├─ jquery.rotate.min.js
 │  ├─ loading.js
 │  ├─ main4.js
-│  ├─ marvin.nav2.js
+│  ├─ marvin.nav2.js - 文章目录
 │  ├─ require.min.js
 │  ├─ snap.svg-min.js
 │  └─ tools.js
@@ -45,6 +45,8 @@
 * 博客侧边栏公告 ---> /html/sidebar.html
 * 页首Html代码 ---> /html/pageHeading.html
 * 页脚Html代码 ---> /html/pageFooter.html
+
+***/css/base.min.css 的修改参考 /css/base.css，请使用压缩版本，直接使用 /css/base.css 会字符超限！***
 ### 标题与引用
 * 一级标题 `<h1>`
 * 二级标题 `<h2>`
