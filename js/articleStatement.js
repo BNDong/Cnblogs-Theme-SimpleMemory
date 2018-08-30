@@ -49,7 +49,7 @@ $(document).ready(function(){
     var fileid = cc.split("?");     // 把参数和文件名分割开
     var uid = fileid[0].replace('.html', '');
     var bottom_html = '<br><p style="font-weight:  bold;font-size: 16px;text-align:  center;color: #ddd;">__EOF__</p>';
-    bottom_html += '<br><p style="font-family: Microsoft YaHei,微软雅黑,MicrosoftJhengHei,华文细黑,STHeiti,MingLiu;font-size: 14px;background: hsl(220, 23%, 98%)!important;padding: 17px;border: 1px solid hsl(220, 16%, 94%)!important;border-radius: 3px;color: #414857;">';
+    bottom_html += '<p style="font-family: Microsoft YaHei,微软雅黑,MicrosoftJhengHei,华文细黑,STHeiti,MingLiu;font-size: 14px;background: hsl(220, 23%, 98%)!important;padding: 17px;border: 1px solid hsl(220, 16%, 94%)!important;border-radius: 3px;color: #414857;">';
     bottom_html += '<span style="font-weight: bold; white-space:nowrap;">作　　者</span>：<strong><span style="font-size: 12px; color: red;">';
     var articleAuthor = $('#articleAuthor').val();
     var articleSource = $('#articleSource').val();
