@@ -552,7 +552,7 @@ function Base() {
     this.addWebPv = function() {
         var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
         pvHtml += '<span id="amazingStatSpan"></span>';
-        pvHtml += '<div>【事实并非理所当然<span id="footerTextIcon">❤</span>世界总是欲盖弥彰】</div>';
+        pvHtml += '<div>【事实并非理所当然<span id="footerTextIcon">❤️</span>世界总是欲盖弥彰】</div>';
         pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
