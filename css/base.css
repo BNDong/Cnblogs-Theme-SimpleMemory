@@ -3989,6 +3989,43 @@ a#green_channel_wechat {
     margin-right: 7px;
 }
 
+
+/* ==========================================================================
+   页脚
+   ========================================================================== */
+#footerTextIcon {
+    display: inline-block;
+    animation: beating 1s infinite;
+    animation-timing-function: ease-out;
+    margin: 0 3px;
+}
+
+@keyframes beating {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1.6);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.6);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* ==========================================================================
    Media Queries - Smaller than 768px
    ========================================================================== */
