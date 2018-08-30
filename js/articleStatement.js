@@ -46,21 +46,21 @@ $(document).ready(function(){
     tmp = url.split("/");           // 按照"/"分割
     var cc = tmp[tmp.length-1];     // 获取最后一部分，即文件名和参数
     cc = cc.split("#")[0];
-    var fileid = cc.split("?");            // 把参数和文件名分割开
+    var fileid = cc.split("?");     // 把参数和文件名分割开
     var uid = fileid[0].replace('.html', '');
-    var bottom_html = '<br><p style="padding-top: 0; padding-right: 10px; padding-bottom: 10px; padding-left: 70px; background: url(https://files.cnblogs.com/files/bndong/cat.gif) #f7f7f7 no-repeat 12.5px 50%; font-family: 微软雅黑; font-size: 12px; border: #e0e0e0 1px dashed;">';
-    bottom_html += '<br>';
-    bottom_html += '<span style="font-weight: bold;color: #333; white-space:nowrap;">作　　者</span>：<strong><span style="font-size: 12px; color: red;">';
+    var bottom_html = '<br><p style="font-weight:  bold;font-size: 16px;text-align:  center;color: #ddd;">__EOF__</p>';
+    bottom_html += '<br><p style="font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;font-size: 14px;background: hsl(220, 23%, 98%)!important;padding: 17px;border: 1px solid hsl(220, 16%, 94%)!important;border-radius: 3px;color: #414857;">';
+    bottom_html += '<span style="font-weight: bold; white-space:nowrap;">作　　者</span>：<strong><span style="font-size: 12px; color: red;">';
     var articleAuthor = $('#articleAuthor').val();
     var articleSource = $('#articleSource').val();
 
     // 设置作者和出处
     if (articleAuthor != undefined && articleSource != undefined) {
         bottom_html += '<a href="'+articleSource+'" target="_blank">'+articleAuthor+'</a></span></strong> <br>';
-        bottom_html += '<span style="font-weight: bold;color: #333; white-space:nowrap;">出　　处</span>：<a href="'+articleSource+'" target="_blank">'+articleSource+'</a>';
+        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">出　　处</span>：<a href="'+articleSource+'" target="_blank">'+articleSource+'</a>';
     } else if ( window.location.href.search("www.cnblogs.com/bndong") != -1 ) {
         bottom_html += '<a href="http://www.cnblogs.com/bndong/" target="_blank">BNDong</a></span></strong> <br>';
-        bottom_html += '<span style="font-weight: bold;color: #333; white-space:nowrap;">出　　处</span>：<a href="http://www.cnblogs.com/bndong/" target="_blank">http://www.cnblogs.com/bndong/</a>';
+        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">出　　处</span>：<a href="http://www.cnblogs.com/bndong/" target="_blank">http://www.cnblogs.com/bndong/</a>';
     } else {
         var str = $('.main-header-content h1').eq(0).text();
         var homeUrl = tmp;
@@ -68,15 +68,15 @@ $(document).ready(function(){
         homeUrl.pop();
         homeUrl = homeUrl.join("/");
         bottom_html += '<a href="'+homeUrl+'" target="_blank">'+ (str != '' ? str : tmp[3]) +'</a></span></strong><br>';
-        bottom_html += '<span style="font-weight: bold;color: #333; white-space:nowrap;">出　　处</span>：<a href="'+url+'" target="_blank">'+url+'</a>';
+        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">出　　处</span>：<a href="'+url+'" target="_blank">'+url+'</a>';
     }
 
     bottom_html += '<br>';
-    bottom_html += '<span style="font-weight: bold;color: #333; white-space:nowrap;">关于博主</span>：编程路上的小学生。所有评论和私信都会在第一时间回复。也欢迎园子的大大们指正错误，共同进步。或者<a href="http://msg.cnblogs.com/msg/send/'+tmp[3]+'" target="_blank">直接私信</a>我。';
+    bottom_html += '<span style="font-weight: bold; white-space:nowrap;">关于博主</span>：编程路上的小学生，热爱技术，喜欢专研。评论和私信会在第一时间回复。或者<a href="http://msg.cnblogs.com/msg/send/'+tmp[3]+'" target="_blank">直接私信</a>我。';
     bottom_html += '<br>';
-    bottom_html += '<span style="font-weight: bold;color: #333; white-space:nowrap;">版权声明</span>：以商业目的使用需获原作者许可。非商业目的使用授权遵循 <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>。';
+    bottom_html += '<span style="font-weight: bold; white-space:nowrap;">版权声明</span>：署名 - 非商业性使用 - 禁止演绎，<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" alt="协议普通文本" title="协议普通文本" target="_blank">协议普通文本</a> | <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" alt="协议法律文本" title="协议法律文本" target="_blank">协议法律文本</a>。';
     bottom_html += '<br>';
-    bottom_html += '<span style="font-weight: bold;color: #333; white-space:nowrap;">声援博主</span>：如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost('+uid+',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。您的鼓励是博主的最大动力！';
+    bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost('+uid+',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。您的鼓励是博主的最大动力！';
     bottom_html += '<br>';
     bottom_html += '</p>';
     $("#cnblogs_post_body").append(bottom_html);
