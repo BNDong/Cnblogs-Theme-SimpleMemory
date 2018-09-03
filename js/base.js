@@ -174,7 +174,7 @@ function Base() {
             if (document[hidden]) {
                 $('#myTopCanvas').hide();
                 var str = $('.main-header-content h1').eq(0).text();
-                setTimeout(function () {
+                timer = setTimeout(function () {
                     document.title = ' (◍´꒳`◍) Hi, ' + (str != '' ? str : 'BNDong') + ' - ' + RelTitle.split(' - ')[0];
                 }, 1000);
             } else {
