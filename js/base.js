@@ -112,7 +112,7 @@ function Base() {
         // 更换网站图标
         var linkObject = document.createElement('link');
         linkObject.rel = "shortcut icon";
-        linkObject.href = "https://files.cnblogs.com/files/bndong/blog_logo.gif";
+        linkObject.href = "https://files.cnblogs.com/files/Trrui/blog_logo.gif";
         document.getElementsByTagName("head")[0].appendChild(linkObject);
 
         // 添加网站PV量监控
@@ -168,14 +168,14 @@ function Base() {
         }
 
         function handleVisibilityChange() {
-            if (document[hidden]) {
+            /*if (document[hidden]) {
                 $('#myTopCanvas').hide();
                 var str = $('.main-header-content h1').eq(0).text();
                 document.title = ' (◍´꒳`◍) Hi, ' + (str != '' ? str : 'BNDong') + ' - ' + RelTitle.split(' - ')[0];
             } else {
                 $('#myTopCanvas').fadeIn(3000);
                 document.title = RelTitle;
-            }
+            }*/
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
             document.addEventListener(visibilityChange, handleVisibilityChange, false);
@@ -349,7 +349,7 @@ function Base() {
                         var patch = op.text();
                         var html = '<img class="comment-avatar" src="'+patch+'"/>';
                     } else {
-                        var html = '<img class="comment-avatar" src="https://files.cnblogs.com/files/bndong/no_avatar.gif"/>';
+                        var html = '<img class="comment-avatar" src="https://files.cnblogs.com/files/Trrui/no_avatar.gif"/>';
                     }
                     $(commentList[i]).before(html);
                 }
