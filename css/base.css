@@ -164,7 +164,7 @@ button {
     margin: 0 auto;
     width: 65%;
     max-width: 840px;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 0 30px 30px 30px;
     margin-top: 100vh;
 }
