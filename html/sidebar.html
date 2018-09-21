@@ -75,10 +75,21 @@
 <!-- global var -->
 <script type="text/javascript">
 
-    // start cache
-    $.ajaxSetup({cache: true});
+    /*!
+     * UPDATES AND DOCS AT: https://github.com/BNDong
+     * https://www.cnblogs.com/bndong/
+     * @author: BNDong, dbnuo@foxmail.com
+     **/
 
     /**
+     * 博客全局配置
+     */
+    window.cnblogsConfig = {
+        blogUser : "BNDong"  // 博主名称
+    };
+
+    /**
+     * 资源文件配置
      * source:"github" versions 处为GitHub提交版本哈希值 根据版本加载代码 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
      * source:"cnblogs" 从博客园文件加载代码，可以不配置版本号，本人博客园文件不会更新了（操作实在太麻烦了），如有需求可以从github上挡下来最新代码，保存到自己的博客园文件中进行加载
      */
@@ -86,6 +97,9 @@
         source   : 'github',
         versions : 'e8415bf561287db2f26c064882e1e5147f230104', // 版本号
     };
+
+    // start cache
+    $.ajaxSetup({cache: true});
 
     // load loadingJs
     $.getScript(getJsDelivrUrl('loading.js'), function () {

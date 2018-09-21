@@ -5,6 +5,10 @@
  * @author: BNDong, dbnuo@foxmail.com
  **/
 function Base() {
+
+
+    console.log(window.cnblogsConfig);
+
     var bndongJs     = this
 
         /** 全局变量 **/
