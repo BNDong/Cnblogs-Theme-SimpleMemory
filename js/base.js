@@ -509,8 +509,9 @@ function Base() {
     this.addWebPv = function() {
         var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
         pvHtml += '<span id="amazingStatSpan"></span>';
-        pvHtml += '<div>【事实并非理所当然<span id="footerTextIcon">❤️</span>世界总是欲盖弥彰】</div>';
+        pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">❤️</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
         pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
+        pvHtml += '<div id="blogrollInfo"></div>';
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
         $('#footer').prepend('<div class="footer-image"></div>');
@@ -520,14 +521,26 @@ function Base() {
         }
 
         window.setInterval( bndongJs.setRunTime, 500 );
+        bndongJs.setBlogroll();
         setCnzzTId    = window.setInterval( bndongJs.setCnzz, 1000 );
         setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
     };
     this.setRunTime = function () {
-        var str = $('#blogStartTimeInput').val();
+        var str = window.cnblogsConfig.blogStartDate;
         str = str ? str : '2016-11-17';
         var runDate = tools.getRunDate(str);
         $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
+    };
+    this.setBlogroll = function () {
+        if (window.cnblogsConfig.bottomBlogroll.length > 0) {
+            var blogrollArr  = window.cnblogsConfig.bottomBlogroll;
+            var blogrollHtml = '友情链接：';
+            for(var i = 0; i < blogrollArr.length; i++) {
+                blogrollHtml += '<a href="'+(blogrollArr[i][1])+'" target="_blank">'+(blogrollArr[i][0])+'</a>';
+                blogrollHtml += '<span style="margin: 0 3px;">|</span>';
+            }
+            $('#blogrollInfo').html(blogrollHtml);
+        }
     };
     this.setCnzz = function() {
         // 请去 CNZZ 配置自己的，谢谢！！
