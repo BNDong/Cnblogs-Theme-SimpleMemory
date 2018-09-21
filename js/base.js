@@ -6,9 +6,6 @@
  **/
 function Base() {
 
-
-    console.log(window.cnblogsConfig);
-
     var bndongJs     = this
 
         /** 全局变量 **/
@@ -50,6 +47,12 @@ function Base() {
      * Loading前初始化
      */
     this.loadingBeforeInit = function () {
+
+        // 设置菜单个人简介头像
+        $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
+
+
+
         // 背景动画
 		require(['RibbonsEffect']);
     };
