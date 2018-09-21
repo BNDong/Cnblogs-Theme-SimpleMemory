@@ -73,6 +73,7 @@ $(document).ready(function(){
 
     bottom_html += '<br>';
     if (window.cnblogsConfig.aboutHtml != "") {
+        console.log(window.cnblogsConfig);
         bottom_html += window.cnblogsConfig.aboutHtml;
     } else {
         bottom_html += '<span style="font-weight: bold; white-space:nowrap;">关于博主</span>：编程路上的小学生，热爱技术，喜欢专研。评论和私信会在第一时间回复。或者<a href="http://msg.cnblogs.com/msg/send/'+tmp[3]+'" target="_blank">直接私信</a>我。';
