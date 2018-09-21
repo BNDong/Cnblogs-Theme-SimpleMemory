@@ -128,12 +128,12 @@ function Base() {
             if (timer) clearTimeout(timer);
             if (document[hidden]) {
                 $('#myTopCanvas').hide();
-                setTimeout(function () {
+                timer = setTimeout(function () {
                      document.title = window.cnblogsConfig.webpageTitle + ' - ' + RelTitle.split(' - ')[0];
                 }, 1000);
             } else {
                 document.title = '(*´∇｀*) 欢迎回来！';
-                setTimeout(function () {
+                timer = setTimeout(function () {
                     document.title = RelTitle;
                 }, 1000);
                 $('#myTopCanvas').fadeIn(4000);
