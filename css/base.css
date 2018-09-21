@@ -3061,6 +3061,9 @@ button {
     animation-delay: 0.3s;
     text-shadow: 0 3px 6px rgba(0,0,0, 0.5);
     display: none;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 
 .page-author {

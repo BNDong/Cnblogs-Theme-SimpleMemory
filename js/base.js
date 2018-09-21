@@ -219,7 +219,7 @@ function Base() {
     this.setHitokoto = function() {
 
         if (window.cnblogsConfig.homeBannerText != "") {
-            $('#hitokoto').text(window.cnblogsConfig.homeBannerText).show();
+            $('#hitokoto').text(window.cnblogsConfig.homeBannerText).css('display', '-webkit-box');
             return true;
         }
 
@@ -261,11 +261,11 @@ function Base() {
 
         $.ajax(settings).done(function (response) {
             if (response.ResultCode == 1) {
-                $('#hitokoto').text(response.Body.word).show();
+                $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
                 $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
             } else {
                 var listIndex = tools.randomNum(0, topTitleList.length - 1);
-                $('#hitokoto').text(topTitleList[listIndex]).show();
+                $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
             }
             return false;
         });
