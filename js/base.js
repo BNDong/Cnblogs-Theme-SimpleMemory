@@ -110,7 +110,9 @@ function Base() {
     this.htmlTitle = function() {
         var RelTitle = document.title;
         var hidden,
-            visibilityChange;
+            visibilityChange,
+            timer;
+        
         if (typeof document.hidden !== "undefined") {
             hidden = "hidden";
             visibilityChange = "visibilitychange";
@@ -123,12 +125,18 @@ function Base() {
         }
 
         function handleVisibilityChange() {
+            if (timer) clearTimeout(timer);
             if (document[hidden]) {
                 $('#myTopCanvas').hide();
-                document.title = window.cnblogsConfig.webpageTitle + ' - ' + RelTitle.split(' - ')[0];
+                setTimeout(function () {
+                     document.title = window.cnblogsConfig.webpageTitle + ' - ' + RelTitle.split(' - ')[0];
+                }, 1000);
             } else {
+                document.title = '(*´∇｀*) 欢迎回来！';
+                setTimeout(function () {
+                    document.title = RelTitle;
+                }, 1000);
                 $('#myTopCanvas').fadeIn(4000);
-                document.title = RelTitle;
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
