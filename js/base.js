@@ -268,13 +268,7 @@ function Base() {
      */
     this.topBgAnimation = function() {
         require(['circleMagic'], function() {
-            $('.main-header').circleMagic({
-                radius: 15,
-                density: 0.2,
-                color: 'rgba(255,255,255, .2)',
-//                    color: 'random',
-                clearOffset: 0.3
-            });
+            $('.main-header').circleMagic(window.cnblogsConfig.homeTopAnimation);
         });
     };
 
@@ -283,7 +277,7 @@ function Base() {
      */
     this.setNotHomeTopImg = function() {
         $('.main-header').css('height', '40vh');
-        $('.main-header').css('background', '#222 url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png)  center center no-repeat');
+        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat');
         $('.main-header').css('background-size', 'cover');
         $('.vertical').css('display', 'none');
         $('.scroll-down').css('display', 'none');
