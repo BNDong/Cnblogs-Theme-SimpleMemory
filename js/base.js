@@ -67,7 +67,7 @@ function Base() {
         // 更换网站图标
         var linkObject = document.createElement('link');
         linkObject.rel = "shortcut icon";
-        linkObject.href = "https://files.cnblogs.com/files/bndong/blog_logo.gif";
+        linkObject.href = window.cnblogsConfig.webpageIcon;
         document.getElementsByTagName("head")[0].appendChild(linkObject);
 
         // 添加网站PV量监控
@@ -125,10 +125,9 @@ function Base() {
         function handleVisibilityChange() {
             if (document[hidden]) {
                 $('#myTopCanvas').hide();
-                var str = $('.main-header-content h1').eq(0).text();
-                document.title = ' (◍´꒳`◍) Hi, ' + (str != '' ? str : 'BNDong') + ' - ' + RelTitle.split(' - ')[0];
+                document.title = window.cnblogsConfig.webpageTitle + ' - ' + RelTitle.split(' - ')[0];
             } else {
-                $('#myTopCanvas').fadeIn(3000);
+                $('#myTopCanvas').fadeIn(4000);
                 document.title = RelTitle;
             }
         }
@@ -142,7 +141,11 @@ function Base() {
      */
     this.homeInit = function() {
 
-        // 头部大图点击滚动到内容位置
+        // 设置主页图片
+        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat');
+        $('.main-header').css('background-size', 'cover');
+
+        // 头图点击滚动到内容位置
         $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
         // 设置右下角菜单
@@ -206,6 +209,11 @@ function Base() {
      * 设置主页标语
      */
     this.setHitokoto = function() {
+
+        if (window.cnblogsConfig.homeBannerText != "") {
+            $('#hitokoto').text(window.cnblogsConfig.homeBannerText).show();
+            return true;
+        }
 
         var topTitleList = [
             '每一个不曾起舞的日子，都是对生命的辜负。',
