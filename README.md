@@ -14,7 +14,7 @@
 ├─ html
 │  ├─ pageFooter.html - 页脚HTML
 │  ├─ pageHeading.html - 页首HTML
-│  └─ sidebar.html - 侧边栏HTML
+│  └─ sidebar.html - 侧边栏HTML（全局配置，版本控制）
 ├─ js
 │  ├─ MyTween.js
 │  ├─ ToProgress.min.js
@@ -25,6 +25,7 @@
 │  ├─ bootstrap.min.js
 │  ├─ circleMagic.js
 │  ├─ classie.js
+│  ├─ RibbonsEffect.js
 │  ├─ config.js - 加载配置文件
 │  ├─ css.min.js
 │  ├─ jquery.optiscroll.js
@@ -42,9 +43,11 @@
 进入管理后台设置界面依次设置
 * 博客皮肤 ---> SimpleMemory
 * 页面定制CSS代码 ---> /css/base.min.css(禁用模板默认CSS)
-* 博客侧边栏公告 ---> /html/sidebar.html
+* 博客侧边栏公告 ---> /html/sidebar.html（全局配置，版本控制）
 * 页首Html代码 ---> /html/pageHeading.html
 * 页脚Html代码 ---> /html/pageFooter.html
+
+***初始配置在侧边栏代码中，请仔细配置，不理解的不要乱修改，直接默认就行***
 
 ***/css/base.min.css 的修改参考 /css/base.css，请使用压缩版本，直接使用 /css/base.css 会字符超限！***
 ### 标题与引用
@@ -66,4 +69,4 @@
 播放器设置可以参考作者的[GitHub](https://github.com/metowolf/Meting)
 ## 关于
 关于优化和建议大家可以私信我，毕竟不是搞前端的，如有不足！请多担待！
->面对大河我无限惭愧，我年华虚度 空有一身疲倦，和所有以梦为马的诗人一样，岁月易逝，一滴不剩。
+>面对大河我无限惭愧，我年华虚度，空有一身疲倦，和所有以梦为马的诗人一样，岁月易逝，一滴不剩。
