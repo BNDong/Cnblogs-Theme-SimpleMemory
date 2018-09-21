@@ -33,7 +33,7 @@ require.config({
         //-- 非主页头图动画
         TweenMax: setFileNameMin('TweenMax.min', 'js'),
         MyTween: setFileNameMin('MyTween', 'js'),
-		//-- 背景动画：丝带（随机）
+	//-- 背景动画：丝带（随机）
         RibbonsEffect: setFileNameMin('RibbonsEffect', 'js'),
         //-- tools
         tools: setFileNameMin('tools', 'js'),
