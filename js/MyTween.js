@@ -13,16 +13,7 @@ var mouseX = mouseY = mouseOldX = mouseOldY = 0,
                     tris,
                     randomAlpha = true,
 
-                    colors = [
-                        //oranges
-                        '#96EDA6', '#5BC6A9', //'#f5cb00', '#fbde1a', '#feeb31', '#fff163',
-                        //reds
-                        '#38668C', '#374D84', //'#c11e1f', '#e52822', '#f43d0d', '#fb5c28', '#ff8547',
-                        //greens
-                        '#BED5CB', '#62ADC6', //'#006d3c', '#059849', '#15ae44', '#52b933', '#78c340', '#b2cd53',
-                        //blues
-                        '#8EE5DE', '#304E7B', //'#0b3f7a', '#0561a6', '#007ecb', '#32b2fa', '#54cefc', '#91dffa'
-                    ];
+                    colors = window.cnblogsConfig.essayTopAnimationColors;
 
             Triangle = function(pos, column, row) {
                 var thisTri = this;

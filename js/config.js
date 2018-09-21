@@ -28,11 +28,13 @@ require.config({
         marvin: setFileNameMin('marvin.nav2', 'js'),
         //-- 文章后缀
         articleStatement: setFileNameMin('articleStatement', 'js'),
-        //-- 主页动画
+        //-- 主页头图动画
         circleMagic: setFileNameMin('circleMagic', 'js'),
-        //-- 非主页动画
+        //-- 非主页头图动画
         TweenMax: setFileNameMin('TweenMax.min', 'js'),
         MyTween: setFileNameMin('MyTween', 'js'),
+	//-- 背景动画：丝带（随机）
+        RibbonsEffect: setFileNameMin('RibbonsEffect', 'js'),
         //-- tools
         tools: setFileNameMin('tools', 'js'),
         //-- base

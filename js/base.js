@@ -5,25 +5,18 @@
  * @author: BNDong, dbnuo@foxmail.com
  **/
 function Base() {
-    var bndongJs     = this
 
-        /** 全局变量 **/
+    var bndongJs     = this
         ,tools       = new myTools
-        ,progressBar = new ToProgress({ // 进度条插件配置
-            id: 'top-progress-bar',
-            color: '#77b6ff',
-            height: '2px',
-            duration: 0.2
-        }, '#bottomProgressBar')
-        ,temScroll       = 0           // 上一次页面滚动位置
+        ,progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar') // 进度条
+        ,temScroll       = 0  // 上一次页面滚动位置
 
         /** 定时器 **/
-        ,setMenuDataTId  = ''          // 菜单设置数据定时器ID
-        ,setRightMenuTId = ''          // 右下角菜单设置定时器ID
-        ,setCnzzTId      = ''          // 网站统计Cnzz设置定时器ID
-        ,setAmazingTId   = ''          // 网站统计Amazing设置定时器ID
-        ,setCatalogTId   = ''          // 文章目录设置定时器ID
-        
+        ,setMenuDataTId  = '' // 菜单设置数据定时器ID
+        ,setRightMenuTId = '' // 右下角菜单设置定时器ID
+        ,setCnzzTId      = '' // 网站统计Cnzz设置定时器ID
+        ,setAmazingTId   = '' // 网站统计Amazing设置定时器ID
+        ,setCatalogTId   = '' // 文章目录设置定时器ID
     ;
 
     /**
@@ -46,51 +39,13 @@ function Base() {
      * Loading前初始化
      */
     this.loadingBeforeInit = function () {
-        // 背景彩带
-        // if (document.getElementById('evanyou')) {
-        //     var c = document.getElementById('evanyou'),
-        //         x = c.getContext('2d'),
-        //         pr = window.devicePixelRatio || 1,
-        //         w = window.innerWidth,
-        //         h = window.innerHeight,
-        //         f = 90,
-        //         q,
-        //         m = Math,
-        //         r = 0,
-        //         u = m.PI * 2,
-        //         v = m.cos,
-        //         z = m.random;
-        //     c.width = w * pr;
-        //     c.height = h * pr;
-        //     x.scale(pr, pr);
-        //     x.globalAlpha = 0.6;
-        //     function evanyou () {
-        //         x.clearRect(0, 0, w, h);
-        //         q = [{ x: 0, y: h * .7 + f }, { x: 0, y: h * .7 - f }]
-        //         while (q[1].x < w + f) d(q[0], q[1])
-        //     }
-        //     function d (i, j) {
-        //         x.beginPath();
-        //         x.moveTo(i.x, i.y);
-        //         x.lineTo(j.x, j.y);
-        //         var k = j.x + (z() * 2 - 0.25) * f,
-        //             n = y(j.y);
-        //         x.lineTo(k, n);
-        //         x.closePath();
-        //         r -= u / -50;
-        //         x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
-        //         x.fill();
-        //         q[0] = q[1];
-        //         q[1] = { x: k, y: n }
-        //     }
-        //     function y (p) {
-        //         var t = p + (z() * 2 - 1.1) * f;
-        //         return (t > h || t < 0) ? y(p) : t;
-        //     }
-        //     document.onclick = evanyou;
-        //     document.ontouchstart = evanyou;
-        //     evanyou();
-        // }
+        // 设置名称
+        $('#homeTopTitle').text(window.cnblogsConfig.blogUser);
+        // 设置菜单个人简介头像
+        $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
+
+        // 背景动画
+		require(['RibbonsEffect']);
     };
 
     /**
@@ -112,7 +67,7 @@ function Base() {
         // 更换网站图标
         var linkObject = document.createElement('link');
         linkObject.rel = "shortcut icon";
-        linkObject.href = "https://files.cnblogs.com/files/bndong/blog_logo.gif";
+        linkObject.href = window.cnblogsConfig.webpageIcon;
         document.getElementsByTagName("head")[0].appendChild(linkObject);
 
         // 添加网站PV量监控
@@ -173,16 +128,15 @@ function Base() {
             if (timer) clearTimeout(timer);
             if (document[hidden]) {
                 $('#myTopCanvas').hide();
-                var str = $('.main-header-content h1').eq(0).text();
-                timer = setTimeout(function () {
-                    document.title = ' (◍´꒳`◍) Hi, ' + (str != '' ? str : 'BNDong') + ' - ' + RelTitle.split(' - ')[0];
+                setTimeout(function () {
+                     document.title = window.cnblogsConfig.webpageTitle + ' - ' + RelTitle.split(' - ')[0];
                 }, 1000);
             } else {
                 document.title = '(*´∇｀*) 欢迎回来！';
-                timer = setTimeout(function () {
+                setTimeout(function () {
                     document.title = RelTitle;
                 }, 1000);
-                $('#myTopCanvas').fadeIn(3000);
+                $('#myTopCanvas').fadeIn(4000);
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
@@ -195,7 +149,11 @@ function Base() {
      */
     this.homeInit = function() {
 
-        // 头部大图点击滚动到内容位置
+        // 设置主页图片
+        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat');
+        $('.main-header').css('background-size', 'cover');
+
+        // 头图点击滚动到内容位置
         $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
         // 设置右下角菜单
@@ -260,6 +218,11 @@ function Base() {
      */
     this.setHitokoto = function() {
 
+        if (window.cnblogsConfig.homeBannerText != "") {
+            $('#hitokoto').text(window.cnblogsConfig.homeBannerText).show();
+            return true;
+        }
+
         var topTitleList = [
             '每一个不曾起舞的日子，都是对生命的辜负。',
             '公主死去了，屠龙的少年还在燃烧',
@@ -313,13 +276,7 @@ function Base() {
      */
     this.topBgAnimation = function() {
         require(['circleMagic'], function() {
-            $('.main-header').circleMagic({
-                radius: 15,
-                density: 0.2,
-                color: 'rgba(255,255,255, .2)',
-//                    color: 'random',
-                clearOffset: 0.3
-            });
+            $('.main-header').circleMagic(window.cnblogsConfig.homeTopAnimation);
         });
     };
 
@@ -328,7 +285,7 @@ function Base() {
      */
     this.setNotHomeTopImg = function() {
         $('.main-header').css('height', '40vh');
-        $('.main-header').css('background', '#222 url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png)  center center no-repeat');
+        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat');
         $('.main-header').css('background-size', 'cover');
         $('.vertical').css('display', 'none');
         $('.scroll-down').css('display', 'none');
@@ -560,8 +517,9 @@ function Base() {
     this.addWebPv = function() {
         var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
         pvHtml += '<span id="amazingStatSpan"></span>';
-        pvHtml += '<div>【事实并非理所当然<span id="footerTextIcon">❤️</span>世界总是欲盖弥彰】</div>';
+        pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">❤️</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
         pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
+        pvHtml += '<div id="blogrollInfo"></div>';
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml);
         $('#footer').prepend('<div class="footer-image"></div>');
@@ -571,14 +529,26 @@ function Base() {
         }
 
         window.setInterval( bndongJs.setRunTime, 500 );
+        bndongJs.setBlogroll();
         setCnzzTId    = window.setInterval( bndongJs.setCnzz, 1000 );
         setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
     };
     this.setRunTime = function () {
-        var str = $('#blogStartTimeInput').val();
+        var str = window.cnblogsConfig.blogStartDate;
         str = str ? str : '2016-11-17';
         var runDate = tools.getRunDate(str);
         $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
+    };
+    this.setBlogroll = function () {
+        if (window.cnblogsConfig.bottomBlogroll.length > 0) {
+            var blogrollArr  = window.cnblogsConfig.bottomBlogroll;
+            var blogrollHtml = '友情链接：';
+            for(var i = 0; i < blogrollArr.length; i++) {
+                blogrollHtml += '<a href="'+(blogrollArr[i][1])+'" target="_blank">'+(blogrollArr[i][0])+'</a>';
+                if (i < blogrollArr.length-1) blogrollHtml += '<span style="margin: 0 3px;">/</span>';
+            }
+            $('#blogrollInfo').html(blogrollHtml);
+        }
     };
     this.setCnzz = function() {
         // 请去 CNZZ 配置自己的，谢谢！！

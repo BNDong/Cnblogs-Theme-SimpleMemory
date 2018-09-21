@@ -6,9 +6,7 @@
             <!-- 个人简介 -->
             <div class="introduce-box">
                 <div class="introduce-head">
-                    <div class="introduce-via">
-                        <img src="https://pic.cnblogs.com/avatar/1065454/20161119225202.png">
-                    </div>
+                    <div class="introduce-via" id="menuBlogAvatar"></div>
                 </div>
                 <div id="introduce"></div>
             </div>
@@ -59,7 +57,7 @@
 <div class="main-header">
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title cssf79d1841e1b313">BNDong</h1>
+            <h1 class="page-title cssf79d1841e1b313" id="homeTopTitle"></h1>
             <h2 class="page-description" id="hitokoto"></h2>
             <h3 class="page-author" id="hitokotoAuthor"></h3>
         </div>
@@ -75,17 +73,110 @@
 <!-- global var -->
 <script type="text/javascript">
 
-    // start cache
-    $.ajaxSetup({cache: true});
+    /*!
+     * UPDATES AND DOCS AT: https://github.com/BNDong
+     * https://www.cnblogs.com/bndong/
+     * @author: BNDong, dbnuo@foxmail.com
+     **/
 
     /**
+     * 博客全局配置，请仔细配置，不了解的不要乱设置，不了解的不要乱设置，不了解的不要乱设置，默认就行！！
+     * PS: 加了个全局配置感觉耦合更严重了ヽ(￣▽￣)ﾉ，不管了，用的爽就行！！
+     * PS: 大哥大姐们，问问题能不能温柔点，想怼死我？？！！！我容易么我！！
+     */
+    window.cnblogsConfig = {
+
+        // ---- 基础信息配置 ----
+        blogUser      : "BNDong", // 博主名称
+        blogAvatar    : "https://pic.cnblogs.com/avatar/1065454/20161119225202.png", // 用户头像URL
+        blogStartDate : "2016-11-17", // 入园时间，年-月-日，入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+
+        // ---- 网站配置 ----
+        webpageTitle: "(◍´꒳`◍) Hi, BNDong", // 当前页为非当前显示页，页面title显示文字
+        webpageIcon : "https://files.cnblogs.com/files/bndong/blog_logo.gif", // 网站图标
+
+        // ---- 进度条配置 ----
+        progressBar: {
+            id      : 'top-progress-bar',
+            color   : '#77b6ff',
+            height  : '2px',
+            duration: 0.2
+        },
+
+        // ---- Loading配置 ----
+        loading: {
+            rebound: {
+                tension: 16,
+                friction: 5
+            },
+            spinner: {
+                id: 'spinner',
+                radius: 90,
+                sides: 3,
+                depth: 4,
+                colors: {
+                    background: '#f0f0f0',
+                    stroke: '#272633',
+                    base: null,
+                    child: '#272633'
+                },
+                alwaysForward: true, // When false the spring will reverse normally.
+                restAt: 0.5,         // A number from 0.1 to 0.9 || null for full rotation
+                renderBase: false
+            }
+        },
+
+        // ---- 主页配置 ----
+        homeTopImg    : "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg", // 主页图片Url，推荐尺寸>= 1920*1080
+        homeBannerText: "", // 主页头图上的标语，设置此选项会固定显示文字，默认为空，每日自动获取一句。
+        homeTopAnimation: { // 主页头图动画设置
+            radius: 15,
+            density: 0.2,
+            color: 'rgba(255,255,255, .2)', // 颜色设置，“random” 为随机颜色
+            clearOffset: 0.3
+        },
+
+        // ---- 随笔页配置 ----
+        essayTopImg: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png", // 随笔页图片Url
+        essayTopAnimationColors: [ // 随笔页图片动效颜色
+            '#96EDA6', '#5BC6A9',
+            '#38668C', '#374D84',
+            '#BED5CB', '#62ADC6',
+            '#8EE5DE', '#304E7B'
+        ],
+        essaySuffix:{ // 随笔后缀处配置
+            aboutHtml    : '', // 关于博主，不配置使用默认
+            copyrightHtml: '', // 版权声明，不配置使用默认
+            supportHtml  : ''  // 声援博主，不配置使用默认
+        },
+
+        // ---- 页脚配置 ----
+        bottomBlogroll: [ // 友情链接，[[链接名,链接]....]
+            ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
+            ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
+            ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
+            ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
+            ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
+        ],
+        bottomText: {  // 页脚标语
+            left : "事实并非理所当然", // 图标左侧文字
+            right: "世界总是欲盖弥彰"  // 图标右侧文字
+        }
+
+    };
+
+    /**
+     * 资源文件配置
      * source:"github" versions 处为GitHub提交版本哈希值 根据版本加载代码 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
      * source:"cnblogs" 从博客园文件加载代码，可以不配置版本号，本人博客园文件不会更新了（操作实在太麻烦了），如有需求可以从github上挡下来最新代码，保存到自己的博客园文件中进行加载
      */
     var staticFileSetting = {
         source   : 'github',
-        versions : 'fd45b0b4020297998f66b2531b370035bb1dc2ae', // 版本号
+        versions : 'eaf2167eae44036ab975a8142f90e49358c2e3a0', // 版本号
     };
+
+    // start cache
+    $.ajaxSetup({cache: true});
 
     // load loadingJs
     $.getScript(getJsDelivrUrl('loading.js'), function () {
