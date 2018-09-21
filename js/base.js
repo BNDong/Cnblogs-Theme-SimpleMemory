@@ -7,24 +7,16 @@
 function Base() {
 
     var bndongJs     = this
-
-        /** 全局变量 **/
         ,tools       = new myTools
-        ,progressBar = new ToProgress({ // 进度条插件配置
-            id: 'top-progress-bar',
-            color: '#77b6ff',
-            height: '2px',
-            duration: 0.2
-        }, '#bottomProgressBar')
-        ,temScroll       = 0           // 上一次页面滚动位置
+        ,progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar') // 进度条
+        ,temScroll       = 0  // 上一次页面滚动位置
 
         /** 定时器 **/
-        ,setMenuDataTId  = ''          // 菜单设置数据定时器ID
-        ,setRightMenuTId = ''          // 右下角菜单设置定时器ID
-        ,setCnzzTId      = ''          // 网站统计Cnzz设置定时器ID
-        ,setAmazingTId   = ''          // 网站统计Amazing设置定时器ID
-        ,setCatalogTId   = ''          // 文章目录设置定时器ID
-
+        ,setMenuDataTId  = '' // 菜单设置数据定时器ID
+        ,setRightMenuTId = '' // 右下角菜单设置定时器ID
+        ,setCnzzTId      = '' // 网站统计Cnzz设置定时器ID
+        ,setAmazingTId   = '' // 网站统计Amazing设置定时器ID
+        ,setCatalogTId   = '' // 文章目录设置定时器ID
     ;
 
     /**
@@ -47,11 +39,10 @@ function Base() {
      * Loading前初始化
      */
     this.loadingBeforeInit = function () {
-
+        // 设置名称
+        $('#homeTopTitle').text(window.cnblogsConfig.blogUser);
         // 设置菜单个人简介头像
         $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
-
-
 
         // 背景动画
 		require(['RibbonsEffect']);
