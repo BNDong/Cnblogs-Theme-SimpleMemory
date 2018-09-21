@@ -537,7 +537,7 @@ function Base() {
             var blogrollHtml = '友情链接：';
             for(var i = 0; i < blogrollArr.length; i++) {
                 blogrollHtml += '<a href="'+(blogrollArr[i][1])+'" target="_blank">'+(blogrollArr[i][0])+'</a>';
-                blogrollHtml += '<span style="margin: 0 3px;">|</span>';
+                if (i < blogrollArr.length-1) blogrollHtml += '<span style="margin: 0 3px;">/</span>';
             }
             $('#blogrollInfo').html(blogrollHtml);
         }

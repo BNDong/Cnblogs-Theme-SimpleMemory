@@ -1251,7 +1251,7 @@ button {
 
 /*****留言页面开始*****************************/
 #footer {
-    min-height: 90px;
+    min-height: 100px;
     _height: 15px;
     position: absolute;
     margin: 0;
@@ -1270,7 +1270,7 @@ button {
     height: 368px;
     z-index: 1;
     position: absolute;
-    bottom: 66px;
+    bottom: 70px;
     width: 100%;
     pointer-events: none;
 }
