@@ -3006,6 +3006,7 @@ button {
     display: table;
     width: 100%;
     height: 100vh;
+    max-height: 100vh;
     /*margin-bottom: 5rem;*/
     text-align: center;
     /*background: #222 url(https://files.cnblogs.com/files/bndong/top_bg4.gif) center center no-repeat;*/
@@ -3062,7 +3063,7 @@ button {
     text-shadow: 0 3px 6px rgba(0,0,0, 0.5);
     display: none;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 10;
     overflow: hidden;
 }
 
@@ -4041,6 +4042,7 @@ a#green_channel_wechat {
         box-sizing: border-box;
         min-height: 240px;
         height: 60vh;
+        max-height: 60vh;
         padding: 15% 0;
     }
 
@@ -4064,6 +4066,7 @@ a#green_channel_wechat {
     .page-description {
         font-size: 1.8rem;
         line-height: 1.5em;
+        -webkit-line-clamp: 4;
     }
 
     .page-author {
@@ -4090,6 +4093,7 @@ a#green_channel_wechat {
     .main-header {
         margin-bottom: 15px;
         height: 40vh;
+        max-height: 40vh;
     }
 
     #home {
@@ -4126,6 +4130,7 @@ a#green_channel_wechat {
 
     .page-description {
         font-size: 1.6rem;
+        -webkit-line-clamp: 2;
     }
 
     .page-author {

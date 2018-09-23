@@ -130,12 +130,12 @@ function Base() {
                 $('#myTopCanvas').hide();
                 timer = setTimeout(function () {
                      document.title = window.cnblogsConfig.webpageTitle + ' - ' + RelTitle.split(' - ')[0];
-                }, 1000);
+                }, window.cnblogsConfig.webpageTitleTimeOut);
             } else {
-                document.title = '(*´∇｀*) 欢迎回来！';
+                document.title = window.cnblogsConfig.webpageTitleFocus;
                 timer = setTimeout(function () {
                     document.title = RelTitle;
-                }, 1000);
+                }, window.cnblogsConfig.webpageTitleTimeOut);
                 $('#myTopCanvas').fadeIn(4000);
             }
         }
