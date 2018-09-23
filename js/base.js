@@ -129,13 +129,13 @@ function Base() {
             if (document[hidden]) {
                 $('#myTopCanvas').hide();
                 timer = setTimeout(function () {
-                     document.title = window.cnblogsConfig.webpageTitle + ' - ' + RelTitle.split(' - ')[0];
-                }, window.cnblogsConfig.webpageTitleTimeOut);
+                     document.title = window.cnblogsConfig.webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
+                }, window.cnblogsConfig.webpageTitleOnblurTimeOut);
             } else {
                 document.title = window.cnblogsConfig.webpageTitleFocus;
                 timer = setTimeout(function () {
                     document.title = RelTitle;
-                }, window.cnblogsConfig.webpageTitleTimeOut);
+                }, window.cnblogsConfig.webpageTitleFocusTimeOut);
                 $('#myTopCanvas').fadeIn(4000);
             }
         }
