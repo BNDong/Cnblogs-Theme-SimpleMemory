@@ -49,7 +49,7 @@
 进入管理后台设置界面依次设置
 1. 博客皮肤 ---> SimpleMemory
 2. 页面定制CSS代码 ---> /css/base.min.css(禁用模板默认CSS)
-3. 博客侧边栏公告 ---> /html/sidebar.html（需要开启JS权限）
+3. 博客侧边栏公告 ---> /html/sidebar.html(需要开启JS权限)
 4. 页首Html代码 ---> /html/pageHeading.html
 5. 页脚Html代码 ---> /html/pageFooter.html
 >初始配置在侧边栏代码中，请仔细配置，不理解的不要乱修改，直接默认就行
