@@ -600,11 +600,28 @@ function Base() {
      * 设置菜单数据
      */
     this.setMenuData = function() {
+        var sidebar        = $('#sidebar_recentposts ul li');   // 最新随笔
         var sbClassifyHtml = $('#sidebar_postcategory').html(); // 随笔分类
         var introduceHtml  = $('#profile_block').html();        // 个人信息
         var sbRecordHtml   = $('#sidebar_postarchive').html();  // 随笔档案
         var sbTopview      = $('#TopViewPostsBlock ul li');     // 阅读排行
         var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
+        var ret            = /^[1-9]+[0-9]*$/;
+
+        // 添加最新随笔
+        if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '') {
+            var sidebarHtml = '<div><ul>';
+            sidebar.each(function (i) {
+                var o = $($(sidebar[i]).html());
+                var textArr = o.text().split('.');
+                if (ret.test(textArr[0])) textArr.splice(0,1);
+                var text = $.trim(textArr.join('.'));
+                o.text(text);
+                sidebarHtml += '<li>' + o.prop("outerHTML") + '</li>';
+            });
+            sidebarHtml += '</ul></div>';
+            $('#sb-sidebarRecentposts').html(sidebarHtml);
+        }
 
         // 添加随笔分类
         if ((typeof sbClassifyHtml == 'string') && $('#sb-classify').html() == '') {
@@ -627,7 +644,7 @@ function Base() {
             sbTopview.each(function (i) {
                 var o = $($(sbTopview[i]).html());
                 var textArr = o.text().split('.');
-                textArr.splice(0,1);
+                if (ret.test(textArr[0])) textArr.splice(0,1);
                 var text = $.trim(textArr.join('.'));
                 o.text(text);
                 sbTopviewHtml += '<li>' + o.prop("outerHTML") + '</li>';
@@ -642,7 +659,7 @@ function Base() {
             topDiggPosts.each(function (i) {
                 var o = $($(topDiggPosts[i]).html());
                 var textArr = o.text().split('.');
-                textArr.splice(0,1);
+                if (ret.test(textArr[0])) textArr.splice(0,1);
                 var text = $.trim(textArr.join('.'));
                 o.text(text);
                 topDiggPostsHtml += '<li>' + o.prop("outerHTML") + '</li>';
