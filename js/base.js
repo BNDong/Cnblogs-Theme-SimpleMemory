@@ -603,9 +603,9 @@ function Base() {
         var introduceHtml  = $('#profile_block').html();        // 个人信息
         var sidebar        = $('#sidebar_recentposts ul li');   // 最新随笔
         var sbClassify     = $('#sidebar_postcategory ul li');  // 随笔分类
-        // var sbRecordHtml   = $('#sidebar_postarchive').html();  // 随笔档案
-        // var sbTopview      = $('#TopViewPostsBlock ul li');     // 阅读排行
-        // var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
+        var sbRecord       = $('#sidebar_postarchive ul li');   // 随笔档案
+        var sbTopview      = $('#TopViewPostsBlock ul li');     // 阅读排行
+        var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
 
         // 添加个人信息
         if ((typeof introduceHtml == 'string') && $('#introduce').html() == '') {
@@ -622,43 +622,21 @@ function Base() {
             $('#sb-classify').html(bndongJs.getMenuData(sbClassify, 'icon-tagfill'));
         }
 
+        // 添加随笔档案
+        if (sbRecord.length > 0 && $('#sb-record').html() == '') {
+            $('#sb-record').html(bndongJs.getMenuData(sbRecord, 'icon-tagfill'));
+        }
 
-        //
-        // // 添加随笔档案
-        // if ((typeof sbRecordHtml == 'string') && $('#sb-record').html() == '') {
-        //     $('#sb-record').html(tools.htmlFiltrationScript(sbRecordHtml));
-        // }
-        //
-        // // 添加阅读排行
-        // if (sbTopview.length > 0 && $('#sb-topview').html() == '') {
-        //     var sbTopviewHtml = '<div><ul>';
-        //     sbTopview.each(function (i) {
-        //         var o = $($(sbTopview[i]).html());
-        //         var textArr = o.text().split('.');
-        //         if (ret.test(textArr[0])) textArr.splice(0,1);
-        //         var text = $.trim(textArr.join('.'));
-        //         o.text(text);
-        //         sbTopviewHtml += '<li>' + o.prop("outerHTML") + '</li>';
-        //     });
-        //     sbTopviewHtml += '</ul></div>';
-        //     $('#sb-topview').html(sbTopviewHtml);
-        // }
-        //
-        // // 添加推荐排行
-        // if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '') {
-        //     var topDiggPostsHtml = '<div><ul>';
-        //     topDiggPosts.each(function (i) {
-        //         var o = $($(topDiggPosts[i]).html());
-        //         var textArr = o.text().split('.');
-        //         if (ret.test(textArr[0])) textArr.splice(0,1);
-        //         var text = $.trim(textArr.join('.'));
-        //         o.text(text);
-        //         topDiggPostsHtml += '<li>' + o.prop("outerHTML") + '</li>';
-        //     });
-        //     topDiggPostsHtml += '</ul></div>';
-        //     $('#sb-topDiggPosts').html(topDiggPostsHtml);
-        // }
-        //
+        // 添加阅读排行
+        if (sbTopview.length > 0 && $('#sb-topview').html() == '') {
+            $('#sb-topview').html(bndongJs.getMenuData(sbTopview, 'icon-tagfill'));
+        }
+
+        // 添加推荐排行
+        if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '') {
+            $('#sb-topDiggPosts').html(bndongJs.getMenuData(topDiggPosts, 'icon-tagfill'));
+        }
+
         // // 清除定时器
         // if (
         //     (typeof sbClassifyHtml == 'string')
@@ -678,7 +656,7 @@ function Base() {
             var textArr = o.text().split('.');
             if (ret.test(textArr[0])) textArr.splice(0,1);
             var text = $.trim(textArr.join('.'));
-            var iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;position:  relative;left: -5px;"></span>';
+            var iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
             o.html(iconHtml + text);
             html += '<li>' + o.prop("outerHTML") + '</li>';
         });

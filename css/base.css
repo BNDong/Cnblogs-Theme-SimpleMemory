@@ -3206,26 +3206,6 @@ button {
     color: #B8B8B8;
 }
 
-#sb-classify li {
-    padding-left: 22px;
-    background: #000 url(https://files.cnblogs.com/files/bndong/table_logo.gif) 12px center no-repeat;
-}
-
-#sb-record li {
-    padding-left: 22px;
-    background: #000 url(https://files.cnblogs.com/files/bndong/time_logo.gif) 12px center no-repeat;
-}
-
-#sb-topview li {
-    padding-left: 22px;
-    background: #000 url(https://files.cnblogs.com/files/bndong/view_logo.gif) 12px center no-repeat;
-}
-
-#sb-topDiggPosts li {
-    padding-left: 22px;
-    background: #000 url(https://files.cnblogs.com/files/bndong/digg_logo.gif) 12px center no-repeat;
-}
-
 .introduce-box {
     width: 100%;
     position: absolute;
