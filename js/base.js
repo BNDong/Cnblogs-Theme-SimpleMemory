@@ -601,83 +601,86 @@ function Base() {
      */
     this.setMenuData = function() {
         var sidebar        = $('#sidebar_recentposts ul li');   // 最新随笔
-        var sbClassifyHtml = $('#sidebar_postcategory').html(); // 随笔分类
-        var introduceHtml  = $('#profile_block').html();        // 个人信息
-        var sbRecordHtml   = $('#sidebar_postarchive').html();  // 随笔档案
-        var sbTopview      = $('#TopViewPostsBlock ul li');     // 阅读排行
-        var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
-        var ret            = /^[1-9]+[0-9]*$/;
+        // var sbClassifyHtml = $('#sidebar_postcategory').html(); // 随笔分类
+        // var introduceHtml  = $('#profile_block').html();        // 个人信息
+        // var sbRecordHtml   = $('#sidebar_postarchive').html();  // 随笔档案
+        // var sbTopview      = $('#TopViewPostsBlock ul li');     // 阅读排行
+        // var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
 
         // 添加最新随笔
         if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '') {
-            var sidebarHtml = '<div><ul>';
-            sidebar.each(function (i) {
-                var o = $($(sidebar[i]).html());
-                var textArr = o.text().split('.');
-                if (ret.test(textArr[0])) textArr.splice(0,1);
-                var text = $.trim(textArr.join('.'));
-                o.text(text);
-                sidebarHtml += '<li>' + o.prop("outerHTML") + '</li>';
-            });
-            sidebarHtml += '</ul></div>';
-            $('#sb-sidebarRecentposts').html(sidebarHtml);
+            $('#sb-sidebarRecentposts').html( bndongJs.getMenuData(sidebar, 'icon-tagfill'));
         }
 
-        // 添加随笔分类
-        if ((typeof sbClassifyHtml == 'string') && $('#sb-classify').html() == '') {
-            $('#sb-classify').html(tools.htmlFiltrationScript(sbClassifyHtml));
-        }
-
-        // 添加个人信息
-        if ((typeof introduceHtml == 'string') && $('#introduce').html() == '') {
-            $('#introduce').html(tools.htmlFiltrationScript(introduceHtml));
-        }
-
-        // 添加随笔档案
-        if ((typeof sbRecordHtml == 'string') && $('#sb-record').html() == '') {
-            $('#sb-record').html(tools.htmlFiltrationScript(sbRecordHtml));
-        }
-
-        // 添加阅读排行
-        if (sbTopview.length > 0 && $('#sb-topview').html() == '') {
-            var sbTopviewHtml = '<div><ul>';
-            sbTopview.each(function (i) {
-                var o = $($(sbTopview[i]).html());
-                var textArr = o.text().split('.');
-                if (ret.test(textArr[0])) textArr.splice(0,1);
-                var text = $.trim(textArr.join('.'));
-                o.text(text);
-                sbTopviewHtml += '<li>' + o.prop("outerHTML") + '</li>';
-            });
-            sbTopviewHtml += '</ul></div>';
-            $('#sb-topview').html(sbTopviewHtml);
-        }
-
-        // 添加推荐排行
-        if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '') {
-            var topDiggPostsHtml = '<div><ul>';
-            topDiggPosts.each(function (i) {
-                var o = $($(topDiggPosts[i]).html());
-                var textArr = o.text().split('.');
-                if (ret.test(textArr[0])) textArr.splice(0,1);
-                var text = $.trim(textArr.join('.'));
-                o.text(text);
-                topDiggPostsHtml += '<li>' + o.prop("outerHTML") + '</li>';
-            });
-            topDiggPostsHtml += '</ul></div>';
-            $('#sb-topDiggPosts').html(topDiggPostsHtml);
-        }
-
-        // 清除定时器
-        if (
-            (typeof sbClassifyHtml == 'string')
-            && (typeof introduceHtml == 'string')
-            && (typeof sbRecordHtml == 'string')
-            && sbTopview.length > 0
-            && topDiggPosts.length > 0
-        ) {
-            timeIds.setMenuDataTId != null && window.clearInterval(timeIds.setMenuDataTId);
-        }
+        // // 添加随笔分类
+        // if ((typeof sbClassifyHtml == 'string') && $('#sb-classify').html() == '') {
+        //     $('#sb-classify').html(tools.htmlFiltrationScript(sbClassifyHtml));
+        // }
+        //
+        // // 添加个人信息
+        // if ((typeof introduceHtml == 'string') && $('#introduce').html() == '') {
+        //     $('#introduce').html(tools.htmlFiltrationScript(introduceHtml));
+        // }
+        //
+        // // 添加随笔档案
+        // if ((typeof sbRecordHtml == 'string') && $('#sb-record').html() == '') {
+        //     $('#sb-record').html(tools.htmlFiltrationScript(sbRecordHtml));
+        // }
+        //
+        // // 添加阅读排行
+        // if (sbTopview.length > 0 && $('#sb-topview').html() == '') {
+        //     var sbTopviewHtml = '<div><ul>';
+        //     sbTopview.each(function (i) {
+        //         var o = $($(sbTopview[i]).html());
+        //         var textArr = o.text().split('.');
+        //         if (ret.test(textArr[0])) textArr.splice(0,1);
+        //         var text = $.trim(textArr.join('.'));
+        //         o.text(text);
+        //         sbTopviewHtml += '<li>' + o.prop("outerHTML") + '</li>';
+        //     });
+        //     sbTopviewHtml += '</ul></div>';
+        //     $('#sb-topview').html(sbTopviewHtml);
+        // }
+        //
+        // // 添加推荐排行
+        // if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '') {
+        //     var topDiggPostsHtml = '<div><ul>';
+        //     topDiggPosts.each(function (i) {
+        //         var o = $($(topDiggPosts[i]).html());
+        //         var textArr = o.text().split('.');
+        //         if (ret.test(textArr[0])) textArr.splice(0,1);
+        //         var text = $.trim(textArr.join('.'));
+        //         o.text(text);
+        //         topDiggPostsHtml += '<li>' + o.prop("outerHTML") + '</li>';
+        //     });
+        //     topDiggPostsHtml += '</ul></div>';
+        //     $('#sb-topDiggPosts').html(topDiggPostsHtml);
+        // }
+        //
+        // // 清除定时器
+        // if (
+        //     (typeof sbClassifyHtml == 'string')
+        //     && (typeof introduceHtml == 'string')
+        //     && (typeof sbRecordHtml == 'string')
+        //     && sbTopview.length > 0
+        //     && topDiggPosts.length > 0
+        // ) {
+        //     timeIds.setMenuDataTId != null && window.clearInterval(timeIds.setMenuDataTId);
+        // }
+    };
+    this.getMenuData = function (obj, icon) {
+        var html = '<div><ul>';
+        var ret  = /^[1-9]+[0-9]*$/;
+        obj.each(function (i) {
+            var o = $($(obj[i]).html());
+            var textArr = o.text().split('.');
+            if (ret.test(textArr[0])) textArr.splice(0,1);
+            var text = $.trim(textArr.join('.'));
+            o.html('<span class="iconfont '+icon+'" style="color: #888;margin-right: 3px;font-size: 14px;"></span>' + text);
+            html += '<li>' + o.prop("outerHTML") + '</li>';
+        });
+        html += '</ul></div>';
+        return html;
     };
 
     /**
