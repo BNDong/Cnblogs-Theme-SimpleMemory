@@ -185,9 +185,9 @@
     $.getScript(getJsDelivrUrl('loading.js'), function () {
 
         // Loading start
-        demo.initRebound();
-        demo.initSpinner();
-        demo.spinner.init(demo.spring, true);
+        pageLoading.initRebound();
+        pageLoading.initSpinner();
+        pageLoading.spinner.init(pageLoading.spring, true);
 
         $.getScript(getJsDelivrUrl('require.min.js'), function () {
 

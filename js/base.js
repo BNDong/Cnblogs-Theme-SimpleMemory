@@ -9,28 +9,35 @@ function Base() {
     var bndongJs     = this
         ,tools       = new myTools
         ,progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar') // 进度条
-        ,temScroll       = 0  // 上一次页面滚动位置
+        ,temScroll   = 0  // 上一次页面滚动位置
 
         /** 定时器 **/
-        ,setMenuDataTId  = '' // 菜单设置数据定时器ID
-        ,setRightMenuTId = '' // 右下角菜单设置定时器ID
-        ,setCnzzTId      = '' // 网站统计Cnzz设置定时器ID
-        ,setAmazingTId   = '' // 网站统计Amazing设置定时器ID
-        ,setCatalogTId   = '' // 文章目录设置定时器ID
+        ,timeIds    = {
+            setMenuDataTId  : null, // 菜单设置数据定时器ID
+            setRightMenuTId : null, // 右下角菜单设置定时器ID
+            setCnzzTId      : null, // 网站统计Cnzz设置定时器ID
+            setAmazingTId   : null, // 网站统计Amazing设置定时器ID
+            setCatalogTId   : null, // 文章目录设置定时器ID
+        }
     ;
 
     /**
      * 初始化
      */
     this.init = function () {
+
         // Loading前初始化
         bndongJs.loadingBeforeInit();
+
         // 页面初始化
-        if ($('#topics').length > 0) { bndongJs.notHomeInit(); } else { bndongJs.homeInit(); }
+        ($('#topics').length > 0) ? bndongJs.notHomeInit() : bndongJs.homeInit();
+
         // Loading结束
         bndongJs.endLoading();
+
         // Loading后初始化
         bndongJs.loadingAfterInit();
+
         // 延时清除全部定时器
         setTimeout(bndongJs.clearIntervalAll, 30000);
     };
@@ -39,8 +46,10 @@ function Base() {
      * Loading前初始化
      */
     this.loadingBeforeInit = function () {
+
         // 设置名称
         $('#homeTopTitle').text(window.cnblogsConfig.blogUser);
+
         // 设置菜单个人简介头像
         $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
 
@@ -52,6 +61,7 @@ function Base() {
      * Loading后初始化
      */
     this.loadingAfterInit = function () {
+
         // 初始化菜单滚动条样式
         $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
@@ -65,8 +75,8 @@ function Base() {
         $(window).resize( function() { bndongJs.resizeMonitor(); });
 
         // 更换网站图标
-        var linkObject = document.createElement('link');
-        linkObject.rel = "shortcut icon";
+        var linkObject  = document.createElement('link');
+        linkObject.rel  = "shortcut icon";
         linkObject.href = window.cnblogsConfig.webpageIcon;
         document.getElementsByTagName("head")[0].appendChild(linkObject);
 
@@ -74,7 +84,7 @@ function Base() {
         bndongJs.addWebPv();
 
         // 设置菜单侧边栏内容
-        setMenuDataTId = window.setInterval( bndongJs.setMenuData, 1000 );
+        timeIds.setMenuDataTId = window.setInterval( bndongJs.setMenuData, 1000 );
 
         // html5-title
         bndongJs.htmlTitle();
@@ -97,11 +107,9 @@ function Base() {
      * 清除全部定时器
      */
     this.clearIntervalAll = function () {
-        window.clearInterval(setMenuDataTId);
-        window.clearInterval(setRightMenuTId);
-        window.clearInterval(setCnzzTId);
-        window.clearInterval(setAmazingTId);
-        window.clearInterval(setCatalogTId);
+        $.each(timeIds, function (e) {
+            if (e != null) window.clearInterval(e);
+        });
     };
 
     /**
@@ -157,7 +165,7 @@ function Base() {
         $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
         // 设置右下角菜单
-        setRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
+        timeIds.setRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
 
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
@@ -187,13 +195,13 @@ function Base() {
             }
 
             // 初始化文章目录位置
-            setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
+            timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
 
             bndongJs.scrollMonitor();
         });
 
         // 设置右下角菜单
-        setRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
+        timeIds.setRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
         bndongJs.setNotHomeTopImg();
         bndongJs.setCommentStyle();
@@ -209,7 +217,7 @@ function Base() {
             sideToolbar.css('top', (sideToolbarTop + 20) + 'px');
             bndongJs.resizeMonitor();
             sideToolbar.fadeIn(300);
-            window.clearInterval(setCatalogTId);
+            window.clearInterval(timeIds.setCatalogTId);
         }
     };
 
@@ -363,7 +371,7 @@ function Base() {
      */
     this.endLoading = function() {
         $('body').css('overflow', 'auto');
-        demo.spinner.setComplete();
+        pageLoading.spinner.setComplete();
         $('#loading').fadeOut(300);
     };
 
@@ -530,8 +538,8 @@ function Base() {
 
         window.setInterval( bndongJs.setRunTime, 500 );
         bndongJs.setBlogroll();
-        setCnzzTId    = window.setInterval( bndongJs.setCnzz, 1000 );
-        setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
+        timeIds.setCnzzTId    = window.setInterval( bndongJs.setCnzz, 1000 );
+        timeIds.setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
     };
     this.setRunTime = function () {
         var str = window.cnblogsConfig.blogStartDate;
@@ -565,14 +573,14 @@ function Base() {
             });
             cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
             $('#cnzzInfo').text(cnzzInfo.join(' | '));
-            window.clearInterval(setCnzzTId);
+            window.clearInterval(timeIds.setCnzzTId);
         }
     };
     this.setAmazing = function () {
         // 请去 AmazingCounters.com 配置自己的，谢谢！！
         if ($('#amazingStat').length > 0) {
             $('#amazingStat').appendTo('#amazingStatSpan').show();
-            window.clearInterval(setAmazingTId);
+            window.clearInterval(timeIds.setAmazingTId);
         }
     };
     this.setTheme = function () {
@@ -644,7 +652,7 @@ function Base() {
 
         // 清除定时器
         if ((typeof sbClassifyHtml == 'string') && (typeof introduceHtml == 'string') && (typeof sbRecordHtml == 'string') && sbTopview.length > 0 && topDiggPosts.length > 0) {
-            window.clearInterval(setMenuDataTId);
+            window.clearInterval(timeIds.setMenuDataTId);
         }
     };
 
@@ -675,7 +683,7 @@ function Base() {
             rightMenu.prepend(attHtml);
             bndongJs.rightMenuMous('#attention', '.attentionSpan');
             bndongJs.scrollMonitor(); // 触发一次滚动处理，防止未有对象，初始化失败
-            window.clearInterval(setRightMenuTId);
+            window.clearInterval(timeIds.setRightMenuTId);
         }
     };
 
@@ -698,7 +706,7 @@ function Base() {
             rightMenu.prepend(rightDiggitHtml);
             bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
 
-            window.clearInterval(setRightMenuTId);
+            window.clearInterval(timeIds.setRightMenuTId);
         }
     }
 }
