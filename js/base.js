@@ -13,11 +13,12 @@ function Base() {
 
         /** 定时器 **/
         ,timeIds    = {
-            setMenuDataTId  : null, // 菜单设置数据定时器ID
-            setRightMenuTId : null, // 右下角菜单设置定时器ID
-            setCnzzTId      : null, // 网站统计Cnzz设置定时器ID
-            setAmazingTId   : null, // 网站统计Amazing设置定时器ID
-            setCatalogTId   : null, // 文章目录设置定时器ID
+            setMenuDataTId         : null, // 菜单设置数据定时器ID
+            setHomeRightMenuTId    : null, // 主页右下角菜单设置定时器ID
+            setNotHomeRightMenuTId : null, // 非主页右下角菜单设置定时器ID
+            setCnzzTId             : null, // 网站统计Cnzz设置定时器ID
+            setAmazingTId          : null, // 网站统计Amazing设置定时器ID
+            setCatalogTId          : null, // 文章目录设置定时器ID
         }
     ;
 
@@ -165,7 +166,7 @@ function Base() {
         $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
         // 设置右下角菜单
-        timeIds.setRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
+        timeIds.setHomeRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
 
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
@@ -201,7 +202,7 @@ function Base() {
         });
 
         // 设置右下角菜单
-        timeIds.setRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
+        timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
         bndongJs.setNotHomeTopImg();
         bndongJs.setCommentStyle();
@@ -217,7 +218,7 @@ function Base() {
             sideToolbar.css('top', (sideToolbarTop + 20) + 'px');
             bndongJs.resizeMonitor();
             sideToolbar.fadeIn(300);
-            window.clearInterval(timeIds.setCatalogTId);
+            timeIds.setCatalogTId != null && window.clearInterval(timeIds.setCatalogTId);
         }
     };
 
@@ -465,52 +466,52 @@ function Base() {
     /**
      * 右下角菜单事件处理
      */
-    this.rightMenuMous = function(l, s) {
-        $(l).on({
+    this.rightMenuMous = function(parentObject, subObject) {
+        $(parentObject).on({
             mouseover : function(){
-                if (s == '.rightBuryitSpan') {
+                if (subObject == '.rightBuryitSpan') {
                     // 鼠标移入，更新踩值
-                    var c = $('#bury_count').text();
-                    if ($(s).text() != c) {$(l).attr('clickflg', 'false');$(s).text(c);}
+                    var str = $('#bury_count').text();
+                    if ($(subObject).text() != str) {$(parentObject).attr('clickflg', 'false');$(subObject).text(str);}
                 }
 
-                if (s == '.rightDiggitSpan') {
+                if (subObject == '.rightDiggitSpan') {
                     // 鼠标移入，更新顶值
-                    var c = $('#digg_count').text();
-                    if ($(s).text() != c) {$(l).attr('clickflg', 'false');$(s).text(c);}
+                    var str = $('#digg_count').text();
+                    if ($(subObject).text() != str) {$(parentObject).attr('clickflg', 'false');$(subObject).text(str);}
                 }
-                $(s).show();
+                $(subObject).show();
             },
             mouseout : function(){
-                $(s).hide();
+                $(subObject).hide();
             },
             click: function () {
-                if (s == '.rightBuryitSpan' || s == '.rightDiggitSpan') {
+                if (subObject == '.rightBuryitSpan' || subObject == '.rightDiggitSpan') {
                     // 点击顶踩，数值变化
                     if ($(this).attr('clickflg') == 'false') {
-                        var rightSpan = $(s);
+                        var rightSpan = $(subObject);
                         var i = parseInt(rightSpan.text()) + 1;
                         rightSpan.text(i);
                         $(this).attr('clickflg', 'true');
                     }
                 }
 
-                if (s == '.attentionSpan') {
+                if (subObject == '.attentionSpan') {
                     // 点击关注
-                    if ($('#p_b_follow').text() == '' || $(l + ' a').text().indexOf('成功') > 0) {
-                        $(s).text('已关注');
+                    if ($('#p_b_follow').text() == '' || $(parentObject + ' a').text().indexOf('成功') > 0) {
+                        $(subObject).text('已关注');
                     } else {
-                        $(s).text('关注');
+                        $(subObject).text('关注');
                     }
                 }
 
-                if (s == '.toUpDownSpan') {
+                if (subObject == '.toUpDownSpan') {
                     // 点击滚动
                     var ac = $(this).attr('data');
                     if (ac == 'down') {
                         var docHeight    = $(document).height();
                         var windowHeight = $(window).height();
-                        tools.actScroll(docHeight-windowHeight, 2000)
+                        tools.actScroll(docHeight - windowHeight, 2000)
                     } else {
                         tools.actScroll(0, 2000)
                     }
@@ -573,14 +574,14 @@ function Base() {
             });
             cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
             $('#cnzzInfo').text(cnzzInfo.join(' | '));
-            window.clearInterval(timeIds.setCnzzTId);
+            timeIds.setCnzzTId != null && window.clearInterval(timeIds.setCnzzTId);
         }
     };
     this.setAmazing = function () {
         // 请去 AmazingCounters.com 配置自己的，谢谢！！
         if ($('#amazingStat').length > 0) {
             $('#amazingStat').appendTo('#amazingStatSpan').show();
-            window.clearInterval(timeIds.setAmazingTId);
+            timeIds.setAmazingTId != null && window.clearInterval(timeIds.setAmazingTId);
         }
     };
     this.setTheme = function () {
@@ -651,8 +652,14 @@ function Base() {
         }
 
         // 清除定时器
-        if ((typeof sbClassifyHtml == 'string') && (typeof introduceHtml == 'string') && (typeof sbRecordHtml == 'string') && sbTopview.length > 0 && topDiggPosts.length > 0) {
-            window.clearInterval(timeIds.setMenuDataTId);
+        if (
+            (typeof sbClassifyHtml == 'string')
+            && (typeof introduceHtml == 'string')
+            && (typeof sbRecordHtml == 'string')
+            && sbTopview.length > 0
+            && topDiggPosts.length > 0
+        ) {
+            timeIds.setMenuDataTId != null && window.clearInterval(timeIds.setMenuDataTId);
         }
     };
 
@@ -683,7 +690,7 @@ function Base() {
             rightMenu.prepend(attHtml);
             bndongJs.rightMenuMous('#attention', '.attentionSpan');
             bndongJs.scrollMonitor(); // 触发一次滚动处理，防止未有对象，初始化失败
-            window.clearInterval(timeIds.setRightMenuTId);
+            timeIds.setHomeRightMenuTId != null && window.clearInterval(timeIds.setHomeRightMenuTId);
         }
     };
 
@@ -694,7 +701,7 @@ function Base() {
         var rightMenu = $('#rightMenu');
         if (rightMenu.length > 0 && $('#div_digg').length > 0) {
 
-            bndongJs.addHomeRightMenu();
+            if ($('#toUpDown').length == 0 && $('#attention').length == 0) bndongJs.addHomeRightMenu();
 
             // 添加踩
             var rightBuryitHtml = '<div id="rightBuryit" clickflg="false" onclick="' + ($(".buryit").attr("onclick")) + '"><span class="rightMenuSpan rightBuryitSpan">' + $('#bury_count').text() + '</span><i class="iconfont icon-buzan"></i></div>';
@@ -706,7 +713,7 @@ function Base() {
             rightMenu.prepend(rightDiggitHtml);
             bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
 
-            window.clearInterval(timeIds.setRightMenuTId);
+            timeIds.setNotHomeRightMenuTId != null && window.clearInterval(timeIds.setNotHomeRightMenuTId);
         }
     }
 }

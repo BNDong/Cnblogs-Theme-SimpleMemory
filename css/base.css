@@ -3185,7 +3185,7 @@ button {
     width: 35px !important;
 }
 
-.classify-title, .nav-title, .record-title, .topview-title, .topDiggPosts-title {
+.m-list-title {
     position: relative;
     border-bottom: #3B3B3B 1px solid;
     word-wrap: break-word;
@@ -3193,7 +3193,7 @@ button {
     font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
 }
 
-.classify-title:after, .nav-title:after, .record-title:after, .topview-title:after, .topDiggPosts-title:after{
+.m-list-title span{
     display: block;
     width: 60px;
     text-align: center;
@@ -3204,26 +3204,6 @@ button {
     background: #000;
     box-shadow: #000 0 0 0 6px;
     color: #B8B8B8;
-}
-
-.classify-title:after {
-    content: "随笔分类";
-}
-
-.nav-title:after {
-    content: "导航";
-}
-
-.record-title:after {
-    content: "随笔档案";
-}
-
-.topview-title:after {
-    content: "阅读排行";
-}
-
-.topDiggPosts-title:after {
-    content: "推荐排行";
 }
 
 #sb-classify li {
