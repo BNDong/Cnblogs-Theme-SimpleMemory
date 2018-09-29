@@ -637,16 +637,16 @@ function Base() {
             $('#sb-topDiggPosts').html(bndongJs.getMenuData(topDiggPosts, 'icon-tagfill'));
         }
 
-        // // 清除定时器
-        // if (
-        //     (typeof sbClassifyHtml == 'string')
-        //     && (typeof introduceHtml == 'string')
-        //     && (typeof sbRecordHtml == 'string')
-        //     && sbTopview.length > 0
-        //     && topDiggPosts.length > 0
-        // ) {
-        //     timeIds.setMenuDataTId != null && window.clearInterval(timeIds.setMenuDataTId);
-        // }
+        // 清除定时器
+        if (
+            sidebar.length > 0
+             && sbClassify.length > 0
+             && sbRecord.length > 0
+             && sbTopview.length > 0
+             && topDiggPosts.length > 0
+        ) {
+            timeIds.setMenuDataTId != null && window.clearInterval(timeIds.setMenuDataTId);
+        }
     };
     this.getMenuData = function (obj, icon) {
         var html = '<div><ul>';
