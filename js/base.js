@@ -600,27 +600,29 @@ function Base() {
      * 设置菜单数据
      */
     this.setMenuData = function() {
+        var introduceHtml  = $('#profile_block').html();        // 个人信息
         var sidebar        = $('#sidebar_recentposts ul li');   // 最新随笔
-        // var sbClassifyHtml = $('#sidebar_postcategory').html(); // 随笔分类
-        // var introduceHtml  = $('#profile_block').html();        // 个人信息
+        var sbClassify     = $('#sidebar_postcategory ul li');  // 随笔分类
         // var sbRecordHtml   = $('#sidebar_postarchive').html();  // 随笔档案
         // var sbTopview      = $('#TopViewPostsBlock ul li');     // 阅读排行
         // var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
 
-        // 添加最新随笔
-        if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '') {
-            $('#sb-sidebarRecentposts').html( bndongJs.getMenuData(sidebar, 'icon-tagfill'));
+        // 添加个人信息
+        if ((typeof introduceHtml == 'string') && $('#introduce').html() == '') {
+            $('#introduce').html(tools.htmlFiltrationScript(introduceHtml));
         }
 
-        // // 添加随笔分类
-        // if ((typeof sbClassifyHtml == 'string') && $('#sb-classify').html() == '') {
-        //     $('#sb-classify').html(tools.htmlFiltrationScript(sbClassifyHtml));
-        // }
-        //
-        // // 添加个人信息
-        // if ((typeof introduceHtml == 'string') && $('#introduce').html() == '') {
-        //     $('#introduce').html(tools.htmlFiltrationScript(introduceHtml));
-        // }
+        // 添加最新随笔
+        if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '') {
+            $('#sb-sidebarRecentposts').html(bndongJs.getMenuData(sidebar, 'icon-tagfill'));
+        }
+
+        // 添加随笔分类
+        if (sbClassify.length > 0 && $('#sb-classify').html() == '') {
+            $('#sb-classify').html(bndongJs.getMenuData(sbClassify, 'icon-tagfill'));
+        }
+
+
         //
         // // 添加随笔档案
         // if ((typeof sbRecordHtml == 'string') && $('#sb-record').html() == '') {
@@ -676,7 +678,8 @@ function Base() {
             var textArr = o.text().split('.');
             if (ret.test(textArr[0])) textArr.splice(0,1);
             var text = $.trim(textArr.join('.'));
-            o.html('<span class="iconfont '+icon+'" style="color: #888;margin-right: 3px;font-size: 14px;"></span>' + text);
+            var iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;position:  relative;left: -5px;"></span>';
+            o.html(iconHtml + text);
             html += '<li>' + o.prop("outerHTML") + '</li>';
         });
         html += '</ul></div>';
