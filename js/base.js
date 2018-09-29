@@ -608,34 +608,28 @@ function Base() {
         var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
 
         // 添加个人信息
-        if ((typeof introduceHtml == 'string') && $('#introduce').html() == '') {
+        if ((typeof introduceHtml == 'string') && $('#introduce').html() == '')
             $('#introduce').html(tools.htmlFiltrationScript(introduceHtml));
-        }
 
         // 添加最新随笔
-        if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '') {
-            $('#sb-sidebarRecentposts').html(bndongJs.getMenuData(sidebar, 'icon-tagfill'));
-        }
+        if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '')
+            $('#sb-sidebarRecentposts').html(bndongJs.getMenuData(sidebar, 'icon-time_fill'));
 
         // 添加随笔分类
-        if (sbClassify.length > 0 && $('#sb-classify').html() == '') {
-            $('#sb-classify').html(bndongJs.getMenuData(sbClassify, 'icon-tagfill'));
-        }
+        if (sbClassify.length > 0 && $('#sb-classify').html() == '')
+            $('#sb-classify').html(bndongJs.getMenuData(sbClassify, 'icon-label_fill'));
 
         // 添加随笔档案
-        if (sbRecord.length > 0 && $('#sb-record').html() == '') {
-            $('#sb-record').html(bndongJs.getMenuData(sbRecord, 'icon-tagfill'));
-        }
+        if (sbRecord.length > 0 && $('#sb-record').html() == '')
+            $('#sb-record').html(bndongJs.getMenuData(sbRecord, 'icon-marketing_fill'));
 
         // 添加阅读排行
-        if (sbTopview.length > 0 && $('#sb-topview').html() == '') {
-            $('#sb-topview').html(bndongJs.getMenuData(sbTopview, 'icon-tagfill'));
-        }
+        if (sbTopview.length > 0 && $('#sb-topview').html() == '')
+            $('#sb-topview').html(bndongJs.getMenuData(sbTopview, 'icon-browse_fill'));
 
         // 添加推荐排行
-        if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '') {
-            $('#sb-topDiggPosts').html(bndongJs.getMenuData(topDiggPosts, 'icon-tagfill'));
-        }
+        if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '')
+            $('#sb-topDiggPosts').html(bndongJs.getMenuData(topDiggPosts, 'icon-like_fill'));
 
         // 清除定时器
         if (
