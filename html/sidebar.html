@@ -86,7 +86,6 @@
     /**
      * 博客全局配置，请仔细配置，不了解的不要乱设置，不了解的不要乱设置，不了解的不要乱设置，默认就行！！
      * PS: 加了个全局配置感觉耦合更严重了ヽ(￣▽￣)ﾉ，不管了，用的爽就行！！
-     * PS: 大哥大姐们，问问题能不能温柔点，想怼死我？？！！！我容易么我！！
      */
     window.cnblogsConfig = {
 
@@ -133,24 +132,44 @@
             }
         },
 
-        // ---- 主页配置 ----
-        homeTopImg    : "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg", // 主页图片Url，推荐尺寸>= 1920*1080
-        homeBannerText: "", // 主页头图上的标语，设置此选项会固定显示文字，默认为空，每日自动获取一句。
-        homeTopAnimation: { // 主页头图动画设置
+
+        // ---- 页面动效配置 ----
+        isHomeTopAnimation: true, // true || false ,是否显示主页头图动效
+        homeTopAnimation: { // 主页头图动效设置
             radius: 15,
             density: 0.2,
             color: 'rgba(255,255,255, .2)', // 颜色设置，“random” 为随机颜色
             clearOffset: 0.3
         },
 
-        // ---- 随笔页配置 ----
-        essayTopImg: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png", // 随笔页图片Url
-        essayTopAnimationColors: [ // 随笔页图片动效颜色
+        isEssayTopAnimation: true, // true || false ,是否显示随笔页头图动效
+        essayTopAnimationColors: [ // 随笔页头图动效颜色
             '#96EDA6', '#5BC6A9',
             '#38668C', '#374D84',
             '#BED5CB', '#62ADC6',
             '#8EE5DE', '#304E7B'
         ],
+
+        isBackgroundAnimation: true, // true || false ,是否显示背景动效
+        backgroundAnimation : { // 背景动效设置
+            colorSaturation: "60%",
+            colorBrightness: "50%",
+            colorAlpha: 0.5,
+            colorCycleSpeed: 5,
+            verticalPosition: "random",
+            horizontalSpeed: 200,
+            ribbonCount: 3,
+            strokeSize: 0,
+            parallaxAmount: -0.2,
+            animateSections: true
+        },
+
+        // ---- 主页配置 ----
+        homeTopImg    : "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg", // 主页图片Url，推荐尺寸>= 1920*1080
+        homeBannerText: "", // 主页头图上的标语，设置此选项会固定显示文字，默认为空，每日自动获取一句。
+
+        // ---- 随笔页配置 ----
+        essayTopImg: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png", // 随笔页图片Url
         essaySuffix:{ // 随笔后缀处配置
             aboutHtml    : '', // 关于博主，不配置使用默认
             copyrightHtml: '', // 版权声明，不配置使用默认

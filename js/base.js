@@ -55,7 +55,7 @@ function Base() {
         $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
 
         // 背景动画
-		require(['RibbonsEffect']);
+		if (window.cnblogsConfig.isBackgroundAnimation) require(['RibbonsEffect']);
     };
 
     /**
@@ -170,7 +170,7 @@ function Base() {
 
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
-        bndongJs.topBgAnimation();
+        if (window.cnblogsConfig.isHomeTopAnimation) bndongJs.topBgAnimation();
     };
 
     /**
@@ -301,7 +301,8 @@ function Base() {
         $('#home').css('margin-top', '40vh');
         $('#cb_post_title_url').addClass('post-del-title');
 
-        require(['TweenMax', 'MyTween'], function() {
+        if (window.cnblogsConfig.isEssayTopAnimation)
+            require(['TweenMax', 'MyTween'], function() {
             initCanvas('myTopCanvas');
             start();
         });
