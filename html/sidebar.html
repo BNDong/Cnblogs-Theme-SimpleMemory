@@ -143,12 +143,23 @@
         },
 
         isEssayTopAnimation: true, // true || false ,是否显示随笔页头图动效
-        essayTopAnimationColors: [ // 随笔页头图动效颜色
-            '#96EDA6', '#5BC6A9',
-            '#38668C', '#374D84',
-            '#BED5CB', '#62ADC6',
-            '#8EE5DE', '#304E7B'
-        ],
+        essayTopAnimation: { // 随笔页头图动效设置
+            triW : 14,
+            triH : 20,
+            neighbours : ["side", "top", "bottom"],
+            speedTrailAppear : .1,
+            speedTrailDisappear : .1,
+            speedTriOpen : 1,
+            trailMaxLength : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear : 2,
+            colors: [
+                '#96EDA6', '#5BC6A9',
+                '#38668C', '#374D84',
+                '#BED5CB', '#62ADC6',
+                '#8EE5DE', '#304E7B'
+            ]
+        },
 
         isBackgroundAnimation: true, // true || false ,是否显示背景动效
         backgroundAnimation : { // 背景动效设置

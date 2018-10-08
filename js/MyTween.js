@@ -1,19 +1,19 @@
 var mouseX = mouseY = mouseOldX = mouseOldY = 0,
                     C,c,viewWidth,viewHeight,
-                    triW = 14,
-                    triH = 20,
-                    neighbours = ["side", "top", "bottom"],
-                    speedTrailAppear = .1,
-                    speedTrailDisappear = .1,
-                    speedTriOpen = 1,
-                    trailMaxLength = 30,
-                    trailIntervalCreation = 100,
-                    delayBeforeDisappear = 2,
+                    triW = window.cnblogsConfig.essayTopAnimation.triW,
+                    triH = window.cnblogsConfig.essayTopAnimation.triH,
+                    neighbours = window.cnblogsConfig.essayTopAnimation.neighbours,
+                    speedTrailAppear = window.cnblogsConfig.essayTopAnimation.speedTrailAppear,
+                    speedTrailDisappear = window.cnblogsConfig.essayTopAnimation.speedTrailDisappear,
+                    speedTriOpen = window.cnblogsConfig.essayTopAnimation.speedTriOpen,
+                    trailMaxLength = window.cnblogsConfig.essayTopAnimation.trailMaxLength,
+                    trailIntervalCreation = window.cnblogsConfig.essayTopAnimation.trailIntervalCreation,
+                    delayBeforeDisappear = window.cnblogsConfig.essayTopAnimation.delayBeforeDisappear,
                     cols, rows,
                     tris,
                     randomAlpha = true,
 
-                    colors = window.cnblogsConfig.essayTopAnimationColors;
+                    colors = window.cnblogsConfig.essayTopAnimation.colors;
 
             Triangle = function(pos, column, row) {
                 var thisTri = this;

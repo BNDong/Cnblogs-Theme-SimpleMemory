@@ -109,7 +109,7 @@ function Base() {
      */
     this.clearIntervalAll = function () {
         $.each(timeIds, function (e) {
-            if (e != null) window.clearInterval(e);
+            null != e && window.clearInterval(e);
         });
     };
 
@@ -159,8 +159,7 @@ function Base() {
     this.homeInit = function() {
 
         // 设置主页图片
-        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat');
-        $('.main-header').css('background-size', 'cover');
+        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat').css('background-size', 'cover');
 
         // 头图点击滚动到内容位置
         $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
@@ -170,7 +169,11 @@ function Base() {
 
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
-        if (window.cnblogsConfig.isHomeTopAnimation) bndongJs.topBgAnimation();
+
+        if (window.cnblogsConfig.isHomeTopAnimation)
+            require(['circleMagic'], function() {
+                $('.main-header').circleMagic(window.cnblogsConfig.homeTopAnimation);
+        });
     };
 
     /**
@@ -218,7 +221,7 @@ function Base() {
             sideToolbar.css('top', (sideToolbarTop + 20) + 'px');
             bndongJs.resizeMonitor();
             sideToolbar.fadeIn(300);
-            timeIds.setCatalogTId != null && window.clearInterval(timeIds.setCatalogTId);
+            null != timeIds.setCatalogTId && window.clearInterval(timeIds.setCatalogTId);
         }
     };
 
@@ -281,21 +284,12 @@ function Base() {
     };
 
     /**
-     * 设置主页动画
-     */
-    this.topBgAnimation = function() {
-        require(['circleMagic'], function() {
-            $('.main-header').circleMagic(window.cnblogsConfig.homeTopAnimation);
-        });
-    };
-
-    /**
      * 设置非主页头图
      */
     this.setNotHomeTopImg = function() {
-        $('.main-header').css('height', '40vh');
-        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat');
-        $('.main-header').css('background-size', 'cover');
+        $('.main-header').css('height', '40vh')
+            .css('background', '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat')
+            .css('background-size', 'cover');
         $('.vertical').css('display', 'none');
         $('.scroll-down').css('display', 'none');
         $('#home').css('margin-top', '40vh');
@@ -531,8 +525,7 @@ function Base() {
         pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
         pvHtml += '<div id="blogrollInfo"></div>';
         pvHtml += '<div id="cnzzInfo"></div>';
-        $('#footer').append(pvHtml);
-        $('#footer').prepend('<div class="footer-image"></div>');
+        $('#footer').append(pvHtml).prepend('<div class="footer-image"></div>');
 
         if (window.location.href.search("www.cnblogs.com/bndong") == -1 ) {
             bndongJs.setTheme();
@@ -575,14 +568,14 @@ function Base() {
             });
             cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
             $('#cnzzInfo').text(cnzzInfo.join(' | '));
-            timeIds.setCnzzTId != null && window.clearInterval(timeIds.setCnzzTId);
+            null != timeIds.setCnzzTId && window.clearInterval(timeIds.setCnzzTId);
         }
     };
     this.setAmazing = function () {
         // 请去 AmazingCounters.com 配置自己的，谢谢！！
         if ($('#amazingStat').length > 0) {
             $('#amazingStat').appendTo('#amazingStatSpan').show();
-            timeIds.setAmazingTId != null && window.clearInterval(timeIds.setAmazingTId);
+            null != timeIds.setAmazingTId && window.clearInterval(timeIds.setAmazingTId);
         }
     };
     this.setTheme = function () {
@@ -640,7 +633,7 @@ function Base() {
              && sbTopview.length > 0
              && topDiggPosts.length > 0
         ) {
-            timeIds.setMenuDataTId != null && window.clearInterval(timeIds.setMenuDataTId);
+            null != timeIds.setMenuDataTId && window.clearInterval(timeIds.setMenuDataTId);
         }
     };
     this.getMenuData = function (obj, icon) {
@@ -686,7 +679,7 @@ function Base() {
             rightMenu.prepend(attHtml);
             bndongJs.rightMenuMous('#attention', '.attentionSpan');
             bndongJs.scrollMonitor(); // 触发一次滚动处理，防止未有对象，初始化失败
-            timeIds.setHomeRightMenuTId != null && window.clearInterval(timeIds.setHomeRightMenuTId);
+            null != timeIds.setHomeRightMenuTId && window.clearInterval(timeIds.setHomeRightMenuTId);
         }
     };
 
@@ -709,7 +702,7 @@ function Base() {
             rightMenu.prepend(rightDiggitHtml);
             bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
 
-            timeIds.setNotHomeRightMenuTId != null && window.clearInterval(timeIds.setNotHomeRightMenuTId);
+            null != timeIds.setNotHomeRightMenuTId && window.clearInterval(timeIds.setNotHomeRightMenuTId);
         }
     }
 }
