@@ -3317,6 +3317,21 @@ button {
     color: #333;
 }
 
+#cnblogs_post_body h3 {
+    margin: 0 30px !important;
+}
+
+#cnblogs_post_body h3:before {
+    content: '# ';
+    font-weight: lighter;
+    color: #aaa;
+    transition: all 0.3s;
+}
+
+#cnblogs_post_body ul li {
+    margin-left: 18px;
+}
+
 .feedback_area_title, #commentform_title, .entrylistTitle {
     border-bottom: none;
 }
@@ -3461,6 +3476,16 @@ button {
     display: table-cell;
     padding: 0 20px;
 }
+
+#cnblogs_post_body p {
+    margin: 10px auto;
+    text-indent: 30px;
+}
+
+#cnblogs_post_body ul li {
+    margin-left: 18px;
+}
+
 /* ==========================================================================
    文章标题
    ========================================================================== */
@@ -3551,6 +3576,7 @@ button {
     font-weight: 400;
     -webkit-transform: rotateZ(-22deg);
     transform: rotateZ(-22deg);
+    color: #333;
 }
 .header__span h1 .dev__fe i {
     text-indent: -9px;
