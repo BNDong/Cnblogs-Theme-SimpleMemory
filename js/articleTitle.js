@@ -23,7 +23,7 @@ $(document).ready(function () {
             th1Html += '<b class="dev__developer"><span class="dev__title">'+th1Text+'</span></b>';
             th1.append(th1Html);
             th1.parents('.header__span').after('<br>');
-            th1.find('.dev__title').hover(
+            th1.parent(".header__span").hover(
                 function(){
                     $(this).parents('.header__dev').addClass("header__dev--open");
                 } ,
@@ -60,7 +60,7 @@ $(document).ready(function () {
             th2Html += '<b class="dev__developer"><span class="dev__title">'+th2Text+'</span></b>';
             th2.append(th2Html);
             th2.parents('.header__span').after('<br>');
-            th2.parents(".header__span").hover(
+            th2.parent(".header__span").hover(
                 function(){
                     $(this).parents('.header__dev').addClass("header__dev--open");
                 } ,
