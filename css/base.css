@@ -3318,7 +3318,7 @@ button {
 }
 
 #cnblogs_post_body h3 {
-    margin: 0 30px !important;
+    margin: 0 15px !important;
 }
 
 #cnblogs_post_body h3:before {
@@ -3500,7 +3500,7 @@ button {
     display: inline-block;
     left: -35px;
     margin: 25px 0 0px 0;
-    width: 100%;
+    width: 110%;
     transition: border-color 0.3s;
     padding-bottom: 14px;
     border-bottom: 1px solid transparent;
@@ -3536,7 +3536,7 @@ button {
     transform: rotateZ(22deg);
 }
 .header__span h1 .dev__slash {
-    color: #3E558B;
+    color: #5D69A5;
     top: -24px;
     left: 57px;
     font-size: 35px;
@@ -3671,16 +3671,18 @@ span.cnblogs_code {
 }
 .cnblogs_code {
     line-height: 20px;
-    margin: 0;
+    margin: 0 auto;
+    width: 94%;
     font-size: 14px!important;
     padding: 1.3em;
     background-color: #f9f9f9;
     position: relative;
     overflow: hidden;
-    border: 1px dashed #d9d9d9;
-    font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
+    border: 0;
+    font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace!important;
     font-weight: 400;
     margin-bottom: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .cnblogs_code pre {
@@ -3689,21 +3691,23 @@ span.cnblogs_code {
     white-space: pre-wrap;
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
+    background-color: #f9f9f9;
 }
 
 .cnblogs_code span {
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-size: 14px !important;
     font-weight: 400;
+    background-color: #f9f9f9;
 }
 
 .cnblogs_code div {
-    background-color: #f7f7f7;
+    background-color: #f9f9f9;
 }
 
 .cnblogs_code_collapse {
     border: 0px;
-    background: rgb(247, 247, 247);
+    background-color: #f9f9f9;
     cursor: pointer;
     color: rgb(85, 85, 85);
     top: 1px;
