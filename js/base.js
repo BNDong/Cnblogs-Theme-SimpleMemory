@@ -81,8 +81,8 @@ function Base() {
         linkObject.href = window.cnblogsConfig.webpageIcon;
         document.getElementsByTagName("head")[0].appendChild(linkObject);
 
-        // 添加网站PV量监控
-        bndongJs.addWebPv();
+        // 添加页脚
+        bndongJs.addFooter();
 
         // 设置菜单侧边栏内容
         timeIds.setMenuDataTId = window.setInterval( bndongJs.setMenuData, 1000 );
@@ -93,15 +93,15 @@ function Base() {
         // 控制台输出
         tools.consoleText([], 'banner');
 
-        // (function () {
-        //     var re = /x/;
-        //     var i = 0;
-        //     console.log(re);
-        //
-        //     re.toString = function () {
-        //         return '第 ' + (++i) + ' 次打开控制台';
-        //     };
-        // })();
+        (function () {
+            var re = /x/;
+            var i = 0;
+            console.log(re);
+
+            re.toString = function () {
+                return '欢迎访问本博客，这是您第 ' + (++i) + ' 次打开控制台。';
+            };
+        })();
     };
 
     /**
@@ -111,6 +111,13 @@ function Base() {
         $.each(timeIds, function (e) {
             null != e && window.clearInterval(e);
         });
+    };
+
+    /**
+     * 清除单个定时器
+     */
+    this.clearIntervalTimeId = function (timeId) {
+        null != timeId && window.clearInterval(timeId);
     };
 
     /**
@@ -221,7 +228,7 @@ function Base() {
             sideToolbar.css('top', (sideToolbarTop + 20) + 'px');
             bndongJs.resizeMonitor();
             sideToolbar.fadeIn(300);
-            null != timeIds.setCatalogTId && window.clearInterval(timeIds.setCatalogTId);
+            bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);
         }
     };
 
@@ -331,8 +338,7 @@ function Base() {
 
         //气泡效果
         var commentTime = setInterval(function(){if($("#comments_pager_bottom").length>0){CommentBubble();clearTimeout(commentTime);}},50);
-        function CommentBubble()
-        {
+        function CommentBubble() {
             var w1 = '<div class="list">' +
                 '<table class="out" border="0" cellspacing="0" cellpadding="0"> ' +
                 '<tr>' +
@@ -516,9 +522,9 @@ function Base() {
     };
 
     /**
-     * 添加网站监控
+     * 添加页脚
      */
-    this.addWebPv = function() {
+    this.addFooter = function() {
         var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
         pvHtml += '<span id="amazingStatSpan"></span>';
         pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">❤️</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
@@ -528,66 +534,68 @@ function Base() {
         $('#footer').append(pvHtml).prepend('<div class="footer-image"></div>');
 
         if (window.location.href.search("www.cnblogs.com/bndong") == -1 ) {
-            bndongJs.setTheme();
+            setTheme();
         }
 
-        window.setInterval( bndongJs.setRunTime, 500 );
-        bndongJs.setBlogroll();
-        timeIds.setCnzzTId    = window.setInterval( bndongJs.setCnzz, 1000 );
-        timeIds.setAmazingTId = window.setInterval( bndongJs.setAmazing, 1000 );
-    };
-    this.setRunTime = function () {
-        var str = window.cnblogsConfig.blogStartDate;
-        str = str ? str : '2016-11-17';
-        var runDate = tools.getRunDate(str);
-        $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
-    };
-    this.setBlogroll = function () {
-        if (window.cnblogsConfig.bottomBlogroll.length > 0) {
-            var blogrollArr  = window.cnblogsConfig.bottomBlogroll;
-            var blogrollHtml = '友情链接：';
-            for(var i = 0; i < blogrollArr.length; i++) {
-                blogrollHtml += '<a href="'+(blogrollArr[i][1])+'" target="_blank">'+(blogrollArr[i][0])+'</a>';
-                if (i < blogrollArr.length-1) blogrollHtml += '<span style="margin: 0 3px;">/</span>';
-            }
-            $('#blogrollInfo').html(blogrollHtml);
+        window.setInterval( setRunTime, 500 );
+        setBlogroll();
+        timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
+        timeIds.setAmazingTId = window.setInterval( setAmazing, 1000 );
+
+        function setRunTime() {
+            var str = window.cnblogsConfig.blogStartDate;
+            str = str ? str : '2016-11-17';
+            var runDate = tools.getRunDate(str);
+            $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
         }
-    };
-    this.setCnzz = function() {
-        // 请去 CNZZ 配置自己的，谢谢！！
-        var cnzzStat = $('.id_cnzz_stat_icon a');
-        if (cnzzStat.length > 0) {
-            var cnzzInfo = [];
-            var cnzzArr  = $(cnzzStat[1]).text().split('|');
-            $.each(cnzzArr, function (i) {
-                var str = $.trim(cnzzArr[i]);
-                if (str != '') {
-                    str = str.replace('今日','Today').replace('昨日','Yesterday').replace('[',':').replace(']','');
-                    cnzzInfo.push(str)
+        function setBlogroll() {
+            if (window.cnblogsConfig.bottomBlogroll.length > 0) {
+                var blogrollArr  = window.cnblogsConfig.bottomBlogroll;
+                var blogrollHtml = '友情链接：';
+                for(var i = 0; i < blogrollArr.length; i++) {
+                    blogrollHtml += '<a href="'+(blogrollArr[i][1])+'" target="_blank">'+(blogrollArr[i][0])+'</a>';
+                    if (i < blogrollArr.length-1) blogrollHtml += '<span style="margin: 0 3px;">/</span>';
                 }
-            });
-            cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
-            $('#cnzzInfo').text(cnzzInfo.join(' | '));
-            null != timeIds.setCnzzTId && window.clearInterval(timeIds.setCnzzTId);
-        }
-    };
-    this.setAmazing = function () {
-        // 请去 AmazingCounters.com 配置自己的，谢谢！！
-        if ($('#amazingStat').length > 0) {
-            $('#amazingStat').appendTo('#amazingStatSpan').show();
-            null != timeIds.setAmazingTId && window.clearInterval(timeIds.setAmazingTId);
-        }
-    };
-    this.setTheme = function () {
-        $('#footer').prepend('<div class="footer-image"></div>');
-        setInterval(function(){
-            var footer = $('#footer');
-            var themeHtml = '<p id="ThemeAuthors" style="color: #444;z-index: 999;">- Theme Authors：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#444;">BNDong</a> -</p></div>';
-            $('#ThemeAuthors').show();
-            if ($('#ThemeAuthors').length == 0) {
-                $('#footer').append(themeHtml);
+                $('#blogrollInfo').html(blogrollHtml);
             }
-        },3000);
+        }
+        function setCnzz() {
+            // 请去 CNZZ 配置自己的，谢谢！！
+            var cnzzStat = $('.id_cnzz_stat_icon a');
+            if (cnzzStat.length > 0) {
+                var cnzzInfo = [];
+                var cnzzArr  = $(cnzzStat[1]).text().split('|');
+                $.each(cnzzArr, function (i) {
+                    var str = $.trim(cnzzArr[i]);
+                    if (str != '') {
+                        str = str.replace('今日','Today').replace('昨日','Yesterday').replace('[',':').replace(']','');
+                        cnzzInfo.push(str)
+                    }
+                });
+                cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
+                $('#cnzzInfo').text(cnzzInfo.join(' | '));
+                bndongJs.clearIntervalTimeId(timeIds.setCnzzTId);
+            }
+        }
+        function setAmazing() {
+            // 请去 AmazingCounters.com 配置自己的，谢谢！！
+            if ($('#amazingStat').length > 0) {
+                $('#amazingStat').appendTo('#amazingStatSpan').show();
+                bndongJs.clearIntervalTimeId(timeIds.setAmazingTId);
+            }
+        }
+        function setTheme() {
+            $('#footer').prepend('<div class="footer-image"></div>');
+            setInterval(function(){
+                var footer = $('#footer');
+                var themeHtml = '<p id="ThemeAuthors" style="color: #444;z-index: 999;">- Theme Authors：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#444;">BNDong</a> -</p></div>';
+                if ($('#ThemeAuthors').length == 0) {
+                    $('#footer').append(themeHtml);
+                } else {
+                    $('#ThemeAuthors').show().css('visibility', 'visible');
+                }
+            },3000);
+        }
     };
 
     /**
@@ -607,23 +615,23 @@ function Base() {
 
         // 添加最新随笔
         if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '')
-            $('#sb-sidebarRecentposts').html(bndongJs.getMenuData(sidebar, 'icon-time_fill'));
+            $('#sb-sidebarRecentposts').html(getMenuData(sidebar, 'icon-time_fill'));
 
         // 添加随笔分类
         if (sbClassify.length > 0 && $('#sb-classify').html() == '')
-            $('#sb-classify').html(bndongJs.getMenuData(sbClassify, 'icon-label_fill'));
+            $('#sb-classify').html(getMenuData(sbClassify, 'icon-label_fill'));
 
         // 添加随笔档案
         if (sbRecord.length > 0 && $('#sb-record').html() == '')
-            $('#sb-record').html(bndongJs.getMenuData(sbRecord, 'icon-marketing_fill'));
+            $('#sb-record').html(getMenuData(sbRecord, 'icon-marketing_fill'));
 
         // 添加阅读排行
         if (sbTopview.length > 0 && $('#sb-topview').html() == '')
-            $('#sb-topview').html(bndongJs.getMenuData(sbTopview, 'icon-browse_fill'));
+            $('#sb-topview').html(getMenuData(sbTopview, 'icon-browse_fill'));
 
         // 添加推荐排行
         if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '')
-            $('#sb-topDiggPosts').html(bndongJs.getMenuData(topDiggPosts, 'icon-like_fill'));
+            $('#sb-topDiggPosts').html(getMenuData(topDiggPosts, 'icon-like_fill'));
 
         // 清除定时器
         if (
@@ -633,23 +641,24 @@ function Base() {
              && sbTopview.length > 0
              && topDiggPosts.length > 0
         ) {
-            null != timeIds.setMenuDataTId && window.clearInterval(timeIds.setMenuDataTId);
+            bndongJs.clearIntervalTimeId(timeIds.setMenuDataTId);
         }
-    };
-    this.getMenuData = function (obj, icon) {
-        var html = '<div><ul>';
-        var ret  = /^[1-9]+[0-9]*$/;
-        obj.each(function (i) {
-            var o = $($(obj[i]).html());
-            var textArr = o.text().split('.');
-            if (ret.test(textArr[0])) textArr.splice(0,1);
-            var text = $.trim(textArr.join('.'));
-            var iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
-            o.html(iconHtml + text);
-            html += '<li>' + o.prop("outerHTML") + '</li>';
-        });
-        html += '</ul></div>';
-        return html;
+
+        function getMenuData(obj, icon) {
+            var html = '<div><ul>';
+            var ret  = /^[1-9]+[0-9]*$/;
+            obj.each(function (i) {
+                var o = $($(obj[i]).html());
+                var textArr = o.text().split('.');
+                if (ret.test(textArr[0])) textArr.splice(0,1);
+                var text = $.trim(textArr.join('.'));
+                var iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
+                o.html(iconHtml + text);
+                html += '<li>' + o.prop("outerHTML") + '</li>';
+            });
+            html += '</ul></div>';
+            return html;
+        }
     };
 
     /**
@@ -679,7 +688,7 @@ function Base() {
             rightMenu.prepend(attHtml);
             bndongJs.rightMenuMous('#attention', '.attentionSpan');
             bndongJs.scrollMonitor(); // 触发一次滚动处理，防止未有对象，初始化失败
-            null != timeIds.setHomeRightMenuTId && window.clearInterval(timeIds.setHomeRightMenuTId);
+            bndongJs.clearIntervalTimeId(timeIds.setHomeRightMenuTId);
         }
     };
 
@@ -701,8 +710,7 @@ function Base() {
             var rightDiggitHtml = '<div id="rightDiggit" clickflg="false" onclick="' + ($(".diggit").attr("onclick")) + '"><span class="rightMenuSpan rightDiggitSpan">' + $('#digg_count').text() + '</span><i class="iconfont icon-zan1"></i></div>';
             rightMenu.prepend(rightDiggitHtml);
             bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
-
-            null != timeIds.setNotHomeRightMenuTId && window.clearInterval(timeIds.setNotHomeRightMenuTId);
+            bndongJs.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);
         }
     }
 }
