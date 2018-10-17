@@ -17,12 +17,7 @@
     list-style: none;
 }
 #sideCatalog{
-    padding-bottom: 10px;
-    border-radius: 3px;
     position: absolute;
-    right: 1vw;
-    border: 1px dashed #d9d9d9;
-    background-color: rgba(255, 255, 255, 0.9);
 }
 #sideCatalog-sidebar {
     -moz-border-bottom-colors: none;
@@ -44,7 +39,6 @@
 }
 #sideCatalog-catalog {
     overflow: hidden;
-    padding-left: 10px;
     position: relative;
     font-size: 14px;
 }
@@ -70,17 +64,42 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 175px;
+    padding: 3px 3px 3px 10px;
 }
 #sideCatalog li: hover {
     background-color: #f5f5f5
 }
+
+#sideCatalog li.active:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.05);
+}
+
+#sideCatalog li.active:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-left: 3px solid #3f51b5;
+}
+
 #sideCatalog-catalog ul .active {
     /*background-color: #F1F0E8*/
 }
 #sideCatalog-catalog .active a {
-    /*color: #519cea*/
-    color: #f30;
+    font-weight: 600;
+    color: #3f51b5;
 }
 #sideCatalog-catalog a: hover {
     color: #519cea

@@ -46,7 +46,7 @@ a.ready(function () {
 
             var titleContent = text.replace(/^\d+\|[0-9]+/g, '');
 
-            j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.').replace(titleContent, '&nbsp;&nbsp;'+titleContent)) + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li lin=""><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.').replace(titleContent, '&nbsp;&nbsp;'+titleContent)) + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
