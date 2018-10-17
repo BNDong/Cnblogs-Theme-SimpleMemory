@@ -3191,6 +3191,7 @@ button {
     word-wrap: break-word;
     margin: 20px 0;
     font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
+    display: none;
 }
 
 .m-list-title span{

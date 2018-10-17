@@ -602,36 +602,42 @@ function Base() {
      * 设置菜单数据
      */
     this.setMenuData = function() {
-        var introduceHtml  = $('#profile_block').html();        // 个人信息
-        var sidebar        = $('#sidebar_recentposts ul li');   // 最新随笔
-        var sbClassify     = $('#sidebar_postcategory ul li');  // 随笔分类
-        var sbRecord       = $('#sidebar_postarchive ul li');   // 随笔档案
-        var sbTopview      = $('#TopViewPostsBlock ul li');     // 阅读排行
-        var topDiggPosts   = $('#TopDiggPostsBlock ul li');     // 推荐排行
+        var introduceHtml    = $('#profile_block').html(),        // 个人信息
+            sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
+            sbClassify       = $('#sidebar_postcategory ul li'),  // 随笔分类
+            sbRecord         = $('#sidebar_postarchive ul li'),   // 随笔档案
+            sbTopview        = $('#TopViewPostsBlock ul li'),     // 阅读排行
+            topDiggPosts     = $('#TopDiggPostsBlock ul li'),     // 推荐排行
+            menuIntroduce    = $('#introduce'),
+            menuSidebar      = $('#sb-sidebarRecentposts'),
+            menuClassify     = $('#sb-classify'),
+            menuRecord       = $('#sb-record'),
+            menuTopview      = $('#sb-topview'),
+            menuTopDiggPosts = $('#sb-topDiggPosts');
 
         // 添加个人信息
-        if ((typeof introduceHtml == 'string') && $('#introduce').html() == '')
-            $('#introduce').html(tools.htmlFiltrationScript(introduceHtml));
+        if ((typeof introduceHtml == 'string') && menuIntroduce.html() == '')
+            menuIntroduce.html(tools.htmlFiltrationScript(introduceHtml));
 
         // 添加最新随笔
-        if (sidebar.length > 0 && $('#sb-sidebarRecentposts').html() == '')
-            $('#sb-sidebarRecentposts').html(getMenuData(sidebar, 'icon-time_fill'));
+        if (sidebar.length > 0 && menuSidebar.html() == '')
+            menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
 
         // 添加随笔分类
-        if (sbClassify.length > 0 && $('#sb-classify').html() == '')
-            $('#sb-classify').html(getMenuData(sbClassify, 'icon-label_fill'));
+        if (sbClassify.length > 0 && menuClassify.html() == '')
+            menuClassify.html(getMenuData(sbClassify, 'icon-label_fill')).prev('.m-list-title').show();
 
         // 添加随笔档案
-        if (sbRecord.length > 0 && $('#sb-record').html() == '')
-            $('#sb-record').html(getMenuData(sbRecord, 'icon-marketing_fill'));
+        if (sbRecord.length > 0 && menuRecord.html() == '')
+            menuRecord.html(getMenuData(sbRecord, 'icon-marketing_fill')).prev('.m-list-title').show();
 
         // 添加阅读排行
-        if (sbTopview.length > 0 && $('#sb-topview').html() == '')
-            $('#sb-topview').html(getMenuData(sbTopview, 'icon-browse_fill'));
+        if (sbTopview.length > 0 && menuTopview.html() == '')
+            menuTopview.html(getMenuData(sbTopview, 'icon-browse_fill')).prev('.m-list-title').show();
 
         // 添加推荐排行
-        if (topDiggPosts.length > 0 && $('#sb-topDiggPosts').html() == '')
-            $('#sb-topDiggPosts').html(getMenuData(topDiggPosts, 'icon-like_fill'));
+        if (topDiggPosts.length > 0 && menuTopDiggPosts.html() == '')
+            menuTopDiggPosts.html(getMenuData(topDiggPosts, 'icon-like_fill')).prev('.m-list-title').show();
 
         // 清除定时器
         if (
