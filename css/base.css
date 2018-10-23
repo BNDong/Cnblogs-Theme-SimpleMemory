@@ -3329,8 +3329,18 @@ button {
     transition: all 0.3s;
 }
 
+#cnblogs_post_body ul {
+    margin-left: 30px;
+    margin-top: 5px;
+    padding-left: 0;
+}
+
 #cnblogs_post_body ul li {
     margin-left: 18px;
+}
+
+.postBody li, .postCon li {
+    margin-bottom: 0.5em;
 }
 
 .feedback_area_title, #commentform_title, .entrylistTitle {
