@@ -627,7 +627,7 @@ function Base() {
 
         // 添加我的标签
         if (toptags.length > 0 && menuToptags.html() == '')
-            menuToptags.html(getMenuData(toptags, 'icon-label_fill')).prev('.m-list-title').show();
+            menuToptags.html(getMenuData(toptags, 'icon-task_fill')).prev('.m-list-title').show();
 
         // 添加随笔分类
         if (sbClassify.length > 0 && menuClassify.html() == '')
