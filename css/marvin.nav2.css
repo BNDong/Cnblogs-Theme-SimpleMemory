@@ -68,7 +68,7 @@
     padding: 3px 3px 3px 10px;
 }
 #sideCatalog li:hover {
-    background-color: #f5f5f5
+
 }
 
 #sideCatalog li.active:before {
@@ -103,7 +103,7 @@
     color: #3f51b5;
 }
 #sideCatalog-catalog a:hover {
-    color: #519cea
+    color: #3f51b5;
 }
 #sideCatalog span:first-child {
     color: #999;
