@@ -177,7 +177,6 @@ function Base() {
 
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
-        bndongJs.setDomHomePosition();
 
         if (window.cnblogsConfig.isHomeTopAnimation)
             require(['circleMagic'], function() {
@@ -248,6 +247,7 @@ function Base() {
 
         if (window.cnblogsConfig.homeBannerText != "") {
             $('#hitokoto').text(window.cnblogsConfig.homeBannerText).css('display', '-webkit-box');
+            bndongJs.setDomHomePosition();
             return true;
         }
 
@@ -295,6 +295,7 @@ function Base() {
                 var listIndex = tools.randomNum(0, topTitleList.length - 1);
                 $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
             }
+            bndongJs.setDomHomePosition();
             return false;
         });
     };
