@@ -635,7 +635,7 @@ function Base() {
 
         // 添加随笔档案
         if (sbRecord.length > 0 && menuRecord.html() == '')
-            menuRecord.html(getMenuData(sbRecord, 'icon-task_fill')).prev('.m-list-title').show();
+            menuRecord.html(getMenuData(sbRecord, 'icon-activity_fill')).prev('.m-list-title').show();
 
         // 添加阅读排行
         if (sbTopview.length > 0 && menuTopview.html() == '')
