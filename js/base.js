@@ -604,12 +604,14 @@ function Base() {
     this.setMenuData = function() {
         var introduceHtml    = $('#profile_block').html(),        // 个人信息
             sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
+            toptags          = $('#sidebar_toptags ul li'),       // 我的标签
             sbClassify       = $('#sidebar_postcategory ul li'),  // 随笔分类
             sbRecord         = $('#sidebar_postarchive ul li'),   // 随笔档案
             sbTopview        = $('#TopViewPostsBlock ul li'),     // 阅读排行
             topDiggPosts     = $('#TopDiggPostsBlock ul li'),     // 推荐排行
             menuIntroduce    = $('#introduce'),
             menuSidebar      = $('#sb-sidebarRecentposts'),
+            menuToptags      = $('#sb-toptags'),
             menuClassify     = $('#sb-classify'),
             menuRecord       = $('#sb-record'),
             menuTopview      = $('#sb-topview'),
@@ -623,13 +625,17 @@ function Base() {
         if (sidebar.length > 0 && menuSidebar.html() == '')
             menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
 
+        // 添加我的标签
+        if (toptags.length > 0 && menuToptags.html() == '')
+            menuToptags.html(getMenuData(toptags, 'icon-label_fill')).prev('.m-list-title').show();
+
         // 添加随笔分类
         if (sbClassify.length > 0 && menuClassify.html() == '')
-            menuClassify.html(getMenuData(sbClassify, 'icon-label_fill')).prev('.m-list-title').show();
+            menuClassify.html(getMenuData(sbClassify, 'icon-marketing_fill')).prev('.m-list-title').show();
 
         // 添加随笔档案
         if (sbRecord.length > 0 && menuRecord.html() == '')
-            menuRecord.html(getMenuData(sbRecord, 'icon-marketing_fill')).prev('.m-list-title').show();
+            menuRecord.html(getMenuData(sbRecord, 'icon-task_fill')).prev('.m-list-title').show();
 
         // 添加阅读排行
         if (sbTopview.length > 0 && menuTopview.html() == '')
@@ -642,6 +648,7 @@ function Base() {
         // 清除定时器
         if (
             sidebar.length > 0
+             && toptags.length > 0
              && sbClassify.length > 0
              && sbRecord.length > 0
              && sbTopview.length > 0
