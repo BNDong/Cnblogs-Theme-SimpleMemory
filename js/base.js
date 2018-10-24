@@ -30,17 +30,11 @@ function Base() {
         // Loading前初始化
         bndongJs.loadingBeforeInit();
 
-        // 页面初始化
-        ($('#topics').length > 0) ? bndongJs.notHomeInit() : bndongJs.homeInit();
-
         // Loading结束
         bndongJs.endLoading();
 
         // Loading后初始化
         bndongJs.loadingAfterInit();
-
-        // 延时清除全部定时器
-        setTimeout(bndongJs.clearIntervalAll, 30000);
     };
 
     /**
@@ -56,6 +50,9 @@ function Base() {
 
         // 背景动画
 		if (window.cnblogsConfig.isBackgroundAnimation) require(['RibbonsEffect']);
+
+        // 页面初始化
+        ($('#topics').length > 0) ? bndongJs.notHomeInit() : bndongJs.homeInit();
     };
 
     /**
@@ -102,6 +99,9 @@ function Base() {
                 return '欢迎访问本博客，这是您第 ' + (++i) + ' 次打开控制台。';
             };
         })();
+
+        // 延时清除全部定时器
+        setTimeout(bndongJs.clearIntervalAll, 30000);
     };
 
     /**
@@ -168,6 +168,7 @@ function Base() {
         // 设置主页图片
         $('.main-header').css('background', '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat').css('background-size', 'cover');
 
+
         // 头图点击滚动到内容位置
         $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
 
@@ -176,6 +177,7 @@ function Base() {
 
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
+        bndongJs.setDomHomePosition();
 
         if (window.cnblogsConfig.isHomeTopAnimation)
             require(['circleMagic'], function() {
@@ -187,6 +189,13 @@ function Base() {
      * 非主页初始化
      */
     this.notHomeInit = function() {
+
+        // 设置随笔标题
+        var sbTitle = $('#cb_post_title_url').text();
+        $('.main-header-content').append('<h1 class="sb-title">'+sbTitle+'</h1>');
+        $('.inner').css('max-width', '100vw');
+
+        bndongJs.setDomHomePosition();
 
         require(['baguetteBox', 'marvin', 'articleStatement'], function(baguetteBox) {
 
@@ -297,8 +306,8 @@ function Base() {
         $('.main-header').css('height', '40vh')
             .css('background', '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat')
             .css('background-size', 'cover');
-        $('.vertical').css('display', 'none');
-        $('.scroll-down').css('display', 'none');
+        $('#homeTopTitle').hide();
+        $('.scroll-down').hide();
         $('#home').css('margin-top', '40vh');
         $('#cb_post_title_url').addClass('post-del-title');
 
@@ -307,6 +316,13 @@ function Base() {
             initCanvas('myTopCanvas');
             start();
         });
+    };
+
+    /**
+     * 初始化主体内容位置
+     */
+    this.setDomHomePosition = function () {
+        $('#home').css('margin-top', $('.main-header').outerHeight() + 'px');
     };
 
     /**
@@ -446,6 +462,7 @@ function Base() {
      */
     this.resizeMonitor = function() {
         var bodyWidth = parseFloat(document.body.clientWidth);
+        bndongJs.setDomHomePosition();
 
         // 设置目录插件左右位置
         if ($('#sideToolbar').length > 0) {

@@ -166,7 +166,6 @@ button {
     max-width: 840px;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 0 30px 30px 30px;
-    margin-top: 100vh;
 }
 
 #header {
@@ -3023,13 +3022,12 @@ button {
 .inner {
     position: relative;
     width: 80%;
-    max-width: 710px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.page-title {
+.page-title, .sb-title {
     margin: 10px 0 10px 0;
-    font-size: 5rem;
     letter-spacing: -1px;
     font-weight: 700;
     font-family: "Open Sans", sans-serif;
@@ -3039,6 +3037,14 @@ button {
     -webkit-animation-delay: 0.6s;
     animation-delay: 0.5s;
     text-shadow: 0 3px 6px rgba(0,0,0, 0.3);
+}
+
+.page-title {
+    font-size: 5rem;
+}
+
+.sb-title {
+    font-size: 4rem;
 }
 
 /* Centres vertically yo. (IE8+) */
@@ -3286,12 +3292,13 @@ button {
    文章详情页
    ========================================================================== */
 .post-del-title {
-    position: absolute !important;
-    top: 17vh !important;
-    z-index: 999 !important;
-    color: rgb(255, 255, 255) !important;
-    font-size: 34px !important;
-    overflow: hidden !important;
+    /*position: absolute !important;*/
+    /*top: 17vh !important;*/
+    /*z-index: 999 !important;*/
+    /*color: rgb(255, 255, 255) !important;*/
+    /*font-size: 34px !important;*/
+    /*overflow: hidden !important;*/
+    display: none;
 }
 
 #topics {
@@ -4053,10 +4060,6 @@ a#green_channel_wechat {
         padding: 15% 0;
     }
 
-    #home {
-        margin-top: 60vh;
-    }
-
     .postTitle a:link, .entrylistPosttitle a:link{
         font-size: 2.8rem;
     }
@@ -4067,6 +4070,11 @@ a#green_channel_wechat {
 
     .page-title, .entrylistPosttitle {
         font-size: 4rem;
+        letter-spacing: -1px;
+    }
+
+    .sb-title {
+        font-size: 3.5rem;
         letter-spacing: -1px;
     }
 
@@ -4104,7 +4112,6 @@ a#green_channel_wechat {
     }
 
     #home {
-        margin-top: 40vh;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -4131,7 +4138,7 @@ a#green_channel_wechat {
         margin: 2rem auto;
     }
 
-    .page-title, .entrylistPosttitle {
+    .page-title, .sb-title, .entrylistPosttitle {
         font-size: 3rem;
     }
 
