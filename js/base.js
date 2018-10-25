@@ -337,13 +337,15 @@ function Base() {
             || window.cnblogsConfig.isEssayTopAnimation
             || window.cnblogsConfig.isBackgroundAnimation
         ) {
-            $('body').prepend('<div id="pageAnimationOffOn" data="off" style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">关闭页面特效</div>');
+            $('body').prepend('<div id="pageAnimationOffOn" data="off" style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;"><li id="pageAnimationOffOnIcon" class="iconfont icon-icon-test"></li>关闭页面特效</div>');
             $('#pageAnimationOffOn').click(function () {
                 if ($(this).attr('data') == 'off') {
                     $('body').find('canvas').hide();
+                    $('#pageAnimationOffOnIcon').rotate({animateTo:-360});
                     $(this).text("打开页面特效").attr('data', 'on');
                 } else {
                     $('body').find('canvas').show();
+                    $('#pageAnimationOffOnIcon').rotate({animateTo:360});
                     $(this).text("关闭页面特效").attr('data', 'off');
                 }
             });
