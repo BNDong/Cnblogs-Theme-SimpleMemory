@@ -4158,7 +4158,7 @@ a#green_channel_wechat {
         width: 31px !important;
     }
 
-    #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer {
+    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer {
         display: none !important;
     }
 
