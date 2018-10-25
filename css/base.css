@@ -4098,10 +4098,6 @@ a#green_channel_wechat {
     #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer {
         display: none !important;
     }
-
-    #myTopCanvas {
-        visibility: hidden;
-    }
 }
 
 /* ==========================================================================
@@ -4119,6 +4115,14 @@ a#green_channel_wechat {
     }
     #home {
         width:auto;
+    }
+
+    #pageAnimationOffOn {
+        display: none;
+    }
+
+    canvas {
+        visibility: hidden;
     }
 }
 
@@ -4184,7 +4188,7 @@ a#green_channel_wechat {
         display: none !important;
     }
 
-    #myTopCanvas {
+    canvas {
         visibility: hidden;
     }
 }
