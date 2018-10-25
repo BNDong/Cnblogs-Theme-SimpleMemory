@@ -4046,10 +4046,10 @@ a#green_channel_wechat {
 }
 
 /* ==========================================================================
-   Media Queries - Smaller than 768px
+   Media Queries - Smaller than 1200px
    ========================================================================== */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1200px) {
 
     .main-header {
         -webkit-box-sizing: border-box;
@@ -4059,6 +4059,11 @@ a#green_channel_wechat {
         height: 60vh;
         max-height: 60vh;
         padding: 15% 0;
+    }
+
+    #home {
+        width:85%;
+        max-width:100vw;
     }
 
     .postTitle a:link, .entrylistPosttitle a:link{
@@ -4099,12 +4104,29 @@ a#green_channel_wechat {
     }
 }
 
+/* ==========================================================================
+   Media Queries - Smaller than 960px
+   ========================================================================== */
+@media only screen and (max-width: 960px) {
+    .main-header {
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        min-height: 240px;
+        height: 50vh;
+        max-height: 50vh;
+        padding: 15% 0;
+    }
+    #home {
+        width:auto;
+    }
+}
 
 /* ==========================================================================
-   Media Queries - Smaller than 500px
+   Media Queries - Smaller than 720px
    ========================================================================== */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 720px) {
 
     .main-header {
         margin-bottom: 15px;
