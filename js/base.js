@@ -345,7 +345,7 @@ function Base() {
             var pageAnimationOffOn = $('#pageAnimationOffOn');
             window.cnblogsConfig.initAnimationOffOn == 'on' ? canvasOn(pageAnimationOffOn) : canvasOff(pageAnimationOffOn);
             pageAnimationOffOn.click(function () {
-                window.cnblogsConfig.initAnimationOffOn == 'on' ? canvasOn($(this)) : canvasOff($(this));
+                $(this).attr('data') == 'on' ? canvasOn($(this)) : canvasOff($(this));
             });
         }
 
