@@ -336,24 +336,31 @@ function Base() {
             || window.cnblogsConfig.isBackgroundAnimation
         ) {
             if ($.inArray(window.cnblogsConfig.initAnimationOffOn, ['off', 'on']) == -1) window.cnblogsConfig.initAnimationOffOn = 'on';
-            var html = '<div id="pageAnimationOffOn" data="'+(window.cnblogsConfig.initAnimationOffOn == 'on' ? 'off' : 'on')+'" style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">';
+            var html = '<div id="pageAnimationOffOn" data="" style="z-index: 999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">';
             html += '<span id="pageAnimationOffOnIcon" class="iconfont icon-shandian" style="display: inline-block;"></span>';
-            html += '<span id="pageAnimationOffOnText">'+(window.cnblogsConfig.initAnimationOffOn == 'on' ? '关闭' : '打开')+'页面特效</span>';
+            html += '<span id="pageAnimationOffOnText"></span>';
             html += '</div>';
             $('body').prepend(html);
-            $('#pageAnimationOffOn').click(function () {
-                if ($(this).attr('data') == 'off') {
-                    $('body').find('canvas').hide();
-                    $('#pageAnimationOffOnIcon').rotate({animateTo:-360});
-                    $('#pageAnimationOffOnText').text("打开页面特效");
-                    $(this).attr('data', 'on');
-                } else {
-                    $('body').find('canvas').show();
-                    $('#pageAnimationOffOnIcon').rotate({animateTo:360});
-                    $('#pageAnimationOffOnText').text("关闭页面特效");
-                    $(this).attr('data', 'off');
-                }
+
+            var pageAnimationOffOn = $('#pageAnimationOffOn');
+            window.cnblogsConfig.initAnimationOffOn == 'on' ? canvasOn(pageAnimationOffOn) : canvasOff(pageAnimationOffOn);
+            pageAnimationOffOn.click(function () {
+                window.cnblogsConfig.initAnimationOffOn == 'on' ? canvasOn($(this)) : canvasOff($(this));
             });
+        }
+
+        function canvasOff(obj) {
+            $('body').find('canvas').hide();
+            $('#pageAnimationOffOnIcon').rotate({animateTo:-360});
+            $('#pageAnimationOffOnText').text("打开页面特效");
+            obj.attr('data', 'on');
+        }
+
+        function canvasOn(obj) {
+            $('body').find('canvas').show();
+            $('#pageAnimationOffOnIcon').rotate({animateTo:360});
+            $('#pageAnimationOffOnText').text("关闭页面特效");
+            obj.attr('data', 'off');
         }
     };
 
