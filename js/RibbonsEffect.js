@@ -210,6 +210,7 @@
                 this._canvas.style["width"] = "100%";
                 this._canvas.style["height"] = "100%";
                 this._canvas.style["z-index"] = "-1";
+                this._canvas.id = "bgCanvas";
                 this._onResize();
 
                 this._context = this._canvas.getContext("2d");

@@ -146,7 +146,7 @@ function Base() {
         function handleVisibilityChange() {
             if (timer) clearTimeout(timer);
             if (document[hidden]) {
-                $('#myTopCanvas').hide();
+                $('#notHomeTopCanvas').hide();
                 timer = setTimeout(function () {
                      document.title = window.cnblogsConfig.webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
                 }, window.cnblogsConfig.webpageTitleOnblurTimeOut);
@@ -155,7 +155,7 @@ function Base() {
                 timer = setTimeout(function () {
                     document.title = RelTitle;
                 }, window.cnblogsConfig.webpageTitleFocusTimeOut);
-                $('#myTopCanvas').fadeIn(4000);
+                $('#notHomeTopCanvas').fadeIn(4000);
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
@@ -317,7 +317,7 @@ function Base() {
 
         if (window.cnblogsConfig.isEssayTopAnimation)
             require(['TweenMax', 'MyTween'], function() {
-            initCanvas('myTopCanvas');
+            initCanvas('notHomeTopCanvas');
             start();
         });
     };

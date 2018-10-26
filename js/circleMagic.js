@@ -24,7 +24,7 @@
       //  create canvas element
 
       initCanvas();
-      canvas = document.getElementById('canvas');
+      canvas = document.getElementById('homeTopCanvas');
       canvas.width = width;
       canvas.height = height;
       canvas.style.position = 'absolute';
@@ -43,7 +43,7 @@
     //Init canvas element
     function initCanvas() {
       var canvasElement = document.createElement('canvas');
-      canvasElement.id = 'canvas';
+      canvasElement.id = 'homeTopCanvas';
       container.appendChild(canvasElement);
       canvasElement.parentElement.style.overflow = 'hidden';
 

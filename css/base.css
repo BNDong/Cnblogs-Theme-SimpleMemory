@@ -4095,7 +4095,7 @@ a#green_channel_wechat {
         line-height: 1.3em;
     }
 
-    #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer {
+    #sideToolbar, #music-box, .scroll-down, #evanyou, #aplayer, #homeTopCanvas, #notHomeTopCanvas {
         display: none !important;
     }
 }
@@ -4121,8 +4121,8 @@ a#green_channel_wechat {
         display: none;
     }
 
-    canvas {
-        visibility: hidden;
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
+        display: none;
     }
 }
 
@@ -4188,7 +4188,7 @@ a#green_channel_wechat {
         display: none !important;
     }
 
-    canvas {
-        visibility: hidden;
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
+        display: none;
     }
 }
