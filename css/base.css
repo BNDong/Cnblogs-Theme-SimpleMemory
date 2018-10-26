@@ -4122,7 +4122,7 @@ a#green_channel_wechat {
     }
 
     #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -4184,11 +4184,9 @@ a#green_channel_wechat {
         width: 31px !important;
     }
 
-    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer {
+    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, #aplayer,
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas
+    {
         display: none !important;
-    }
-
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
-        display: none;
     }
 }
