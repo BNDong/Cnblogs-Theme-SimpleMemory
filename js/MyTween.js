@@ -227,8 +227,10 @@ var mouseX = mouseY = mouseOldX = mouseOldY = 0,
                 var index = Math.round(Math.random() * tris.length);
                 startTri = tris[index];
                 if (typeof(startTri) != "undefined" && typeof(startTri.selectedForTrail) != "undefined") {
-                    startTri.selectedForTrail = true
-                };
+                    startTri.selectedForTrail = true;
+                } else {
+                    return false;
+                }
                 currentTri = {
                     tri: startTri,
                     openDir: "side",
