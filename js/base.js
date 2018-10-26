@@ -146,7 +146,6 @@ function Base() {
         function handleVisibilityChange() {
             if (timer) clearTimeout(timer);
             if (document[hidden]) {
-                $('#notHomeTopCanvas').hide();
                 timer = setTimeout(function () {
                      document.title = window.cnblogsConfig.webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
                 }, window.cnblogsConfig.webpageTitleOnblurTimeOut);
@@ -155,7 +154,6 @@ function Base() {
                 timer = setTimeout(function () {
                     document.title = RelTitle;
                 }, window.cnblogsConfig.webpageTitleFocusTimeOut);
-                $('#notHomeTopCanvas').fadeIn(4000);
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
@@ -337,9 +335,10 @@ function Base() {
             || window.cnblogsConfig.isEssayTopAnimation
             || window.cnblogsConfig.isBackgroundAnimation
         ) {
-            var html = '<div id="pageAnimationOffOn" data="off" style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">';
+            if ($.inArray(window.cnblogsConfig.initAnimationOffOn, ['off', 'on']) == -1) window.cnblogsConfig.initAnimationOffOn = 'on';
+            var html = '<div id="pageAnimationOffOn" data="'+(window.cnblogsConfig.initAnimationOffOn == 'on' ? 'off' : 'on')+'" style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">';
             html += '<span id="pageAnimationOffOnIcon" class="iconfont icon-shandian" style="display: inline-block;"></span>';
-            html += '<span id="pageAnimationOffOnText">关闭页面特效</span>';
+            html += '<span id="pageAnimationOffOnText">'+(window.cnblogsConfig.initAnimationOffOn == 'on' ? '关闭' : '打开')+'页面特效</span>';
             html += '</div>';
             $('body').prepend(html);
             $('#pageAnimationOffOn').click(function () {
