@@ -49,7 +49,7 @@ function Base() {
         $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
 
         // 背景动画
-		if (window.cnblogsConfig.isBackgroundAnimation) require(['RibbonsEffect']);
+		if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
 
         // 页面初始化
         ($('#topics').length > 0) ? bndongJs.notHomeInit() : bndongJs.homeInit();
@@ -179,7 +179,7 @@ function Base() {
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
 
-        if (window.cnblogsConfig.isHomeTopAnimation)
+        if (window.cnblogsConfig.homeTopAnimationRendered)
             require(['circleMagic'], function() {
                 $('.main-header').circleMagic(window.cnblogsConfig.homeTopAnimation);
         });
@@ -313,7 +313,7 @@ function Base() {
         $('#home').css('margin-top', '40vh');
         $('#cb_post_title_url').addClass('post-del-title');
 
-        if (window.cnblogsConfig.isEssayTopAnimation)
+        if (window.cnblogsConfig.essayTopAnimationRendered)
             require(['TweenMax', 'MyTween'], function() {
             initCanvas('notHomeTopCanvas');
             start();
@@ -331,9 +331,9 @@ function Base() {
      * 页面特效控制
      */
     this.setPageAnimationControl = function () {
-        if (window.cnblogsConfig.isHomeTopAnimation
-            || window.cnblogsConfig.isEssayTopAnimation
-            || window.cnblogsConfig.isBackgroundAnimation
+        if (window.cnblogsConfig.homeTopAnimationRendered
+            || window.cnblogsConfig.essayTopAnimationRendered
+            || window.cnblogsConfig.bgAnimationRendered
         ) {
             var html = '<div id="pageAnimationOffOn" data="off" style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">';
             html += '<span id="pageAnimationOffOnIcon" class="iconfont icon-shandian" style="display: inline-block;"></span>';
@@ -573,22 +573,20 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
-        pvHtml += '<span id="amazingStatSpan"></span>';
-        pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">❤️</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
+        // var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
+        var pvHtml = '<span id="amazingStatSpan"></span>';
+        pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
         pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
         pvHtml += '<div id="blogrollInfo"></div>';
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml).prepend('<div class="footer-image"></div>');
 
-        if (window.location.href.search("www.cnblogs.com/bndong") == -1 ) {
-            setTheme();
-        }
+        if (window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
 
         window.setInterval( setRunTime, 500 );
         setBlogroll();
         timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
-        timeIds.setAmazingTId = window.setInterval( setAmazing, 1000 );
+        // timeIds.setAmazingTId = window.setInterval( setAmazing, 1000 );
 
         function setRunTime() {
             var str = window.cnblogsConfig.blogStartDate;
@@ -636,7 +634,7 @@ function Base() {
             $('#footer').prepend('<div class="footer-image"></div>');
             setInterval(function(){
                 var footer = $('#footer');
-                var themeHtml = '<p id="ThemeAuthors" style="color: #444;z-index: 999;">- Theme Authors：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#444;">BNDong</a> -</p></div>';
+                var themeHtml = '<p id="ThemeAuthors" style="color: #444;z-index: 999;">- Theme Author：<a href="https://www.cnblogs.com/bndong/" target="_blank" style="color:#444;">BNDong</a> -</p></div>';
                 if ($('#ThemeAuthors').length == 0) {
                     $('#footer').append(themeHtml);
                 } else {

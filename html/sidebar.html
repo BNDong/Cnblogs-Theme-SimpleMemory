@@ -88,13 +88,17 @@
      **/
 
     /**
-     * 博客全局配置，请仔细配置，不了解的不要乱设置，不了解的不要乱设置，不了解的不要乱设置，默认就行！！
-     * PS: 加了个全局配置感觉耦合更严重了ヽ(￣▽￣)ﾉ，不管了，用的爽就行！！
+     * 博客全局配置，请仔细配置！！
      */
     window.cnblogsConfig = {
 
+        // ---- GitHub文件源配置 ----
+        GhUserName: 'BNDong', // GitHub用户名(不是昵称)，注意大小写
+        GhRepositories: 'Cnblogs-Theme-SimpleMemory', // GitHub主题仓库名称
+        GhVersions : 'c8997b88b35962810c2fc47774afca6222c46ec4', // GitHub提交版本哈希值，根据版本加载代码，我有时候会提交代码进行调试，大家最好加载我仓库代码此处的版本 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
+
         // ---- 基础信息配置 ----
-        blogUser      : "BNDong", // 博主名称
+        blogUser      : "BNDong", // 博主名称，文章后缀和主页图片上都会使用此名称
         blogAvatar    : "https://pic.cnblogs.com/avatar/1065454/20161119225202.png", // 用户头像URL
         blogStartDate : "2016-11-17", // 入园时间，年-月-日，入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
 
@@ -138,7 +142,7 @@
 
 
         // ---- 页面动效配置 ----
-        isHomeTopAnimation: true, // true || false ,是否显示主页头图动效
+        homeTopAnimationRendered: true, // true || false ,是否渲染主页头图动效
         homeTopAnimation: { // 主页头图动效设置
             radius: 15,
             density: 0.2,
@@ -146,7 +150,7 @@
             clearOffset: 0.3
         },
 
-        isEssayTopAnimation: true, // true || false ,是否显示随笔页头图动效
+        essayTopAnimationRendered: true, // true || false ,是否渲染随笔页头图动效
         essayTopAnimation: { // 随笔页头图动效设置
             triW : 14,
             triH : 20,
@@ -165,7 +169,7 @@
             ]
         },
 
-        isBackgroundAnimation: true, // true || false ,是否显示背景动效
+        bgAnimationRendered: true, // true || false ,是否渲染背景动效
         backgroundAnimation : { // 背景动效设置
             colorSaturation: "60%",
             colorBrightness: "50%",
@@ -200,20 +204,11 @@
             ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
         ],
         bottomText: {  // 页脚标语
+            icon: "❤️", // 图标
             left : "事实并非理所当然", // 图标左侧文字
             right: "世界总是欲盖弥彰"  // 图标右侧文字
-        }
-
-    };
-
-    /**
-     * 资源文件配置
-     * source:"github" versions 处为GitHub提交版本哈希值 根据版本加载代码 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-     * source:"cnblogs" 从博客园文件加载代码，可以不配置版本号，本人博客园文件不会更新了（操作实在太麻烦了），如有需求可以从github上挡下来最新代码，保存到自己的博客园文件中进行加载
-     */
-    var staticFileSetting = {
-        source   : 'github',
-        versions : 'c8997b88b35962810c2fc47774afca6222c46ec4', // 版本号
+        },
+        themeAuthor: true, // 是否显示主题作者（原谅我的臭屁，O(∩_∩)O哈哈~）
     };
 
     // start cache
@@ -228,92 +223,37 @@
         pageLoading.spinner.init(pageLoading.spring, true);
 
         $.getScript(getJsDelivrUrl('require.min.js'), function () {
-
             $.getScript(getJsDelivrUrl('config.js'), function () {
 
                 var staticResource = [
-                    'optiscroll',
-                    'ToProgress',
-                    'rotate',
-                    'snapSvg',
-                    'classie',
-                    'main4',
-                    'tools',
-                ];
+                    'optiscroll', 'ToProgress', 'rotate',
+                    'snapSvg', 'classie', 'main4', 'tools'];
                 require(staticResource, function() {
-
                     require(['base'], function() {
-
-                        var base = new Base;
-                        base.init();
+                        (new Base).init();
                     });
                 });
-
             });
-
         });
     });
 
-    /**
-     * 文件地址
-     * @param file
-     * @param directory 文件目录名称
-     * @returns {string}
-     */
+
+    // get file url
     function getJsDelivrUrl(file, directory) {
         file = setFileNameMin(file, directory);
-
-        switch (staticFileSetting.source) {
-
-            case 'github': // 注意：此处为GitHub加载源，如果需要加载自己分支的代码，修改此处URL，URL规则详见：https://www.jsdelivr.com/
-                return 'https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@'+staticFileSetting.versions+'/' + (file ? file : '');
-                break;
-
-            case 'cnblogs': // 注意：此处为博客园加载源，加载本人博客文件为老版本。本人博客园文件停止更新，如果需要可以修改至自己博客园文件
-                return 'https://blog-static.cnblogs.com/files/bndong/'+file;
-                break;
-
-            default:
-                return '';break;
-        }
+        return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
     }
 
-    /**
-     * 文件名
-     * @param file
-     * @param directory 文件目录名称
-     * @returns {*}
-     */
+    // optimization file name
     function setFileNameMin(file, directory) {
         if (typeof file == 'undefined') return '';
-
         var suffix  = null;
         var fileArr = file.split('.');
-
-        if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1) {
-            suffix    = fileArr.pop();
-            directory = suffix;
-        }
-
-        switch (staticFileSetting.source) {
-
-            case 'github':
-
-                if (typeof file !== 'undefined' && file.search('.min') == -1) fileArr.push('min');
-
-                if (suffix != null) fileArr.push(suffix);
-
-                return (typeof directory !== 'undefined' ? (directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
-                break;
-
-            case 'cnblogs':
-                if (suffix != null) fileArr.push(suffix);
-                return fileArr.join('.');
-                break;
-
-            default:
-                return file;break;
-        }
+        if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1)
+            {suffix    = fileArr.pop();directory = suffix;}
+        if (typeof file !== 'undefined' && file.search('.min') == -1) fileArr.push('min');
+        if (suffix != null) fileArr.push(suffix);
+        return (typeof directory !== 'undefined' ? (directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
     }
 </script>
 <!-- global var end -->
