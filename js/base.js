@@ -581,7 +581,7 @@ function Base() {
         pvHtml += '<div id="cnzzInfo"></div>';
         $('#footer').append(pvHtml).prepend('<div class="footer-image"></div>');
 
-        if (window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
+        if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
 
         window.setInterval( setRunTime, 500 );
         setBlogroll();
