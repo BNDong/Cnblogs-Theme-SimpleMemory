@@ -3745,7 +3745,7 @@ span.cnblogs_code {
 }
 
 .cnblogs_code_copy a {
-    background: url(https://files.cnblogs.com/files/bndong/copy_16px.gif) top left;
+    /*background: url(https://files.cnblogs.com/files/bndong/copy_16px.gif) top left;*/
     background-repeat: no-repeat;
     display: inline-block;
     padding: 0;
@@ -3755,11 +3755,16 @@ span.cnblogs_code {
     position: absolute;
     right: 19px;
     top: 19px;
-    opacity: 0.3;
+    /*opacity: 0.3;*/
 }
 
 .code_img_closed , .code_img_opened{
     cursor: pointer;
+}
+
+.cnblogs_code_toolbar a:hover,.cnblogs_code_toolbar a:link,.cnblogs_code_toolbar a:visited,.cnblogs_code_toolbar a:active,.cnblogs_code_toolbar a:link img,.cnblogs_code_toolbar a:visited img {
+    background-color: transparent!important;
+    border: none!important;
 }
 
 /* ==========================================================================

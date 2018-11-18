@@ -363,16 +363,32 @@ function Base() {
     this.setCodeHighlighting = function () {
         switch (window.cnblogsConfig.essayCodeHighlighting) {
             case 'prettify':
-                before(); require(['codePrettify'], function() { after() });break;
+                before(); require(['codePrettify'], function() {
+                    after();
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #222;"></i>');
+                });break;
             case 'desert':
-                before(); require(['codeDesert'], function() { after() });break;
+                before(); require(['codeDesert'], function() {
+                    after();
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+            });break;
             case 'sunburst':
-                before(); require(['codeSunburst'], function() { after() });break;
+                before(); require(['codeSunburst'], function() {
+                    after();
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+            });break;
             case 'obsidian':
-                before(); require(['codeObsidian'], function() { after() });break;
+                before(); require(['codeObsidian'], function() {
+                    after();
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+                });break;
             case 'doxy':
-                before(); require(['codeDoxy'], function() { after() });break;
+                before(); require(['codeDoxy'], function() {
+                    after();
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+                });break;
             default:
+                $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #222;"></i>');
                 $('.cnblogs_code span').css('background-color', '#f9f9f9');
                 $('.cnblogs_code pre').css('background-color', '#f9f9f9');
                 break;
