@@ -397,6 +397,7 @@ function Base() {
             });
         }
         function after() {
+            console.log('code after test');
             $('.cnblogs_code span').css('background', 'transparent');
             $('.cnblogs_code').css({
                 'padding': '0',
