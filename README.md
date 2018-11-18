@@ -81,14 +81,12 @@
 ### 主题：
 将插件的几个主题全部整合了进来，做了稍微调整，以兼容博客园。官方参考网站：[themes gallery](https://rawgit.com/google/code-prettify/master/styles/index.html)
 主题的配置项为：essayCodeHighlighting
-| 配置 | 说明 |
-| ------ | ------ |
-| cnblogs | 博客园默认主题 |
-| prettify | prettify 主题 Default|
-| desert | prettify 主题 Desert |
-| sunburst | prettify 主题 Sunburst |
-| obsidian | prettify 主题 Sons-Of-Obsidian |
-| doxy | prettify 主题 Doxy |
+* nblogs: 博客园默认主题 
+* prettify: prettify 主题 Default
+* desert: prettify 主题 Desert
+* sunburst: prettify 主题 Sunburst
+* obsidian: prettify 主题 Sons-Of-Obsidian
+* doxy: prettify 主题 Doxy
 ## 播放器
 播放器的设置，可以参考作者的[GitHub](https://github.com/metowolf/Meting)
 ## Loading
