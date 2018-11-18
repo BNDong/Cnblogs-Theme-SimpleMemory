@@ -363,26 +363,38 @@ function Base() {
     this.setCodeHighlighting = function () {
         switch (window.cnblogsConfig.essayCodeHighlighting) {
             case 'prettify':
+                setClass();
                 require(['codePrettify'], function() {
 
                 });break;
             case 'desert':
+                setClass();
                 require(['codeDesert'], function() {
 
                 });break;
             case 'sunburst':
+                setClass();
                 require(['codeSunburst'], function() {
 
                 });break;
             case 'obsidian':
+                setClass();
                 require(['codeObsidian'], function() {
 
                 });break;
             case 'doxy':
+                setClass();
                 require(['codeDoxy'], function() {
 
                 });break;
             default: break;
+        }
+        function setClass() {
+            var pre = $('pre');
+            $.each(pre, function (i) {
+                var obj = $(pre[i]), codetext = obj.text();
+                obj.html('').text(codetext).addClass('prettyprint');
+            });
         }
     };
 
