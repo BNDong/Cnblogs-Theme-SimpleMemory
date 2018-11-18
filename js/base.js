@@ -363,27 +363,33 @@ function Base() {
     this.setCodeHighlighting = function () {
         switch (window.cnblogsConfig.essayCodeHighlighting) {
             case 'prettify':
-                before(); require(['codePrettify'], function() {
+                before();
+                require(['codePrettify'], function() {
                     after();
+                    $('.cnblogs_code pre').css('background-color', '#f9f9f9');
                     $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #222;"></i>');
                 });break;
             case 'desert':
-                before(); require(['codeDesert'], function() {
+                before();
+                require(['codeDesert'], function() {
                     after();
                     $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
-            });break;
+                });break;
             case 'sunburst':
-                before(); require(['codeSunburst'], function() {
+                before();
+                require(['codeSunburst'], function() {
                     after();
                     $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
-            });break;
+                });break;
             case 'obsidian':
-                before(); require(['codeObsidian'], function() {
+                before();
+                require(['codeObsidian'], function() {
                     after();
                     $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
                 });break;
             case 'doxy':
-                before(); require(['codeDoxy'], function() {
+                before();
+                require(['codeDoxy'], function() {
                     after();
                     $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
                 });break;
@@ -403,9 +409,8 @@ function Base() {
         function after() {
             $('.cnblogs_code').css({
                 'padding': '0',
-                'width': '100%',
+                'width': '96%',
                 'background': 'transparent',
-                'box-shadow': 'none'
             });
             $('.cnblogs_code_toolbar').css({
                 'padding': '0',
