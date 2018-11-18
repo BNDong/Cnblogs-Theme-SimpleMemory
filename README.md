@@ -82,7 +82,7 @@
 ### 高亮主题：
 将插件的几个主题全部整合了进来，做了稍微调整，以兼容博客园。官方参考网站：[themes gallery](https://rawgit.com/google/code-prettify/master/styles/index.html)
 <br>主题的配置项为：essayCodeHighlighting
-* nblogs：博客园默认主题 
+* cnblogs：博客园默认主题 
 * prettify：prettify 主题 Default
 * desert：prettify 主题 Desert
 * sunburst：prettify 主题 Sunburst
