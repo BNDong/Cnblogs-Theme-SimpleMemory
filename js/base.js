@@ -363,37 +363,55 @@ function Base() {
     this.setCodeHighlighting = function () {
         switch (window.cnblogsConfig.essayCodeHighlighting) {
             case 'prettify':
-                setClass();
+                before();
                 require(['codePrettify'], function() {
-
+                    after()
                 });break;
             case 'desert':
-                setClass();
+                before();
                 require(['codeDesert'], function() {
-
+                    after()
                 });break;
             case 'sunburst':
-                setClass();
+                before();
                 require(['codeSunburst'], function() {
-
+                    after()
                 });break;
             case 'obsidian':
-                setClass();
+                before();
                 require(['codeObsidian'], function() {
-
+                    after()
                 });break;
             case 'doxy':
-                setClass();
+                before();
                 require(['codeDoxy'], function() {
-
+                    after()
                 });break;
             default: break;
         }
-        function setClass() {
+        function before() {
             var pre = $('pre');
             $.each(pre, function (i) {
                 var obj = $(pre[i]), codetext = obj.text();
                 obj.html('').text(codetext).addClass('prettyprint');
+            });
+        }
+        function after() {
+            $('.cnblogs_code span').css('background', 'transparent');
+            $('.cnblogs_code').css({
+                'padding': '0',
+                'width': '100%',
+                'background': 'transparent',
+                'box-shadow': 'none'
+            });
+            $('.cnblogs_code_toolbar').css({
+                'padding': '0',
+                'margin': '0'
+            });
+            $('pre').css({
+                'border-radius': '3px',
+                'padding': '10px',
+                'border': '0'
             });
         }
     };
