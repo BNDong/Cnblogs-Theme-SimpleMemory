@@ -74,6 +74,7 @@
 ```
 ## 代码高亮
 整合了 google 的 [code-prettify](https://github.com/google/code-prettify) 代码高亮插件。
+大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
 ### 关于主题使用的 code-prettify：
 1. 版本：453bd5f51e61245339b738b1bbdd42d7848722ba
 2. 因为国内原因，修改了源码中加载 CDN 的网站『cdn.rawgit.com』--->『cdn.jsdelivr.net』
@@ -87,6 +88,14 @@
 * sunburst：prettify 主题 Sunburst
 * obsidian：prettify 主题 Sons-Of-Obsidian
 * doxy：prettify 主题 Doxy
+## 网站统计
+本代码整合 CNZZ 代码统计，并对样式进行了优化。如果需要本功能，请首先去 CNZZ 配置网站的统计，然后修改下面的代码，添加至页脚Html代码。
+```
+<div id="cnzzProtocol"  style="display: none;">
+    <span class="id_cnzz_stat_icon" id='cnzz_stat_icon_你的统计ID'></span>
+    <script src='https://s19.cnzz.com/z_stat.php?id=你的统计ID&online=1&show=line' type='text/javascript'></script>
+</div>
+```
 ## 播放器
 播放器的设置，可以参考作者的 [GitHub](https://github.com/metowolf/Meting)
 ## Loading
