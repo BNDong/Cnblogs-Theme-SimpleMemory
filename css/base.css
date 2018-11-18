@@ -3444,7 +3444,7 @@ button {
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    width: 100%!important;
+    width: 96%!important;
     max-width: 96%!important;
     background-color: #fff;
     border: 1px solid #dfe3ec;
