@@ -3710,14 +3710,14 @@ span.cnblogs_code {
     white-space: pre-wrap;
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
-    background-color: #f9f9f9;
+    /*background-color: #f9f9f9;*/
 }
 
 .cnblogs_code span {
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-size: 14px !important;
     font-weight: 400;
-    background-color: #f9f9f9;
+    /*background-color: #f9f9f9;*/
 }
 
 .cnblogs_code div {

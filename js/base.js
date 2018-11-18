@@ -387,7 +387,10 @@ function Base() {
                 require(['codeDoxy'], function() {
                     after()
                 });break;
-            default: break;
+            default:
+                $('.cnblogs_code span').css('background-color', '#f9f9f9');
+                $('.cnblogs_code pre').css('background-color', '#f9f9f9');
+                break;
         }
         function before() {
             var pre = $('pre');
@@ -397,8 +400,6 @@ function Base() {
             });
         }
         function after() {
-            console.log('code after test');
-            $('.cnblogs_code span').css('background', 'transparent');
             $('.cnblogs_code').css({
                 'padding': '0',
                 'width': '100%',
@@ -409,7 +410,7 @@ function Base() {
                 'padding': '0',
                 'margin': '0'
             });
-            $('pre').css({
+            $('.cnblogs_code pre').css({
                 'border-radius': '3px',
                 'padding': '10px',
                 'border': '0'
