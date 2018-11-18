@@ -80,17 +80,17 @@
 3. 去除了源码中默认样式的加载。
 ### 主题：
 将插件的几个主题全部整合了进来，做了稍微调整，以兼容博客园。官方参考网站：[themes gallery](https://rawgit.com/google/code-prettify/master/styles/index.html)
-主题的配置项为：essayCodeHighlighting
-* nblogs: 博客园默认主题 
-* prettify: prettify 主题 Default
-* desert: prettify 主题 Desert
-* sunburst: prettify 主题 Sunburst
-* obsidian: prettify 主题 Sons-Of-Obsidian
-* doxy: prettify 主题 Doxy
+<br>主题的配置项为：essayCodeHighlighting
+* nblogs：博客园默认主题 
+* prettify：prettify 主题 Default
+* desert：prettify 主题 Desert
+* sunburst：prettify 主题 Sunburst
+* obsidian：prettify 主题 Sons-Of-Obsidian
+* doxy：prettify 主题 Doxy
 ## 播放器
-播放器的设置，可以参考作者的[GitHub](https://github.com/metowolf/Meting)
+播放器的设置，可以参考作者的 [GitHub](https://github.com/metowolf/Meting)
 ## Loading
-Loading的设置，可以参考作者的[GitHub](https://github.com/claudiocalautti/spring-loaders)
+Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocalautti/spring-loaders)
 # 常见问题
 ## 菜单数据不显示
 这个是大家遇到最多的问题，请以下面的方式进行处理。
