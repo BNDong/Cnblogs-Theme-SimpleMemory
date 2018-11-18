@@ -3629,10 +3629,12 @@ button {
 .header__span h1 .dev__developer {
     top: -20px;
     left: 94px;
+    min-height: 34px;
 }
 .header__span h2 .dev__developer {
     top: -17px;
     left: 94px;
+    min-height: 24px;
 }
 /* ---------------------------------------- */
 .dev__fe, .dev__ux, .dev__fe i, .dev__ux i, .dev__developer, .dev__slash {
