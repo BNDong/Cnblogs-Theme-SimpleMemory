@@ -28,6 +28,12 @@ require.config({
         marvin: setFileNameMin('marvin.nav2', 'js'),
         //-- 文章后缀
         articleStatement: setFileNameMin('articleStatement', 'js'),
+        //-- 代码高亮
+        codePrettify: setFileNameMin('run_prettify', 'js'),
+        codeDesert: setFileNameMin('run_prettify', 'js'),
+        codeSunburst: setFileNameMin('run_prettify', 'js'),
+        codeObsidian: setFileNameMin('run_prettify', 'js'),
+        codeDoxy: setFileNameMin('run_prettify', 'js'),
         //-- 主页头图动画
         circleMagic: setFileNameMin('circleMagic', 'js'),
         //-- 非主页头图动画
@@ -53,6 +59,21 @@ require.config({
         baguetteBox: {
             exports: 'baguetteBox',
             deps: ['css!'+getJsDelivrUrl('baguetteBox.min.css'), 'css!'+getJsDelivrUrl('gallery-clean.css')]
+        },
+        codePrettify: {
+            deps: ['css!'+getJsDelivrUrl('codePrettify.css')]
+        },
+        codeDesert: {
+            deps: ['css!'+getJsDelivrUrl('codeDesert.css')]
+        },
+        codeSunburst: {
+            deps: ['css!'+getJsDelivrUrl('codeSunburst.css')]
+        },
+        codeObsidian: {
+            deps: ['css!'+getJsDelivrUrl('codeObsidian.css')]
+        },
+        codeDoxy: {
+            deps: ['css!'+getJsDelivrUrl('codeDoxy.css')]
         },
         marvin: {
             deps: ['title', 'bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]

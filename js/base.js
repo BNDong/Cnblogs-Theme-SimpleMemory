@@ -224,6 +224,7 @@ function Base() {
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
         bndongJs.setNotHomeTopImg();
+        bndongJs.setCodeHighlighting();
         bndongJs.setCommentStyle();
     };
 
@@ -353,6 +354,35 @@ function Base() {
                     $(this).attr('data', 'off');
                 }
             });
+        }
+    };
+
+    /**
+     * 设置代码高亮
+     */
+    this.setCodeHighlighting = function () {
+        switch (window.cnblogsConfig.essayCodeHighlighting) {
+            case 'prettify':
+                require(['codePrettify'], function() {
+
+                });break;
+            case 'desert':
+                require(['codeDesert'], function() {
+
+                });break;
+            case 'sunburst':
+                require(['codeSunburst'], function() {
+
+                });break;
+            case 'obsidian':
+                require(['codeObsidian'], function() {
+
+                });break;
+            case 'doxy':
+                require(['codeDoxy'], function() {
+
+                });break;
+            default: break;
         }
     };
 
