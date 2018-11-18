@@ -78,7 +78,7 @@
 1. 版本：453bd5f51e61245339b738b1bbdd42d7848722ba
 2. 因为国内原因，修改了源码中加载 CDN 的网站『cdn.rawgit.com』--->『cdn.jsdelivr.net』
 3. 去除了源码中默认样式的加载。
-### 主题：
+### 高亮主题：
 将插件的几个主题全部整合了进来，做了稍微调整，以兼容博客园。官方参考网站：[themes gallery](https://rawgit.com/google/code-prettify/master/styles/index.html)
 <br>主题的配置项为：essayCodeHighlighting
 * nblogs：博客园默认主题 
