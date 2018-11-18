@@ -3444,17 +3444,17 @@ button {
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100%!important;
+    max-width: 96%!important;
     background-color: #fff;
     border: 1px solid #dfe3ec;
     font-size: 14px;
     color: #222;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     border-right: 0;
     border-bottom: 0;
-    border-collapse: initial !important;
+    border-collapse: initial!important;
     margin-bottom: 10px;
 }
 
