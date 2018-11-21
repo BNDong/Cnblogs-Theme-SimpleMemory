@@ -415,9 +415,11 @@ function Base() {
         function after() {
             $('.cnblogs_code_collapse').css('background', 'transparent');
             $('.cnblogs_code').css({
+                'padding': '0',
                 'width': '96%',
                 'background': 'transparent',
-                'box-shadow': 'none'
+                'box-shadow': 'none',
+                'z-index': '10'
             });
             $('.cnblogs_code_toolbar').css({
                 'padding': '0',
