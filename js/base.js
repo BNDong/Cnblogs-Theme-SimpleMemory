@@ -6,13 +6,13 @@
  **/
 function Base() {
 
-    var bndongJs     = this
-        ,tools       = new myTools
-        ,progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar') // 进度条
-        ,temScroll   = 0  // 上一次页面滚动位置
+    var bndongJs    = this,
+        tools       = new myTools,
+        progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'), // 进度条
+        temScroll   = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
-        ,timeIds    = {
+        timeIds    = {
             setMenuDataTId         : null, // 菜单设置数据定时器ID
             setHomeRightMenuTId    : null, // 主页右下角菜单设置定时器ID
             setNotHomeRightMenuTId : null, // 非主页右下角菜单设置定时器ID
@@ -94,8 +94,8 @@ function Base() {
         tools.consoleText([], 'banner');
 
         (function () {
-            var re = /x/;
-            var i = 0;
+            var re = /x/
+                ,i = 0;
             console.log(re);
 
             re.toString = function () {
@@ -127,8 +127,8 @@ function Base() {
      * HTML-TITLE
      */
     this.htmlTitle = function() {
-        var RelTitle = document.title;
-        var hidden,
+        var RelTitle = document.title,
+            hidden,
             visibilityChange,
             timer;
         
@@ -167,8 +167,10 @@ function Base() {
     this.homeInit = function() {
 
         // 设置主页图片
-        $('.main-header').css('background', '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat').css('background-size', 'cover');
-
+        $('.main-header').css({
+            'background': '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat',
+            'background-size': 'cover'
+        });
 
         // 头图点击滚动到内容位置
         $('.scroll-down').click(function () { var endScroll = $('#home').offset().top + 10; tools.actScroll(endScroll, 1000);});
@@ -200,8 +202,8 @@ function Base() {
         require(['baguetteBox', 'marvin', 'articleStatement'], function(baguetteBox) {
 
             // 设置图片点击查看
-            var cpb     = $('#cnblogs_post_body');
-            var imgList = $('#cnblogs_post_body img');
+            var cpb     = $('#cnblogs_post_body')
+                ,imgList = $('#cnblogs_post_body img');
 
             if (cpb.length > 0 && imgList.length > 0) {
                 $.each(imgList, function (i) {
@@ -306,9 +308,11 @@ function Base() {
      * 设置非主页头图
      */
     this.setNotHomeTopImg = function() {
-        $('.main-header').css('height', '40vh')
-            .css('background', '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat')
-            .css('background-size', 'cover');
+        $('.main-header').css({
+            'height': '40vh',
+            'background': '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat',
+            'background-size': 'cover'
+        });
         $('#homeTopTitle').hide();
         $('.scroll-down').hide();
         $('#home').css('margin-top', '40vh');
@@ -367,34 +371,34 @@ function Base() {
                 require(['codePrettify'], function() {
                     after();
                     $('.cnblogs_code pre').css('background-color', '#f9f9f9');
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #222;"></i>');
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #999;"></i>');
                 });break;
             case 'desert':
                 before();
                 require(['codeDesert'], function() {
                     after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
                 });break;
             case 'sunburst':
                 before();
                 require(['codeSunburst'], function() {
                     after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
                 });break;
             case 'obsidian':
                 before();
                 require(['codeObsidian'], function() {
                     after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
                 });break;
             case 'doxy':
                 before();
                 require(['codeDoxy'], function() {
                     after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #fff;"></i>');
+                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
                 });break;
             default:
-                $('.cnblogs_code_copy a').html('<i class="iconfont icon-codebraces" style="color: #222;"></i>');
+                $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #999;"></i>');
                 $('.cnblogs_code span').css('background-color', '#f9f9f9');
                 $('.cnblogs_code pre').css('background-color', '#f9f9f9');
                 break;
@@ -402,7 +406,9 @@ function Base() {
         function before() {
             var pre = $('pre');
             $.each(pre, function (i) {
-                var obj = $(pre[i]), codetext = obj.text();
+                var obj = $(pre[i]);
+                obj.find('br').after('&#10;');
+                var codetext = obj.text();
                 obj.html('').text(codetext).addClass('prettyprint');
             });
         }

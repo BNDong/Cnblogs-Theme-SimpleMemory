@@ -209,7 +209,7 @@
             left : "事实并非理所当然", // 图标左侧文字
             right: "世界总是欲盖弥彰"  // 图标右侧文字
         },
-        themeAuthor: true, // 是否显示主题作者（原谅我的臭屁，O(∩_∩)O哈哈~）
+        themeAuthor: true // 是否显示主题作者（原谅我的臭屁，O(∩_∩)O哈哈~）
     };
 
     // start cache
@@ -248,12 +248,11 @@
     // optimization file name
     function setFileNameMin(file, directory) {
         if (typeof file == 'undefined') return '';
-        var suffix  = null;
-        var fileArr = file.split('.');
+        var suffix  = null,fileArr = file.split('.');
         if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1)
-            {suffix    = fileArr.pop();directory = suffix;}
-        if (typeof file !== 'undefined' && file.search('.min') == -1) fileArr.push('min');
-        if (suffix != null) fileArr.push(suffix);
+            {suffix    = fileArr.pop(); directory = suffix;}
+        file.search('.min') == -1 && fileArr.push('min');
+        suffix != null && fileArr.push(suffix);
         return (typeof directory !== 'undefined' ? (directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
     }
 </script>
