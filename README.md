@@ -89,7 +89,7 @@
 * obsidian：prettify 主题 Sons-Of-Obsidian
 * doxy：prettify 主题 Doxy
 ## 网站统计
-本代码整合 CNZZ 代码统计，并对样式进行了优化。如果需要本功能，请首先去 CNZZ 配置网站的统计，然后修改下面的代码，添加至页脚Html代码。
+本主题整合 CNZZ 网站统计，并对样式进行了优化。如果需要本功能，请首先去 CNZZ 配置网站的统计，然后修改下面的代码，添加至页脚Html代码中。
 ```
 <div id="cnzzProtocol"  style="display: none;">
     <span class="id_cnzz_stat_icon" id='cnzz_stat_icon_你的统计ID'></span>
@@ -120,12 +120,14 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
 <br>这时你会发现在页面右下方，默认样式的侧边数据栏显示了出来，找一找有没有菜单没显示那栏数据。
 * 如果这里没有，那么抱歉！不是我的问题，我是从这里抓的数据，检查下自己的设置问题。
 * 如果这里有，(；´д｀)ゞ，我代码出BUG了，私我解决吧！（勤奋的好人都自己解决了，然后提交代码给我）
+## Markdown排版错乱
+我测试时候发现：博客园的Markdown排版有点问题，特别涉及到列表，`<li>`标签的生产会将下面的元素也包裹起来。这个等官方修复吧！
 # 未来更新计划
 - [X] ~~随笔页面整体协调性调整。~~
 - [X] ~~美化代码高亮。~~
 - [X] ~~增加配置项，尽可能使每个位置都可以定义。~~
 - [X] ~~优化菜单数据设置的处理逻辑。~~
-- [ ] 美化Markdown。
+- [X] ~~美化Markdown。~~
 # 感谢网友
 * [Alexander](https://github.com/alessandrocyc)
 * [ElderJames](https://github.com/ElderJames)

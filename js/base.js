@@ -425,7 +425,7 @@ function Base() {
                 'padding': '0',
                 'margin': '0'
             });
-            $('.cnblogs_code pre').css({
+            $('#cnblogs_post_body pre').css({
                 'border-radius': '3px',
                 'padding': '10px',
                 'border': '0'

@@ -3307,7 +3307,7 @@ button {
     margin-top: 30px;
 }
 
-#cnblogs_post_body h6 {
+#cnblogs_post_body h6, blockquote {
     line-height: 20px;
     margin: 0 0 24px 0;
     padding: 1.3em;
@@ -3316,6 +3316,16 @@ button {
     font-size: 13px;
     border-left: 4px solid #ddd;
     font-weight: 400;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    min-height: 0;
+}
+
+blockquote p {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
 }
 
 #cnblogs_post_body h2 {
@@ -3496,7 +3506,7 @@ button {
     padding: 0 20px;
 }
 
-#cnblogs_post_body p {
+#cnblogs_post_body > p {
     margin: 10px auto;
     text-indent: 30px;
 }
@@ -3689,6 +3699,8 @@ span.cnblogs_code {
     color: #D83B64;
     background-color: #f9f2f4;
     border-radius: 3px;
+    position: relative;
+    bottom: 1px;
 }
 .cnblogs_code {
     line-height: 20px;
@@ -3767,6 +3779,17 @@ span.cnblogs_code {
 .cnblogs_code_toolbar a:hover,.cnblogs_code_toolbar a:link,.cnblogs_code_toolbar a:visited,.cnblogs_code_toolbar a:active,.cnblogs_code_toolbar a:link img,.cnblogs_code_toolbar a:visited img {
     background-color: transparent!important;
     border: none!important;
+}
+
+.cnblogs-markdown code, .cnblogs-post-body code {
+    padding: 2px 4px !important;
+    color: #d83b64;
+    background-color: #f9f2f4 !important;
+    border-radius: 3px !important;
+    border: 0 !important;
+    text-indent: 0!important;
+    position: relative;
+    bottom: 1px;
 }
 
 /* ==========================================================================
