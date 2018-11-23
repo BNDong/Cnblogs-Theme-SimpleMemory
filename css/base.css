@@ -2964,11 +2964,11 @@ button {
 }
 
 .postBody blockquote {
-    background: url('images/comment.gif')) no-repeat 25px 0px;
-    min-height: 35px;
-    _height: 35px;
-    line-height: 1.6em;
-    color: #333;
+    /*background: url('images/comment.gif')) no-repeat 25px 0px;*/
+    /*min-height: 35px;*/
+    /*_height: 35px;*/
+    /*line-height: 1.6em;*/
+    /*color: #333;*/
 }
 /*****第四部分结束*******************************/
 
@@ -3323,9 +3323,9 @@ button {
 }
 
 blockquote p {
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
-    text-indent: 0;
+    text-indent: 0 !important;
 }
 
 #cnblogs_post_body h2 {
