@@ -76,7 +76,7 @@
 本主题整合了两个代码高亮插件分别是：
 * [code-prettify](https://github.com/google/code-prettify) 
 * [highlightjs](https://highlightjs.org/) 
-<br>大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
+>大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
 ### 关于主题使用的插件说明
 #### highlightjs
 * 版本：v9.13.1
@@ -90,7 +90,7 @@
 
 |value        |description|
 |:------------|:----------|
-|cnblogs      |使用博客园样式，介意加载速度的可以使用此样式。|
+|cnblogs      |使用博客园样式，介意加载速度的可以使用此配置。|
 |highlightjs  |使用 **highlightjs** 对代码进行渲染。|
 |prettify     |使用 **code-prettify** 对代码进行渲染。|
 #### 配置代码高亮主题
@@ -158,12 +158,6 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
 * 如果这里有，(；´д｀)ゞ，我代码出BUG了，私我解决吧！（勤奋的好人都自己解决了，然后提交代码给我）
 ## Markdown排版错乱
 我测试时候发现，博客园的 Markdown 排版有点问题，特别涉及到列表，`<li>`标签的生产会将下面的元素也包裹起来。这个等官方修复吧！
-# 未来更新计划
-- [X] ~~随笔页面整体协调性调整。~~
-- [X] ~~美化代码高亮。~~
-- [X] ~~增加配置项，尽可能使每个位置都可以定义。~~
-- [X] ~~优化菜单数据设置的处理逻辑。~~
-- [X] ~~美化Markdown。~~
 # 感谢网友
 * [Alexander](https://github.com/alessandrocyc)
 * [ElderJames](https://github.com/ElderJames)
