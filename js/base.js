@@ -391,9 +391,9 @@ function Base() {
             // setCodeCopy('#999');
             setCodeBefore();
             require(['highlightjs'], function() {
-                $('pre').each(function(i, block) {
-                    hljs.highlightBlock(block);
-                });
+                // $('pre').each(function(i, block) {
+                //     hljs.highlightBlock(block);
+                // });
             });
         }
         // 使用 prettify 代码样式
