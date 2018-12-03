@@ -86,7 +86,7 @@
 * 去除了源码中默认样式的加载。
 ### 高亮主题的配置
 #### 配置代码高亮插件
-代码高亮主题的类型配置：essayCodeHighlightingType
+代码高亮主题的类型配置：```essayCodeHighlightingType```
 
 |value        |description|
 |:------------|:----------|
