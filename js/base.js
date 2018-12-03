@@ -373,10 +373,10 @@ function Base() {
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
 
         switch (hltype) {
-            case 'highlightjs': cnblogsCode(); break;
-            case 'prettify': highlightjsCode(); break;
+            case 'highlightjs': highlightjsCode(); break;
+            case 'prettify': prettifyCode(); break;
             case 'cnblogs':
-            default: prettifyCode(); break;
+            default: cnblogsCode(); break;
         }
 
         // 使用博客园代码样式
