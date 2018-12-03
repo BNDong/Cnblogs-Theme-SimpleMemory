@@ -3713,15 +3713,18 @@ span.cnblogs_code {
     border: 0;
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace!important;
     font-weight: 400;
+    z-index: 10
 }
 
 .cnblogs_code pre {
     font-size: 14px!important;
-    word-wrap: break-word;
-    white-space: pre-wrap;
+    /*word-wrap: break-word;*/
+    /*white-space: pre-wrap;*/
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
     padding: 10px !important;
+    white-space: pre;
+    word-wrap: normal;
 }
 
 .cnblogs_code span {
