@@ -391,44 +391,41 @@ function Base() {
             setCodeBefore();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
-                    codeCopyA.html('<i class="iconfont icon-code5 hljs-comment"></i>');
+                    codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
                     hljs.highlightBlock(block);
                 });
             });
         }
         // 使用 prettify 代码样式
         function prettifyCode() {
+            pre.addClass('prettyprint');
             switch (hltheme) {
                 case 'prettify':
-                    before();
+                    setCodeBefore();
                     require(['codePrettify'], function() {
-                        after(); setCodeCopy('#999'); codePre.css('background-color', '#f6f8fa');
+                        // after(); setCodeCopy('#999'); codePre.css('background-color', '#f6f8fa');
                     });break;
                 case 'desert':
-                    before();
+                    setCodeBefore();
                     require(['codeDesert'], function() {
-                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                        // after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
                     });break;
                 case 'sunburst':
-                    before();
+                    setCodeBefore();
                     require(['codeSunburst'], function() {
                         after();
                     });break;
                 case 'obsidian':
-                    before();
+                    setCodeBefore();
                     require(['codeObsidian'], function() {
-                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                        // after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
                     });break;
                 case 'doxy':
-                    before();
+                    setCodeBefore();
                     require(['codeDoxy'], function() {
-                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                        // after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
                     });break;
-                default:
-                    codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
-                    codeSpan.css('background-color', '#f9f9f9');
-                    codePre.css('background-color', '#f9f9f9');
-                    break;
+                default: cnblogsCode(); break;
             }
         }
         // 设置代码复制样式
