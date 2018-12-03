@@ -365,44 +365,72 @@ function Base() {
      * 设置代码高亮
      */
     this.setCodeHighlighting = function () {
-        switch (window.cnblogsConfig.essayCodeHighlighting) {
-            case 'prettify':
-                before();
-                require(['codePrettify'], function() {
-                    after();
-                    $('.cnblogs_code pre').css('background-color', '#f9f9f9');
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #999;"></i>');
-                });break;
-            case 'desert':
-                before();
-                require(['codeDesert'], function() {
-                    after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
-                });break;
-            case 'sunburst':
-                before();
-                require(['codeSunburst'], function() {
-                    after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
-                });break;
-            case 'obsidian':
-                before();
-                require(['codeObsidian'], function() {
-                    after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
-                });break;
-            case 'doxy':
-                before();
-                require(['codeDoxy'], function() {
-                    after();
-                    $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
-                });break;
-            default:
-                $('.cnblogs_code_copy a').html('<i class="iconfont icon-code5" style="color: #999;"></i>');
-                $('.cnblogs_code span').css('background-color', '#f9f9f9');
-                $('.cnblogs_code pre').css('background-color', '#f9f9f9');
-                break;
+        var pre       = $('pre'),
+            codeCopyA = $('.cnblogs_code_copy a'),
+            codeSpan  = $('.cnblogs_code span'),
+            codePre   = $('.cnblogs_code pre'),
+            hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
+            hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
+
+        switch (hltype) {
+            case 'highlightjs': cnblogsCode(); break;
+            case 'prettify': highlightjsCode(); break;
+            case 'cnblogs':
+            default: prettifyCode(); break;
         }
+
+        // 使用博客园代码样式
+        function cnblogsCode() {
+            codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
+            codeSpan.css('background-color', '#f9f9f9');
+            codePre.css('background-color', '#f9f9f9');
+        }
+        // 使用 highlightjs 代码样式
+        function highlightjsCode() {
+            tools.dynamicLoadingCss('https://highlightjs.org/static/demo/styles/'+hltheme+'.css');
+            before();
+            require(['highlightjs'], function() {
+                $('pre').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            });
+        }
+        // 使用 prettify 代码样式
+        function prettifyCode() {
+            switch (hltheme) {
+                case 'prettify':
+                    before();
+                    require(['codePrettify'], function() {
+                        after(); codePre.css('background-color', '#f9f9f9'); codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
+                    });break;
+                case 'desert':
+                    before();
+                    require(['codeDesert'], function() {
+                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                    });break;
+                case 'sunburst':
+                    before();
+                    require(['codeSunburst'], function() {
+                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                    });break;
+                case 'obsidian':
+                    before();
+                    require(['codeObsidian'], function() {
+                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                    });break;
+                case 'doxy':
+                    before();
+                    require(['codeDoxy'], function() {
+                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                    });break;
+                default:
+                    codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
+                    codeSpan.css('background-color', '#f9f9f9');
+                    codePre.css('background-color', '#f9f9f9');
+                    break;
+            }
+        }
+
         function before() {
             var pre = $('pre');
             $.each(pre, function (i) {
