@@ -101,7 +101,7 @@ essayCodeHighlighting 可配置范围：
 任意，此配置不会对渲染产生影响。
 ```
 * essayCodeHighlightingType: 'highlightjs'
-支持官方所有主题，样式参考：[GoTo](https://highlightjs.org/static/demo/)
+<br>支持官方所有主题，样式参考：[GoTo](https://highlightjs.org/static/demo/)
 ```
 essayCodeHighlighting 可配置范围：
 default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino-light、arta、ascetic
@@ -119,7 +119,7 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 、tomorrow-night-eighties、tomorrow-night、tomorrow、vs、vs2015、xcode、xt256、zenburn
 ```
 * essayCodeHighlightingType: 'prettify'
-支持官方所有主题，样式参考：[GoTo](https://rawgit.com/google/code-prettify/master/styles/index.html)
+<br>支持官方所有主题，样式参考：[GoTo](https://rawgit.com/google/code-prettify/master/styles/index.html)
 ```
 essayCodeHighlighting 可配置范围：
 prettify、desert、sunburst、obsidian、doxy
