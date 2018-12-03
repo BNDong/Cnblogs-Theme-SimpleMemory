@@ -74,8 +74,8 @@
 ```
 ## 代码高亮
 本主题整合了两个代码高亮插件分别是：
-* [code-prettify](https://github.com/google/code-prettify) 代码高亮插件。
-* [highlightjs](https://highlightjs.org/) 代码高亮插件。
+* [code-prettify](https://github.com/google/code-prettify) 
+* [highlightjs](https://highlightjs.org/) 
 <br>大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
 ### 关于主题使用的插件说明
 #### highlightjs
@@ -86,19 +86,23 @@
 * 去除了源码中默认样式的加载。
 ### 高亮主题的配置
 #### 配置代码高亮插件
-* essayCodeHighlightingType：代码高亮主题的类型
-    * cnblogs：使用博客园样式，本配置加载速度最快，不用对代码进行二次渲染处理。
-    * highlightjs：使用 highlightjs 对代码进行渲染。
-    * prettify：使用 code-prettify 对代码进行渲染
+代码高亮主题的类型配置：essayCodeHighlightingType
+
+|value        |description|
+|:------------|:----------|
+|cnblogs      |使用博客园样式，介意加载速度的可以使用此样式。|
+|highlightjs  |使用 **highlightjs** 对代码进行渲染。|
+|prettify     |使用 **code-prettify** 对代码进行渲染。|
 #### 配置代码高亮主题
-配置代码高亮主题的相关配置为：```essayCodeHighlighting```
+配置代码高亮主题的配置为：```essayCodeHighlighting```
 * essayCodeHighlightingType: 'cnblogs'
 ```
-essayCodeHighlighting 可配置范围：任意字符串
+essayCodeHighlighting 可配置范围：
+任意，此配置不会对渲染产生影响。
 ```
 * essayCodeHighlightingType: 'highlightjs'
+支持官方所有主题，样式参考：[GoTo](https://highlightjs.org/static/demo/)
 ```
-支持官方所有主题，样式可以参考：https://highlightjs.org/static/demo/
 essayCodeHighlighting 可配置范围：
 default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino-light、arta、ascetic
 、atelier-cave-dark、atelier-cave-light、atelier-dune-dark、atelier-dune-light、atelier-estuary-dark
@@ -115,8 +119,8 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 、tomorrow-night-eighties、tomorrow-night、tomorrow、vs、vs2015、xcode、xt256、zenburn
 ```
 * essayCodeHighlightingType: 'prettify'
+支持官方所有主题，样式参考：[GoTo](https://rawgit.com/google/code-prettify/master/styles/index.html)
 ```
-支持官方所有主题，样式可以参考：https://rawgit.com/google/code-prettify/master/styles/index.html
 essayCodeHighlighting 可配置范围：
 prettify、desert、sunburst、obsidian、doxy
 ```
