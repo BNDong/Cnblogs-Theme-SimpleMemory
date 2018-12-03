@@ -73,21 +73,53 @@
 <input id="articleSource" type="hidden" value="来源URL" />
 ```
 ## 代码高亮
-整合了 google 的 [code-prettify](https://github.com/google/code-prettify) 代码高亮插件。
-大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
-### 关于主题使用的 code-prettify：
-1. 版本：453bd5f51e61245339b738b1bbdd42d7848722ba
-2. 因为国内原因，修改了源码中加载 CDN 的网站『cdn.rawgit.com』--->『cdn.jsdelivr.net』
-3. 去除了源码中默认样式的加载。
-### 高亮主题：
-将插件的几个主题全部整合了进来，做了稍微调整，以兼容博客园。官方参考网站：[themes gallery](https://rawgit.com/google/code-prettify/master/styles/index.html)
-<br>主题的配置项为：essayCodeHighlighting
-* cnblogs：博客园默认主题 
-* prettify：prettify 主题 Default
-* desert：prettify 主题 Desert
-* sunburst：prettify 主题 Sunburst
-* obsidian：prettify 主题 Sons-Of-Obsidian
-* doxy：prettify 主题 Doxy
+本主题整合了两个代码高亮插件分别是：
+* [code-prettify](https://github.com/google/code-prettify) 代码高亮插件。
+* [highlightjs](https://highlightjs.org/) 代码高亮插件。
+<br>大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
+### 关于主题使用的插件说明
+#### highlightjs
+* 版本：v9.13.1
+#### code-prettify
+* 版本：453bd5f51e61245339b738b1bbdd42d7848722ba
+* 因为国内原因，修改了源码中加载 CDN 的网站『cdn.rawgit.com』--->『cdn.jsdelivr.net』
+* 去除了源码中默认样式的加载。
+### 高亮主题的配置
+#### 配置代码高亮插件
+* essayCodeHighlightingType：代码高亮主题的类型
+    * cnblogs：使用博客园样式，本配置加载速度最快，不用对代码进行二次渲染处理。
+    * highlightjs：使用 highlightjs 对代码进行渲染。
+    * prettify：使用 code-prettify 对代码进行渲染
+#### 配置代码高亮主题
+配置代码高亮主题的相关配置为：```essayCodeHighlighting```
+* essayCodeHighlightingType: 'cnblogs'
+```
+essayCodeHighlighting 可配置范围：任意字符串
+```
+* essayCodeHighlightingType: 'highlightjs'
+```
+支持官方所有主题，样式可以参考：https://highlightjs.org/static/demo/
+essayCodeHighlighting 可配置范围：
+default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino-light、arta、ascetic
+、atelier-cave-dark、atelier-cave-light、atelier-dune-dark、atelier-dune-light、atelier-estuary-dark
+、atelier-estuary-light、atelier-forest-dark、atelier-forest-light、atelier-heath-dark
+、atelier-heath-light、atelier-lakeside-dark、atelier-lakeside-light、atelier-plateau-dark、atelier-plateau-light
+、atelier-savanna-dark、atelier-savanna-light、atelier-seaside-dark、atelier-seaside-light
+、atelier-sulphurpool-dark、atelier-sulphurpool-light、atom-one-dark-reasonable、atom-one-dark、atom-one-light
+、brown-paper、codepen-embed、color-brewer、darcula、dark、darkula、docco、dracula、far
+、foundation、github-gist、github、gml、googlecode、grayscale、gruvbox-dark、gruvbox-light、hopscotch
+、hybrid、idea、ir-black、isbl-editor-dark、isbl-editor-light、kimbie.dark、kimbie.light、lightfair
+、magula、mono-blue、monokai-sublime、monokai、nord、obsidian、ocean、paraiso-dark、paraiso-light、pojoaque
+、purebasic、qtcreator_dark、qtcreator_light、railscasts、rainbow、routeros、school-book、shades-of-purple
+、solarized-dark、solarized-light、sunburst、tomorrow-night-blue、tomorrow-night-bright
+、tomorrow-night-eighties、tomorrow-night、tomorrow、vs、vs2015、xcode、xt256、zenburn
+```
+* essayCodeHighlightingType: 'prettify'
+```
+支持官方所有主题，样式可以参考：https://rawgit.com/google/code-prettify/master/styles/index.html
+essayCodeHighlighting 可配置范围：
+prettify、desert、sunburst、obsidian、doxy
+```
 ## 网站统计
 本主题整合 CNZZ 网站统计，并对样式进行了优化。如果需要本功能，请首先去 CNZZ 配置网站的统计，然后修改下面的代码，添加至页脚Html代码中。
 ```
@@ -97,7 +129,7 @@
 </div>
 ```
 ## 播放器
-播放器的设置，可以参考作者的 [GitHub](https://github.com/metowolf/Meting)
+播放器的设置，可以参考作者的 [GitHub](https://github.com/metowolf/MetingJS)
 ## Loading
 Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocalautti/spring-loaders)
 # 常见问题
