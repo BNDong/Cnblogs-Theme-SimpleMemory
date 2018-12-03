@@ -381,14 +381,15 @@ function Base() {
 
         // 使用博客园代码样式
         function cnblogsCode() {
-            codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
-            codeSpan.css('background-color', '#f9f9f9');
-            codePre.css('background-color', '#f9f9f9');
+            setCodeCopy('#999');
+            codeSpan.css('background-color', '#f6f8fa');
+            codePre.css('background-color', '#f6f8fa');
         }
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://highlightjs.org/static/demo/styles/'+hltheme+'.css');
-            before();
+            setCodeCopy('#999')
+            setCodeBefore();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
                     hljs.highlightBlock(block);
@@ -401,7 +402,7 @@ function Base() {
                 case 'prettify':
                     before();
                     require(['codePrettify'], function() {
-                        after(); codePre.css('background-color', '#f9f9f9'); codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
+                        after(); setCodeCopy('#999'); codePre.css('background-color', '#f6f8fa');
                     });break;
                 case 'desert':
                     before();
@@ -411,7 +412,7 @@ function Base() {
                 case 'sunburst':
                     before();
                     require(['codeSunburst'], function() {
-                        after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                        after();
                     });break;
                 case 'obsidian':
                     before();
@@ -430,17 +431,21 @@ function Base() {
                     break;
             }
         }
+        // 设置代码复制样式
+        function setCodeCopy(fontColor) {
+            codeCopyA.html('<i class="iconfont icon-code5" style="color: '+fontColor+';"></i>');
+        }
 
-        function before() {
+        function setCodeBefore() {
             var pre = $('pre');
             $.each(pre, function (i) {
                 var obj = $(pre[i]);
                 obj.find('br').after('&#10;');
                 var codetext = obj.text();
-                obj.html('').text(codetext).addClass('prettyprint');
+                obj.html('').text(codetext);
             });
         }
-        function after() {
+        function setCodeAfter() {
             $('.cnblogs_code_collapse').css('background', 'transparent');
             $('.cnblogs_code').css({
                 'padding': '0',

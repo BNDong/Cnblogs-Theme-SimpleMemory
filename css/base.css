@@ -3705,17 +3705,14 @@ span.cnblogs_code {
 .cnblogs_code {
     line-height: 20px;
     margin: 0 auto;
-    width: 94%;
     font-size: 14px!important;
-    padding: 1.3em;
-    background-color: #f9f9f9;
+    padding: 0;
+    background-color: transparent;
     position: relative;
     overflow: hidden;
     border: 0;
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace!important;
     font-weight: 400;
-    margin-bottom: 10px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .cnblogs_code pre {
@@ -3724,14 +3721,13 @@ span.cnblogs_code {
     white-space: pre-wrap;
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
-    /*background-color: #f9f9f9;*/
+    padding: 10px;
 }
 
 .cnblogs_code span {
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-size: 14px !important;
     font-weight: 400;
-    /*background-color: #f9f9f9;*/
 }
 
 .cnblogs_code div {
