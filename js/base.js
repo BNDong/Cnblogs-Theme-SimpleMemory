@@ -381,7 +381,7 @@ function Base() {
 
         // 使用博客园代码样式
         function cnblogsCode() {
-            setCodeCopy('#999');
+            codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
             codeSpan.css('background-color', '#f6f8fa');
             codePre.css('background-color', '#f6f8fa');
         }
@@ -403,34 +403,31 @@ function Base() {
                 case 'prettify':
                     setCodeBefore();
                     require(['codePrettify'], function() {
-                        // after(); setCodeCopy('#999'); codePre.css('background-color', '#f6f8fa');
+                        $('pre').css('background-color', '#f6f8fa').css('border', '0');
+                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
                     });break;
                 case 'desert':
                     setCodeBefore();
                     require(['codeDesert'], function() {
-                        // after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
                     });break;
                 case 'sunburst':
                     setCodeBefore();
                     require(['codeSunburst'], function() {
-                        after();
+                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
                     });break;
                 case 'obsidian':
                     setCodeBefore();
                     require(['codeObsidian'], function() {
-                        // after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
                     });break;
                 case 'doxy':
                     setCodeBefore();
                     require(['codeDoxy'], function() {
-                        // after(); codeCopyA.html('<i class="iconfont icon-code5" style="color: #fff;"></i>');
+                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
                     });break;
                 default: cnblogsCode(); break;
             }
-        }
-        // 设置代码复制样式
-        function setCodeCopy(fontColor) {
-            codeCopyA.html('<i class="iconfont icon-code5" style="color: '+fontColor+';"></i>');
         }
 
         function setCodeBefore() {
@@ -440,25 +437,6 @@ function Base() {
                 obj.find('br').after('&#10;');
                 var codetext = obj.text();
                 obj.html('').text(codetext);
-            });
-        }
-        function setCodeAfter() {
-            $('.cnblogs_code_collapse').css('background', 'transparent');
-            $('.cnblogs_code').css({
-                'padding': '0',
-                'width': '96%',
-                'background': 'transparent',
-                'box-shadow': 'none',
-                'z-index': '10'
-            });
-            $('.cnblogs_code_toolbar').css({
-                'padding': '0',
-                'margin': '0'
-            });
-            $('#cnblogs_post_body pre').css({
-                'border-radius': '3px',
-                'padding': '10px',
-                'border': '0'
             });
         }
     };
