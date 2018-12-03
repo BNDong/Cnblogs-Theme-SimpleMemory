@@ -388,12 +388,12 @@ function Base() {
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://highlightjs.org/static/demo/styles/'+hltheme+'.css');
-            // setCodeCopy('#999');
             setCodeBefore();
             require(['highlightjs'], function() {
-                // $('pre').each(function(i, block) {
-                //     hljs.highlightBlock(block);
-                // });
+                $('pre').each(function(i, block) {
+                    codeCopyA.html('<i class="iconfont icon-code5 hljs-comment"></i>');
+                    hljs.highlightBlock(block);
+                });
             });
         }
         // 使用 prettify 代码样式
