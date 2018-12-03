@@ -198,6 +198,7 @@ function Base() {
         $('.inner').css('max-width', '100vw');
 
         bndongJs.setDomHomePosition();
+        bndongJs.setCodeHighlighting();
 
         require(['baguetteBox', 'marvin', 'articleStatement'], function(baguetteBox) {
 
@@ -226,7 +227,6 @@ function Base() {
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
         bndongJs.setNotHomeTopImg();
-        bndongJs.setCodeHighlighting();
         bndongJs.setCommentStyle();
     };
 
