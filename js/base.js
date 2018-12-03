@@ -385,6 +385,7 @@ function Base() {
             codeSpan.css('background-color', '#f6f8fa');
             codePre.css('background-color', '#f6f8fa');
         }
+
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://highlightjs.org/static/demo/styles/'+hltheme+'.css');
@@ -392,6 +393,12 @@ function Base() {
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
                     codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
+                    if ($.inArray(hltheme, [
+                            'github-gist', 'googlecode', 'grayscale',
+                            'idea', 'isbl-editor-light', 'qtcreator_light',
+                            'tomorrow', 'vs', 'xcode', 'arduino-light',
+                            'ascetic', 'color-brewer', 'lightfair'
+                        ]) != -1) pre.css('background-color', '#f6f8fa');
                     hljs.highlightBlock(block);
                 });
             });
@@ -403,29 +410,16 @@ function Base() {
                 case 'prettify':
                     setCodeBefore();
                     require(['codePrettify'], function() {
-                        $('pre').css('background-color', '#f6f8fa').css('border', '0');
-                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
+                        $('pre').css('background-color', '#f6f8fa').css('border', '0'); setPrettifyCopy();
                     });break;
                 case 'desert':
-                    setCodeBefore();
-                    require(['codeDesert'], function() {
-                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
-                    });break;
+                    setCodeBefore(); require(['codeDesert'], function() { setPrettifyCopy(); });break;
                 case 'sunburst':
-                    setCodeBefore();
-                    require(['codeSunburst'], function() {
-                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
-                    });break;
+                    setCodeBefore(); require(['codeSunburst'], function() { setPrettifyCopy(); }); break;
                 case 'obsidian':
-                    setCodeBefore();
-                    require(['codeObsidian'], function() {
-                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
-                    });break;
+                    setCodeBefore(); require(['codeObsidian'], function() { setPrettifyCopy(); }); break;
                 case 'doxy':
-                    setCodeBefore();
-                    require(['codeDoxy'], function() {
-                        codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
-                    });break;
+                    setCodeBefore(); require(['codeDoxy'], function() { setPrettifyCopy(); }); break;
                 default: cnblogsCode(); break;
             }
         }
@@ -438,6 +432,10 @@ function Base() {
                 var codetext = obj.text();
                 obj.html('').text(codetext);
             });
+        }
+
+        function setPrettifyCopy() {
+            codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
         }
     };
 
