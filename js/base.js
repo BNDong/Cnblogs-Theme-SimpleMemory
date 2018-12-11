@@ -368,7 +368,7 @@ function Base() {
         var pre       = $('pre'),
             codeCopyA = $('.cnblogs_code_copy a'),
             codeSpan  = $('.cnblogs_code span'),
-            codePre   = $('.cnblogs_code pre'),
+            codePre   = $('.post pre'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
 
@@ -425,12 +425,11 @@ function Base() {
         }
 
         function setCodeBefore() {
-            var pre = $('pre');
-            $.each(pre, function (i) {
-                var obj = $(pre[i]);
+            $.each(codePre, function (i) {
+                var obj = $(codePre[i]);
                 obj.find('br').after('&#10;');
                 var codetext = obj.text();
-                obj.html('').text(codetext);
+                obj.html('').text(codetext).css('overflow-x', 'auto');
             });
         }
 
