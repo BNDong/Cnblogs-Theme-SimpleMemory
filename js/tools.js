@@ -34,7 +34,6 @@ function myTools() {
     this.consoleText = function(list, mode) {
         var e = ["\n %c %c %c Theme GitHub %c  %c https://github.com/BNDong/Cnblogs-Theme-SimpleMemory  %c \n\n", "background: #fadfa3; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "background: #FCEDC9; padding:5px 0;", "background: #fadfa3; padding:5px 0;"];
         window.console.log.apply(console, e);
-        if (list.length() < 1) return;
         switch (mode) {
             case 'random':
                 var colorList = [colors.red, colors.orange, colors.yellow, colors.green, colors.teal, colors.blue, colors.purple, colors.brown];
