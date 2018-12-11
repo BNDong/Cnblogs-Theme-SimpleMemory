@@ -383,7 +383,10 @@ function Base() {
         function cnblogsCode() {
             codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
             codeSpan.css('background-color', '#f6f8fa');
-            codePre.css('background-color', '#f6f8fa');
+            codePre.css({
+                'background-color': '#f6f8fa',
+                'overflow-x': 'auto'
+            });
         }
 
         // 使用 highlightjs 代码样式
