@@ -97,7 +97,6 @@ function Base() {
             var re = /x/
                 ,i = 0;
             console.log(re);
-            tools.consoleText([re], 'random');
 
             re.toString = function () {
                 return '欢迎访问本博客，这是您第 ' + (++i) + ' 次打开控制台。';
