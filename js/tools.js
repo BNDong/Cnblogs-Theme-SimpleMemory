@@ -32,19 +32,23 @@ function myTools() {
      * 控制台输出内容
      */
     this.consoleText = function(list, mode) {
+        var e = ["\n %c %c %c Theme GitHub %c  %c https://github.com/BNDong/Cnblogs-Theme-SimpleMemory  %c \n\n", "background: #fadfa3; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "background: #FCEDC9; padding:5px 0;", "background: #fadfa3; padding:5px 0;"];
+        window.console.log.apply(console, e);
+        if (list.length() < 1) return;
         switch (mode) {
             case 'random':
                 var colorList = [colors.red, colors.orange, colors.yellow, colors.green, colors.teal, colors.blue, colors.purple, colors.brown];
                 $.each(list, function (i) {
-                    var str = list[i];
+                    var str = (list[i]).toString();
                     var ind = bndongTools.randomNum(0, colorList.length - 1);
                     console.log('%c'+str, colorList[ind]);
                 });
                 break;
             case 'banner':
-                console.log('\n' + ' %c BNDong CNBlogs %c https://www.cnblogs.com/bndong ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
-                console.log('\n' + ' %c BNDong GitHub %c https://github.com/BNDong ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
-                console.log('\n' + ' %c BNDong Email %c dbuo@foxmail.com ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
+                $.each(list, function (i) {
+                    var fl = list[i];
+                    console.log('\n' + ' %c '+(fl[0])+' %c '+(fl[1])+' ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
+                });
                 break;
 
             default:

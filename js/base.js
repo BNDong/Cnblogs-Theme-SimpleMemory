@@ -91,7 +91,7 @@ function Base() {
         bndongJs.setPageAnimationControl();
 
         // 控制台输出
-        tools.consoleText([], 'banner');
+        tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
 
         (function () {
             var re = /x/
