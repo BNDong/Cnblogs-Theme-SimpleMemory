@@ -180,6 +180,7 @@ function Base() {
 
         bndongJs.setHitokoto();
         bndongJs.scrollMonitor();
+        bndongJs.setDomHomePosition();
 
         if (window.cnblogsConfig.homeTopAnimationRendered)
             require(['circleMagic'], function() {
