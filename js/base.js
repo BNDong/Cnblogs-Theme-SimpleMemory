@@ -277,25 +277,46 @@ function Base() {
             '有的人25岁就死了，只是到75岁才埋葬'
         ];
 
+        // ===================  ONE . 每日一句  =================================
+        // var settings = {
+        //     "async": true,
+        //     "crossDomain": true,
+        //     "url": "https://api.hibai.cn/api/index/index",
+        //     "method": "POST",
+        //     "headers": {
+        //         "content-type": "application/x-www-form-urlencoded",
+        //     },
+        //     "data": {
+        //         "TransCode": "030111",
+        //         "OpenId": "123456789",
+        //         "Body": ""
+        //     }
+        // };
+        //
+        // $.ajax(settings).done(function (response) {
+        //     if (response.ResultCode == 1) {
+        //         $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
+        //         $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
+        //     } else {
+        //         var listIndex = tools.randomNum(0, topTitleList.length - 1);
+        //         $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+        //     }
+        //     bndongJs.setDomHomePosition();
+        //     return false;
+        // });
+
+        // ===================  今日诗词  =================================
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api.hibai.cn/api/index/index",
-            "method": "POST",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-            },
-            "data": {
-                "TransCode": "030111",
-                "OpenId": "123456789",
-                "Body": ""
-            }
+            "url": "https://v2.jinrishici.com/one.json",
+            "method": "GET"
         };
 
         $.ajax(settings).done(function (response) {
-            if (response.ResultCode == 1) {
-                $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
-                $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
+            if (response && response.status == "success") {
+                $('#hitokoto').text(response.data.content).css('display', '-webkit-box');
+                $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
             } else {
                 var listIndex = tools.randomNum(0, topTitleList.length - 1);
                 $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
