@@ -60,6 +60,12 @@ function Base() {
      */
     this.loadingAfterInit = function () {
 
+        // 设置代码滚动条样式
+        $('.post pre').mCustomScrollbar({
+            theme:"minimal-dark",
+            axis:"yx"
+        });
+
         // 初始化菜单滚动条样式
         // $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
@@ -229,12 +235,6 @@ function Base() {
 
         bndongJs.setNotHomeTopImg();
         bndongJs.setCommentStyle();
-
-        // 设置代码滚动条样式
-        $('.post pre').mCustomScrollbar({
-            theme:"minimal-dark",
-            axis:"yx"
-        });
     };
 
     /**
