@@ -60,12 +60,6 @@ function Base() {
      */
     this.loadingAfterInit = function () {
 
-        // 设置代码滚动条样式
-        $('.post pre').mCustomScrollbar({
-            theme:"minimal-dark",
-            axis:"yx"
-        });
-
         // 初始化菜单滚动条样式
         // $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
@@ -406,6 +400,7 @@ function Base() {
             case 'cnblogs':
             default: cnblogsCode(); break;
         }
+        setScrollbarStyle();
 
         // 使用博客园代码样式
         function cnblogsCode() {
@@ -466,6 +461,19 @@ function Base() {
 
         function setPrettifyCopy() {
             codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
+        }
+
+        function setScrollbarStyle() {
+            var scrollbarTimeId = window.setInterval( function () {
+                if ($('.post pre span').length > 0) {
+                    // 设置代码滚动条样式
+                    $('.post pre').mCustomScrollbar({
+                        theme:"minimal-dark",
+                        axis:"yx"
+                    });
+                    bndongJs.clearIntervalTimeId(scrollbarTimeId);
+                }
+            }, 500 );
         }
     };
 

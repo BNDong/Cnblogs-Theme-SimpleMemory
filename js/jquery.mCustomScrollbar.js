@@ -103,7 +103,7 @@
                 setLeft:0,
                 /*
                  scrollbar axis (vertical and/or horizontal scrollbars)
-                 values (string): "y", "x", "yx"
+                 values (s`tring): "y", "x", "yx"
                  */
                 axis:"y",
                 /*
