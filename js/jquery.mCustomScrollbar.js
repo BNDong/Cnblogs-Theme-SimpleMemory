@@ -46,19 +46,19 @@
     // }
 }(function($){
     (function(init){
-        var _rjs=typeof define==="function" && define.amd, /* RequireJS */
-            _njs=typeof module !== "undefined" && module.exports, /* NodeJS */
-            _dlp=("https:"==document.location.protocol) ? "https:" : "http:", /* location protocol */
+        // var _rjs=typeof define==="function" && define.amd, /* RequireJS */
+        //     _njs=typeof module !== "undefined" && module.exports, /* NodeJS */
+           var _dlp=("https:"==document.location.protocol) ? "https:" : "http:", /* location protocol */
             _url="cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js";
-        if(!_rjs){
-            if(_njs){
-                require("jquery-mousewheel")($);
-            }else{
+        // if(!_rjs){
+        //     if(_njs){
+        //         require("jquery-mousewheel")($);
+        //     }else{
                 /* load jquery-mousewheel plugin (via CDN) if it's not present or not loaded via RequireJS
                  (works when mCustomScrollbar fn is called on window load) */
                 $.event.special.mousewheel || $("head").append(decodeURI("%3Cscript src="+_dlp+"//"+_url+"%3E%3C/script%3E"));
-            }
-        }
+            // }
+        // }
         init();
     }(function(){
 
