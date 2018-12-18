@@ -61,7 +61,7 @@ function Base() {
     this.loadingAfterInit = function () {
 
         // 初始化菜单滚动条样式
-        $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
+        // $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
         // 音乐播放器初始化
         bndongJs.musicInit();
@@ -400,6 +400,11 @@ function Base() {
             case 'cnblogs':
             default: cnblogsCode(); break;
         }
+
+        // 设置代码滚动条样式
+        codePre.mCustomScrollbar({
+            theme:"minimal-dark",axis:"yx"
+        });
 
         // 使用博客园代码样式
         function cnblogsCode() {

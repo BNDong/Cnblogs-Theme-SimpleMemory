@@ -3725,6 +3725,7 @@ span.cnblogs_code {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
+    max-height: 70vh;
 }
 
 .cnblogs_code span {
@@ -3734,7 +3735,7 @@ span.cnblogs_code {
 }
 
 .cnblogs_code div {
-    background-color: #f9f9f9;
+    background-color: #f6f8fa;
 }
 
 .cnblogs_code_collapse {
