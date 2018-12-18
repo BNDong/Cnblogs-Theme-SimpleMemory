@@ -10,44 +10,22 @@
 # 目录结构
 ```
 ├─ css
-│  ├─ baguetteBox.min.css
 │  ├─ base.css - 页面定制CSS代码未压缩版本（字符超限）
 │  ├─ base.min.css - 页面定制CSS代码压缩版本（使用此版本，禁用默认）
-│  ├─ gallery-clean.css
-│  ├─ codeDesert.css
-│  ├─ codeDoxy.css
-│  ├─ codeObsidian.css
-│  ├─ codePrettify.css
-│  ├─ codeSunburst.css
-│  ├─ marvin.nav2.css
-│  ├─ menu_bubble.css
-│  └─ optiscroll.css
+│  ├─ marvin.nav2.css - 文章目录样式文件
+│  ├─ menu_bubble.css - 侧边栏样式文件
+│  └─ ...
 ├─ html
 │  ├─ pageFooter.html - 页脚HTML
 │  ├─ pageHeading.html - 页首HTML
 │  └─ sidebar.html - 侧边栏HTML（请开启JS权限）
 ├─ js
-│  ├─ MyTween.js
-│  ├─ ToProgress.min.js
-│  ├─ TweenMax.min.js
-│  ├─ run_prettify.js
 │  ├─ articleStatement.js - 文章后缀JS
-│  ├─ baguetteBox.min.js
+│  ├─ baguetteBox.min.js - 图片灯箱JS
 │  ├─ base.js - 基础JS
-│  ├─ bootstrap.min.js
-│  ├─ circleMagic.js
-│  ├─ classie.js
-│  ├─ RibbonsEffect.js
-│  ├─ config.js - 加载配置文件
-│  ├─ css.min.js
-│  ├─ jquery.optiscroll.js
-│  ├─ jquery.rotate.min.js
-│  ├─ loading.js
-│  ├─ main4.js
-│  ├─ marvin.nav2.js - 文章目录
-│  ├─ require.min.js
-│  ├─ snap.svg-min.js
-│  └─ tools.js
+│  ├─ config.js - 加载配置
+│  ├─ marvin.nav2.js - 文章目录JS
+│  └─ ...
 └─ README.md
 ```
 # 使用说明
@@ -58,7 +36,7 @@
 3. 博客侧边栏公告 ---> /html/sidebar.html(需要开启JS权限)
 4. 页首Html代码 ---> /html/pageHeading.html
 5. 页脚Html代码 ---> /html/pageFooter.html
->本主题需要JS权限，没有的请先申请权限，然后再进行设置。初始配置在侧边栏代码中，请仔细配置，不理解的不要乱修改，直接默认就行。
+>本主题需要JS权限，没有的请先申请权限，然后再进行设置。初始配置在侧边栏Html代码中，请仔细配置，不理解的不要乱修改，直接默认就行。
 >/css/base.min.css 的修改参考 /css/base.css，请使用压缩版本，直接使用 /css/base.css 会字符超限！
 ## 标题与引用
 * 一级标题 `<h1>`
@@ -68,7 +46,7 @@
 ## 转载文章和文章后缀
 文章后缀显示的内容可以在相关配置项进行配置。如果需要其它修改，可以修改 articleStatement.js 文件。
 <br>关于转载文章在HTML源码中加入如下代码来指定文章作者和来源：
-```
+```html
 <input id="articleAuthor" type="hidden" value="作者" />
 <input id="articleSource" type="hidden" value="来源URL" />
 ```
@@ -77,6 +55,7 @@
 * [code-prettify](https://github.com/google/code-prettify) 
 * [highlightjs](https://highlightjs.org/) 
 >大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
+>使用第三方代码高亮插件，对页面加载速度有一定影响，大家自己权衡！
 ### 关于主题使用的插件说明
 #### highlightjs
 * 版本：v9.13.1
@@ -126,7 +105,7 @@ prettify、desert、sunburst、obsidian、doxy
 ```
 ## 网站统计
 本主题整合 CNZZ 网站统计，并对样式进行了优化。如果需要本功能，请首先去 CNZZ 配置网站的统计，然后修改下面的代码，添加至页脚Html代码中。
-```
+```html
 <div id="cnzzProtocol"  style="display: none;">
     <span class="id_cnzz_stat_icon" id='cnzz_stat_icon_你的统计ID'></span>
     <script src='https://s19.cnzz.com/z_stat.php?id=你的统计ID&online=1&show=line' type='text/javascript'></script>
@@ -149,7 +128,7 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
 ### Solution:利用工具调试
 如果以上两种方式都不能解决问题，使用此方法进行尝试！
 <br>使用浏览器的『开发者工具』搜索HTML代码：
-```
+```html
 <h3 class="catListTitle">
 ```
 注释掉CLASS `catListTitle` 的CSS设置`display: none!important`
