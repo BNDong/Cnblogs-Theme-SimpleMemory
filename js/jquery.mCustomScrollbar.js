@@ -37,16 +37,13 @@
  */
 
 (function(factory){
-    if(typeof define==="function" && define.amd){
-        console.log('a');
-        define(["jquery"],factory);
-    }else if(typeof module!=="undefined" && module.exports){
-        console.log('b');
-        module.exports=factory;
-    }else{
-        console.log('c');
+    // if(typeof define==="function" && define.amd){
+    //     define(["jquery"],factory);
+    // }else if(typeof module!=="undefined" && module.exports){
+    //     module.exports=factory;
+    // }else{
         factory(jQuery,window,document);
-    }
+    // }
 }(function($){
     (function(init){
         var _rjs=typeof define==="function" && define.amd, /* RequireJS */

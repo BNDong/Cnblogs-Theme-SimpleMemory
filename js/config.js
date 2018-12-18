@@ -8,7 +8,7 @@ require.config({
     },
     paths: {
         //-- 滚动条
-        optiscroll: setFileNameMin('jquery.mCustomScrollbar.min', 'js'),
+        optiscroll: setFileNameMin('jquery.mCustomScrollbar', 'js'),
         //-- 进度条
         ToProgress: setFileNameMin('ToProgress.min', 'js'),
         //-- 旋转
