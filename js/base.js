@@ -229,6 +229,12 @@ function Base() {
 
         bndongJs.setNotHomeTopImg();
         bndongJs.setCommentStyle();
+
+        // 设置代码滚动条样式
+        $('.post pre').mCustomScrollbar({
+            theme:"minimal-dark",
+            axis:"yx"
+        });
     };
 
     /**
@@ -400,11 +406,6 @@ function Base() {
             case 'cnblogs':
             default: cnblogsCode(); break;
         }
-
-        // 设置代码滚动条样式
-        $('.post pre').mCustomScrollbar({
-            theme:"minimal-dark",axis:"yx"
-        });
 
         // 使用博客园代码样式
         function cnblogsCode() {
