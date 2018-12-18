@@ -402,9 +402,9 @@ function Base() {
         }
 
         // 设置代码滚动条样式
-        codePre.mCustomScrollbar({
-            theme:"minimal-dark",axis:"yx"
-        });
+        // codePre.mCustomScrollbar({
+        //     theme:"minimal-dark",axis:"yx"
+        // });
 
         // 使用博客园代码样式
         function cnblogsCode() {
