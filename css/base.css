@@ -3735,7 +3735,7 @@ span.cnblogs_code {
 }
 
 .cnblogs_code div {
-    background-color: #f6f8fa;
+    background-color: transparent;
 }
 
 .cnblogs_code_collapse {

@@ -61,7 +61,7 @@ function Base() {
     this.loadingAfterInit = function () {
 
         // 初始化菜单滚动条样式
-        // $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
+        $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
         // 音乐播放器初始化
         bndongJs.musicInit();
@@ -471,6 +471,12 @@ function Base() {
                         theme:"minimal-dark",
                         axis:"yx"
                     });
+                    switch (hltype) {
+                        case 'highlightjs':$('.mCSB_dragger_bar').addClass('hljs-comment'); break;
+                        case 'prettify': $('.mCSB_dragger_bar').addClass('com'); break;
+                        case 'cnblogs':
+                        default:  break;
+                    }
                     bndongJs.clearIntervalTimeId(scrollbarTimeId);
                 }
             }, 500 );

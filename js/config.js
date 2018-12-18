@@ -7,8 +7,8 @@ require.config({
         }
     },
     paths: {
-        //-- 滚动条
-        optiscroll: setFileNameMin('jquery.mCustomScrollbar', 'js'),
+        //-- 菜单滚动条
+        optiscroll: setFileNameMin('jquery.optiscroll', 'js'),
         //-- 进度条
         ToProgress: setFileNameMin('ToProgress.min', 'js'),
         //-- 旋转
@@ -50,7 +50,7 @@ require.config({
     },
     shim:{
         optiscroll: {
-            deps: ['css!'+getJsDelivrUrl('jquery.mCustomScrollbar.css')]
+            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
         },
         classie: {
             deps: ['snapSvg'],
