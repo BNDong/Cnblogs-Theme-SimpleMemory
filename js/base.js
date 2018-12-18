@@ -465,24 +465,22 @@ function Base() {
 
         // 设置代码滚动条样式
         function setScrollbarStyle() {
-            $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
-                tools.dynamicLoadingCss(getJsDelivrUrl('jquery.mCustomScrollbar.css'));
-                var scrollbarTimeId = window.setInterval( function () {
-                    if ($('.post pre span').length > 0) {
-                        $('.post pre').mCustomScrollbar({
-                            theme:"minimal-dark",
-                            axis:"yx"
-                        });
-                        switch (hltype) {
-                            case 'highlightjs':$('.mCSB_dragger_bar').css('background-color', $('.hljs-comment').css('color')); break;
-                            case 'prettify': $('.mCSB_dragger_bar').css('background-color', $('.com').css('color')); break;
-                            case 'cnblogs':
-                            default:  break;
-                        }
-                        bndongJs.clearIntervalTimeId(scrollbarTimeId);
+            tools.dynamicLoadingCss(getJsDelivrUrl('jquery.mCustomScrollbar.css'));
+            var scrollbarTimeId = window.setInterval( function () {
+                if ($('.post pre span').length > 0) {
+                    $('.post pre').mCustomScrollbar({
+                        theme:"minimal-dark",
+                        axis:"yx"
+                    });
+                    switch (hltype) {
+                        case 'highlightjs':$('.mCSB_dragger_bar').css('background-color', $('.hljs-comment').css('color')); break;
+                        case 'prettify': $('.mCSB_dragger_bar').css('background-color', $('.com').css('color')); break;
+                        case 'cnblogs':
+                        default:  break;
                     }
-                }, 500 );
-            });
+                    bndongJs.clearIntervalTimeId(scrollbarTimeId);
+                }
+            }, 500 );
         }
     };
 

@@ -233,6 +233,7 @@
 
         $.getScript(getJsDelivrUrl('require.min.js'), function () {
             $.getScript(getJsDelivrUrl('config.js'), function () {
+                $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'));
                 var staticResource = [
                     'optiscroll', 'ToProgress', 'rotate',
                     'snapSvg', 'classie', 'main4', 'tools'];
@@ -244,7 +245,6 @@
             });
         });
     });
-
 
     // get file url
     function getJsDelivrUrl(file, directory) {
