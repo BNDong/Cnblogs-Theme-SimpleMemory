@@ -167,8 +167,14 @@ function Base() {
     this.homeInit = function() {
 
         // 设置主页图片
+        var homeTopImg = window.cnblogsConfig.homeTopImg,
+            bgImg;
+
+        homeTopImg.length > 0 ?
+                (homeTopImg.length > 1 ? bgImg = homeTopImg[tools.randomNum(0, homeTopImg.length - 1)] : bgImg = homeTopImg[0])
+            : bgImg = "";
         $('.main-header').css({
-            'background': '#222 url('+window.cnblogsConfig.homeTopImg+')  center center no-repeat',
+            'background': '#222 url('+bgImg+')  center center no-repeat',
             'background-size': 'cover'
         });
 

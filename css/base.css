@@ -3337,7 +3337,7 @@ blockquote p {
 }
 
 #cnblogs_post_body h3 {
-    margin: 0 15px !important;
+    margin: 0 1em !important;
 }
 
 #cnblogs_post_body h3:before {
@@ -3354,7 +3354,7 @@ blockquote p {
 }
 
 #cnblogs_post_body ul li {
-    margin-left: 18px;
+    margin-left: 1em;
 }
 
 .postBody li, .postCon li {
@@ -3508,7 +3508,7 @@ blockquote p {
 
 #cnblogs_post_body > p {
     margin: 10px auto;
-    text-indent: 30px;
+    text-indent: 2em;
 }
 
 #cnblogs_post_body ul li {
