@@ -37,7 +37,9 @@ a.ready(function () {
         if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) == -1) return true;
         
         var title=u.text();
-        var text=u.text();
+        var lserialNum = u.find('.dev__fe').text();
+        var rserialNum = u.find('.dev__ux').text();
+        var titleContent = u.find('.dev__developer').text();
 
         u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
 
@@ -46,18 +48,14 @@ a.ready(function () {
             m = 0;
             if(text.length>26) text=text.substr(0,26)+"...";
 
-            var titleContent = text.replace(/^\d+\|[0-9]+/g, '');
-
-            j += '<li lin=""><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.').replace(titleContent, '&nbsp;&nbsp;'+titleContent)) + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li lin=""><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
             if(q){
                 if(text.length>30) text=text.substr(0,30)+"...";
 
-                var titleContent = text.replace(/^\d+\|[0-9]+/g, '');
-
-                j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + (text.replace('|', '.').replace(titleContent, '&nbsp;&nbsp;'+titleContent)) + '</a></li>';
+                j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
