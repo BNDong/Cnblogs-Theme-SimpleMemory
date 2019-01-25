@@ -46,14 +46,14 @@ a.ready(function () {
         if (v.localName === 'h1') {
             l++;
             m = 0;
-            if(text.length>26) text=text.substr(0,26)+"...";
+            if(titleContent.length>26) titleContent=titleContent.substr(0,26)+"...";
 
             j += '<li lin=""><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
             if(q){
-                if(text.length>30) text=text.substr(0,30)+"...";
+                if(titleContent.length>30) titleContent=titleContent.substr(0,30)+"...";
 
                 j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
