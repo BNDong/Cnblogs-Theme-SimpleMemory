@@ -476,7 +476,7 @@ function Base() {
                 if ($('.post pre span').length > 0) {
                     $('.post pre').mCustomScrollbar({
                         theme:"minimal-dark",
-                        axis:"yx"
+                        axis:"x"
                     });
                     switch (hltype) {
                         case 'highlightjs':$('.mCSB_dragger_bar').css('background-color', $('.hljs-comment').css('color')); break;
