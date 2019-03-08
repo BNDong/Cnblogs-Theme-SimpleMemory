@@ -87,7 +87,7 @@ $(document).ready(function(){
     if (window.cnblogsConfig.essaySuffix.supportHtml != "") {
         bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：'+window.cnblogsConfig.essaySuffix.supportHtml;
     } else {
-        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost('+uid+',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。您的鼓励是博主的最大动力！';
+        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：点击<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost('+uid+',\'Digg\')" href="javascript:void(0);">好文要顶</a>】</span></strong>推荐一下吧QAQ';
     }
     bottom_html += '<br>';
     bottom_html += '</p>';
