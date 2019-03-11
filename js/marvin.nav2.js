@@ -36,7 +36,6 @@ a.ready(function () {
         
         if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) == -1) return true;
         
-        var title=u.text();
         var lserialNum = u.find('.dev__fe').text();
         var rserialNum = u.find('.dev__ux').text();
         var titleContent = u.find('.dev__developer').text();

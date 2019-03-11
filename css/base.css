@@ -73,9 +73,9 @@ body:before {
     background-size: 20px 20px;
 }
 
-body::-webkit-scrollbar {
-    display:none
-}
+/*body::-webkit-scrollbar {*/
+    /*display:none*/
+/*}*/
 
 ::-moz-selection {
     background: #D6EDFF;
