@@ -3725,6 +3725,9 @@ span.cnblogs_code {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
+}
+
+.postBody pre {
     max-height: 70vh;
 }
 

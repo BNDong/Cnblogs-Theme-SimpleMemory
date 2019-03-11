@@ -62,7 +62,7 @@ a.ready(function () {
     $('#' + f + '>ul').html(j);
     b.data('spy', 'scroll');
     b.data('target', '.sideCatalogBg');
-    $('body').scrollspy({
+    $("body").scrollspy({
         target: '.sideCatalogBg'
     });
     $sideCatelog = $('#' + e);

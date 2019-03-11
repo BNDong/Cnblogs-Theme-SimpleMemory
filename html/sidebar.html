@@ -190,7 +190,9 @@
         homeBannerText: "", // 主页头图上的标语，设置此选项会固定显示文字，默认为空，自动获取一句。
 
         // ---- 随笔页配置 ----
-        essayTopImg: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png", // 随笔页图片Url
+        essayTopImg: [ // 随笔页图片Url，支持多张，每次刷新随机设置一张
+            "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png"
+        ],
         essayCodeHighlightingType: 'cnblogs', // 代码主题插件类型：cnblogs || highlightjs || prettify
         essayCodeHighlighting: 'cnblogs', // 代码高亮主题，具体主题参考文档
         essaySuffix:{ // 随笔后缀处配置

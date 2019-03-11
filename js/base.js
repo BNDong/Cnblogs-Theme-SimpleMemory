@@ -336,9 +336,18 @@ function Base() {
      * 设置非主页头图
      */
     this.setNotHomeTopImg = function() {
+
+        var essayTopImg = window.cnblogsConfig.essayTopImg,
+            bgImg;
+
+        essayTopImg.length > 0 ?
+            (essayTopImg.length > 1 ? bgImg = essayTopImg[tools.randomNum(0, essayTopImg.length - 1)] : bgImg = essayTopImg[0])
+            : bgImg = "";
+
+
         $('.main-header').css({
             'height': '40vh',
-            'background': '#222 url('+window.cnblogsConfig.essayTopImg+')  center center no-repeat',
+            'background': '#222 url('+bgImg+')  center center no-repeat',
             'background-size': 'cover'
         });
         $('#homeTopTitle').hide();
