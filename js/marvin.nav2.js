@@ -48,14 +48,14 @@ a.ready(function () {
             m = 0;
             if(titleContent.length>26) titleContent=titleContent.substr(0,26)+"...";
 
-            j += '<li lin=""><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li g="'+ lserialNum +'"><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
             if(q){
                 if(titleContent.length>30) titleContent=titleContent.substr(0,30)+"...";
 
-                j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li class="h2Offset" g="'+ lserialNum +'" style="display: none;"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
