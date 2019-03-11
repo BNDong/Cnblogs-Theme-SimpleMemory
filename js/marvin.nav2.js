@@ -22,14 +22,14 @@ a.ready(function () {
     };
     b.append(i);
     o = s.find(':header');
-    if (o.length > p) {
-        r = false;
-        var t = s.find('h1');
-        var u = s.find('h2');
-        if (t.length + u.length > p) {
-            q = false
-        }
-    };
+    // if (o.length > p) {
+    //     r = false;
+    //     var t = s.find('h1');
+    //     var u = s.find('h2');
+    //     if (t.length + u.length > p) {
+    //         q = false
+    //     }
+    // };
     o.each(function (t) {
         var u = $(this),
             v = u[0];
@@ -48,14 +48,14 @@ a.ready(function () {
             m = 0;
             if(titleContent.length>26) titleContent=titleContent.substr(0,26)+"...";
 
-            j += '<li g="'+ lserialNum +'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li h="1" g="'+ lserialNum +'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
             if(q){
                 if(titleContent.length>30) titleContent=titleContent.substr(0,30)+"...";
 
-                j += '<li class="h2Offset" g="'+ lserialNum +'" style="display: none;"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li h="2" class="h2Offset ceg'+lserialNum+'" style="display: none;"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
@@ -89,8 +89,11 @@ a.ready(function () {
         $('#' + g).removeClass('sideCatalogBtnDisable');
     }
 
-    $('#sideCatalog-catalog ul li').on('activate.bs.scrollspy', function () {
-        // 执行一些动作...
-        console.log(this);
+    nav_li.on('activate.bs.scrollspy', function () {
+        var th = $(this);
+        if (th.attr("h") == "1") {
+            $('#sideCatalog-catalog .h2Offset').hide();
+            $('#sideCatalog-catalog .ceg' + th.attr("g")).show();
+        }
     })
 });
