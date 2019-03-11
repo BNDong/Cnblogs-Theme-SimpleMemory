@@ -55,7 +55,7 @@ a.ready(function () {
             if(q){
                 if(titleContent.length>30) titleContent=titleContent.substr(0,30)+"...";
 
-                j += '<li h="2" class="h2Offset ceg'+lserialNum+'" style="display: none;"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
@@ -82,7 +82,7 @@ a.ready(function () {
     });
     $sideToolbar = $('#' + d);
 
-    var nav_li = $('#sideCatalog-catalog ul li');
+    var nav_li = $('#sideCatalog-catalog').find('ul li');
     
     if (nav_li.length == 0) {
         $sideCatelog.css('visibility', 'hidden');
@@ -90,10 +90,8 @@ a.ready(function () {
     }
 
     nav_li.on('activate.bs.scrollspy', function () {
-        var th = $(this);
-        if (th.attr("h") == "1") {
-            $('#sideCatalog-catalog .h2Offset').hide();
-            $('#sideCatalog-catalog .ceg' + th.attr("g")).show();
-        }
+        var gu = $(this).attr("g");
+        $('#sideCatalog-catalog').find('.h2Offset').hide();
+        $('#sideCatalog-catalog').find('.ceg' + gu).show();
     })
 });

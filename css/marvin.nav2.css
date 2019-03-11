@@ -116,6 +116,7 @@
     /*padding-left: 45px;*/
     text-indent: -25px;
     padding: 3px 0 3px 45px;
+    display: none;
 }
 #sideCatalog li.h3Offset {
     padding-left: 90px;
