@@ -48,7 +48,7 @@ a.ready(function () {
             m = 0;
             if(titleContent.length>26) titleContent=titleContent.substr(0,26)+"...";
 
-            j += '<li g="'+ lserialNum +'"><a href="#' + u.attr('id') + '" title="' + title + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+            j += '<li g="'+ lserialNum +'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (v.localName === 'h2') {
             m++;
             n = 0;
@@ -88,4 +88,9 @@ a.ready(function () {
         $sideCatelog.css('visibility', 'hidden');
         $('#' + g).removeClass('sideCatalogBtnDisable');
     }
+
+    $('#sideCatalog-catalog').on('activate.bs.scrollspy', function () {
+        // 执行一些动作...
+        console.log(this);
+    })
 });
