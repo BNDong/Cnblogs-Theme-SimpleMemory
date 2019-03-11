@@ -89,7 +89,7 @@ a.ready(function () {
         $('#' + g).removeClass('sideCatalogBtnDisable');
     }
 
-    $('#sideCatalog-catalog').on('activate.bs.scrollspy', function () {
+    $('#sideCatalog-catalog ul li').on('activate.bs.scrollspy', function () {
         // 执行一些动作...
         console.log(this);
     })
