@@ -3693,7 +3693,7 @@ blockquote p {
    代码样式
    ========================================================================== */
 span.cnblogs_code {
-    border: 0;
+    border: 0;116 KB 
     /*margin: 0 3px;*/
     padding: 2px 4px;
     color: #D83B64;
@@ -3725,6 +3725,7 @@ span.cnblogs_code {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
+    max-height: 70vh;
 }
 
 .postBody pre {
