@@ -3129,6 +3129,7 @@ pre {
 
 /*下面是我设置背景色，字体大小和字体*/
 .cnblogs-markdown code{
+	text-indent: 0!important;
 	color: #D83B64;
 	background-color:#f9f2f4!important;
 	border: none!important;
