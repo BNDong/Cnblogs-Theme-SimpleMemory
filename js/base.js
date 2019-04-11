@@ -689,11 +689,14 @@ function Base() {
                 }
 
                 if (subObject == '.attentionSpan') {
+                    var attDiv = $('#attention');
                     // 点击关注
                     if ($('#p_b_follow').text() == '' || $(parentObject + ' a').text().indexOf('成功') > 0) {
                         $(subObject).text('已关注');
+                        attDiv.find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
                     } else {
                         $(subObject).text('关注');
+                        attDiv.find('i').removeClass('icon-dianzan1').addClass('icon-dianzan');
                     }
                 }
 
@@ -882,7 +885,7 @@ function Base() {
             }
 
             if (clickStr.indexOf('unfollow') > 0 || clickStr == '') {
-                var attHtml = '<div id="attention" clickflg="true"><span class="rightMenuSpan attentionSpan">已关注</span><i class="iconfont icon-dianzan"></i></div>';
+                var attHtml = '<div id="attention" clickflg="true"><span class="rightMenuSpan attentionSpan">已关注</span><i class="iconfont icon-dianzan1"></i></div>';
             } else {
                 var attHtml = '<div id="attention" onclick="' + clickStr.replace('unfollow', 'follow') + '" clickflg="false"><span class="rightMenuSpan attentionSpan">关注</span><i class="iconfont icon-dianzan"></i></div>';
             }
