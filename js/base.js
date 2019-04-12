@@ -837,6 +837,21 @@ function Base() {
         if (topDiggPosts.length > 0 && menuTopDiggPosts.html() == '')
             menuTopDiggPosts.html(getMenuData(topDiggPosts, 'icon-like_fill')).prev('.m-list-title').show();
 
+        // 添加自定义列表
+        var customData = window.cnblogsConfig.menuCustomList;
+        if (Object.keys(customData).length > 0) {
+            $.each(customData, function (k, v) {
+                var html = '<div class="m-list-title"><span>' + k + '</span></div>';
+                html += '<div class="m-icon-list"><div><ul>';
+                $.each(v, function (tk, tv) {
+                    html += '<li><a href="' + tv[1] + '">' + tv[0] + '</a></li>';
+                });
+                html += '</ul></div></div>';
+
+                $('#menuCustomList').append(html);
+            });
+        }
+
         // 清除定时器
         if (
             sidebar.length > 0
