@@ -86,7 +86,7 @@ require.config({
         base: {
             deps: [
                 'tools',
-                'css!https://at.alicdn.com/t/font_543384_0zv65huqu00i.css', // 阿里云字体图标
+                'css!https://at.alicdn.com/t/font_543384_ezv3l7gd9r7.css', // 阿里云字体图标
                 'css!https://cdn.webfont.youziku.com/webfonts/nomal/111379/47284/5a531cbbf629dc07a8fbd011.css', // 有字库字体
             ]
         }
