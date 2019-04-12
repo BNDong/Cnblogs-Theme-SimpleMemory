@@ -841,13 +841,10 @@ function Base() {
         var customData = window.cnblogsConfig.menuCustomList;
         if (Object.keys(customData).length > 0) {
             $.each(customData, function (k, v) {
-                var html = '<div class="m-list-title"><span>' + k + '</span></div>';
+                var html = '<div class="m-list-title" style="display: block;"><span>' + k + '</span></div>';
                 html += '<div class="m-icon-list"><div><ul>';
-                $.each(v, function (tk, tv) {
-                    html += '<li><a href="' + tv[1] + '">' + tv[0] + '</a></li>';
-                });
+                html += '<li><a href="' + v[1] + '">' + v[0] + '</a></li>';
                 html += '</ul></div></div>';
-
                 $('#menuCustomList').append(html);
             });
         }
