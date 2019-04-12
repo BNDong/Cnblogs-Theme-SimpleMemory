@@ -115,16 +115,19 @@ prettify、desert、sunburst、obsidian、doxy
 播放器的设置，可以参考作者的 [GitHub](https://github.com/metowolf/MetingJS)
 ## Loading
 Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocalautti/spring-loaders)
-## 字体图标库及其更换方法
+## 字体图标库及其拓展方法
 本博客使用的图标库为阿里巴巴矢量图标库 iconfont。
 ### 字体图标库
 > 图标下方第一行为标题，第二行为图标代码（修改图标使用此代码）
 
 ![icon_list](/img/icon_list.png)
 
-### 更换方法
+### 拓展方法
 大家可以在 iconfont 生成自己的图标库，生成方法参考[官方教程](https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.13&helptype=about)。
 <br>获取样式地址后添加到加载配置文件中：``/js/config.js``
+
+> 为了兼容，请不要删除原有的图标库，除非你能替换掉所有的图标样式引用。
+
 ```
     ...
         base: {
