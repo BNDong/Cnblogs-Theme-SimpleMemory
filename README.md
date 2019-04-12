@@ -44,7 +44,7 @@
 * 引入文字 `引用` or `<h6>`
 * 关键字 `行内代码`
 ## 转载文章和文章后缀
-文章后缀显示的内容可以在相关配置项进行配置。如果需要其它修改，可以修改 articleStatement.js 文件。
+文章后缀显示的内容可以在相关配置项进行配置。如果需要其它修改，可以修改 ``/js/articleStatement.js`` 文件。
 <br>关于转载文章在HTML源码中加入如下代码来指定文章作者和来源：
 ```html
 <input id="articleAuthor" type="hidden" value="作者" />
@@ -115,6 +115,32 @@ prettify、desert、sunburst、obsidian、doxy
 播放器的设置，可以参考作者的 [GitHub](https://github.com/metowolf/MetingJS)
 ## Loading
 Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocalautti/spring-loaders)
+## 字体图标库及其拓展方法
+本博客使用的图标库为阿里巴巴矢量图标库 iconfont。
+### 字体图标库
+> 图标下方第一行为标题，第二行为图标代码（修改图标使用此代码）
+
+![icon_list](/img/icon_list.png)
+
+### 拓展方法
+大家可以在 iconfont 生成自己的图标库，生成方法参考[官方教程](https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.13&helptype=about)。
+<br>获取样式地址后添加到加载配置文件中：``/js/config.js``
+
+> 为了兼容，请不要删除原有的图标库，除非你能替换掉所有的图标样式引用。
+
+```
+    ...
+        base: {
+            deps: [
+                'tools',
+                'css!https://at.alicdn.com/t/font_543384_ezv3l7gd9r7.css', // 阿里云字体图标
+                'css!https://cdn.webfont.youziku.com/webfonts/nomal/111379/47284/5a531cbbf629dc07a8fbd011.css', // 有字库字体
+                // 添加至此位置，.css文件 url 前须添加 css!
+            ]
+        }
+    ...
+```
+
 # 常见问题
 ## 菜单数据不显示
 这个是大家遇到最多的问题，请以下面的方式进行处理。
@@ -148,6 +174,11 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
 
 ---
 # 版本更新日志
+## 2019.04.12 - a73181b
+* 添加自定义菜单数据配置项
+* 侧边栏菜单支持自定义数据
+* 根据关注状态修改关注图标样式
+
 ## 2019.03.11 - 1bdd29a
 * 修复了 MD 格式下，代码长度不限制，滚动条不出现的问题
 * 随笔页图片支持多张随机设置了

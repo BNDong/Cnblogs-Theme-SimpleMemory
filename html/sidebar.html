@@ -48,6 +48,8 @@
             <div class="m-list-title"><span>推荐排行</span></div>
             <div class="m-icon-list" id="sb-topDiggPosts"></div>
 
+            <!-- 自定义列表 -->
+            <span id="menuCustomList"></span>
         </nav>
         <button class="close-button" id="close-button">Close Menu</button>
         <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
@@ -95,12 +97,36 @@
         // ---- GitHub文件源配置 ----
         GhUserName: 'BNDong', // GitHub用户名(不是昵称)，注意大小写
         GhRepositories: 'Cnblogs-Theme-SimpleMemory', // GitHub主题仓库名称
-        GhVersions : '92bd82f20d69183c844c7bd3eb543c8c8fdb0592', // GitHub提交版本哈希值，根据版本加载代码，我有时候会提交代码进行调试，大家最好加载我仓库代码此处的版本 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
+        GhVersions : '05e53e1888df3b240d90f6093b93c643b5128ae1', // GitHub提交版本哈希值，根据版本加载代码，我有时候会提交代码进行调试，大家最好加载我仓库代码此处的版本 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
 
-        // ---- 基础信息配置 ----
+        // ---- 基础信息配置 ----custom
         blogUser      : "BNDong", // 博主名称，文章后缀和主页图片上都会使用此名称
         blogAvatar    : "https://pic.cnblogs.com/avatar/1065454/20161119225202.png", // 用户头像URL
         blogStartDate : "2016-11-17", // 入园时间，年-月-日，入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+
+        // ---- 菜单配置 ----
+        menuCustomList: { // 自定义菜单数据，显示在正常数据下方
+            "title1": { // 标题
+                "data": [ // 列表数据 ['列表', '链接']
+                    ['我的博客1', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客2', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客3', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客4', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客5', 'https://www.cnblogs.com/bndong/'],
+                ],
+                "icon": "icon-brush_fill" // 配置图标，参考文档：本博客字体图标库及其更换方法
+            },
+            "title2": { // 标题
+                "data": [ // 列表数据 ['列表', '链接']
+                    ['我的博客6', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客7', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客8', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客9', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客10', 'https://www.cnblogs.com/bndong/'],
+                ],
+                "icon": "icon-brush_fill" // 配置图标，参考文档：本博客字体图标库及其更换方法
+            },
+        },
 
         // ---- 网站配置 ----
         webpageTitleOnblur        : "(◍´꒳`◍) Hi, BNDong", // 当前页失去焦点，页面title显示文字
