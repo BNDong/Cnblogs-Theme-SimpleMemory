@@ -892,6 +892,7 @@ function Base() {
                         html += val[0] + '</a></li>';
                     });
                     html += '</ul></div></div>';
+                    // language=JQuery-CSS
                     $('#menuCustomList').append(html);
                 });
             }
@@ -912,7 +913,7 @@ function Base() {
             html += '</ul></div>';
             return html;
         }
-        
+
         return {
             setIntroduce: setIntroduce,
             setSidebar: setSidebar,
