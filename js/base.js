@@ -13,7 +13,13 @@ function Base() {
 
         /** 定时器 **/
         timeIds    = {
-            setMenuDataTId         : null, // 菜单设置数据定时器ID
+            setMenuIntroduceTId    : null, // 菜单设置-个人信息定时器ID
+            setMenuSidebarTId      : null, // 菜单设置-最新随笔定时器ID
+            setMenuToptagsTId      : null, // 菜单设置-我的标签定时器ID
+            setMenuClassifyTId     : null, // 菜单设置-随笔分类定时器ID
+            setMenuRecordTId       : null, // 菜单设置-随笔档案定时器ID
+            setMenuTopviewTId      : null, // 菜单设置-阅读排行定时器ID
+            setMenuTopDiggPostsTId : null, // 菜单设置-推荐排行定时器ID
             setHomeRightMenuTId    : null, // 主页右下角菜单设置定时器ID
             setNotHomeRightMenuTId : null, // 非主页右下角菜单设置定时器ID
             setCnzzTId             : null, // 网站统计Cnzz设置定时器ID
@@ -82,7 +88,15 @@ function Base() {
         bndongJs.addFooter();
 
         // 设置菜单侧边栏内容
-        timeIds.setMenuDataTId = window.setInterval( bndongJs.setMenuData, 1000 );
+        var setMenuData = bndongJs.setMenuData();
+        timeIds.setMenuIntroduceTId    = window.setInterval( setMenuData.setIntroduce, 1000 );
+        timeIds.setMenuSidebarTId      = window.setInterval( setMenuData.setSidebar, 1000 );
+        timeIds.setMenuToptagsTId      = window.setInterval( setMenuData.setToptags, 1000 );
+        timeIds.setMenuClassifyTId     = window.setInterval( setMenuData.setClassify, 1000 );
+        timeIds.setMenuRecordTId       = window.setInterval( setMenuData.setRecord, 1000 );
+        timeIds.setMenuTopviewTId      = window.setInterval( setMenuData.setTopview, 1000 );
+        timeIds.setMenuTopDiggPostsTId = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
+        setMenuData.setCustomData();
 
         // html5-title
         bndongJs.htmlTitle();
@@ -439,7 +453,7 @@ function Base() {
                             'idea', 'isbl-editor-light', 'qtcreator_light',
                             'tomorrow', 'vs', 'xcode', 'arduino-light',
                             'ascetic', 'color-brewer', 'lightfair'
-                        ]) != -1) pre.css('background-color', '#f6f8fa');
+                        ]) !== -1) pre.css('background-color', '#f6f8fa');
                     hljs.highlightBlock(block);
                 });
             });
@@ -810,59 +824,77 @@ function Base() {
             menuTopDiggPosts = $('#sb-topDiggPosts');
 
         // 添加个人信息
-        if ((typeof introduceHtml == 'string') && menuIntroduce.html() == '')
-            menuIntroduce.html(tools.htmlFiltrationScript(introduceHtml));
-
-        // 添加最新随笔
-        if (sidebar.length > 0 && menuSidebar.html() == '')
-            menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
-
-        // 添加我的标签
-        if (toptags.length > 0 && menuToptags.html() == '')
-            menuToptags.html(getMenuData(toptags, 'icon-label_fill')).prev('.m-list-title').show();
-
-        // 添加随笔分类
-        if (sbClassify.length > 0 && menuClassify.html() == '')
-            menuClassify.html(getMenuData(sbClassify, 'icon-marketing_fill')).prev('.m-list-title').show();
-
-        // 添加随笔档案
-        if (sbRecord.length > 0 && menuRecord.html() == '')
-            menuRecord.html(getMenuData(sbRecord, 'icon-task_fill')).prev('.m-list-title').show();
-
-        // 添加阅读排行
-        if (sbTopview.length > 0 && menuTopview.html() == '')
-            menuTopview.html(getMenuData(sbTopview, 'icon-browse_fill')).prev('.m-list-title').show();
-
-        // 添加推荐排行
-        if (topDiggPosts.length > 0 && menuTopDiggPosts.html() == '')
-            menuTopDiggPosts.html(getMenuData(topDiggPosts, 'icon-like_fill')).prev('.m-list-title').show();
-
-        // 添加自定义列表
-        var customData = window.cnblogsConfig.menuCustomList;
-        if (Object.keys(customData).length > 0) {
-            $.each(customData, function (title, list) {
-                var html = '<div class="m-list-title" style="display: block;"><span>' + title + '</span></div>';
-                html += '<div class="m-icon-list"><div><ul>';
-                $.each(list.data, function (key, val) {
-                    html += '<li><a href="' + val[1] + '">';
-                    html += '<span class="iconfont '+ list.icon +'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
-                    html += val[0] + '</a></li>';
-                });
-                html += '</ul></div></div>';
-                $('#menuCustomList').append(html);
-            });
+        function setIntroduce() {
+            if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
+                menuIntroduce.html(tools.htmlFiltrationScript(introduceHtml));
+                bndongJs.clearIntervalTimeId(timeIds.setMenuIntroduceTId);
+            }
         }
 
-        // 清除定时器
-        if (
-            sidebar.length > 0
-             && toptags.length > 0
-             && sbClassify.length > 0
-             && sbRecord.length > 0
-             && sbTopview.length > 0
-             && topDiggPosts.length > 0
-        ) {
-            bndongJs.clearIntervalTimeId(timeIds.setMenuDataTId);
+        // 添加最新随笔
+        function setSidebar() {
+            if (sidebar.length > 0 && menuSidebar.html() === ''){
+                menuSidebar.html(getMenuData(sidebar, 'icon-time_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuSidebarTId);
+            }
+        }
+
+        // 添加我的标签
+        function setToptags() {
+            if (toptags.length > 0 && menuToptags.html() === '') {
+                menuToptags.html(getMenuData(toptags, 'icon-label_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuToptagsTId);
+            }
+        }
+
+        // 添加随笔分类
+        function setClassify() {
+            if (sbClassify.length > 0 && menuClassify.html() === '') {
+                menuClassify.html(getMenuData(sbClassify, 'icon-marketing_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuClassifyTId);
+            }
+        }
+
+        // 添加随笔档案
+        function setRecord() {
+            if (sbRecord.length > 0 && menuRecord.html() === '') {
+                menuRecord.html(getMenuData(sbRecord, 'icon-task_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuRecordTId);
+            }
+        }
+
+        // 添加阅读排行
+        function setTopview() {
+            if (sbTopview.length > 0 && menuTopview.html() === '') {
+                menuTopview.html(getMenuData(sbTopview, 'icon-browse_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuTopviewTId);
+            }
+        }
+
+        // 添加推荐排行
+        function setTopDiggPosts() {
+            if (topDiggPosts.length > 0 && menuTopDiggPosts.html() === '') {
+                menuTopDiggPosts.html(getMenuData(topDiggPosts, 'icon-like_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuTopDiggPostsTId);
+            }
+        }
+
+        // 添加自定义列表
+        function setCustomData() {
+            var customData = window.cnblogsConfig.menuCustomList;
+            if (Object.keys(customData).length > 0) {
+                $.each(customData, function (title, list) {
+                    var html = '<div class="m-list-title" style="display: block;"><span>' + title + '</span></div>';
+                    html += '<div class="m-icon-list"><div><ul>';
+                    $.each(list.data, function (key, val) {
+                        html += '<li><a href="' + val[1] + '">';
+                        html += '<span class="iconfont '+ list.icon +'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
+                        html += val[0] + '</a></li>';
+                    });
+                    html += '</ul></div></div>';
+                    $('#menuCustomList').append(html);
+                });
+            }
         }
 
         function getMenuData(obj, icon) {
@@ -879,6 +911,17 @@ function Base() {
             });
             html += '</ul></div>';
             return html;
+        }
+        
+        return {
+            setIntroduce: setIntroduce,
+            setSidebar: setSidebar,
+            setToptags: setToptags,
+            setClassify: setClassify,
+            setRecord: setRecord,
+            setTopview: setTopview,
+            setTopDiggPosts: setTopDiggPosts,
+            setCustomData: setCustomData
         }
     };
 
