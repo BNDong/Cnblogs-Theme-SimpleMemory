@@ -134,7 +134,6 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
             deps: [
                 'tools',
                 'css!https://at.alicdn.com/t/font_543384_ezv3l7gd9r7.css', // 阿里云字体图标
-                'css!https://cdn.webfont.youziku.com/webfonts/nomal/111379/47284/5a531cbbf629dc07a8fbd011.css', // 有字库字体
                 // 添加至此位置，.css文件 url 前须添加 css!
             ]
         }
@@ -174,6 +173,9 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
 
 ---
 # 版本更新日志
+## 2019.04.26 - 70fa051
+* 删除有字库字体引用，增加谷歌字体库引用（侧边栏HTML代码处）
+
 ## 2019.04.14 - 2f74751
 * 重构菜单数据处理逻辑，单个数据的处理不会影响其它数据的添加
 
