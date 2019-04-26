@@ -87,7 +87,6 @@ require.config({
             deps: [
                 'tools',
                 'css!https://at.alicdn.com/t/font_543384_ezv3l7gd9r7.css', // 阿里云字体图标
-                'css!https://fonts.googleapis.com/css?family=Playball', // 谷歌字体库字体
             ]
         }
     }
