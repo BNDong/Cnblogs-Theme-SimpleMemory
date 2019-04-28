@@ -173,6 +173,10 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
 
 ---
 # 版本更新日志
+## 2019.04.28 - 81410de
+* 修改 mCustomScrollbar 插件内部加载协议为https
+> 由于 mCustomScrollbar 插件在http协议下报错：mismatched anonymous define() module
+
 ## 2019.04.26 - 70fa051
 * 删除有字库字体引用，增加谷歌字体库引用（侧边栏HTML代码处）
 
