@@ -173,6 +173,14 @@ Loading的设置，可以参考作者的 [GitHub](https://github.com/claudiocala
 
 ---
 # 版本更新日志
+## 2019.04.27 - v1.0.0
+* v1.0.0 版本发布
+
+> 1. 经过迭代调试，基本稳定了，发布v1.0.0
+> 2. 配置项 ```GhVersions``` 可以为版本号：```v1.0.0```
+> 3. 以后测试代码不会上传到此库中了，单独开库处理
+
+---
 ## 2019.04.28 - 81410de
 * 修改 mCustomScrollbar 插件内部加载协议为https
 > 由于 mCustomScrollbar 插件在http协议下报错：mismatched anonymous define() module
