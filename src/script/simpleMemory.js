@@ -159,7 +159,7 @@ window.cnblogsConfigDefault = {
         animateSections: true
     },
     homeTopImg: [
-        "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/src/images/home_top_bg.jpg"
+        "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
     ],
     homeBannerText: "",
     essayTopImg: [

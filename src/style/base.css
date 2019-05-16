@@ -2999,7 +2999,7 @@ button {
     /*margin-bottom: 5rem;*/
     text-align: center;
     /*background: #222 url(https://files.cnblogs.com/files/bndong/top_bg4.gif) center center no-repeat;*/
-    background: #222 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/src/images/home_top_bg.jpg) center center no-repeat;
+    background: #222 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg) center center no-repeat;
     background-size: cover;
     overflow: hidden;
     position: absolute;
@@ -3219,7 +3219,7 @@ button {
     transition-delay: 0.4s;
     outline: none;
     cursor: pointer;
-    /*background: #000 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/src/images/menu_bg.jpeg) 0 -195px no-repeat;*/
+    /*background: #000 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/menu_bg.jpeg) 0 -195px no-repeat;*/
     background: #000 url(https://files.cnblogs.com/files/bndong/me_top_bg.gif) center no-repeat;
     background-size: 100%;
 }
@@ -3807,7 +3807,7 @@ body>meting-js, #aplayer {
     padding: 10px;
     height: 200px;
     position: relative;
-    background: #fff url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/src/images/comment_bg.jpg) right -65px;
+    background: #fff url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/comment_bg.jpg) right -65px;
     background-size: 250px;
     background-repeat: no-repeat;
 }
