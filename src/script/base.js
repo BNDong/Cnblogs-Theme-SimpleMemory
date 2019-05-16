@@ -101,21 +101,14 @@ function Base() {
         // html5-title
         bndongJs.htmlTitle();
 
+        // 添加扩展字体图标库
+        if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
+
         // 添加页面特效控制
         bndongJs.setPageAnimationControl();
 
         // 控制台输出
         tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
-
-        (function () {
-            var re = /x/
-                ,i = 0;
-            console.log(re);
-
-            re.toString = function () {
-                return '欢迎访问本博客，这是您第 ' + (++i) + ' 次打开控制台。';
-            };
-        })();
 
         // 延时清除全部定时器
         setTimeout(bndongJs.clearIntervalAll, 30000);
@@ -579,6 +572,7 @@ function Base() {
         $('body').css('overflow', 'auto');
         pageLoading.spinner.setComplete();
         $('#loading').fadeOut(300);
+        $('a[name="top"]').fadeOut(300);
     };
 
     /**
@@ -733,20 +727,30 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        // var pvHtml =  '<i class="iconfont icon-odps-data cnzz" style="position: relative;top: 2px;left: 3px;cursor: pointer;"></i>';
-        var pvHtml = '<span id="amazingStatSpan"></span>';
-        pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
-        pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>";
-        pvHtml += '<div id="blogrollInfo"></div>';
-        pvHtml += '<div id="cnzzInfo"></div>';
-        $('#footer').append(pvHtml).prepend('<div class="footer-image"></div>');
+        var footer = $('#footer'),
+        pvHtml =
+            '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>' +
+            "<div><span id='blogRunTimeSpan'></span><span class='my-face'>ღゝ◡╹)ノ♡</span></div>" +
+            '<div id="blogrollInfo"></div>' +
+            '<div id="cnzzInfo"></div>',
+        bgFooter = '<footer>' +
+            '<footer-background>' +
+            '<figure class="clouds"></figure>' +
+            '<figure class="background"></figure>' +
+            '<figure class="foreground"></figure>' +
+            '<figure class="poof"></figure>' +
+            '</footer-background>' +
+            '</footer>',
+        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+        footer.prepend(pvHtml).prepend(bgFooter).append(' / ThemeVersion: <a href="'+rHref
+                                +'" target="_blank" style="color: #888;text-decoration: underline;">'
+                                +(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>');
 
         if (window.cnblogsConfig.themeAuthor && window.location.href.search("www.cnblogs.com/bndong") == -1 ) setTheme();
 
         window.setInterval( setRunTime, 500 );
         setBlogroll();
         timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
-        // timeIds.setAmazingTId = window.setInterval( setAmazing, 1000 );
 
         function setRunTime() {
             var str = window.cnblogsConfig.blogStartDate;
@@ -781,13 +785,6 @@ function Base() {
                 cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
                 $('#cnzzInfo').text(cnzzInfo.join(' | '));
                 bndongJs.clearIntervalTimeId(timeIds.setCnzzTId);
-            }
-        }
-        function setAmazing() {
-            // 请去 AmazingCounters.com 配置自己的，谢谢！！
-            if ($('#amazingStat').length > 0) {
-                $('#amazingStat').appendTo('#amazingStatSpan').show();
-                bndongJs.clearIntervalTimeId(timeIds.setAmazingTId);
             }
         }
         function setTheme() {

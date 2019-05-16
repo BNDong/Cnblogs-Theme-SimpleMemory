@@ -86,6 +86,7 @@ require.config({
         base: {
             deps: [
                 'tools',
+                'css!'+getJsDelivrUrl('footer.css'),
                 'css!https://at.alicdn.com/t/font_543384_ezv3l7gd9r7.css', // 阿里云字体图标
             ]
         }
