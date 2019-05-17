@@ -29,7 +29,7 @@
 - [v1.1.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
 - [v1.0.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
 
-# contributors
+# Contributors
 
 <a href="https://github.com/alessandrocyc" target="_blank">
     <img width=50 src="https://avatars1.githubusercontent.com/u/43987494?s=50&v=4" wi>
