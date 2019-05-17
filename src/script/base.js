@@ -669,13 +669,13 @@ function Base() {
     this.rightMenuMous = function(parentObject, subObject) {
         $(parentObject).on({
             mouseover : function(){
-                if (subObject == '.rightBuryitSpan') {
+                if (subObject === '.rightBuryitSpan') {
                     // 鼠标移入，更新踩值
                     var str = $('#bury_count').text();
                     if ($(subObject).text() != str) {$(parentObject).attr('clickflg', 'false');$(subObject).text(str);}
                 }
 
-                if (subObject == '.rightDiggitSpan') {
+                if (subObject === '.rightDiggitSpan') {
                     // 鼠标移入，更新顶值
                     var str = $('#digg_count').text();
                     if ($(subObject).text() != str) {$(parentObject).attr('clickflg', 'false');$(subObject).text(str);}
@@ -686,9 +686,9 @@ function Base() {
                 $(subObject).hide();
             },
             click: function () {
-                if (subObject == '.rightBuryitSpan' || subObject == '.rightDiggitSpan') {
+                if (subObject === '.rightBuryitSpan' || subObject === '.rightDiggitSpan') {
                     // 点击顶踩，数值变化
-                    if ($(this).attr('clickflg') == 'false') {
+                    if ($(this).attr('clickflg') === 'false') {
                         var rightSpan = $(subObject);
                         var i = parseInt(rightSpan.text()) + 1;
                         rightSpan.text(i);
@@ -696,7 +696,7 @@ function Base() {
                     }
                 }
 
-                if (subObject == '.attentionSpan') {
+                if (subObject === '.attentionSpan') {
                     var attDiv = $('#attention');
                     // 点击关注
                     if ($('#p_b_follow').text() == '' || $(parentObject + ' a').text().indexOf('成功') > 0) {
@@ -708,10 +708,10 @@ function Base() {
                     }
                 }
 
-                if (subObject == '.toUpDownSpan') {
+                if (subObject === '.toUpDownSpan') {
                     // 点击滚动
                     var ac = $(this).attr('data');
-                    if (ac == 'down') {
+                    if (ac === 'down') {
                         var docHeight    = $(document).height();
                         var windowHeight = $(window).height();
                         tools.actScroll(docHeight - windowHeight, 2000)

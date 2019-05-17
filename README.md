@@ -26,8 +26,8 @@
 
 # Docs
 
-- [v1.1.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
-- [v1.0.0](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
+- [v1.1.*](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
+- [v1.0.*](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
 
 # Contributors
 
