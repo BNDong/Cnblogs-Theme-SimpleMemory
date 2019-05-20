@@ -18,13 +18,7 @@ if (initCheck()) {
         '            <!-- 导航 -->' +
         '            <div class="nav-title"></div>' +
         '            <div class="icon-list">' +
-        '                <ul>' +
-        '                    <li><a href="https://www.cnblogs.com/bndong/" target="_self">首页</a></li>' +
-        '                    <li><a href="https://msg.cnblogs.com/send/BNDong" target="_blank">联系</a></li>' +
-        '                    <li><a href="https://www.cnblogs.com/bndong/rss" target="_blank">订阅</a></li>' +
-        '                    <li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>' +
-        '                    <li><a href="https://github.com/BNDong" target="_blank">GitHub</a></li>' +
-        '                    <li><a href="https://www.cnblogs.com/" target="_blank">CNBlogs</a></li>' +
+        '                <ul id="m-nav-list">' +
         '                </ul>' +
         '            </div>' +
         '            <!-- 最新随笔 -->' +
@@ -80,11 +74,12 @@ if (initCheck()) {
     window.cnblogsConfigDefault = {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
-        GhVersions: 'v1.1.0',
-        blogUser: "unconfigured",
+        GhVersions: 'v1.1.2',
+        blogUser: "",
         blogAvatar: "",
         blogStartDate: "2019-01-01",
         menuCustomList: {},
+        menuNavList: [],
         webpageTitleOnblur: "(oﾟvﾟ)ノ Hi",
         webpageTitleOnblurTimeOut: 500,
         webpageTitleFocus: "(*´∇｀*) 欢迎回来！",
@@ -180,9 +175,29 @@ if (initCheck()) {
         themeAuthor: false,
     };
 
-    $('#blog-news').prepend(sidebarHtml);
-
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
+
+    // set sidebar html
+    var url = window.location.href,tmp = [];
+    tmp = url.split("/");
+    var user = tmp[3];
+    var navListHtml = '<li><a href="https://www.cnblogs.com/'+user+'/" target="_self">首页</a></li>' +
+    '<li><a href="https://msg.cnblogs.com/send/'+user+'" target="_blank">联系</a></li>' +
+    '<li><a href="https://www.cnblogs.com/'+user+'/rss" target="_blank">订阅</a></li>' +
+    '<li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>';
+
+    var menuNavList = window.cnblogsConfig.menuNavList;
+    if (menuNavList.length > 0) {
+        $.each(menuNavList, function (i) {
+            navListHtml += '<li><a href="'+(menuNavList[i][1])+'" target="_blank">'+(menuNavList[i][0])+'</a></li>';
+        });
+    }
+
+    $('#blog-news').prepend(sidebarHtml);
+    $('#m-nav-list').append(navListHtml);
+
+    // set userName
+    if (window.cnblogsConfig.blogUser === "") window.cnblogsConfig.blogUser = user;
 
     // start cache
     $.ajaxSetup({cache: true});
@@ -227,7 +242,7 @@ function initCheck() {
     var baseStyle = $('#mobile-style').attr('href');
     if (typeof baseStyle != 'undefined') {
         var bt = baseStyle.split('/');
-        if($.inArray('SimpleMemory', bt) != -1) {
+        if($.inArray('SimpleMemory', bt) !== -1) {
             return true;
         }
     }
@@ -244,7 +259,7 @@ function getJsDelivrUrl(file, directory) {
 function setFileNameMin(file, directory) {
     if (typeof file == 'undefined') return '';
     var suffix  = null,fileArr = file.split('.');
-    if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) != -1) {
+    if (fileArr.length > 0 && $.inArray(fileArr[(fileArr.length -1)], ['js', 'css']) !== -1) {
         suffix = fileArr.pop();
         switch (suffix) {
             case 'js':directory = 'script';break;
