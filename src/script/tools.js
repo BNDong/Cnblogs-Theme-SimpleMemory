@@ -1,6 +1,6 @@
 function myTools() {
-    var bndongTools = this;
-    var colors      = {
+    const bndongTools = this;
+    const colors      = {
         "gray": "color: #1B2B34;font-size: 12px; line-height: 18px;",
         "red": "color: #EC5f67;font-size: 12px; line-height: 18px;",
         "orange": "color: #F99157;font-size: 12px; line-height: 18px;",
@@ -61,7 +61,7 @@ function myTools() {
      * 滚动主体滚动条到指定位置
      */
     this.actScroll = function(endScroll, time) {
-        $('html,body').animate({scrollTop: endScroll}, time);
+        $('html,body').stop().animate({scrollTop: endScroll}, time);
     };
 
     /**

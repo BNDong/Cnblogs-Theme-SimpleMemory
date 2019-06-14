@@ -3379,6 +3379,7 @@ blockquote p {
     bottom: 10px;
     right: 10px;
     min-width: 24px;
+    z-index: 1;
 }
 
 #rightMenu i {
@@ -3910,6 +3911,49 @@ body>meting-js, #aplayer {
    ========================================================================== */
 #sideToolbar {
     display: none;
+}
+
+/* ==========================================================================
+   文章信息
+   ========================================================================== */
+.article-info {
+    color: #fff;
+    margin-top: 30px;
+}
+
+.article-info-text {
+    font-size: 18px;
+    font-family: 'Playball', cursive;
+    margin-bottom: 10px;
+}
+
+.article-info-tag {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    position: relative;
+    background-image: none;
+    box-shadow: none;
+    margin: 0 0 0 10px;
+    padding: 0 5px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+}
+
+.article-tag-class-color {
+    background-color: #E8A258;
+}
+
+.article-tag-color {
+    background-color: #6fa3ef;
 }
 
 /* ==========================================================================

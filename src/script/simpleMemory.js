@@ -60,6 +60,8 @@ if (initCheck()) {
         '            <h1 class="page-title" style="font-family: \'Playball\', cursive;" id="homeTopTitle"></h1>' +
         '            <h2 class="page-description" id="hitokoto"></h2>' +
         '            <h3 class="page-author" id="hitokotoAuthor"></h3>' +
+        '            <h1 class="sb-title" id="sbTitle"></h1>' +
+        '            <p class="article-info" id="articleInfo"></p>' +
         '        </div>' +
         '    </div>' +
         '    <a class="scroll-down" href="javascript:void(0);" data-offset="-45">' +
@@ -132,10 +134,10 @@ if (initCheck()) {
             trailIntervalCreation: 100,
             delayBeforeDisappear: 2,
             colors: [
-                '#D9B6D4', '#A29AC3',
-                '#9091BF', '#9394C2',
-                '#FBCACE', '#7E84B8',
-                '#FCD5CE', '#6C79B5'
+                '#96EDA6', '#5BC6A9',
+                '#38668C', '#374D84',
+                '#BED5CB', '#62ADC6',
+                '#8EE5DE', '#304E7B'
             ]
         },
         bgAnimationRendered: true,
@@ -155,8 +157,9 @@ if (initCheck()) {
             "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
         ],
         homeBannerText: "",
+        homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-569548.png"
+            "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/nothome_top_bg.jpg"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
@@ -168,8 +171,8 @@ if (initCheck()) {
         bottomBlogroll: [],
         bottomText: {
             icon: "❤️",
-            left: "图标左侧文字",
-            right: "图标右侧文字"
+            left: "",
+            right: ""
         },
         consoleList: [],
         themeAuthor: false,

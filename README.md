@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./logo.png" height="150" />
+<img src="./img/logo.png" height="150" />
 
 [![GitHub release](https://img.shields.io/github/release/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases)
 [![GitHub issues](https://img.shields.io/github/issues/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues)
@@ -29,7 +29,7 @@
 - [v1.1.*](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
 - [v1.0.*](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
 
-> 推荐大家使用最新版本，新版本的发布往往代表的功能的完善和bug的修复！
+> 推荐大家使用最新版本，新版本的发布往往代表着功能的完善和bug的修复！
 > <br>文档可能有缓存，大家可以尝试强制刷新下(ctrl+f5)
 
 # Contributors
