@@ -17,7 +17,7 @@
 
 ## 仓库配置
 
-### GhUserName
+### GhUserName - GitHub用户
 
 * 类型：```String```
 * 默认值：```BNDong```
@@ -30,7 +30,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### GhRepositories
+### GhRepositories - GitHub仓库
 
 * 类型：```String```
 * 默认值：```Cnblogs-Theme-SimpleMemory```
@@ -43,7 +43,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### GhVersions
+### GhVersions - 主题版本
 
 * 类型：```String```
 * 默认值：```v1.1.0```
@@ -62,7 +62,7 @@ window.cnblogsConfig = {
 
 ## 基础信息配置
 
-### blogUser
+### blogUser - 用户昵称
 
 * 类型：```String```
 * 默认值：```[默认抓取博客园用户名]```
@@ -75,7 +75,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### blogAvatar
+### blogAvatar - 用户头像
 
 * 类型：```Url```
 * 默认值：```""```
@@ -88,7 +88,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### blogStartDate
+### blogStartDate - 入园时间
 
 * 类型：```Date```
 * 默认值：```2019-01-01```
@@ -103,7 +103,7 @@ window.cnblogsConfig = {
 
 ## 网站配置
 
-### webpageTitleOnblur
+### webpageTitleOnblur - 失去焦点标签文字
 
 * 类型：```String```
 * 默认值：```(oﾟvﾟ)ノ Hi```
@@ -116,7 +116,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### webpageTitleOnblurTimeOut
+### webpageTitleOnblurTimeOut - 失去焦点变化延时
 
 * 类型：```Number```
 * 默认值：```500```
@@ -129,7 +129,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### webpageTitleFocus
+### webpageTitleFocus - 获取焦点标签文字
 
 * 类型：```String```
 * 默认值：```(*´∇｀*) 欢迎回来！```
@@ -142,7 +142,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### webpageTitleFocusTimeOut
+### webpageTitleFocusTimeOut - 获取焦点变化延时
 
 * 类型：```Number```
 * 默认值：```1000```
@@ -155,7 +155,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### webpageIcon
+### webpageIcon - 网站图标
 
 * 类型：```Url```
 * 默认值：```""```
@@ -170,7 +170,7 @@ window.cnblogsConfig = {
 
 ## 字体图标扩展
 
-### fontIconExtend
+### fontIconExtend - 字体图标库扩展
 
 * 类型：```Url```
 * 相关文档：[字体图标库](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/#/Docs/Customization/fonticon)
@@ -186,7 +186,7 @@ window.cnblogsConfig = {
 
 ## 菜单配置
 
-### menuCustomList
+### menuCustomList - 菜单数据
 
 * 类型：```Object```
 * 相关文档：[字体图标库](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/#/Docs/Customization/fonticon)
@@ -221,7 +221,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### menuNavList
+### menuNavList - 菜单导航
 
 ?> 版本 >= v1.1.2
 
@@ -315,7 +315,7 @@ window.cnblogsConfig = {
 
 ## 页面动效配置
 
-### homeTopAnimationRendered
+### homeTopAnimationRendered - 是否渲染主页banner动效
 
 * 类型：```Boolean```
 * 默认值：```true```
@@ -328,7 +328,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### homeTopAnimation
+### homeTopAnimation - 主页banner动效配置
 
 * 类型：```Object```
 * 默认值：
@@ -352,7 +352,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### essayTopAnimationRendered
+### essayTopAnimationRendered - 是否渲染文章页banner动效
 
 * 类型：```Boolean```
 * 默认值：```true```
@@ -365,7 +365,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### essayTopAnimation
+### essayTopAnimation - 文章页banner动效配置
 
 * 类型：```Object```
 * 默认值：
@@ -401,7 +401,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### bgAnimationRendered
+### bgAnimationRendered - 是否渲染页面背景动效
 
 * 类型：```Boolean```
 * 默认值：```true```
@@ -414,7 +414,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### backgroundAnimation
+### backgroundAnimation - 页面背景动效配置
 
 * 类型：```Object```
 * 默认值：
@@ -447,7 +447,7 @@ window.cnblogsConfig = {
 
 ## 主页配置
 
-### homeTopImg
+### homeTopImg - 主页banner图片
 
 * 类型：```Array```
 * 默认值：
@@ -469,7 +469,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### homeBannerText
+### homeBannerText - 主页banner上的标语
 
 * 类型：```String```
 * 默认值：```""```
@@ -482,7 +482,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### homeBannerTextType
+### homeBannerTextType - 标语获取源
 
 ?> 版本 >= v1.1.3
 
@@ -504,7 +504,7 @@ one：每日获取一句话
 
 ## 文章页配置
 
-### essayTopImg
+### essayTopImg - 文章页banner图片
 
 * 类型：```Array```
 * 默认值：
@@ -526,7 +526,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### essaySuffix
+### essaySuffix - 文章后缀配置
 
 * 类型：```Object```
 * 默认值：
@@ -651,7 +651,7 @@ prettify、desert、sunburst、obsidian、doxy
 
 ## 页脚配置
 
-### bottomBlogroll
+### bottomBlogroll - 友情链接
 
 * 类型：```Array```
 * 默认值：```[]```
@@ -670,7 +670,7 @@ window.cnblogsConfig = {
 }
 ```
 
-### bottomText
+### bottomText - 页脚标语
 
 * 类型：```Object```
 * 默认值：

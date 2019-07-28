@@ -1,17 +1,10 @@
 # Cnblogs-Theme-SimpleMemory
 
-?> 由于该版本配置麻烦而复杂，已不推荐使用该版本，推荐版本：>= v1.1.2
-
 ?> 该版本最后提交更新版本：[d2c2e52cfefe2c274bed21735e38827638998f0e](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/tree/d2c2e52cfefe2c274bed21735e38827638998f0e)
 
-[![GitHub issues](https://img.shields.io/github/issues/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues)
-[![GitHub forks](https://img.shields.io/github/forks/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/network)
-[![GitHub stars](https://img.shields.io/github/stars/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/stargazers)
-[![BNDong](https://img.shields.io/badge/bndong-%E2%9D%A4%EF%B8%8F-%23ff69b4.svg)](https://www.cnblogs.com/bndong/)
+?> 由于该版本配置麻烦而复杂，已不推荐使用该版本，推荐版本：>= v1.1.2
 
-本主题以阅读为核心，尽可能的美化博客园的显示效果，提高用户体验。
-<br>基于博皮“SimpleMemor”进行的修改，使用插件较多，所以文件较多。
-<br>支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
+?> 希望大家尽量使用最新的版本：[![GitHub release](https://img.shields.io/github/release/BNDong/Cnblogs-Theme-SimpleMemory.svg)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases)
 
 # 目录结构
 
@@ -55,12 +48,20 @@
 
 !> 该版本配置没有处理缺省值，需要在侧边栏代码，添加所有的配置，不设置的配置请将值设置为空！
 
-## 标题与引用
+## 书写规范
 
-* 一级标题 `<h1>`
-* 二级标题 `<h2>`
-* 引入文字 `引用` or `<h6>`
-* 关键字 `行内代码`
+* 富文本编辑器建议：TinyMCE
+* MD编辑器建议：Markdown
+
+|**类型**|**TinyMCE**|**Markdown**|
+|:-----:|:-----:|:-----:|
+|**一级标题**|```<h1>```|```#```|
+|**二级标题**|```<h2>```|```##```|
+|**三级标题**|```<h3>```|```###```|
+|**引用文字**|```引用 or <h6>```|```>```|
+|**行内代码**|```行内代码```| ```|
+
+> 目前文章目录的生成只支持到二级目录。
 
 ## 转载文章和文章后缀
 
