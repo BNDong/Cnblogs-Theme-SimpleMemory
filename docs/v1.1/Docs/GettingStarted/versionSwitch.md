@@ -5,14 +5,28 @@
 由于 v1.0.0 与 v1.1.* 版本的配置方式不同，所以建议依据各版本的配置方式重新配置主题。
 
 各版本文档：
-- [v1.1.*](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/)
-- [v1.0.*](http://doc.dbnuo.org/cnblogs-theme-docs/v1.0.0/)
+- [v1.1.*](http://doc.dbnuo.org/v1.1/)
+- [v1.0.*](http://doc.dbnuo.org/v1.0/)
 
 ## v1.1.* 之间切换版本
 
-v1.1.* 之间切换版本比较比较简便，直接修改配置和文件引入版本就行。
+v1.1.* 之间切换版本比较比较简便。
 
 这里我举例 v1.1.2 切换至 v1.1.4:
+
+### 切换代码版本
+
+进入主题仓库：[GitHub](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory)
+
+切换版本：
+
+![install_05](../../Images/install_06.png)
+
+### 获取版本样式文件
+
+CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面定制CSS代码文本框处。
+
+### 切换配置版本及引入文件版本
 
 **原配置：**
 

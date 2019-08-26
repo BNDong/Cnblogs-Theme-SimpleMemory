@@ -153,6 +153,10 @@ button {
     background: #5ba4e5;
 }
 
+b {
+    font-weight: 400;
+}
+
 /*****第二部分结束*******************************/
 
 
@@ -455,12 +459,19 @@ button {
 }
 
 .input_my_zzk {
-    border: 1px solid #ccc;
-    width: 100%;
-    height: 25px;
-    padding-right: 30px;
+    border: 1px solid #3b3b3b;
+    border-radius: 3px;
+    width: 90%;
+    height: 30px;
     padding-left: 5px;
     outline: 0;
+    background: #000;
+    color: #ccc;
+}
+
+#sb_widget_my_zzk {
+    width: 100%;
+    text-align: center;
 }
 
 .btn_my_zzk {
@@ -497,16 +508,14 @@ button {
 /**日历控件样式开始**/
 
 #blog-calendar {
-    width: 228px;
-    padding-bottom: 5px;
-    margin-bottom: 35px;
-    box-shadow: 0 1px 3px #ccc;
-    border: 1px solid #EDEDED;
+    margin: 10px 5px 5px 10px;
+    visibility:hidden;
 }
 
 #blog-calendar td {
     font-size: 12px;
     font-family: "Comic Sans MS";
+    text-align: center;
 }
 
 #blog-calendar th {
@@ -519,6 +528,10 @@ button {
     margin-bottom: 35px;
     border: 1px solid #EDEDED;
     box-shadow: 0 1px 3px #ccc;
+}
+
+.calendar {
+    border: 0 solid #000
 }
 
 #calendar .Cal {
@@ -535,6 +548,10 @@ button {
 .Cal { /**日历容器table**/
     border: none;
     color: #666;
+    width: 100%;
+    font-size: 12px;
+    font-family: arial;
+    padding: 0
 }
 
 #calendar table a:link, #calendar table a:visited, #calendar table a:active {
@@ -547,18 +564,19 @@ button {
 }
 
 .CalTodayDay { /**今天日期样式**/
-    background: #3671a5 !important;
-    color: #FFF;
+    color: #b8b8b8;
     font-weight: bold;
+    background: #2d2d2b;
 }
 
 .CalWeekendDay {
+    background: #111;
     padding-top: 4px;
     padding-bottom: 4px;
 }
 
 .CalOtherMonthDay {
-    color: #ccc;
+    color: #3c3c3c;
     padding-top: 4px;
     padding-bottom: 4px;
 }
@@ -570,28 +588,48 @@ button {
 }
 
 .CalDayHeader {
-    background: #F8F8F8;
-    font-weight: 100;
-    color: #5E5F63;
+    font-weight: bold;
+    background: #111;
+    padding-bottom: 5px;
 }
 
 .CalTitle { /**日历年月头部样式**/
     background: #6293bb;
     width: 100%;
-    height: 25px;
+    height: 30px;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 0;
-    color: #FFF;
 }
 
 .CalTitle td {
-    background: #F8F8F8 !important;
-    border: 0px !important;
-    color: #5E5F63;
-    font-family: "Comic Sans MS";
+    background: #000;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: bold
 }
+
+.Cal td {
+    height: 20px;
+    /*border: solid 1px #171716;*/
+    font-size: 10px
+}
+
+.Cal a:link,.Cal a:visited,.Cal a:active {
+    color: #ff9;
+    text-decoration: underline
+}
+
+.Cal a:hover {
+    text-decoration: none;
+}
+
+.CalSelector {
+    background: #efefef
+}
+
+
 /**日历控件样式结束**/
 .catListTitle {
     font-weight: bold;
@@ -3662,7 +3700,7 @@ blockquote p {
 /* ==========================================================================
    隐藏不需要部分
    ========================================================================== */
-#header, .catListTitle, #profile_block, #blog-calendar, #leftcontentcontainer, #blog-calendar {
+#header, .catListTitle, #profile_block, #leftcontentcontainer {
     display: none !important;
 }
 
@@ -3763,7 +3801,7 @@ span.cnblogs_code {
     height: 16px;
     position: absolute;
     right: 19px;
-    top: 19px;
+    top: 8px;
     /*opacity: 0.3;*/
 }
 
@@ -3905,6 +3943,10 @@ body>meting-js, #aplayer {
 .list .out .conmts{background:#dcdcdc;/*text-shadow:0 1px 0 #eee;*/}
 .list .inc .conmts{background:#c0e668;/*text-shadow:0 1px 0 #dfa;*/}
 .list .out .conmts img{max-height:100px;}
+
+.toc {
+    margin-bottom: 30px;
+}
 
 /* ==========================================================================
    目录
@@ -4082,8 +4124,8 @@ a#green_channel_wechat {
    ========================================================================== */
 #footerTextIcon {
     display: inline-block;
-    animation: beating 1s infinite;
-    animation-timing-function: ease-out;
+    /*animation: beating 1s infinite;*/
+    /*animation-timing-function: ease-out;*/
     margin: 0 3px;
 }
 
@@ -4111,6 +4153,50 @@ a#green_channel_wechat {
     100% {
         transform: scale(1);
     }
+}
+
+/* ==========================================================================
+   文章后缀
+   ========================================================================== */
+.essaySuffix-eof {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: #ddd;
+    text-indent: 0;
+}
+
+.essaySuffix-box {
+    font-family: Microsoft YaHei, 微软雅黑, MicrosoftJhengHei, 华文细黑, STHeiti, MingLiu;
+    font-size: 14px;
+    background: hsl(220, 23%, 98%) !important;
+    padding: 17px;
+    border: 1px solid hsl(220, 16%, 94%) !important;
+    border-radius: 3px;
+    color: #414857;
+    text-indent: 0;
+}
+
+.essaySuffix-box-left {
+    width: 15%;
+    float: left;
+}
+
+.essaySuffix-box-left img {
+    width: 80%;
+    max-height: 80%;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.essaySuffix-box-right {
+    width: 85%;
+    float: right;
+}
+
+.essaySuffix-right-title {
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -4189,8 +4275,12 @@ a#green_channel_wechat {
         display: none;
     }
 
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left {
         display: none !important;
+    }
+
+    .essaySuffix-box-right {
+        width: 100%;
     }
 }
 
@@ -4253,8 +4343,12 @@ a#green_channel_wechat {
     }
 
     #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, body>meting-js, #aplayer,
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left
     {
         display: none !important;
+    }
+
+    .essaySuffix-box-right {
+        width: 100%;
     }
 }

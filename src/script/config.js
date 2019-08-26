@@ -36,6 +36,8 @@ require.config({
         codeDoxy: setFileNameMin('run_prettify', 'js'),
         //-- 代码高亮 - highlightjs
         highlightjs: setFileNameMin('highlight.min', 'js'),
+        //-- 拷贝
+        encoder: setFileNameMin('encoder', 'js'),
         //-- 主页头图动画
         circleMagic: setFileNameMin('circleMagic', 'js'),
         //-- 非主页头图动画
