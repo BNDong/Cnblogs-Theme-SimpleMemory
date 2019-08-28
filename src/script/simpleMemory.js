@@ -287,7 +287,7 @@ function setFileNameMin(file, directory) {
             case 'css':directory = 'style';break;
         }
     }
-    file.search('.min') === -1 && fileArr.push('min');
+    // file.search('.min') === -1 && fileArr.push('min');
     suffix != null && fileArr.push(suffix);
     return (typeof directory !== 'undefined' ? ('src/' + directory + '/' + fileArr.join('.')) : (fileArr.join('.')));
 }

@@ -65,7 +65,7 @@ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面�
         blogStartDate : "2016-11-17", // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
     }
 </script>
-<script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.1.5/src/script/simpleMemory.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.1.5/src/script/simpleMemory.js"></script>
 ```
 
 详细配置参考相关[文档](http://doc.dbnuo.org/cnblogs-theme-docs/v1.1.0/#/Docs/Customization/config)。

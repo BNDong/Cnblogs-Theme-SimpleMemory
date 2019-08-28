@@ -191,7 +191,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    webpageIcon: "https://files.cnblogs.com/files/bndong/blog_logo.gif"
+    webpageIcon: "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/blog_logo.gif"
 }
 ```
 
