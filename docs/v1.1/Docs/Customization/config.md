@@ -618,6 +618,8 @@ window.cnblogsConfig = {
 
 ### 使用 highlightjs
 
+* 相关文档：[highlight](http://doc.dbnuo.org/v1.1/#/Docs/Guide/highlight)
+
 #### essayCodeHighlightingType
 
 * 类型：```String```

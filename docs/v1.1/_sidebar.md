@@ -22,5 +22,6 @@
 
   - [菜单数据](Docs/Guide/menuData.md)
   - [Markdown](Docs/Guide/markdown.md)
+  - [highlight](Docs/Guide/highlight.md)
 
 - [Changelog](Docs/changelog.md)
