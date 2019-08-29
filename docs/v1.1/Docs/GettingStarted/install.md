@@ -59,7 +59,7 @@ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面�
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
-        GhVersions    : 'v1.1.5', // 版本
+        GhVersions    : 'v1.1.5.1', // 版本
         blogUser      : "userName", // 用户名
         blogAvatar    : "https://xxxx.png", // 用户头像
         blogStartDate : "2016-11-17", // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
