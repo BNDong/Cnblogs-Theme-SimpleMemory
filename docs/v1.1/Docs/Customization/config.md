@@ -11,7 +11,7 @@
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
-        GhVersions    : 'v1.1.5.1',
+        GhVersions    : 'v1.1.6',
         blogUser      : "userName",
         blogAvatar    : "https://xxxx.png",
         blogStartDate : "2016-11-17"
@@ -26,7 +26,7 @@
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
-        GhVersions    : 'v1.1.5.1',
+        GhVersions    : 'v1.1.6',
         blogUser      : "userName",
         blogAvatar    : "https://xxxx.png",
         blogStartDate : "2016-11-17",
