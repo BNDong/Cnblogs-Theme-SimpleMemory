@@ -85,6 +85,7 @@ if (initCheck()) {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
         GhVersions: 'v1.1.2',
+        CnVersions: "",
         blogUser: "",
         blogAvatar: "",
         blogStartDate: "2019-01-01",
@@ -189,6 +190,7 @@ if (initCheck()) {
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
+    getVersionConfig();
 
     // set sidebar html
     var url = window.location.href,tmp = [];
@@ -262,6 +264,42 @@ function initCheck() {
         }
     }
     return false;
+}
+
+// get version config
+function getVersionConfig() {
+    var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
+
+    $.ajax({
+        type: "get",
+        url: url,
+        dataType: "text",
+        async: false,
+        success: function(conf)
+        {
+            var confObj = conf ? JSON.parse(conf) : false;
+            var confVersion = getEndConfVal(window.cnblogsConfigDefault.GhVersions);
+            window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+
+            if (confVersion) {
+                window.cnblogsConfigDefault.GhVersions = confVersion;
+            }
+
+            function getEndConfVal(thisGhVersion) {
+                var endVal = '';
+                confObj && $.each(confObj, function (i) {
+                    if (confObj[i][0] === thisGhVersion) {
+                        endVal = confObj[i][1];return false;
+                    }
+                });
+                if (endVal === '') {
+                    return thisGhVersion;
+                } else {
+                    return getEndConfVal(endVal);
+                }
+            }
+        }
+    });
 }
 
 // get file url

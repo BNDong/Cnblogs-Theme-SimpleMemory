@@ -3493,6 +3493,10 @@ blockquote p {
     margin-bottom: 10px;
 }
 
+.cnblogs-markdown .cnblogs_code_copy a {
+    top: 0;
+}
+
 #cnblogs_post_body table tr {
     border: 0;
 }
@@ -3755,6 +3759,9 @@ span.cnblogs_code {
 
 .postBody pre {
     max-height: 70vh;
+    word-break: break-all;
+    word-wrap: break-word;
+    border-radius: 4px;
 }
 
 .cnblogs_code span {
@@ -3768,14 +3775,14 @@ span.cnblogs_code {
 }
 
 .cnblogs_code_collapse {
-    border: 0px;
-    background-color: #f9f9f9;
+    border: 0;
+    background-color: #fff;
     cursor: pointer;
-    color: rgb(85, 85, 85);
+    color: #d08770;
     top: 1px;
     font-weight: bold;
     position: relative;
-    font-family: Merriweather, "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif !important;
+    font-family: Merriweather,"Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif!important;
     display: inline;
 }
 

@@ -571,7 +571,8 @@ function Base() {
             '</footer-background>' +
             '</footer>',
 
-        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
+        lHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
 
         addFooterHtml();
         setBlogroll();
@@ -631,9 +632,13 @@ function Base() {
         // 设置加载主题信息
         function setTheme() {
 
-            $('#themeInfo').html(window.cnblogsConfig.GhRepositories + ' / Version: <a href="'+rHref
+            $('#themeInfo').html('Theme version: <a href="'+lHref
                 +'" target="_blank" style="color: #888;text-decoration: underline;">'
-                +(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>');
+                +(window.cnblogsConfigDefault.CnVersions).substring(0,7)+'</a>'
+                +' / Loading theme version: <a href="'+rHref
+                +'" target="_blank" style="color: #888;text-decoration: underline;">'
+                +(window.cnblogsConfigDefault.GhVersions).substring(0,7)+'</a>'
+            );
         }
     };
 
@@ -998,7 +1003,7 @@ function Base() {
 
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
-            tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/' + window.cnblogsConfig.GhRepositories + '/src/style/highlightjs/'+hltheme+'.min.css');
+            tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             setCodeBefore();
             require(['highlightjs'], function() {
                 $('pre').each(function(i, block) {
@@ -1013,6 +1018,7 @@ function Base() {
                 });
             });
         }
+
         // 使用 prettify 代码样式
         function prettifyCode() {
             pre.addClass('prettyprint');
