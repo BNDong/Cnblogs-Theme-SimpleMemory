@@ -25,7 +25,6 @@
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     background-color: #eaeaea;
-    border-color: -moz-use-text-color #eaeaea;
     border-image: none;
     border-left: 1px solid #eaeaea;
     border-right: 1px solid #eaeaea;
@@ -51,7 +50,7 @@
     bottom: 0
 }
 #sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-top,#sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-bottom {
-    background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") no-repeat scroll 0 -199px transparent;
+    background: url("https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/sideToolbar.gif") no-repeat scroll 0 -199px transparent;
     height: 10px;
     left: -5px;
     overflow: hidden;
@@ -128,7 +127,7 @@
     font-weight: bold
 }
 .sideCatalog-dot {
-    background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") repeat scroll 0 -222px transparent;
+    background: url("https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/sideToolbar.gif") repeat scroll 0 -222px transparent;
     cursor: pointer;
     font-size: 12px;
     height: 10px;
@@ -140,16 +139,14 @@
     width: 6px
 }
 #sideCatalog .highlight .sideCatalog-dot {
-    /*background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") no-repeat scroll -271px -38px transparent;*/
-    background: url(http://files.cnblogs.com/files/bndong/list.gif) no-repeat scroll 4px 6px transparent;
+    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/list.gif) no-repeat scroll 4px 6px transparent;
     height: 13px;
     left: -23px;
     top: 3px;
     width: 18px
 }
 #sideCatalogBtn {
-    /*background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") no-repeat scroll 0 0 transparent;*/
-    background: url(http://files.cnblogs.com/files/bndong/list.gif) no-repeat scroll 4px 6px transparent;
+    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/list.gif) no-repeat scroll 4px 6px transparent;
     cursor: pointer;
     display: block;
     height: 45px;
@@ -163,17 +160,14 @@
     right: 1px;
     bottom: 96px;
 }
-#sideCatalogBtn: hover {
-    /*background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") no-repeat scroll -154px 0 transparent*/
-    background: url(http://files.cnblogs.com/files/bndong/list.gif) no-repeat scroll 4px 6px transparent;
+#sideCatalogBtn:hover {
+    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/list.gif) no-repeat scroll 4px 6px transparent;
 }
 .sideCatalogBtnDisable {
-    /*background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") no-repeat scroll -104px 0 transparent !important*/
-    background: url(http://files.cnblogs.com/files/bndong/list.gif) no-repeat scroll 4px 6px transparent !important;
+    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/list.gif) no-repeat scroll 4px 6px transparent !important;
 }
 #sideToolbar-up {
-    /*background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") no-repeat scroll -1px -62px transparent;*/
-    background: url(http://files.cnblogs.com/files/bndong/list.gif) no-repeat scroll 4px 6px transparent;
+    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/list.gif) no-repeat scroll 4px 6px transparent;
     border-radius: 2px;
     display: block;
     height: 45px;
@@ -181,9 +175,8 @@
     width: 45px;
     outline: 0
 }
-#sideToolbar-up: hover {
-    /*background: url("http://files.cnblogs.com/files/bndong/sideToolbar.gif") no-repeat scroll -74px -62px transparent*/
-    background: url(http://files.cnblogs.com/files/bndong/list.gif) no-repeat scroll 4px 6px transparent;
+#sideToolbar-up:hover {
+    background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/list.gif) no-repeat scroll 4px 6px transparent;
 }
 
 

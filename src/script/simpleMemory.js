@@ -21,6 +21,11 @@ if (initCheck()) {
         '                <ul id="m-nav-list">' +
         '                </ul>' +
         '            </div>' +
+        '            <!-- 日历 -->' +
+        '            <span id="calendar-box"></span>' +
+        '            <!-- 找找看 -->' +
+        '            <div class="m-list-title"><span>找找看</span></div>' +
+        '            <div class="m-icon-list" id="sb-sidebarSearchBox"></div>' +
         '            <!-- 最新随笔 -->' +
         '            <div class="m-list-title"><span>最新随笔</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarRecentposts"></div>' +
@@ -33,6 +38,9 @@ if (initCheck()) {
         '            <!-- 随笔档案 -->' +
         '            <div class="m-list-title"><span>随笔档案</span></div>' +
         '            <div class="m-icon-list" id="sb-record"></div>' +
+        '            <!-- 文章档案 -->' +
+        '            <div class="m-list-title"><span>文章档案</span></div>' +
+        '            <div class="m-icon-list" id="sb-articlearchive"></div>' +
         '            <!-- 阅读排行 -->' +
         '            <div class="m-list-title"><span>阅读排行</span></div>' +
         '            <div class="m-icon-list" id="sb-topview"></div>' +
@@ -77,11 +85,13 @@ if (initCheck()) {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
         GhVersions: 'v1.1.2',
+        CnVersions: "",
         blogUser: "",
         blogAvatar: "",
         blogStartDate: "2019-01-01",
         menuCustomList: {},
         menuNavList: [],
+        menuUserInfoBgImg: '',
         webpageTitleOnblur: "(oﾟvﾟ)ノ Hi",
         webpageTitleOnblurTimeOut: 500,
         webpageTitleFocus: "(*´∇｀*) 欢迎回来！",
@@ -164,6 +174,7 @@ if (initCheck()) {
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
         essaySuffix: {
+            codeImgUrl: '',
             aboutHtml: '',
             copyrightHtml: '',
             supportHtml: ''
@@ -179,6 +190,7 @@ if (initCheck()) {
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
+    getVersionConfig();
 
     // set sidebar html
     var url = window.location.href,tmp = [];
@@ -228,7 +240,9 @@ if (initCheck()) {
             });
         });
     });
+
 } else {
+
     $('a[name="top"]').text("SimpleMemory：基础配置有误，请阅读文档，检查配置！").css({
         'display': 'block',
         'text-align': 'center',
@@ -250,6 +264,42 @@ function initCheck() {
         }
     }
     return false;
+}
+
+// get version config
+function getVersionConfig() {
+    var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
+
+    $.ajax({
+        type: "get",
+        url: url,
+        dataType: "text",
+        async: false,
+        success: function(conf)
+        {
+            var confObj = conf ? JSON.parse(conf) : false;
+            var confVersion = getEndConfVal(window.cnblogsConfigDefault.GhVersions);
+            window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+
+            if (confVersion) {
+                window.cnblogsConfigDefault.GhVersions = confVersion;
+            }
+
+            function getEndConfVal(thisGhVersion) {
+                var endVal = '';
+                confObj && $.each(confObj, function (i) {
+                    if (confObj[i][0] === thisGhVersion) {
+                        endVal = confObj[i][1];return false;
+                    }
+                });
+                if (endVal === '') {
+                    return thisGhVersion;
+                } else {
+                    return getEndConfVal(endVal);
+                }
+            }
+        }
+    });
 }
 
 // get file url

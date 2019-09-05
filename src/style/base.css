@@ -54,13 +54,10 @@ body {
     -moz-font-feature-settings: 'kern' 1;
     -o-font-feature-settings: 'kern' 1;
     overflow: hidden;
-    /*background: url(https://files.cnblogs.com/files/bndong/white_brick_wall.gif) rgb(255, 255, 255);*/
-    /*background-attachment: fixed;*/
 }
 
 body:before {
     content: '';
-    /*background: url(https://files.cnblogs.com/files/bndong/white_brick_wall.gif) #fff;*/
     display: block;
     z-index: -1;
     position: fixed;
@@ -151,6 +148,10 @@ button {
     border-radius: 0.3rem;
     border: rgba(0,0,0,0.05) 0.1em solid;
     background: #5ba4e5;
+}
+
+b {
+    font-weight: 400;
 }
 
 /*****第二部分结束*******************************/
@@ -455,12 +456,19 @@ button {
 }
 
 .input_my_zzk {
-    border: 1px solid #ccc;
-    width: 100%;
-    height: 25px;
-    padding-right: 30px;
+    border: 1px solid #3b3b3b;
+    border-radius: 3px;
+    width: 90%;
+    height: 30px;
     padding-left: 5px;
     outline: 0;
+    background: #000;
+    color: #ccc;
+}
+
+#sb_widget_my_zzk {
+    width: 100%;
+    text-align: center;
 }
 
 .btn_my_zzk {
@@ -497,16 +505,14 @@ button {
 /**日历控件样式开始**/
 
 #blog-calendar {
-    width: 228px;
-    padding-bottom: 5px;
-    margin-bottom: 35px;
-    box-shadow: 0 1px 3px #ccc;
-    border: 1px solid #EDEDED;
+    margin: 10px 5px 5px 10px;
+    visibility:hidden;
 }
 
 #blog-calendar td {
     font-size: 12px;
     font-family: "Comic Sans MS";
+    text-align: center;
 }
 
 #blog-calendar th {
@@ -519,6 +525,10 @@ button {
     margin-bottom: 35px;
     border: 1px solid #EDEDED;
     box-shadow: 0 1px 3px #ccc;
+}
+
+.calendar {
+    border: 0 solid #000
 }
 
 #calendar .Cal {
@@ -535,6 +545,10 @@ button {
 .Cal { /**日历容器table**/
     border: none;
     color: #666;
+    width: 100%;
+    font-size: 12px;
+    font-family: arial;
+    padding: 0
 }
 
 #calendar table a:link, #calendar table a:visited, #calendar table a:active {
@@ -547,18 +561,19 @@ button {
 }
 
 .CalTodayDay { /**今天日期样式**/
-    background: #3671a5 !important;
-    color: #FFF;
+    color: #b8b8b8;
     font-weight: bold;
+    background: #2d2d2b;
 }
 
 .CalWeekendDay {
+    background: #111;
     padding-top: 4px;
     padding-bottom: 4px;
 }
 
 .CalOtherMonthDay {
-    color: #ccc;
+    color: #3c3c3c;
     padding-top: 4px;
     padding-bottom: 4px;
 }
@@ -570,28 +585,48 @@ button {
 }
 
 .CalDayHeader {
-    background: #F8F8F8;
-    font-weight: 100;
-    color: #5E5F63;
+    font-weight: bold;
+    background: #111;
+    padding-bottom: 5px;
 }
 
 .CalTitle { /**日历年月头部样式**/
     background: #6293bb;
     width: 100%;
-    height: 25px;
+    height: 30px;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 0;
-    color: #FFF;
 }
 
 .CalTitle td {
-    background: #F8F8F8 !important;
-    border: 0px !important;
-    color: #5E5F63;
-    font-family: "Comic Sans MS";
+    background: #000;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: bold
 }
+
+.Cal td {
+    height: 20px;
+    /*border: solid 1px #171716;*/
+    font-size: 10px
+}
+
+.Cal a:link,.Cal a:visited,.Cal a:active {
+    color: #ff9;
+    text-decoration: underline
+}
+
+.Cal a:hover {
+    text-decoration: none;
+}
+
+.CalSelector {
+    background: #efefef
+}
+
+
 /**日历控件样式结束**/
 .catListTitle {
     font-weight: bold;
@@ -2998,7 +3033,6 @@ button {
     max-height: 100vh;
     /*margin-bottom: 5rem;*/
     text-align: center;
-    /*background: #222 url(https://files.cnblogs.com/files/bndong/top_bg4.gif) center center no-repeat;*/
     background: #222 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg) center center no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -3220,7 +3254,7 @@ button {
     outline: none;
     cursor: pointer;
     /*background: #000 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/menu_bg.jpeg) 0 -195px no-repeat;*/
-    background: #000 url(https://files.cnblogs.com/files/bndong/me_top_bg.gif) center no-repeat;
+    background: #000 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/me_top_bg.gif) center no-repeat;
     background-size: 100%;
 }
 
@@ -3331,10 +3365,15 @@ blockquote p {
 }
 
 #cnblogs_post_body h3:before {
-    content: '# ';
+    content: ' ';
     font-weight: lighter;
+    width: 20px;
+    height: 17px;
+    display: inline-block;
     color: #aaa;
-    transition: all 0.3s;
+    transition: all .3s;
+    background-image: url(https://www.cnblogs.com/skins/minyx2_lite/images/icon_bullet.gif);
+    background-repeat: no-repeat;
 }
 
 #cnblogs_post_body ul {
@@ -3457,6 +3496,10 @@ blockquote p {
     border-bottom: 0;
     border-collapse: initial!important;
     margin-bottom: 10px;
+}
+
+.cnblogs-markdown .cnblogs_code_copy a {
+    top: 0;
 }
 
 #cnblogs_post_body table tr {
@@ -3662,7 +3705,7 @@ blockquote p {
 /* ==========================================================================
    隐藏不需要部分
    ========================================================================== */
-#header, .catListTitle, #profile_block, #blog-calendar, #leftcontentcontainer, #blog-calendar {
+#header, .catListTitle, #profile_block, #leftcontentcontainer {
     display: none !important;
 }
 
@@ -3721,6 +3764,9 @@ span.cnblogs_code {
 
 .postBody pre {
     max-height: 70vh;
+    word-break: break-all;
+    word-wrap: break-word;
+    border-radius: 4px;
 }
 
 .cnblogs_code span {
@@ -3734,14 +3780,14 @@ span.cnblogs_code {
 }
 
 .cnblogs_code_collapse {
-    border: 0px;
-    background-color: #f9f9f9;
+    border: 0;
+    background-color: #fff;
     cursor: pointer;
-    color: rgb(85, 85, 85);
+    color: #d08770;
     top: 1px;
     font-weight: bold;
     position: relative;
-    font-family: Merriweather, "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif !important;
+    font-family: Merriweather,"Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif!important;
     display: inline;
 }
 
@@ -3754,7 +3800,6 @@ span.cnblogs_code {
 }
 
 .cnblogs_code_copy a {
-    /*background: url(https://files.cnblogs.com/files/bndong/copy_16px.gif) top left;*/
     background-repeat: no-repeat;
     display: inline-block;
     padding: 0;
@@ -3763,7 +3808,7 @@ span.cnblogs_code {
     height: 16px;
     position: absolute;
     right: 19px;
-    top: 19px;
+    top: 8px;
     /*opacity: 0.3;*/
 }
 
@@ -3852,7 +3897,7 @@ body>meting-js, #aplayer {
 }
 
 .tbCommentBody_bg {
-    background: url('https://files.cnblogs.com/files/bndong/commentHintBg.gif') center center no-repeat;
+    background: url('https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/commentHintBg.gif') center center no-repeat;
 }
 
 .commentbox_main {
@@ -3879,9 +3924,9 @@ body>meting-js, #aplayer {
 .list .out .icon,.list .inc .icon{width:48px;height:48px;}
 .list .icontd {width:48px;}
 .list .out .icontd{display:none;}
-.list .out .topleft,.list .out .topright,.list .out .bottomleft,.list .out .bottomright,.list .inc .topleft,.list .inc .topright,.list .inc .bottomleft,.list .inc .bottomright{background: url(https://files.cnblogs.com/files/bndong/t_o_bubbles.gif) no-repeat;}
-.list .out .top,.list .out .bottom,.list .inc .top,.list .inc .bottom{background:transparent url(https://files.cnblogs.com/files/bndong/t_o_horizontal.gif) repeat-x;}
-.list .out .left,.list .out .right,.list .inc .left,.list .inc .right{background:transparent url(https://files.cnblogs.com/files/bndong/t_o_vertical.gif) repeat-y;}
+.list .out .topleft,.list .out .topright,.list .out .bottomleft,.list .out .bottomright,.list .inc .topleft,.list .inc .topright,.list .inc .bottomleft,.list .inc .bottomright{background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/t_o_bubbles.gif) no-repeat;}
+.list .out .top,.list .out .bottom,.list .inc .top,.list .inc .bottom{background:transparent url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/t_o_horizontal.gif) repeat-x;}
+.list .out .left,.list .out .right,.list .inc .left,.list .inc .right{background:transparent url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/t_o_vertical.gif) repeat-y;}
 
 .list .out .topleft{background-position:left top;height:9px;width:18px;}
 .list .out .topright{background-position:-18px top;height:9px;width:11px;}
@@ -3905,6 +3950,10 @@ body>meting-js, #aplayer {
 .list .out .conmts{background:#dcdcdc;/*text-shadow:0 1px 0 #eee;*/}
 .list .inc .conmts{background:#c0e668;/*text-shadow:0 1px 0 #dfa;*/}
 .list .out .conmts img{max-height:100px;}
+
+.toc {
+    margin-bottom: 30px;
+}
 
 /* ==========================================================================
    目录
@@ -4003,6 +4052,7 @@ a#green_channel_digg, a#green_channel_follow, a#green_channel_favorite, a#green_
     color: #fff;
     margin: auto;
     width: 80px;
+    height: 30px;
     display: inline-block;
     line-height: 30px;
     font-size: 12px;
@@ -4010,11 +4060,11 @@ a#green_channel_digg, a#green_channel_follow, a#green_channel_favorite, a#green_
     letter-spacing: 2px;
     border-radius: 3px;
     text-transform: uppercase;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -o-transition: all 0.4s;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
     position: relative;
     background-image: none;
     margin-top: 10px;
@@ -4049,22 +4099,18 @@ a#green_channel_favorite {
 }
 
 a#green_channel_weibo {
-    padding: 3px 8px !important;
-    background-color: #FF464B !important;
-    box-shadow: 0px 15px 18px -6px rgba(255,70,75, 0.65) !important;
+    background-color: #ff464b!important;
+    box-shadow: 0 15px 18px -6px rgba(255,70,75,0.65)!important;
     margin-left: 10px;
-    width: 35px;
-    /*display:none;*/
+    width: 45px;
 }
 
 
 a#green_channel_wechat {
-    padding: 3px 8px !important;
-    background-color: #3CB034 !important;
-    box-shadow: 0px 15px 18px -6px rgba(60,176,52, 0.65) !important;
+    background-color: #3cb034!important;
+    box-shadow: 0 15px 18px -6px rgba(60,176,52,0.65)!important;
     margin-left: 10px;
-    width: 35px;
-    /*display:none;*/
+    width: 45px;
 }
 
 #author_profile_info img.author_avatar {
@@ -4076,14 +4122,19 @@ a#green_channel_wechat {
     margin-right: 7px;
 }
 
+div#green_channel img {
+    height: 20px;
+    width: 20px;
+}
+
 
 /* ==========================================================================
    页脚
    ========================================================================== */
 #footerTextIcon {
     display: inline-block;
-    animation: beating 1s infinite;
-    animation-timing-function: ease-out;
+    /*animation: beating 1s infinite;*/
+    /*animation-timing-function: ease-out;*/
     margin: 0 3px;
 }
 
@@ -4111,6 +4162,50 @@ a#green_channel_wechat {
     100% {
         transform: scale(1);
     }
+}
+
+/* ==========================================================================
+   文章后缀
+   ========================================================================== */
+.essaySuffix-eof {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: #ddd;
+    text-indent: 0;
+}
+
+.essaySuffix-box {
+    font-family: Microsoft YaHei, 微软雅黑, MicrosoftJhengHei, 华文细黑, STHeiti, MingLiu;
+    font-size: 14px;
+    background: hsl(220, 23%, 98%) !important;
+    padding: 17px;
+    border: 1px solid hsl(220, 16%, 94%) !important;
+    border-radius: 3px;
+    color: #414857;
+    text-indent: 0;
+}
+
+.essaySuffix-box-left {
+    width: 15%;
+    float: left;
+}
+
+.essaySuffix-box-left img {
+    width: 80%;
+    max-height: 80%;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.essaySuffix-box-right {
+    width: 85%;
+    float: right;
+}
+
+.essaySuffix-right-title {
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -4189,8 +4284,12 @@ a#green_channel_wechat {
         display: none;
     }
 
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas {
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left {
         display: none !important;
+    }
+
+    .essaySuffix-box-right {
+        width: 100%;
     }
 }
 
@@ -4253,8 +4352,12 @@ a#green_channel_wechat {
     }
 
     #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, body>meting-js, #aplayer,
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas
+    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left
     {
         display: none !important;
+    }
+
+    .essaySuffix-box-right {
+        width: 100%;
     }
 }
