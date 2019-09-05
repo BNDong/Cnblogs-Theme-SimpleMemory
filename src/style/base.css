@@ -3365,10 +3365,15 @@ blockquote p {
 }
 
 #cnblogs_post_body h3:before {
-    content: '# ';
+    content: ' ';
     font-weight: lighter;
+    width: 20px;
+    height: 17px;
+    display: inline-block;
     color: #aaa;
-    transition: all 0.3s;
+    transition: all .3s;
+    background-image: url(https://www.cnblogs.com/skins/minyx2_lite/images/icon_bullet.gif);
+    background-repeat: no-repeat;
 }
 
 #cnblogs_post_body ul {
