@@ -61,7 +61,7 @@ if (initCheck()) {
         '    <div class="content-wrap" id="content-wrap"></div><!-- /content-wrap -->' +
         '</div>' +
         '<div class="main-header">' +
-        '    <canvas id="notHomeTopCanvas" style=" position: absolute;margin: auto;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;right: 0;"></canvas>' +
+        '    <canvas id="notHomeTopCanvas"></canvas>' +
         '    <div class="vertical">' +
         '        <div class="main-header-content inner">' +
         '            <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">' +

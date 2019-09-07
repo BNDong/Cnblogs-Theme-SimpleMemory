@@ -186,23 +186,31 @@ body{
 }
 
 .icon-list li:before {
-    display: block;
-    float: right;
-    padding-right: 4%;
-    padding-left: 5px;
-	padding-top: 8px;
-    text-align: right;
+    display: inline-block;
     font-size: 1.2rem;
     vertical-align: bottom;
-    color: #B8B8B8;
-    content: counter(item, lower-roman);
+    color: #666;
+    content: counter(item,lower-roman);
+    text-align: center;
     counter-increment: item;
+    position: absolute;
+    right: -38px;
+    width: 10px;
+    background: #000;
+    height: 20px;
+    bottom: 8px;
+    z-index: 1;
+    padding: 0 40px 0 5px;
 }
 
 .icon-list li a:after {
-	display: inline-block;
-    content: " .......................................................";
-    color: rgba(255,255,255,0.2);
+    display: inline-block;
+    content: " .................................................................................................";
+    color: rgba(255,255,255,.2);
+    position: absolute;
+    overflow: hidden;
+    width: 237px;
+    vertical-align: bottom;
     margin-left: 5px;
 }
 

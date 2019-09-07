@@ -98,6 +98,7 @@ li {
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
     font-weight: normal;
+    padding-left: 20px;
 }
 
 a {
@@ -3360,20 +3361,16 @@ blockquote p {
     color: #333;
 }
 
-#cnblogs_post_body h3 {
-    margin: 0 1em !important;
-}
-
-#cnblogs_post_body h3:before {
+#cnblogs_post_body h3:before,#cnblogs_post_body h4:before,#cnblogs_post_body h5:before {
     content: ' ';
     font-weight: lighter;
-    width: 20px;
-    height: 17px;
+    width: 21px;
+    height: 16px;
     display: inline-block;
-    color: #aaa;
     transition: all .3s;
-    background-image: url(https://www.cnblogs.com/skins/minyx2_lite/images/icon_bullet.gif);
+    background-image: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/title_icon.png);
     background-repeat: no-repeat;
+    background-position: 0 6px;
 }
 
 #cnblogs_post_body ul {
@@ -3542,7 +3539,7 @@ blockquote p {
 
 #cnblogs_post_body > p {
     margin: 10px auto;
-    text-indent: 2em;
+    padding: 0 20px;
 }
 
 #cnblogs_post_body ul li {
@@ -3561,7 +3558,7 @@ blockquote p {
     height: 100%;
     position: relative;
     display: inline-block;
-    left: -35px;
+    left: -20px;
     margin: 25px 0 0px 0;
     width: 110%;
     transition: border-color 0.3s;
@@ -3672,7 +3669,7 @@ blockquote p {
 }
 .header__span h1 .dev__developer {
     top: -20px;
-    left: 94px;
+    left: 90px;
     min-height: 34px;
 }
 .header__span h2 .dev__developer {
@@ -3700,6 +3697,15 @@ blockquote p {
 
 .header__dev--slow .dev__fe, .header__dev--slow .dev__ux, .header__dev--slow .dev__fe i, .header__dev--slow .dev__ux i, .header__dev--slow .dev__developer, .header__dev--slow .dev__slash {
     transition: all 1.2s cubic-bezier(0.555, -0.375, 0, 1.615);
+}
+
+#notHomeTopCanvas {
+    position: absolute;
+}
+
+#m-nav-list li {
+    position: relative;
+    overflow: hidden;
 }
 
 /* ==========================================================================
