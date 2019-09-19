@@ -5,8 +5,8 @@
 由于 v1.0.0 与 v1.1.* 版本的配置方式不同，所以建议依据各版本的配置方式重新配置主题。
 
 各版本文档：
-- [v1.1.*](http://doc.dbnuo.org/v1.1/)
-- [v1.0.*](http://doc.dbnuo.org/v1.0/)
+- [v1.1.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/)
+- [v1.0.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0/)
 
 ## v1.1.* 之间切换版本
 

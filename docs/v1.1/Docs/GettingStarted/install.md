@@ -70,7 +70,7 @@ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面�
 
 !> 注意：引入的文件 simpleMemory.min.js 版本需要与配置 window.cnblogsConfig.GhVersions 一致！
 
-详细配置参考相关[文档](http://doc.dbnuo.org/v1.1/#/Docs/Customization/config)。
+详细配置参考相关[文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/config)。
 
 ![install_04](../../Images/install_04.png)
 

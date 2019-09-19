@@ -200,7 +200,7 @@ window.cnblogsConfig = {
 ### fontIconExtend - 字体图标库扩展
 
 * 类型：```Url```
-* 相关文档：[字体图标库](http://doc.dbnuo.org/v1.1/#/Docs/Customization/fonticon)
+* 相关文档：[字体图标库](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/fonticon)
 * 默认值：```""```
 
 字体图标库扩展Css的Url。
@@ -216,7 +216,7 @@ window.cnblogsConfig = {
 ### menuCustomList - 菜单数据
 
 * 类型：```Object```
-* 相关文档：[字体图标库](http://doc.dbnuo.org/v1.1/#/Docs/Customization/fonticon)
+* 相关文档：[字体图标库](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/fonticon)
 * 默认值：```{}```
 
 自定义菜单数据，显示在默认数据下方。
@@ -312,7 +312,7 @@ window.cnblogsConfig = {
 ### loading
 
 * 类型：```Object```
-* 相关文档：[Loading](http://doc.dbnuo.org/v1.1/#/Docs/Customization/loading)
+* 相关文档：[Loading](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/loading)
 * 默认值：
 
 ```json
@@ -618,7 +618,7 @@ window.cnblogsConfig = {
 
 ### 使用 highlightjs
 
-* 相关文档：[highlight](http://doc.dbnuo.org/v1.1/#/Docs/Guide/highlight)
+* 相关文档：[highlight](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/highlight)
 
 #### essayCodeHighlightingType
 

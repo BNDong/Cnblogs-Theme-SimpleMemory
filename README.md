@@ -26,8 +26,8 @@
 
 # Docs
 
-- [v1.1.*](http://doc.dbnuo.org/v1.1/)
-- [v1.0.*](http://doc.dbnuo.org/v1.0/)
+- [v1.1.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1)
+- [v1.0.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0)
 
 > 推荐大家使用最新版本，新版本的发布往往代表着功能的完善和bug的修复！
 > <br>文档的源文件在 /docs 目录，大家有更完善的文档或建议可以 Pull Request 或 Issues 给我。
