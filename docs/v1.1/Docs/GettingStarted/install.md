@@ -68,6 +68,16 @@ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面�
 <script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.1.7/src/script/simpleMemory.min.js"></script>
 ```
 
+之后还需要添加如下JavaScript代码就可以了：
+```javascript
+<script type="text/javascript">
+    var lis = $(".catListBlogRank ul")[0];
+    $("#sb-sidebarRank ul").html(lis.innerHTML);
+    $("#sb-sidebarRank ul").css("color","white");
+    console.log(lis.innerHTML);
+</script>
+```
+
 !> 注意：引入的文件 simpleMemory.min.js 版本需要与配置 window.cnblogsConfig.GhVersions 一致！
 
 详细配置参考相关[文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/config)。

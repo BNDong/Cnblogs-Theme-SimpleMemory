@@ -21,6 +21,18 @@ if (initCheck()) {
         '                <ul id="m-nav-list">' +
         '                </ul>' +
         '            </div>' +
+        '  '+
+        '            <!---添加如下代码>              '+
+        '           <!-- 积分 -->'  +
+        '           <div class="m-list-title" style="display:block;"><span>积分排名</span></div>'+
+        '               <div id="sb-sidebarRank">'+
+        '                   <ul>'+
+        '                       <li id="rank_num"></li>'+
+        '                       <li id="rank_score"></li>'+
+        '                   </ul>'+
+        '               </div>'+
+        '            <!---添加如上代码>              '+
+        ' '+
         '            <!-- 日历 -->' +
         '            <span id="calendar-box"></span>' +
         '            <!-- 找找看 -->' +
