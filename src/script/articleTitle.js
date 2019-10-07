@@ -28,7 +28,7 @@ $(document).ready(function () {
     }
 
     function setTh1(th1) {
-        var th1Text = th1.text();
+        var th1Text = HTMLEncode(th1.text());
 
         if (!th1set) th1set = true;
 
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     function setTh2(th2, index) {
 
-        var th2Text = th2.text();
+        var th2Text = HTMLEncode(th2.text());
 
         th2.wrap('<span title-type="h2" class="header__span"></span>');
         th2.text('');
@@ -98,5 +98,16 @@ $(document).ready(function () {
                 $(this).find('.header__dev').removeClass("header__dev--open");
             }
         ) ;
+    }
+
+    /**
+     * @return {string}
+     */
+    function HTMLEncode(html) {
+        var temp = document.createElement("div");
+        (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+        var output = temp.innerHTML;
+        temp = null;
+        return output;
     }
 });

@@ -16,6 +16,7 @@ function Base() {
             setMenuIntroduceTId    : null, // 菜单设置-个人信息定时器ID
             setMenuCalendarTId     : null, // 菜单设置-日历定时器ID
             setSidebarSearchTId    : null, // 菜单设置-找找看定时器ID
+            setSidebarScorerankTId : null, // 菜单设置-积分与排名定时器ID
             setMenuSidebarTId      : null, // 菜单设置-最新随笔定时器ID
             setMenuToptagsTId      : null, // 菜单设置-我的标签定时器ID
             setMenuClassifyTId     : null, // 菜单设置-随笔分类定时器ID
@@ -96,6 +97,7 @@ function Base() {
         timeIds.setMenuIntroduceTId    = window.setInterval( setMenuData.setIntroduce, 1000 );
         timeIds.setMenuCalendarTId     = window.setInterval( setMenuData.setCalendar, 1000 );
         timeIds.setSidebarSearchTId    = window.setInterval( setMenuData.setSidebarSearch, 1000 );
+        timeIds.setSidebarScorerankTId = window.setInterval( setMenuData.setSidebarScorerank, 1000 );
         timeIds.setMenuSidebarTId      = window.setInterval( setMenuData.setSidebar, 1000 );
         timeIds.setMenuToptagsTId      = window.setInterval( setMenuData.setToptags, 1000 );
         timeIds.setMenuClassifyTId     = window.setInterval( setMenuData.setClassify, 1000 );
@@ -383,6 +385,7 @@ function Base() {
             calendar         = $('#blog-calendar'),               // 日历
             calendarTable    = $('#blogCalendar'),                // 日历
             sidebarSearch    = $('#sidebar_search_box'),          // 找找看
+            scorerank        = $('#sidebar_scorerank ul li'),     // 积分与排名
             sidebar          = $('#sidebar_recentposts ul li'),   // 最新随笔
             toptags          = $('#sidebar_toptags ul li'),       // 我的标签
             sbClassify       = $('#sidebar_postcategory ul li'),  // 随笔分类
@@ -392,6 +395,7 @@ function Base() {
             topDiggPosts     = $('#TopDiggPostsBlock ul li'),     // 推荐排行
             menuIntroduce    = $('#introduce'),
             menuCalendar     = $('#calendar-box'),
+            menuScorerank    = $('#sb-sidebarScorerank'),
             menuSearchBox    = $('#sb-sidebarSearchBox'),
             menuArticle      = $('#sb-articlearchive'),
             menuSidebar      = $('#sb-sidebarRecentposts'),
@@ -425,6 +429,14 @@ function Base() {
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
                 menuSearchBox.html('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"></div>').prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setSidebarSearchTId);
+            }
+        }
+
+        // 添加积分与排名
+        function setSidebarScorerank() {
+            if (scorerank.length > 0 && menuScorerank.html() === ''){
+                menuScorerank.html(getMenuData(scorerank, 'icon-collection_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setSidebarScorerankTId);
             }
         }
 
@@ -513,8 +525,8 @@ function Base() {
                 if (ret.test(textArr[0])) textArr.splice(0,1);
                 var text = $.trim(textArr.join('.')),
                     iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
-                o.html(iconHtml + text);
-                html += '<li>' + o.prop("outerHTML") + '</li>';
+                o.length > 0 && o.html(iconHtml + text);
+                html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>") + '</li>';
             });
             html += '</ul></div>';
             return html;
@@ -524,6 +536,7 @@ function Base() {
             setIntroduce: setIntroduce,
             setCalendar: setCalendar,
             setSidebarSearch: setSidebarSearch,
+            setSidebarScorerank: setSidebarScorerank,
             setSidebar: setSidebar,
             setToptags: setToptags,
             setClassify: setClassify,
@@ -551,8 +564,11 @@ function Base() {
      * 添加页脚
      */
     this.addFooter = function() {
-        const footer = $('#footer');
-        var pvHtml = '';
+        const footer = $('#footer'),
+              rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
+              lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+
+        var pvHtml   = '', bgFooter = '';
 
         if (window.cnblogsConfig.bottomText.left || window.cnblogsConfig.bottomText.right)
             pvHtml += '<div>【'+window.cnblogsConfig.bottomText.left+'<span id="footerTextIcon">'+window.cnblogsConfig.bottomText.icon+'</span>'+window.cnblogsConfig.bottomText.right+'】</div>';
@@ -562,28 +578,71 @@ function Base() {
             '<div id="cnzzInfo"></div>' +
             '<div id="themeInfo"></div>';
 
-        var bgFooter = '<footer>' +
-            '<footer-background>' +
-            '<figure class="clouds"></figure>' +
-            '<figure class="background"></figure>' +
-            '<figure class="foreground"></figure>' +
-            '<figure class="poof"></figure>' +
-            '</footer-background>' +
-            '</footer>',
+        switch (parseInt(window.cnblogsConfig.footerStyle)) {
+            case 1:
+                init_t1();
+                break;
 
-        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
-        lHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
+            case 2:
+            default:
+                init_t2();
+                break;
+        }
 
-        addFooterHtml();
         setBlogroll();
         setTheme();
         window.setInterval( setRunTime, 500 );
         timeIds.setCnzzTId = window.setInterval( setCnzz, 1000 );
 
+        // v1.0 页脚
+        function init_t1() {
+            pvHtml = '<div class="footer-image"></div>' + pvHtml;
+            addFooterHtml();
+            $('#footer').css({
+                'min-height': '130px',
+                '_height': '15px',
+                'position': 'absolute',
+                'margin': '200px 0 0 0',
+                'left': '0',
+                'right': '0',
+                'background': '#232323',
+                'padding': '17px 0 27px',
+                'text-align': 'center',
+                'color': '#888',
+                'font-size': '12px',
+                'line-height': '1.5',
+            });
+
+            $('.footer-image').css({
+                'background': 'url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/footer.png) no-repeat 50%',
+                'height': '368px',
+                'z-index': '1',
+                'position': 'absolute',
+                'bottom': '100px',
+                'width': '100%',
+                'pointer-events': 'none'
+            });
+        }
+
+        // v1.1+ 页脚
+        function init_t2() {
+
+            bgFooter = '<footer>' +
+                '<footer-background>' +
+                '<figure class="clouds"></figure>' +
+                '<figure class="background"></figure>' +
+                '<figure class="foreground"></figure>' +
+                '<figure class="poof"></figure>' +
+                '</footer-background>' +
+                '</footer>';
+
+            addFooterHtml();
+        }
+
         // 添加页脚
         function addFooterHtml() {
             const poweredby = $('#poweredby');
-            footer.prepend(bgFooter);
+            bgFooter && footer.prepend(bgFooter);
             if (poweredby.length > 0) {
                 poweredby.before(pvHtml);
             } else {
@@ -908,7 +967,7 @@ function Base() {
         $('#cb_post_title_url').addClass('post-del-title');
 
         if (window.cnblogsConfig.essayTopAnimationRendered)
-            require(['TweenMax', 'MyTween'], function() {
+            require(['TweenMax_MyTween'], function() {
                 $('#notHomeTopCanvas').css({
                     'margin': 'auto',
                     'width': '100%',
@@ -927,7 +986,7 @@ function Base() {
      * 设置图片灯箱效果
      */
     this.baguetteBox = function () {
-        require(['baguetteBox', 'marvin', 'articleStatement'], function(baguetteBox) {
+        require(['baguetteBox', 'title_marvin_articleStatement'], function(baguetteBox) {
 
             // 设置图片点击查看
             const cpb    = $('#cnblogs_post_body')

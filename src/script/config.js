@@ -49,6 +49,14 @@ require.config({
         tools: setFileNameMin('tools', 'js'),
         //-- base
         base: setFileNameMin('base', 'js'),
+
+        // == 合并压缩文件 == //
+        //-- 菜单滚动条 && 进度条 && 旋转
+        optiscroll_ToProgress_rotate: setFileNameMin('optiscroll_ToProgress_rotate.min', 'js'),
+        //-- 文章标题 && 文章目录 && 文章后缀
+        title_marvin_articleStatement: setFileNameMin('title_marvin_articleStatement.min', 'js'),
+        //-- 非主页头图动画
+        TweenMax_MyTween: setFileNameMin('TweenMax_MyTween.min', 'js'),
     },
     shim:{
         optiscroll: {
@@ -91,6 +99,14 @@ require.config({
                 'css!'+getJsDelivrUrl('footer.css'),
                 'css!https://at.alicdn.com/t/font_543384_ezv3l7gd9r7.css', // 阿里云字体图标
             ]
-        }
+        },
+
+        // == 合并压缩文件 == //
+        optiscroll_ToProgress_rotate: {
+            deps: ['css!'+getJsDelivrUrl('optiscroll.css')]
+        },
+        title_marvin_articleStatement: {
+            deps: ['bootstrap', 'css!'+getJsDelivrUrl('marvin.nav2.css')]
+        },
     }
 });

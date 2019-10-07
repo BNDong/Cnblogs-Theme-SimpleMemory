@@ -26,6 +26,9 @@ if (initCheck()) {
         '            <!-- 找找看 -->' +
         '            <div class="m-list-title"><span>找找看</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarSearchBox"></div>' +
+        '            <!-- 积分与排名 -->' +
+        '            <div class="m-list-title"><span>积分排名</span></div>' +
+        '            <div class="m-icon-list" id="sb-sidebarScorerank"></div>' +
         '            <!-- 最新随笔 -->' +
         '            <div class="m-list-title"><span>最新随笔</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarRecentposts"></div>' +
@@ -185,6 +188,7 @@ if (initCheck()) {
             left: "",
             right: ""
         },
+        footerStyle: 2,
         consoleList: [],
         themeAuthor: false,
     };
@@ -229,7 +233,8 @@ if (initCheck()) {
             $.getScript(getJsDelivrUrl('require.min.js'), function () {
                 $.getScript(getJsDelivrUrl('config.js'), function () {
                     var staticResource = [
-                        'optiscroll', 'ToProgress', 'rotate',
+                        // 'optiscroll', 'ToProgress', 'rotate',
+                        'optiscroll_ToProgress_rotate',
                         'snapSvg', 'classie', 'main4', 'tools'];
                     require(staticResource, function() {
                         require(['base'], function() {

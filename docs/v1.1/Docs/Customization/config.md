@@ -696,6 +696,30 @@ prettify、desert、sunburst、obsidian、doxy
 
 ## 页脚配置
 
+### footerStyle - 页脚样式
+
+?> 版本 >= v1.1.8
+
+* 类型：```Int```
+* 默认值：```2```
+
+页脚样式：
+
+footerStyle: 1
+
+![footer_01](../../Images/footer_01.png)
+
+footerStyle: 2
+
+![footer_02](../../Images/footer_02.png)
+
+```javascript
+window.cnblogsConfig = {
+    footerStyle: 1
+}
+```
+
+
 ### bottomBlogroll - 友情链接
 
 * 类型：```Array```

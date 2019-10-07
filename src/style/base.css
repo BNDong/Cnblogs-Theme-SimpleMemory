@@ -3034,7 +3034,7 @@ b {
     max-height: 100vh;
     /*margin-bottom: 5rem;*/
     text-align: center;
-    background: #222 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg) center center no-repeat;
+    /*background: #222 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg) center center no-repeat;*/
     background-size: cover;
     overflow: hidden;
     position: absolute;
