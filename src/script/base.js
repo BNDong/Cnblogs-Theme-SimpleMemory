@@ -52,11 +52,8 @@ function Base() {
      */
     this.loadingBeforeInit = function () {
 
-        // 设置名称
-        $('#homeTopTitle').text(window.cnblogsConfig.blogUser);
-
-        // 背景动画
-		if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
+        // 添加扩展字体图标库
+        if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
 
         // 页面初始化
         ($('#topics').length > 0) ? bndongJs.notHomeInit() : bndongJs.homeInit();
@@ -67,18 +64,11 @@ function Base() {
      */
     this.loadingAfterInit = function () {
 
-        // 设置菜单个人简介头像
-        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg';
-        $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
+        // 添加页脚
+        bndongJs.addFooter();
 
-        // 初始化菜单滚动条样式
-        $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
-
-        // 滚动监听
-        $(window).scroll( function() { bndongJs.scrollMonitor(); });
-
-        // 窗口变化监听
-        $(window).resize( function() { bndongJs.resizeMonitor(); });
+        // 背景动画
+        if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
 
         // 更换网站图标
         let linkObject  = document.createElement('link');
@@ -86,11 +76,21 @@ function Base() {
         linkObject.href = window.cnblogsConfig.webpageIcon;
         document.getElementsByTagName("head")[0].appendChild(linkObject);
 
-        // 添加页脚
-        bndongJs.addFooter();
+        // 滚动监听
+        $(window).scroll( function() { bndongJs.scrollMonitor(); });
 
-        // html5-title
-        bndongJs.htmlTitle();
+        // 窗口变化监听
+        $(window).resize( function() { bndongJs.resizeMonitor(); });
+
+        // 设置名称
+        $('#homeTopTitle').text(window.cnblogsConfig.blogUser);
+
+        // 初始化菜单滚动条样式
+        $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
+
+        // 设置菜单个人简介头像
+        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/default_avatar.jpeg';
+        $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
 
         // 设置菜单侧边栏内容
         let setMenuData = bndongJs.setMenuData();
@@ -107,11 +107,11 @@ function Base() {
         timeIds.setMenuTopDiggPostsTId = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
         setMenuData.setCustomData();
 
-        // 添加扩展字体图标库
-        if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
-
         // 设置菜单个人信息背景图片
         bndongJs.setMenuUserInfoImg();
+
+        // html5-title
+        bndongJs.htmlTitle();
 
         // 添加页面特效控制
         bndongJs.setPageAnimationControl();
@@ -1169,6 +1169,8 @@ function Base() {
                 if (p.length > 0) {
                     var idIndex = p.length - 1;
                     var id = p[idIndex];
+                    var idTmp = id.toString().match(/[0-9]/g);
+                    if ($.isArray(idTmp)) id = idTmp.join('');
                     var op = $('#comment_'+id+'_avatar');
                     if (op.length > 0 && op.text() != '') {
                         var patch = op.text();

@@ -3625,6 +3625,7 @@ blockquote p {
 .dev__ux {
     left: 66px;
     top: -57px;
+    text-align: left;
 }
 /* ---------------------------------------- */
 .dev__fe i, .dev__ux i {
