@@ -87,20 +87,43 @@ if (initCheck()) {
     window.cnblogsConfigDefault = {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
-        GhVersions: 'v1.1.2',
-        CnVersions: "",
-        blogUser: "",
-        blogAvatar: "",
-        blogStartDate: "2019-01-01",
-        menuCustomList: {},
-        menuNavList: [],
-        menuUserInfoBgImg: '',
-        webpageTitleOnblur: "(oﾟvﾟ)ノ Hi",
+        GhVersions: 'v1.1.8',
+        CnVersions: 'v1.1.8',
+        blogUser: '',
+        blogAvatar: 'https://smallblog.xyz/wp-content/uploads/2019/08/镜音.jpg',
+        blogStartDate: '2019-08-15',
+        menuCustomList: {"title1": { // 标题
+                "data": [ // 列表数据 ['列表', '链接']
+                    ['我的博客1', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客2', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客3', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客4', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客5', 'https://www.cnblogs.com/bndong/'],
+                ],
+                "icon": "icon-brush_fill" // 配置图标，参考文档：定制化/字体图标库
+            },
+            "title2": { // 标题
+                "data": [ // 列表数据 ['列表', '链接']
+                    ['我的博客6', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客7', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客8', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客9', 'https://www.cnblogs.com/bndong/'],
+                    ['我的博客10', 'https://www.cnblogs.com/bndong/'],
+                ],
+                "icon": "icon-brush_fill" // 配置图标，参考文档：定制化/字体图标库
+            },
+        },
+        menuNavList: [// 列表数据 ['导航名称', '链接']
+        ['我的博客1', 'https://www.cnblogs.com/bndong/'],
+        ['我的博客2', 'https://www.cnblogs.com/bndong/'],
+    ],
+        menuUserInfoBgImg: 'https://smallblog.xyz/wp-content/uploads/2019/08/镜音.jpg',
+        webpageTitleOnblur: "♪(^∇^*)",
         webpageTitleOnblurTimeOut: 500,
         webpageTitleFocus: "(*´∇｀*) 欢迎回来！",
         webpageTitleFocusTimeOut: 1000,
-        webpageIcon: "",
-        fontIconExtend: "",
+        webpageIcon: "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/blog_logo.gif",
+        fontIconExtend: "//at.alicdn.com/t/font_543384_ezv3l7gd9r7.css",
         progressBar: {
             id: 'top-progress-bar',
             color: '#77b6ff',
@@ -169,27 +192,27 @@ if (initCheck()) {
         homeTopImg: [
             "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
         ],
-        homeBannerText: "",
-        homeBannerTextType: "jinrishici",
+        homeBannerText: "好好学习，不要玩游戏",
+        homeBannerTextType: "one",
         essayTopImg: [
             "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/nothome_top_bg.jpg"
         ],
-        essayCodeHighlightingType: 'cnblogs',
-        essayCodeHighlighting: '',
+        essayCodeHighlightingType: 'prettify',
+        essayCodeHighlighting: 'a11y-dark',
         essaySuffix: {
             codeImgUrl: '',
-            aboutHtml: '',
+            aboutHtml: 'I LIKE ❤',
             copyrightHtml: '',
             supportHtml: ''
         },
         bottomBlogroll: [],
         bottomText: {
             icon: "❤️",
-            left: "",
-            right: ""
+            left:"好好学习",
+            right:"不玩游戏"
         },
         footerStyle: 2,
-        consoleList: [],
+        consoleList: ["友情链接",'https://www.smallblog.xyz'],
         themeAuthor: false,
     };
 
