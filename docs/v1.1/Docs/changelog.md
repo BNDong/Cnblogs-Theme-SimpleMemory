@@ -1,3 +1,8 @@
+## 2019.10.29 - v1.1.9
+* 将引入的 GitHub Raw 的静态资源文件，更换至 Gitee
+* 修改检查版本映射的逻辑
+* ```fonts.googleapis.com``` 使用反向代理 ```fonts.proxy.ustclug.org```
+
 ## 2019.10.07 - v1.1.8
 * 更新基础 CSS 文件
 * 侧边菜单增加了积分与排名
