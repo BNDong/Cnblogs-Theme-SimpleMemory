@@ -3034,7 +3034,7 @@ b {
     max-height: 100vh;
     /*margin-bottom: 5rem;*/
     text-align: center;
-    /*background: #222 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg) center center no-repeat;*/
+    /*background: #222 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg) center center no-repeat;*/
     background-size: cover;
     overflow: hidden;
     position: absolute;
@@ -3254,8 +3254,8 @@ b {
     transition-delay: 0.4s;
     outline: none;
     cursor: pointer;
-    /*background: #000 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/menu_bg.jpeg) 0 -195px no-repeat;*/
-    background: #000 url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/me_top_bg.gif) center no-repeat;
+    /*background: #000 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/menu_bg.jpeg) 0 -195px no-repeat;*/
+    background: #000 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/me_top_bg.gif) center no-repeat;
     background-size: 100%;
 }
 
@@ -3368,7 +3368,7 @@ blockquote p {
     height: 16px;
     display: inline-block;
     transition: all .3s;
-    background-image: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/title_icon.png);
+    background-image: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/title_icon.png);
     background-repeat: no-repeat;
     background-position: 0 6px;
 }
@@ -3860,7 +3860,7 @@ body>meting-js, #aplayer {
     padding: 10px;
     height: 200px;
     position: relative;
-    background: #fff url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/comment_bg.jpg) right -65px;
+    background: #fff url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/comment_bg.jpg) right -65px;
     background-size: 250px;
     background-repeat: no-repeat;
 }
@@ -3904,7 +3904,7 @@ body>meting-js, #aplayer {
 }
 
 .tbCommentBody_bg {
-    background: url('https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/commentHintBg.gif') center center no-repeat;
+    background: url('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/commentHintBg.gif') center center no-repeat;
 }
 
 .commentbox_main {
@@ -3931,9 +3931,9 @@ body>meting-js, #aplayer {
 .list .out .icon,.list .inc .icon{width:48px;height:48px;}
 .list .icontd {width:48px;}
 .list .out .icontd{display:none;}
-.list .out .topleft,.list .out .topright,.list .out .bottomleft,.list .out .bottomright,.list .inc .topleft,.list .inc .topright,.list .inc .bottomleft,.list .inc .bottomright{background: url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/t_o_bubbles.gif) no-repeat;}
-.list .out .top,.list .out .bottom,.list .inc .top,.list .inc .bottom{background:transparent url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/t_o_horizontal.gif) repeat-x;}
-.list .out .left,.list .out .right,.list .inc .left,.list .inc .right{background:transparent url(https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/t_o_vertical.gif) repeat-y;}
+.list .out .topleft,.list .out .topright,.list .out .bottomleft,.list .out .bottomright,.list .inc .topleft,.list .inc .topright,.list .inc .bottomleft,.list .inc .bottomright{background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/t_o_bubbles.gif) no-repeat;}
+.list .out .top,.list .out .bottom,.list .inc .top,.list .inc .bottom{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/t_o_horizontal.gif) repeat-x;}
+.list .out .left,.list .out .right,.list .inc .left,.list .inc .right{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/t_o_vertical.gif) repeat-y;}
 
 .list .out .topleft{background-position:left top;height:9px;width:18px;}
 .list .out .topright{background-position:-18px top;height:9px;width:11px;}

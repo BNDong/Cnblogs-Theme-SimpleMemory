@@ -67,7 +67,7 @@ if (initCheck()) {
         '    <canvas id="notHomeTopCanvas"></canvas>' +
         '    <div class="vertical">' +
         '        <div class="main-header-content inner">' +
-        '            <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">' +
+        '            <link href="https://fonts.proxy.ustclug.org/css?family=Playball" rel="stylesheet">' +
         '            <h1 class="page-title" style="font-family: \'Playball\', cursive;" id="homeTopTitle"></h1>' +
         '            <h2 class="page-description" id="hitokoto"></h2>' +
         '            <h3 class="page-author" id="hitokotoAuthor"></h3>' +
@@ -167,12 +167,12 @@ if (initCheck()) {
             animateSections: true
         },
         homeTopImg: [
-            "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/home_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg"
         ],
         homeBannerText: "",
         homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://raw.githubusercontent.com/BNDong/Cnblogs-Theme-SimpleMemory/master/img/nothome_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/nothome_top_bg.jpg"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
@@ -273,38 +273,49 @@ function initCheck() {
 
 // get version config
 function getVersionConfig() {
-    var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
 
-    $.ajax({
-        type: "get",
-        url: url,
-        dataType: "text",
-        async: false,
-        success: function(conf)
-        {
-            var confObj = conf ? JSON.parse(conf) : false;
-            var confVersion = getEndConfVal(window.cnblogsConfigDefault.GhVersions);
-            window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+    var confObj;
+    window.cnblogsConfigDefault.CnVersions = window.cnblogsConfigDefault.GhVersions;
+    if (window.cnblogsConfigDefault.GhUserName === 'BNDong') {
 
-            if (confVersion) {
-                window.cnblogsConfigDefault.GhVersions = confVersion;
+        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js', function () {
+            confObj = window.themeVersion;
+        });
+
+    } else {
+        var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfigDefault.GhUserName + '/' + window.cnblogsConfigDefault.GhRepositories + '/master/version.conf';
+
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "text",
+            async: false,
+            success: function(conf)
+            {
+                confObj = conf ? JSON.parse(conf) : false;
             }
+        });
+    }
 
-            function getEndConfVal(thisGhVersion) {
-                var endVal = '';
-                confObj && $.each(confObj, function (i) {
-                    if (confObj[i][0] === thisGhVersion) {
-                        endVal = confObj[i][1];return false;
-                    }
-                });
-                if (endVal === '') {
-                    return thisGhVersion;
-                } else {
-                    return getEndConfVal(endVal);
-                }
+    var confVersion = getEndConfVal(window.cnblogsConfigDefault.GhVersions);
+
+    if (confVersion) {
+        window.cnblogsConfigDefault.GhVersions = confVersion;
+    }
+
+    function getEndConfVal(thisGhVersion) {
+        var endVal = '';
+        confObj && $.each(confObj, function (i) {
+            if (confObj[i][0] === thisGhVersion) {
+                endVal = confObj[i][1]; return false;
             }
+        });
+        if (endVal === '') {
+            return thisGhVersion;
+        } else {
+            return getEndConfVal(endVal);
         }
-    });
+    }
 }
 
 // get file url
