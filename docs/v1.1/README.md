@@ -26,7 +26,7 @@
 
 # Docs
 
-- [v1.1.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/)
+- [v1.\*.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/)
 - [v1.0.*](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.0/)
 
 > 推荐大家使用最新版本，新版本的发布往往代表着功能的完善和bug的修复！

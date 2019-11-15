@@ -164,10 +164,10 @@ b {
 /*****home和头部开始**************************/
 #home {
     margin: 0 auto;
-    width: 65%;
-    max-width: 840px;
+    width: 70%;
+    max-width: 900px;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 0 30px 30px 30px;
+    padding: 0 20px 30px 20px;
 }
 
 #header {
@@ -282,7 +282,7 @@ b {
     min-height: 10px;
     _height: 10px;
     position: relative;
-    max-width: 830px;
+    /*max-width: 830px;*/
     margin: 3.5rem auto;
     padding-bottom: 3.5rem;
     border-bottom: #EBF2F6 1px solid;
@@ -371,11 +371,12 @@ b {
     width: 100%;
     clear: both;
     padding: 10px 0;
-    color: #3A4145;
-    font-family: Merriweather, "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
-    font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
+    color: #3a4145;
+    font-family: STFangsong,Fangsong,FangSong_GB2312,STSong,serif;
+    font-feature-settings: 'liga' 1,'onum' 1,'kern' 1;
     margin: 0;
-    font-size: 16px;
+    text-align: justify;
+    font-size: 18px;
     line-height: 1.7em;
     word-wrap: break-word;
     display: block;
@@ -3221,22 +3222,36 @@ b {
     position: relative;
     border-bottom: #3B3B3B 1px solid;
     word-wrap: break-word;
-    margin: 20px 0;
+    margin: 24px 0;
     font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
     display: none;
 }
 
-.m-list-title span{
+.m-list-title-select {
+    color: #888;
+    font-size: 22px !important;
+    position: absolute;
+    right: -7px;
+    top: 1px;
+}
+
+.m-list-title-select:hover{
+    color: #B8B8B8;
+    cursor:pointer;
+}
+
+.m-list-title > span{
     display: block;
-    width: 60px;
+    width: 74px;
     text-align: center;
     position: absolute;
     bottom: -9px;
-    left: 43%;
+    left: 35%;
     margin-left: -5px;
     background: #000;
     box-shadow: #000 0 0 0 6px;
     color: #B8B8B8;
+    line-height: 20px;
 }
 
 .introduce-box {
@@ -3453,10 +3468,10 @@ blockquote p {
 
 .rightMenuSpan {
     position: absolute;
-    left: -106px;
+    left: -150px;
     font-size: 14px;
     font-weight: bold;
-    width: 100px;
+    width: 140px;
     text-align: right;
     display: none;
 }
@@ -3479,7 +3494,7 @@ blockquote p {
 
 #cnblogs_post_body table {
     position: relative;
-    overflow: hidden;
+    overflow: hidden !important;
     box-sizing: border-box;
     width: 96%!important;
     max-width: 96%!important;
@@ -3748,14 +3763,13 @@ span.cnblogs_code {
     line-height: 20px;
     margin: 0 auto;
     font-size: 14px!important;
-    padding: 0;
     background-color: transparent;
     position: relative;
     overflow: hidden;
     border: 0;
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace!important;
     font-weight: 400;
-    z-index: 10
+    z-index: 10;
 }
 
 .cnblogs_code pre {
@@ -3767,6 +3781,7 @@ span.cnblogs_code {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
+    margin: 0 15px;
 }
 
 .postBody pre {
@@ -3814,7 +3829,7 @@ span.cnblogs_code {
     width: 16px;
     height: 16px;
     position: absolute;
-    right: 19px;
+    right: 30px;
     top: 8px;
     /*opacity: 0.3;*/
 }
@@ -3837,6 +3852,14 @@ span.cnblogs_code {
     text-indent: 0!important;
     position: relative;
     bottom: 1px;
+}
+
+#cnblogs_post_body > pre .cnblogs_code_copy a {
+    right: 5px;
+}
+
+#cnblogs_post_body > pre {
+    margin: 10px 15px !important;
 }
 
 /* ==========================================================================

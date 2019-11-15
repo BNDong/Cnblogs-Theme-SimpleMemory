@@ -27,29 +27,32 @@ if (initCheck()) {
         '            <div class="m-list-title"><span>找找看</span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarSearchBox"></div>' +
         '            <!-- 积分与排名 -->' +
-        '            <div class="m-list-title"><span>积分排名</span></div>' +
+        '            <div class="m-list-title"><span>积分排名<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarScorerank"></div>' +
         '            <!-- 最新随笔 -->' +
-        '            <div class="m-list-title"><span>最新随笔</span></div>' +
+        '            <div class="m-list-title"><span>最新随笔<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarRecentposts"></div>' +
         '            <!-- 我的标签 -->' +
-        '            <div class="m-list-title"><span>我的标签</span></div>' +
+        '            <div class="m-list-title"><span>我的标签<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-toptags"></div>' +
         '            <!-- 随笔分类 -->' +
-        '            <div class="m-list-title"><span>随笔分类</span></div>' +
+        '            <div class="m-list-title"><span>随笔分类<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-classify"></div>' +
-        '            <!-- 随笔档案 -->' +
-        '            <div class="m-list-title"><span>随笔档案</span></div>' +
-        '            <div class="m-icon-list" id="sb-record"></div>' +
-        '            <!-- 文章档案 -->' +
-        '            <div class="m-list-title"><span>文章档案</span></div>' +
-        '            <div class="m-icon-list" id="sb-articlearchive"></div>' +
         '            <!-- 阅读排行 -->' +
-        '            <div class="m-list-title"><span>阅读排行</span></div>' +
+        '            <div class="m-list-title"><span>阅读排行<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-topview"></div>' +
         '            <!-- 推荐排行 -->' +
-        '            <div class="m-list-title"><span>推荐排行</span></div>' +
+        '            <div class="m-list-title"><span>推荐排行<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-topDiggPosts"></div>' +
+        '            <!-- 最新评论 -->' +
+        '            <div class="m-list-title"><span>最新评论<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
+        '            <div class="m-icon-list" id="sb-recentComments"></div>' +
+        '            <!-- 文章档案 -->' +
+        '            <div class="m-list-title"><span>文章档案<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
+        '            <div class="m-icon-list" id="sb-articlearchive"></div>' +
+        '            <!-- 随笔档案 -->' +
+        '            <div class="m-list-title"><span>随笔档案<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
+        '            <div class="m-icon-list" id="sb-record"></div>' +
         '            <!-- 自定义列表 -->' +
         '            <span id="menuCustomList"></span>' +
         '        </nav>' +
