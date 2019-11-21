@@ -277,13 +277,13 @@ function initCheck() {
 // get version config
 function getVersionConfig() {
 
-    var confObj;
     window.cnblogsConfig.CnVersions = window.cnblogsConfig.GhVersions;
     if (window.cnblogsConfig.GhUserName === 'BNDong') {
 
-        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js');
+        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js', function () {
+            setConfVersion();
+        });
 
-        confObj = window.themeVersion;
     } else {
         var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfig.GhUserName + '/' + window.cnblogsConfig.GhRepositories + '/master/version.conf';
 
@@ -294,22 +294,25 @@ function getVersionConfig() {
             async: false,
             success: function(conf)
             {
-                confObj = conf ? JSON.parse(conf) : false;
+                window.themeVersion = conf ? JSON.parse(conf) : false;
+                window.themeVersion && setConfVersion();
             }
         });
     }
 
-    var confVersion = getEndConfVal(window.cnblogsConfig.GhVersions);
+    function setConfVersion() {
+        var confVersion = getEndConfVal(window.cnblogsConfig.GhVersions);
 
-    if (confVersion) {
-        window.cnblogsConfig.GhVersions = confVersion;
+        if (confVersion) {
+            window.cnblogsConfig.GhVersions = confVersion;
+        }
     }
 
     function getEndConfVal(thisGhVersion) {
         var endVal = '';
-        confObj && $.each(confObj, function (i) {
-            if (confObj[i][0] === thisGhVersion) {
-                endVal = confObj[i][1]; return false;
+        window.themeVersion && $.each(window.themeVersion, function (i) {
+            if (window.themeVersion[i][0] === thisGhVersion) {
+                endVal = window.themeVersion[i][1]; return false;
             }
         });
         if (endVal === '') {
