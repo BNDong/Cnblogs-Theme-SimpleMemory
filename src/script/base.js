@@ -744,10 +744,10 @@ function Base() {
 
             $('#themeInfo').html('Theme version: <a href="'+lHref
                 +'" target="_blank" style="color: #888;text-decoration: underline;">'
-                +(window.cnblogsConfigDefault.CnVersions).substring(0,7)+'</a>'
+                +(window.cnblogsConfig.CnVersions).substring(0,7)+'</a>'
                 +' / Loading theme version: <a href="'+rHref
                 +'" target="_blank" style="color: #888;text-decoration: underline;">'
-                +(window.cnblogsConfigDefault.GhVersions).substring(0,7)+'</a>'
+                +(window.cnblogsConfig.GhVersions).substring(0,7)+'</a>'
             );
         }
     };
