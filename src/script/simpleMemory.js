@@ -199,56 +199,6 @@ if (initCheck()) {
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
     getVersionConfig();
 
-    // set sidebar html
-    var url = window.location.href,tmp = [];
-    tmp = url.split("/");
-    var user = tmp[3];
-    var navListHtml = '<li><a href="https://www.cnblogs.com/'+user+'/" target="_self">首页</a></li>' +
-    '<li><a href="https://msg.cnblogs.com/send/'+user+'" target="_blank">联系</a></li>' +
-    '<li><a href="https://www.cnblogs.com/'+user+'/rss" target="_blank">订阅</a></li>' +
-    '<li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>';
-
-    var menuNavList = window.cnblogsConfig.menuNavList;
-    if (menuNavList.length > 0) {
-        $.each(menuNavList, function (i) {
-            navListHtml += '<li><a href="'+(menuNavList[i][1])+'" target="_blank">'+(menuNavList[i][0])+'</a></li>';
-        });
-    }
-
-    $('#blog-news').prepend(sidebarHtml);
-    $('#m-nav-list').append(navListHtml);
-
-    // set userName
-    if (window.cnblogsConfig.blogUser === "") window.cnblogsConfig.blogUser = user;
-
-    // start cache
-    $.ajaxSetup({cache: true});
-
-    // load loadingJs
-    $.getScript(getJsDelivrUrl('loading.js'), function () {
-
-        // Loading start
-        pageLoading.initRebound();
-        pageLoading.initSpinner();
-        pageLoading.spinner.init(pageLoading.spring, true);
-
-        $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
-            $.getScript(getJsDelivrUrl('require.min.js'), function () {
-                $.getScript(getJsDelivrUrl('config.js'), function () {
-                    var staticResource = [
-                        // 'optiscroll', 'ToProgress', 'rotate',
-                        'optiscroll_ToProgress_rotate',
-                        'snapSvg', 'classie', 'main4', 'tools'];
-                    require(staticResource, function() {
-                        require(['base'], function() {
-                            (new Base).init();
-                        });
-                    });
-                });
-            });
-        });
-    });
-
 } else {
 
     $('a[name="top"]').text("SimpleMemory：基础配置有误，请阅读文档，检查配置！").css({
@@ -306,6 +256,8 @@ function getVersionConfig() {
         if (confVersion) {
             window.cnblogsConfig.GhVersions = confVersion;
         }
+
+        init();
     }
 
     function getEndConfVal(thisGhVersion) {
@@ -321,6 +273,60 @@ function getVersionConfig() {
             return getEndConfVal(endVal);
         }
     }
+}
+
+// init
+function init() {
+
+    // set sidebar html
+    var url = window.location.href,tmp = [];
+    tmp = url.split("/");
+    var user = tmp[3];
+    var navListHtml = '<li><a href="https://www.cnblogs.com/'+user+'/" target="_self">首页</a></li>' +
+        '<li><a href="https://msg.cnblogs.com/send/'+user+'" target="_blank">联系</a></li>' +
+        '<li><a href="https://www.cnblogs.com/'+user+'/rss" target="_blank">订阅</a></li>' +
+        '<li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>';
+
+    var menuNavList = window.cnblogsConfig.menuNavList;
+    if (menuNavList.length > 0) {
+        $.each(menuNavList, function (i) {
+            navListHtml += '<li><a href="'+(menuNavList[i][1])+'" target="_blank">'+(menuNavList[i][0])+'</a></li>';
+        });
+    }
+
+    $('#blog-news').prepend(sidebarHtml);
+    $('#m-nav-list').append(navListHtml);
+
+    // set userName
+    if (window.cnblogsConfig.blogUser === "") window.cnblogsConfig.blogUser = user;
+
+    // start cache
+    $.ajaxSetup({cache: true});
+
+    // load loadingJs
+    $.getScript(getJsDelivrUrl('loading.js'), function () {
+
+        // Loading start
+        pageLoading.initRebound();
+        pageLoading.initSpinner();
+        pageLoading.spinner.init(pageLoading.spring, true);
+
+        $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
+            $.getScript(getJsDelivrUrl('require.min.js'), function () {
+                $.getScript(getJsDelivrUrl('config.js'), function () {
+                    var staticResource = [
+                        // 'optiscroll', 'ToProgress', 'rotate',
+                        'optiscroll_ToProgress_rotate',
+                        'snapSvg', 'classie', 'main4', 'tools'];
+                    require(staticResource, function() {
+                        require(['base'], function() {
+                            (new Base).init();
+                        });
+                    });
+                });
+            });
+        });
+    });
 }
 
 // get file url
