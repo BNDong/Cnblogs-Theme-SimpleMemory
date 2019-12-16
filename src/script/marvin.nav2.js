@@ -14,7 +14,7 @@ $(document).ready(function () {
         n = 0,
         o, p = 18,
         q = true,
-        r = true,
+        r = false,
         s = $('#' + c);
 
     if (s.length === 0) { return };
@@ -22,57 +22,38 @@ $(document).ready(function () {
 
     o = s.find(':header');
 
-    var titleArr = [];
     o.each(function () {
         var u = $(this),
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), ["h1", "h2"]) === -1) return true;
 
-        var lserialNum = u.find('.dev__fe').text(),
-            rserialNum = u.find('.dev__ux').text(),
+        var lserialNum   = u.find('.dev__fe').text(),
+            rserialNum   = u.find('.dev__ux').text(),
             titleContent = u.find('.dev__developer').text(),
-            titleHre  = titleContent.replace(/\s/g,'__a__');
+            titleId      = u.attr('id');
 
-        var titleRex = titleHre.match(/[A-Z a-z 0-9 \. \_ \- \u4E00-\u9FA5\uF900-\uFA2D]/g);
-
-        if ($.isArray(titleRex)) titleHre = titleRex.join('').toLowerCase();
-
-        titleArr.push(titleHre);
-
-        var titleVal = countTitleHre(titleHre),
-            titleHreText = titleHre.replace(/__a__/g,'-');
-
-        u.attr('id', titleVal === 0 ? titleHreText : titleHreText + '-' + titleVal);
+        if (!titleId) {
+            titleId = (new myTools).randomString(8);
+            u.attr('id', titleId);
+        }
 
         if (v.localName === 'h1') {
-            l++; m = 0;
+            l++; m = 0; r = true;
             if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
             titleContent = HTMLEncode(titleContent);
 
-            j += '<li h="1" g="'+ lserialNum +'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
-        } else if (v.localName === 'h2') {
+            j += '<li h="1" g="'+ lserialNum +'"><a href="#' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+        } else if (r && v.localName === 'h2') {
             m++; n = 0;
             if(q){
 
-                if(titleContent.length>30) titleContent=titleContent.substr(0,30) + "...";
+                if(titleContent.length>30) titleContent = titleContent.substr(0,30) + "...";
                 titleContent = HTMLEncode(titleContent);
 
-                j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#' + u.attr('id') + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li h="2" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#' + titleId + '">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
             }
         }
     });
-
-    function countTitleHre(titleHre) {
-        var num = 0;
-        if ($.inArray(titleHre, titleArr) === -1) return num;
-
-        $.each(titleArr, function (i) {
-            if (titleArr[i] === titleHre) {
-                num++;
-            }
-        });
-        return num > 0 ? num - 1 : 0;
-    }
 
     /**
      * @return {string}
@@ -122,7 +103,7 @@ $(document).ready(function () {
     nav_li.on('activate.bs.scrollspy', function () {
         var gu = $(this).attr("g"),
             catalog = $('#sideCatalog-catalog');
-        catalog.find('.h2Offset').hide();
-        catalog.find('.ceg' + gu).show();
+            catalog.find('.h2Offset').hide();
+            catalog.find('.ceg' + gu).show();
     })
 });

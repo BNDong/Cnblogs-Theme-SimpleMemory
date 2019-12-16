@@ -7,7 +7,6 @@ require.config({
         }
     },
     paths: {
-        version: 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js',
         //-- 菜单滚动条
         optiscroll: setFileNameMin('jquery.optiscroll', 'js'),
         //-- 进度条
@@ -37,8 +36,10 @@ require.config({
         codeDoxy: setFileNameMin('run_prettify', 'js'),
         //-- 代码高亮 - highlightjs
         highlightjs: setFileNameMin('highlight.min', 'js'),
-        //-- 拷贝
+        //-- 拷贝：博客园
         encoder: setFileNameMin('encoder', 'js'),
+        //-- 拷贝：clipboard
+        clipboard: setFileNameMin('clipboard.min', 'js'),
         //-- 主页头图动画
         circleMagic: setFileNameMin('circleMagic', 'js'),
         //-- 非主页头图动画
@@ -96,7 +97,7 @@ require.config({
             deps: [
                 'tools',
                 'css!'+getJsDelivrUrl('footer.css'),
-                'css!https://at.alicdn.com/t/font_543384_r5awilm4ql.css', // 阿里云字体图标
+                'css!https://at.alicdn.com/t/font_543384_5vq8w0sg3p5.css', // 阿里云字体图标
             ]
         },
 

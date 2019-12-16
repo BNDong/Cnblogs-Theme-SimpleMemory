@@ -3772,16 +3772,16 @@ span.cnblogs_code {
     z-index: 10;
 }
 
-.cnblogs_code pre {
+.post pre {
     font-size: 14px!important;
     /*word-wrap: break-word;*/
     /*white-space: pre-wrap;*/
     font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
     font-weight: 400;
-    padding: 10px !important;
+    padding: 10px!important;
     white-space: pre;
     word-wrap: normal;
-    margin: 0 15px;
+    margin: 5px 15px;
 }
 
 .postBody pre {
@@ -3829,8 +3829,8 @@ span.cnblogs_code {
     width: 16px;
     height: 16px;
     position: absolute;
-    right: 30px;
-    top: 8px;
+    /*right: 30px;*/
+    /*top: 8px;*/
     /*opacity: 0.3;*/
 }
 
@@ -3860,6 +3860,27 @@ span.cnblogs_code {
 
 #cnblogs_post_body > pre {
     margin: 10px 15px !important;
+}
+
+.my-line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    left: 0px;
+    width: 45px;
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.my-line-numbers-rows > span {
+    color: #999;
+    display: block;
+    padding-right: .8em;
+    text-align: right;
 }
 
 /* ==========================================================================
@@ -4058,6 +4079,129 @@ a[name=top], #loading{
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+/* ==========================================================================
+   书单
+   ========================================================================== */
+.doulist-item {
+    margin: 20px 0;
+    background: #f9f9f9;
+}
+
+.doulist-item .mod {
+    position: relative;
+    padding: 10px;
+    color: #666;
+    word-wrap: break-word;
+}
+
+.doulist-item .hd .pos {
+    position: relative;
+    top: -10px;
+    display: inline-block;
+    padding: 0 10px;
+    background: #e3e3e3;
+    color: #a1a1a1;
+    line-height: 18px;
+    border-radius: 0 0 4px 4px
+}
+
+.doulist-item .bd {
+    padding-left: 20px;
+    zoom:1;
+    position: relative;
+}
+
+.doulist-item .bd::after {
+    clear: both;
+    content: "";
+    display: table
+}
+
+.doulist-item .bd .title+.meta {
+    margin-top: -4px
+}
+
+.doulist-item .bd .doulist-add-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px
+}
+
+.doulist-item .bd .meta {
+    display: none;
+    margin: 6px 0 4px
+}
+
+.doulist-item .bd .meta a:link,.doulist-item .bd .meta a:visited {
+    color: #666
+}
+
+.doulist-item .bd .meta a:hover {
+    color: #fff
+}
+
+.doulist-item .bd .favs {
+    margin-left: 10px
+}
+
+.doulist-item .bd .pic {
+    float: right;
+    margin-left: 30px
+}
+
+.doulist-item .bd .pic img {
+    max-width: 120px
+}
+
+.doulist-item .bd .abstract {
+    overflow: hidden;
+    *zoom:1}
+
+.doulist-item .ft {
+    padding: 15px 20px 0
+}
+
+.doulist-item .ft .time {
+    display: block;
+    float: right;
+    margin-right: 15px;
+    color: #999
+}
+
+.doulist-item .title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #8f8f8f
+}
+
+.doulist-item .source {
+    color: #ccc;
+    margin-bottom: 10px
+}
+
+.doulist-item textarea {
+    font-size: 13px
+}
+
+.doulist-item .doulist-note .pic {
+    width: 120px
+}
+
+.doulist-item .doulist-subject .post {
+    float: left;
+    margin-right: 20px;
+    box-shadow: 0 0 1px rgba(0,0,0,0.1)
+}
+
+.doulist-item .doulist-subject .title {
+    margin-bottom: 6px
+}
+
+.doulist-item .doulist-subject .rating {
+    margin: 6px 0 4px 120px
 }
 
 /* ==========================================================================

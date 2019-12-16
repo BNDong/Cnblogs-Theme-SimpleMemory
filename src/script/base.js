@@ -926,9 +926,12 @@ function Base() {
         timeIds.blogPostCategoryTId = window.setInterval( bndongJs.setArticleInfoClass, 1000 );
         timeIds.entryTagTId         = window.setInterval( bndongJs.setArticleInfoTag, 1000 );
 
+        // 验证是否是书单文章
+        if ($('#bookListFlg').length > 0) bndongJs.setBookList();
+
         bndongJs.setDomHomePosition();
-        bndongJs.setCodeHighlighting();
         bndongJs.setNotHomeTopImg();
+        bndongJs.setCodeHighlighting();
         bndongJs.baguetteBox();
 
         // 设置右下角菜单
@@ -1064,60 +1067,126 @@ function Base() {
     };
 
     /**
+     * 设置书单页面
+     */
+    this.setBookList = function () {
+        if (window.cnblogsConfig.bookList.length > 0) {
+            var postBody = $('#cnblogs_post_body'),
+                html = '';
+
+            $.each(window.cnblogsConfig.bookList, function (i) {
+                var list = window.cnblogsConfig.bookList[i];
+                html += '<h1>' + list.title + '</h1>';
+
+                $.each(list.books, function (j) {
+                    var book = list.books[j];
+                    html += '<div class="doulist-item"><div class="mod"><div class="hd"></div><div class="bd doulist-subject">' +
+                        '    <div class="post"><img width="100" src="' + book.cover + '"></div>' +
+                        '    <div class="title">' + book.name + '</div><div class="abstract">' +
+                        (book.formerNname ? '原名: '    + book.formerNname + '<br>' : '') +
+                        (book.author      ? '作者: '    + book.author + '<br>' : '') +
+                        (book.translator  ? '译者: '    + book.translator + '<br>' : '') +
+                        (book.press       ? '出版社: '  + book.press + '<br>' : '') +
+                        (book.year        ? '出版年: '  + book.year : '') +
+                        '</div></div></div></div>';
+                });
+            });
+
+            postBody.append(html);
+        }
+    };
+
+    /**
      * 设置代码
      */
     this.setCodeHighlighting = function () {
-        var pre       = $('pre'),
+        var pre       = $('.post pre'),
             codeSpan  = $('.cnblogs_code span'),
-            codeCopyA = $('.cnblogs_code_copy a'),
-            codePre   = $('.post pre'),
             hltype    = window.cnblogsConfig.essayCodeHighlightingType.toLowerCase(),
             hltheme   = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
 
         switch (hltype) {
-            case 'highlightjs': highlightjsCode(); break;
-            case 'prettify': prettifyCode(); break;
+            case 'highlightjs':
+                setCodeBefore();
+                highlightjsCode(); break;
+            case 'prettify':
+                setCodeBefore();
+                prettifyCode(); break;
             case 'cnblogs':
-            default: cnblogsCode(); break;
+            default:
+                cnblogsCode(); break;
         }
-        setScrollbarStyle();
         setCopyBtn();
+        setScrollbarStyle();
 
         // 设置代码复制
         function setCopyBtn() {
-            var sCopyHtml = '<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="background-color: rgb(246, 248, 250);">',
-                eCopyHtml = '<i class="iconfont icon-code5" style="color: #999;"></i></a></span></div>',
-                cnCode    = $('div.cnblogs_code');
 
-            if (cnCode.length === 0) {
-                cnCode = pre;
-                cnCode.length > 0 && require(['encoder'], function() {
-                    setCopyHtml();
+            $('.cnblogs_code_toolbar').remove();
+
+            require(['clipboard'], function () {
+                pre.each(function (i) {
+                    var obj = $(this), id = tools.randomString(8);
+                    obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
+                    obj.attr('code-id', id);
+
+                    var html = '<button code-id="' + id + '" type="button" class="clipboard" data-clipboard-action="copy" data-clipboard-target="pre[code-id=' + id + ']" aria-label="复制代码" style="' +
+                        '    position: absolute;' +
+                        '    top: 8px;' +
+                        '    right: 23px;' +
+                        '    display: flex;' +
+                        '    justify-content: center;' +
+                        '    align-items: center;' +
+                        '    width: 30px;' +
+                        '    height: 25px;' +
+                        '    cursor: pointer;' +
+                        '    font-size: 14px;' +
+                        '    padding: 0 0 0 2px;' +
+                        '    border: none;' +
+                        '    border-radius: 6px;' +
+                        '    color: #ccc;' +
+                        '    opacity: 0;' +
+                        '    visibility: hidden;' +
+                        '    background-color: hsla(0,0%,90.2%,.2);' +
+                        '    -webkit-user-select: none;' +
+                        '    -moz-user-select: none;' +
+                        '    -ms-user-select: none;' +
+                        '    user-select: none;' +
+                        '    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
+                        '    z-index: 1;' +
+                        '"><i class="iconfont icon-fuzhi1"></i></button>';
+
+                    $('#'+id).prepend(html);
                 });
-            } else {
-                setCopyHtml();
-            }
 
-            function setCopyHtml() {
-                cnCode.each(function (i) {
-                    var obj = $(cnCode[i]);
-                    var copyHtml = '';
-                    obj.find('.cnblogs_code_toolbar').remove();
-                    if (obj.find('.code_img_closed').length > 0) {
-                        copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1; top: 30px;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
-                    } else {
-                        copyHtml = sCopyHtml + '<a href="javascript:void(0);" style="z-index: 1;" onclick="copyCnblogsCode(this)" title="复制代码">' + eCopyHtml;
+                $('code-box button').click(function () {
+                    $(this).find('i').removeClass('icon-fuzhi1').addClass('icon-right');
+                    setTimeout("$('code-box button[code-id="+$(this).attr('code-id')+"] i').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
+                });
+
+                $('code-box').on({
+                    mouseover : function(){
+                        $(this).find('button').css({
+                            opacity: 1,
+                            visibility: 'visible'
+                        });
+                    },
+                    mouseout : function(){
+                        $(this).find('button').css({
+                            opacity: 0,
+                            visibility: 'hidden'
+                        });
                     }
-                    obj.append(copyHtml);
                 });
-            }
+
+                new ClipboardJS('.clipboard');
+            });
         }
 
         // 使用博客园代码样式
         function cnblogsCode() {
-            codeCopyA.html('<i class="iconfont icon-code5" style="color: #999;"></i>');
             codeSpan.css('background-color', '#f6f8fa');
-            codePre.css({
+            pre.css({
                 'background-color': '#f6f8fa',
                 'overflow-x': 'auto'
             });
@@ -1126,10 +1195,8 @@ function Base() {
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
-            setCodeBefore();
             require(['highlightjs'], function() {
-                $('pre').each(function(i, block) {
-                    codeCopyA.html('<i class="iconfont icon-code5 hljs-comment" style="font-style: inherit;"></i>');
+                $('.post pre').each(function(i, block) {
                     if ($.inArray(hltheme, [
                             'github-gist', 'googlecode', 'grayscale',
                             'idea', 'isbl-editor-light', 'qtcreator_light',
@@ -1146,33 +1213,28 @@ function Base() {
             pre.addClass('prettyprint');
             switch (hltheme) {
                 case 'prettify':
-                    setCodeBefore();
                     require(['codePrettify'], function() {
-                        $('pre').css('background-color', '#f6f8fa').css('border', '0'); setPrettifyCopy();
-                    });break;
+                        $('pre').css('background-color', '#f6f8fa').css('border', '0');
+                    }); break;
                 case 'desert':
-                    setCodeBefore(); require(['codeDesert'], function() { setPrettifyCopy(); });break;
+                    require(['codeDesert']); break;
                 case 'sunburst':
-                    setCodeBefore(); require(['codeSunburst'], function() { setPrettifyCopy(); }); break;
+                    require(['codeSunburst']); break;
                 case 'obsidian':
-                    setCodeBefore(); require(['codeObsidian'], function() { setPrettifyCopy(); }); break;
+                    require(['codeObsidian']); break;
                 case 'doxy':
-                    setCodeBefore(); require(['codeDoxy'], function() { setPrettifyCopy(); }); break;
+                    require(['codeDoxy']); break;
                 default: cnblogsCode(); break;
             }
         }
 
         function setCodeBefore() {
-            $.each(codePre, function (i) {
-                var obj = $(codePre[i]);
+            $.each(pre, function (i) {
+                var obj = $(this);
                 obj.find('br').after('&#10;');
                 var codetext = obj.text();
                 obj.html('').text(codetext).css('overflow-x', 'auto');
             });
-        }
-
-        function setPrettifyCopy() {
-            codeCopyA.html('<i class="iconfont icon-code5 com" style="font-style: inherit;"></i>');
         }
 
         // 设置代码滚动条样式
@@ -1184,12 +1246,18 @@ function Base() {
                         theme:"minimal-dark",
                         axis:"yx"
                     });
+                    var color;
                     switch (hltype) {
-                        case 'highlightjs': $('.mCSB_dragger_bar').css('background-color', $('.hljs-comment').css('color')); break;
-                        case 'prettify': $('.mCSB_dragger_bar').css('background-color', $('.com').css('color')); break;
+                        case 'highlightjs':
+                            color = $('.hljs-comment').css('color');
+                            $('.mCSB_dragger_bar').css('background-color', color); break;
+                        case 'prettify':
+                            color = $('.com').css('color');
+                            $('.mCSB_dragger_bar').css('background-color', color); break;
                         case 'cnblogs':
-                        default:  break;
+                            color = "rgb(153, 153, 153)"; break;
                     }
+                    $('code-box button').css('color', color);
                     bndongJs.clearIntervalTimeId(scrollbarTimeId);
                 }
             }, 500 );

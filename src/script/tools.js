@@ -67,7 +67,7 @@ function myTools() {
     /**
      * 随机数
      */
-    this.randomNum = function(minNum,maxNum){
+    this.randomNum = function(minNum,maxNum) {
         switch(arguments.length){
             case 1:
                 return parseInt(Math.random()*minNum+1);
@@ -79,6 +79,21 @@ function myTools() {
                 return 0;
                 break;
         }
+    };
+
+
+    /**
+     * 随机字符串
+     */
+    this.randomString = function(len) {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
     };
 
     /**

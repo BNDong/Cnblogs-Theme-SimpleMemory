@@ -12,6 +12,7 @@
   - [转载文章](Docs/Customization/reprinted.md)
   - [字体图标库](Docs/Customization/fonticon.md)
   - [Loading](Docs/Customization/loading.md)
+  - [书单](Docs/Customization/bookList.md)
   
 - 扩展
 

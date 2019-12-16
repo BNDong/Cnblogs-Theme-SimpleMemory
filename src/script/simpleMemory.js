@@ -193,6 +193,7 @@ if (initCheck()) {
         },
         footerStyle: 2,
         consoleList: [],
+        bookList: [],
         themeAuthor: false,
     };
 
