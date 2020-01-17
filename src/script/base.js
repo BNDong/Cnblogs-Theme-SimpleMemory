@@ -831,8 +831,9 @@ function Base() {
                 settings = {
                     "async": true,
                     "crossDomain": true,
-                    "url": "https://api.hibai.cn/api/index/index",
+                    "url": "https://sentence.iciba.com/index.php?callback=onecallback&c=dailysentence&m=getdetail&title=" + tools.getNowFormatDate(),
                     "method": "POST",
+                    "dataType": 'jsonp',
                     "headers": {
                         "content-type": "application/x-www-form-urlencoded",
                     },
@@ -844,9 +845,9 @@ function Base() {
                 };
 
                 $.ajax(settings).done(function (response) {
-                    if (response.ResultCode == 1) {
-                        $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
-                        $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
+                    if (response.errno === 0) {
+                        $('#hitokoto').text(response.note).css('display', '-webkit-box');
+                        $('#hitokotoAuthor').text(response.content).show();
                     } else {
                         var listIndex = tools.randomNum(0, topTitleList.length - 1);
                         $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
