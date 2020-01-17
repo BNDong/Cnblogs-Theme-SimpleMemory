@@ -35,6 +35,10 @@
 
 # Contributors
 
+<a href="https://github.com/QQ2017" target="_blank">
+    <img width=50 src="https://avatars0.githubusercontent.com/u/23667705?s=50&v=4" wi>
+</a>
+
 <a href="https://github.com/alessandrocyc" target="_blank">
     <img width=50 src="https://avatars1.githubusercontent.com/u/43987494?s=50&v=4" wi>
 </a>
