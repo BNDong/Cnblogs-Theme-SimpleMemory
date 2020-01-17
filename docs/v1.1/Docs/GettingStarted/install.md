@@ -10,7 +10,9 @@
 
 进入管理后台：[管理后台](https://i.cnblogs.com/Configure.aspx)
 
-会看到如下设置页面：
+### 设置
+
+设置页面：
 
 <img src="./Images/install_01.png" width="750" />
 
@@ -21,6 +23,16 @@
 - 禁用模板默认CSS
 - 博客侧边栏公告
 - 页脚Html代码
+
+### 选项
+
+选项页面：
+
+<img src="./Images/install_07.png" width="750" />
+
+本主题当前页面所涉及的配置有：
+
+- 控件显示设置/公告 [#86](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues/86)
 
 ## 获取需要使用的版本
 

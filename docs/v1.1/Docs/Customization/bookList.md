@@ -26,7 +26,7 @@
 
 ### 配置书单数据
 
-书单的配置，可以按照其他配置的方式。例如：
+书单的配置，可以参考其他[配置](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/config)的方式。例如：
 
 ```javascript
 window.cnblogsConfig = {
@@ -37,6 +37,13 @@ window.cnblogsConfig = {
 但是一般书单的数据比较多，所以建议将此配置单独出来。例如：
 
 ```javascript
+
+    //  正常配置
+    window.cnblogsConfig = {
+        ...
+    };
+
+    // 书单配置
     window.cnblogsConfig.bookList = [
         {
             title: '标题1',
