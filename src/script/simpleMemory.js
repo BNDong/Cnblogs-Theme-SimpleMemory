@@ -38,6 +38,9 @@ if (initCheck()) {
         '            <!-- 随笔分类 -->' +
         '            <div class="m-list-title"><span>随笔分类<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-classify"></div>' +
+        '            <!-- 文章分类 -->' +
+        '            <div class="m-list-title"><span>文章分类<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
+        '            <div class="m-icon-list" id="sb-ArticleCategory"></div>' +
         '            <!-- 阅读排行 -->' +
         '            <div class="m-list-title"><span>阅读排行<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-topview"></div>' +
@@ -90,7 +93,7 @@ if (initCheck()) {
     window.cnblogsConfigDefault = {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
-        GhVersions: 'v1.1.2',
+        GhVersions: 'v1.2.3',
         CnVersions: "",
         blogUser: "",
         blogAvatar: "",
@@ -149,6 +152,7 @@ if (initCheck()) {
             trailMaxLength: 30,
             trailIntervalCreation: 100,
             delayBeforeDisappear: 2,
+            colorsRandom: false,
             colors: [
                 '#96EDA6', '#5BC6A9',
                 '#38668C', '#374D84',
@@ -170,12 +174,12 @@ if (initCheck()) {
             animateSections: true
         },
         homeTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
         ],
         homeBannerText: "",
         homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/nothome_top_bg.jpg"
+            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
@@ -203,11 +207,7 @@ if (initCheck()) {
 } else {
 
     $('a[name="top"]').text("SimpleMemory：基础配置有误，请阅读文档，检查配置！").css({
-        'display': 'block',
-        'text-align': 'center',
-        'padding-top': '45vh',
-        'font-size': '20px',
-        'color': '#333'
+        'display': 'block', 'text-align': 'center', 'padding-top': '45vh', 'font-size': '20px', 'color': '#333'
     });
 }
 

@@ -1,3 +1,16 @@
+## 2020.02.20 - v1.2.4
+* 侧边菜单增加文章分类
+* 新的书单页面样式
+* 新的图片灯箱效果
+* 文章分类、标签增加跳转
+* 代码增加行号渲染
+* 文章目录增加了高度限制并美化了滚动条
+* 文章页 banner 动效增加随机颜色配置 `essayTopAnimation.colorsRandom`
+* 放开了文章标题换行限制
+* 更新基础 CSS 文件
+* 更新文档
+* 压缩图片资源
+
 ## 2019.12.16 - v1.2.3
 * 增加书单配置：```bookList```
 * 增加关于书单设置[文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Customization/bookList)

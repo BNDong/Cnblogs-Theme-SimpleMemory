@@ -3033,9 +3033,7 @@ b {
     width: 100%;
     height: 100vh;
     max-height: 100vh;
-    /*margin-bottom: 5rem;*/
     text-align: center;
-    /*background: #222 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg) center center no-repeat;*/
     background-size: cover;
     overflow: hidden;
     position: absolute;
@@ -3269,8 +3267,7 @@ b {
     transition-delay: 0.4s;
     outline: none;
     cursor: pointer;
-    /*background: #000 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/menu_bg.jpeg) 0 -195px no-repeat;*/
-    background: #000 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/me_top_bg.gif) center no-repeat;
+    background: #000 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/me_top_bg.webp) center no-repeat;
     background-size: 100%;
 }
 
@@ -3383,7 +3380,7 @@ blockquote p {
     height: 16px;
     display: inline-block;
     transition: all .3s;
-    background-image: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/title_icon.png);
+    background-image: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/title_icon.webp);
     background-repeat: no-repeat;
     background-position: 0 6px;
 }
@@ -3578,9 +3575,9 @@ blockquote p {
     width: 110%;
     transition: border-color 0.3s;
     padding-bottom: 14px;
-    border-bottom: 1px solid transparent;
-    border-image: linear-gradient(to right, #f5f5f5, #eee);
-    border-image-slice: 30;
+    /*border-bottom: 1px solid transparent;*/
+    /*border-image: linear-gradient(to right, #f5f5f5, #eee);*/
+    /*border-image-slice: 30;*/
 }
 /* ---------------------------------------- */
 .header__dev {
@@ -3679,7 +3676,8 @@ blockquote p {
     position: absolute;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    width: 75vw;
+    /*white-space: nowrap;*/
     font-weight: bold;
     font-family: "Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
 }
@@ -3788,7 +3786,53 @@ span.cnblogs_code {
     max-height: 70vh;
     word-break: break-all;
     word-wrap: break-word;
-    border-radius: 4px;
+    counter-reset: itemcounter;
+}
+
+.postBody pre .line-numbers-rows {
+    counter-increment: itemcounter;
+    position: absolute;
+    left: -34px;
+    width: 30px;
+    text-align: center;
+    color: #999;
+}
+.postBody pre .line-numbers-rows:before {
+    content: counter(itemcounter);
+}
+
+.postBody pre .code-pre {
+    position: relative;
+    padding-left: 10px;
+    display: block;
+    left: 30px;
+    border-left: 1px solid #999;
+}
+
+.code-copay-btn {
+    position: absolute;
+    top: 8px;
+    right: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 0 0 2px;
+    border: none;
+    border-radius: 6px;
+    color: #ccc;
+    opacity: 0;
+    visibility: hidden;
+    background-color: hsla(0,0%,90.2%,.2);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;
+    z-index: 1;
 }
 
 .cnblogs_code span {
@@ -3883,6 +3927,17 @@ span.cnblogs_code {
     text-align: right;
 }
 
+#notHomeTopCanvas {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+}
+
 /* ==========================================================================
    播放器
    ========================================================================== */
@@ -3904,7 +3959,7 @@ body>meting-js, #aplayer {
     padding: 10px;
     height: 200px;
     position: relative;
-    background: #fff url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/comment_bg.jpg) right -65px;
+    background: #fff url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/comment_bg.webp) right -65px;
     background-size: 250px;
     background-repeat: no-repeat;
 }
@@ -3948,7 +4003,7 @@ body>meting-js, #aplayer {
 }
 
 .tbCommentBody_bg {
-    background: url('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/commentHintBg.gif') center center no-repeat;
+    background: url('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/commentHintBg.webp') center center no-repeat;
 }
 
 .commentbox_main {
@@ -3975,9 +4030,9 @@ body>meting-js, #aplayer {
 .list .out .icon,.list .inc .icon{width:48px;height:48px;}
 .list .icontd {width:48px;}
 .list .out .icontd{display:none;}
-.list .out .topleft,.list .out .topright,.list .out .bottomleft,.list .out .bottomright,.list .inc .topleft,.list .inc .topright,.list .inc .bottomleft,.list .inc .bottomright{background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/t_o_bubbles.gif) no-repeat;}
-.list .out .top,.list .out .bottom,.list .inc .top,.list .inc .bottom{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/t_o_horizontal.gif) repeat-x;}
-.list .out .left,.list .out .right,.list .inc .left,.list .inc .right{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/t_o_vertical.gif) repeat-y;}
+.list .out .topleft,.list .out .topright,.list .out .bottomleft,.list .out .bottomright,.list .inc .topleft,.list .inc .topright,.list .inc .bottomleft,.list .inc .bottomright{background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_bubbles.webp) no-repeat;}
+.list .out .top,.list .out .bottom,.list .inc .top,.list .inc .bottom{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_horizontal.webp) repeat-x;}
+.list .out .left,.list .out .right,.list .inc .left,.list .inc .right{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_vertical.webp) repeat-y;}
 
 .list .out .topleft{background-position:left top;height:9px;width:18px;}
 .list .out .topright{background-position:-18px top;height:9px;width:11px;}
@@ -4084,124 +4139,171 @@ a[name=top], #loading{
 /* ==========================================================================
    书单
    ========================================================================== */
-.doulist-item {
-    margin: 20px 0;
-    background: #f9f9f9;
+.books-item .books-item-span {
+    width: 98%;
+    text-decoration: none;
+    display: -webkit-box;
+    display: flex;
+    align-self: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    background: rgba(245,245,245,0.5);
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px 1px rgba(220,220,220,0.3);
+    border: 0;
+    margin-bottom: 20px;
 }
 
-.doulist-item .mod {
-    position: relative;
-    padding: 10px;
-    color: #666;
-    word-wrap: break-word;
-}
-
-.doulist-item .hd .pos {
-    position: relative;
-    top: -10px;
-    display: inline-block;
-    padding: 0 10px;
-    background: #e3e3e3;
-    color: #a1a1a1;
-    line-height: 18px;
-    border-radius: 0 0 4px 4px
-}
-
-.doulist-item .bd {
-    padding-left: 20px;
-    zoom:1;
-    position: relative;
-}
-
-.doulist-item .bd::after {
-    clear: both;
-    content: "";
-    display: table
-}
-
-.doulist-item .bd .title+.meta {
-    margin-top: -4px
-}
-
-.doulist-item .bd .doulist-add-btn {
+.books-item .books-item-span ._1P9uD {
     position: absolute;
-    top: 20px;
-    right: 20px
+    z-index: 2;
+    width: 24px;
+    line-height: normal;
+    background-color: rgba(112,83,79,.9);
+    text-align: center;
+    padding: 3px 0;
+    border-radius: 6px 0 30px 0;
 }
 
-.doulist-item .bd .meta {
-    display: none;
-    margin: 6px 0 4px
+@media (max-width: 600px) {
+    .books-item .books-item-span ._1P9uD {
+        font-size:12px
+    }
 }
 
-.doulist-item .bd .meta a:link,.doulist-item .bd .meta a:visited {
-    color: #666
+@media (min-width: 600px) {
+    .books-item .books-item-span ._1P9uD {
+        font-size:13px
+    }
 }
 
-.doulist-item .bd .meta a:hover {
-    color: #fff
+.books-item .books-item-span ._1P9uD._3D3vq {
+    background-color: rgba(206,155,78,.9)
 }
 
-.doulist-item .bd .favs {
-    margin-left: 10px
+.books-item .books-item-span ._1P9uD._3D3vq ._2aw_6 {
+    color: #ffeacc
 }
 
-.doulist-item .bd .pic {
-    float: right;
-    margin-left: 30px
+.books-item .books-item-span ._1P9uD ._2aw_6 {
+    display: inline-block;
+    color: #e6d3cf;
+    position: relative;
+    z-index: 1
 }
 
-.doulist-item .bd .pic img {
-    max-width: 120px
+@media (max-width: 600px) {
+    .books-item .books-item-span ._1P9uD ._2aw_6 {
+        left:-.02rem;
+        top: -.02rem
+    }
 }
 
-.doulist-item .bd .abstract {
+@media (min-width: 600px) {
+    .books-item .books-item-span ._1P9uD ._2aw_6 {
+        left:-2px;
+        top: -2px
+    }
+}
+
+.books-item .books-item-span ._28asT {
+    position: relative;
+    z-index: 1;
     overflow: hidden;
-    *zoom:1}
-
-.doulist-item .ft {
-    padding: 15px 20px 0
+    margin-right: 15px
 }
 
-.doulist-item .ft .time {
-    display: block;
-    float: right;
-    margin-right: 15px;
-    color: #999
+@media (max-width: 600px) {
+    .books-item .books-item-span ._28asT {
+        width:100px;
+        height: 140px
+    }
 }
 
-.doulist-item .title {
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 1.3;
-    color: #8f8f8f
+@media (min-width: 600px) {
+    .books-item .books-item-span ._28asT {
+        width: 95px;
+        height: 136px;
+        min-width: 95px;
+    }
 }
 
-.doulist-item .source {
-    color: #ccc;
-    margin-bottom: 10px
+.books-item .books-item-span ._28asT svg {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px
 }
 
-.doulist-item textarea {
-    font-size: 13px
+.books-item .books-item-span ._34CGc {
+    -webkit-box-flex: 1;
+    flex: 1;
+    text-align: left
 }
 
-.doulist-item .doulist-note .pic {
-    width: 120px
+.books-item .books-item-span ._2girK {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 3px;
 }
 
-.doulist-item .doulist-subject .post {
-    float: left;
-    margin-right: 20px;
-    box-shadow: 0 0 1px rgba(0,0,0,0.1)
+.books-item .books-item-span ._2girK ._1P9dH {
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-.doulist-item .doulist-subject .title {
-    margin-bottom: 6px
+.books-item .books-item-span ._2girK ._6Y7v3 {
+    display: inline-block;
+    width: 60px;
+    font-weight: 500;
 }
 
-.doulist-item .doulist-subject .rating {
-    margin: 6px 0 4px 120px
+@media (max-width: 600px) {
+    .books-item .books-item-span ._2girK ._1P9dH {
+        font-size: 1.24rem;
+        line-height: 1.24rem;
+        margin-bottom: 2px;
+        width: 250px;
+    }
+}
+
+@media (min-width: 600px) {
+    .books-item .books-item-span ._2girK ._1P9dH {
+        font-size: 20px;
+        line-height: 29px;
+        margin-bottom: 3px;
+        width: 550px;
+    }
+}
+
+.books-item .books-item-span ._2girK ._3Oa5I {
+    color: #777;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+@media (max-width: 600px) {
+    .books-item .books-item-span ._2girK ._3Oa5I {
+        font-size: .8rem;
+        line-height: 1.16rem;
+        width: 250px;
+    }
+}
+
+@media (min-width: 600px) {
+    .books-item .books-item-span ._2girK ._3Oa5I {
+        font-size: 14px;
+        line-height: 20px;
+        width: 550px;
+    }
 }
 
 /* ==========================================================================
@@ -4472,6 +4574,14 @@ div#green_channel img {
    ========================================================================== */
 
 @media only screen and (max-width: 720px) {
+
+    #cnblogs_post_body>p {
+        padding: 0 10px;
+    }
+
+    .post pre {
+        margin: 5px 5px;
+    }
 
     .main-header {
         margin-bottom: 15px;

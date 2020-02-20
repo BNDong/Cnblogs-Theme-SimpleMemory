@@ -20,8 +20,8 @@ require.config({
         main4: setFileNameMin('main4', 'js'),
         //-- bootstrap
         bootstrap: setFileNameMin('bootstrap.min', 'js'),
-        //-- baguetteBox 图片灯箱
-        baguetteBox: setFileNameMin('baguetteBox.min', 'js'),
+        //-- 图片灯箱
+        fancybox: setFileNameMin('jquery.fancybox.min', 'js'),
         //-- 文章标题
         title: setFileNameMin('articleTitle', 'js'),
         //-- 文章目录
@@ -68,12 +68,11 @@ require.config({
         main4: {
             deps: ['snapSvg','classie', 'css!'+getJsDelivrUrl('menu_bubble.css')]
         },
-        baguetteBox: {
-            exports: 'baguetteBox',
-            deps: ['css!'+getJsDelivrUrl('baguetteBox.min.css'), 'css!'+getJsDelivrUrl('gallery-clean.css')]
-        },
         codePrettify: {
             deps: ['css!'+getJsDelivrUrl('codePrettify.css')]
+        },
+        fancybox: {
+            deps: ['css!'+getJsDelivrUrl('jquery.fancybox.min.css')]
         },
         codeDesert: {
             deps: ['css!'+getJsDelivrUrl('codeDesert.css')]

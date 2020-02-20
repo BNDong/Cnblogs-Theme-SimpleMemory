@@ -23,7 +23,6 @@
 
   - [菜单数据](Docs/Guide/menuData.md)
   - [版本映射](Docs/Guide/versionMapping.md)
-  - [Markdown](Docs/Guide/markdown.md)
   - [highlight](Docs/Guide/highlight.md)
 
 - [Changelog](Docs/changelog.md)
