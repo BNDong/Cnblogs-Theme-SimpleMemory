@@ -1046,7 +1046,7 @@ function Base() {
         $('#home').css('margin-top', '40vh');
         $('#cb_post_title_url').addClass('post-del-title');
 
-        if (window.cnblogsConfig.essayTopAnimationRendered)
+        if (window.cnblogsConfig.essayTopAnimationRendered) {
             if (window.cnblogsConfig.essayTopAnimation.colorsRandom) {
                 var colors = [];
                 colors.push(tools.getRandomColor());
@@ -1060,10 +1060,11 @@ function Base() {
                 colors.push(tools.getRandomColor());
                 window.cnblogsConfig.essayTopAnimation.colors = colors;
             }
-        require(['TweenMax_MyTween'], function() {
-            initCanvas('notHomeTopCanvas');
-            start();
-        });
+            require(['TweenMax_MyTween'], function() {
+                initCanvas('notHomeTopCanvas');
+                start();
+            });
+        }
     };
 
     /**
