@@ -12,6 +12,6 @@
 
 ```javascript
 window.cnblogsConfig = {
-    fontIconExtend: "//at.alicdn.com/t/font_543384_ezv3l7gd9r7.css"
+    fontIconExtend: "//at.alicdn.com/t/font_543384_ezv3l7gd9r7.css",
 }
 ```

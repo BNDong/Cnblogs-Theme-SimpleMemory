@@ -22,10 +22,10 @@ footer h2{margin-bottom:1.5rem}
 footer .copyright{color:#BDBDBD;position:absolute;font-size:.75rem;font-weight:600;bottom:3rem;text-align:right;right:10%;z-index:3}
 footer footer-background{bottom:7.25rem;left:0;height:18rem;position:absolute;width:100%;z-index:1;transform:translate3d(0, 0, 0)}
 footer footer-background figure{bottom:0;left:0;height:15rem;margin:0;position:absolute;width:100%}
-footer footer-background .foreground{background-repeat:repeat-x!important;background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/foreground.png) repeat-x;background-size:225em 15em;position:absolute;top:1rem;right:0;bottom:0;left:0}
-footer footer-background .background{background-repeat:repeat-x!important;background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/background.png) repeat-x;background-size:225em 21.313em;position:absolute;top:-1em;right:0;bottom:0;left:0}
-footer footer-background .clouds{background-repeat:repeat-x!important;background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/clouds.png) repeat-x;background-size:225em 15em;position:absolute;top:-2em;right:0;bottom:0;left:0}
-footer footer-background .poof{background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/poof.png) repeat-x;background-size:47px 29px!important;background-position:top left!important;opacity:0;position:absolute;bottom:3.5em;height:29px;left:10%;width:47px}
+footer footer-background .foreground{background-repeat:repeat-x!important;background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/foreground.webp) repeat-x;background-size:225em 15em;position:absolute;top:1rem;right:0;bottom:0;left:0}
+footer footer-background .background{background-repeat:repeat-x!important;background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/background.webp) repeat-x;background-size:225em 21.313em;position:absolute;top:-1em;right:0;bottom:0;left:0}
+footer footer-background .clouds{background-repeat:repeat-x!important;background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/clouds.webp) repeat-x;background-size:225em 15em;position:absolute;top:-2em;right:0;bottom:0;left:0}
+footer footer-background .poof{background:url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/poof.webp) repeat-x;background-size:47px 29px!important;background-position:top left!important;opacity:0;position:absolute;bottom:3.5em;height:29px;left:10%;width:47px}
 footer ol {
     display: table;
     list-style-type: none;

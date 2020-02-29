@@ -9,30 +9,31 @@ function Base() {
     const bndongJs    = this,
           tools       = new myTools,
           progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
-     var  temScroll   = 0,  // 上一次页面滚动位置
+    var   temScroll   = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
         timeIds    = {
-            setMenuIntroduceTId      : null, // 菜单设置-个人信息定时器ID
-            setMenuCalendarTId       : null, // 菜单设置-日历定时器ID
-            setSidebarSearchTId      : null, // 菜单设置-找找看定时器ID
-            setSidebarScorerankTId   : null, // 菜单设置-积分与排名定时器ID
-            setMenuSidebarTId        : null, // 菜单设置-最新随笔定时器ID
-            setMenuToptagsTId        : null, // 菜单设置-我的标签定时器ID
-            setMenuClassifyTId       : null, // 菜单设置-随笔分类定时器ID
-            setMenuRecordTId         : null, // 菜单设置-随笔档案定时器ID
-            setMenuArticleTId        : null, // 菜单设置-文章档案定时器ID
-            setMenuTopviewTId        : null, // 菜单设置-阅读排行定时器ID
-            setMenuTopDiggPostsTId   : null, // 菜单设置-推荐排行定时器ID
-            setMenuRecentCommentsTId : null, // 菜单设置-最新评论定时器ID
-            setHomeRightMenuTId      : null, // 主页右下角菜单设置定时器ID
-            setNotHomeRightMenuTId   : null, // 非主页右下角菜单设置定时器ID
-            setCnzzTId               : null, // 网站统计Cnzz设置定时器ID
-            setAmazingTId            : null, // 网站统计Amazing设置定时器ID
-            setCatalogTId            : null, // 文章目录设置定时器ID
-            blogPostCategoryTId      : null, // 文章信息分类设置定时器ID
-            entryTagTId              : null, // 文章信息标签设置定时器ID
-            commentTId               : null, // 评论框设置定时器ID
+            setMenuIntroduceTId       : null, // 菜单设置-个人信息定时器ID
+            setMenuCalendarTId        : null, // 菜单设置-日历定时器ID
+            setSidebarSearchTId       : null, // 菜单设置-找找看定时器ID
+            setSidebarScorerankTId    : null, // 菜单设置-积分与排名定时器ID
+            setMenuSidebarTId         : null, // 菜单设置-最新随笔定时器ID
+            setMenuToptagsTId         : null, // 菜单设置-我的标签定时器ID
+            setMenuClassifyTId        : null, // 菜单设置-随笔分类定时器ID
+            setMenuArticleCategoryTId : null, // 菜单设置-文章分类定时器ID
+            setMenuRecordTId          : null, // 菜单设置-随笔档案定时器ID
+            setMenuArticleTId         : null, // 菜单设置-文章档案定时器ID
+            setMenuTopviewTId         : null, // 菜单设置-阅读排行定时器ID
+            setMenuTopDiggPostsTId    : null, // 菜单设置-推荐排行定时器ID
+            setMenuRecentCommentsTId  : null, // 菜单设置-最新评论定时器ID
+            setHomeRightMenuTId       : null, // 主页右下角菜单设置定时器ID
+            setNotHomeRightMenuTId    : null, // 非主页右下角菜单设置定时器ID
+            setCnzzTId                : null, // 网站统计Cnzz设置定时器ID
+            setAmazingTId             : null, // 网站统计Amazing设置定时器ID
+            setCatalogTId             : null, // 文章目录设置定时器ID
+            blogPostCategoryTId       : null, // 文章信息分类设置定时器ID
+            entryTagTId               : null, // 文章信息标签设置定时器ID
+            commentTId                : null, // 评论框设置定时器ID
         };
 
 //----------------------------------- 初始化 -----------------------------------------//
@@ -93,7 +94,7 @@ function Base() {
         $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
         // 设置菜单个人简介头像
-        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/default_avatar.jpeg';
+        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/default_avatar.webp';
         $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
 
         // html5-title
@@ -104,18 +105,19 @@ function Base() {
 
         // 设置菜单侧边栏内容
         let setMenuData = bndongJs.setMenuData();
-        timeIds.setMenuIntroduceTId      = window.setInterval( setMenuData.setIntroduce, 1000 );
-        timeIds.setMenuCalendarTId       = window.setInterval( setMenuData.setCalendar, 1000 );
-        timeIds.setSidebarSearchTId      = window.setInterval( setMenuData.setSidebarSearch, 1000 );
-        timeIds.setSidebarScorerankTId   = window.setInterval( setMenuData.setSidebarScorerank, 1000 );
-        timeIds.setMenuSidebarTId        = window.setInterval( setMenuData.setSidebar, 1000 );
-        timeIds.setMenuToptagsTId        = window.setInterval( setMenuData.setToptags, 1000 );
-        timeIds.setMenuClassifyTId       = window.setInterval( setMenuData.setClassify, 1000 );
-        timeIds.setMenuArticleTId        = window.setInterval( setMenuData.setArticle, 1000 );
-        timeIds.setMenuRecordTId         = window.setInterval( setMenuData.setRecord, 1000 );
-        timeIds.setMenuTopviewTId        = window.setInterval( setMenuData.setTopview, 1000 );
-        timeIds.setMenuTopDiggPostsTId   = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
-        timeIds.setMenuRecentCommentsTId = window.setInterval( setMenuData.setRecentComments, 1000 );
+        timeIds.setMenuIntroduceTId       = window.setInterval( setMenuData.setIntroduce, 1000 );
+        timeIds.setMenuCalendarTId        = window.setInterval( setMenuData.setCalendar, 1000 );
+        timeIds.setSidebarSearchTId       = window.setInterval( setMenuData.setSidebarSearch, 1000 );
+        timeIds.setSidebarScorerankTId    = window.setInterval( setMenuData.setSidebarScorerank, 1000 );
+        timeIds.setMenuSidebarTId         = window.setInterval( setMenuData.setSidebar, 1000 );
+        timeIds.setMenuToptagsTId         = window.setInterval( setMenuData.setToptags, 1000 );
+        timeIds.setMenuClassifyTId        = window.setInterval( setMenuData.setClassify, 1000 );
+        timeIds.setMenuArticleCategoryTId = window.setInterval( setMenuData.setArticleCategory, 1000 );
+        timeIds.setMenuArticleTId         = window.setInterval( setMenuData.setArticle, 1000 );
+        timeIds.setMenuRecordTId          = window.setInterval( setMenuData.setRecord, 1000 );
+        timeIds.setMenuTopviewTId         = window.setInterval( setMenuData.setTopview, 1000 );
+        timeIds.setMenuTopDiggPostsTId    = window.setInterval( setMenuData.setTopDiggPosts, 1000 );
+        timeIds.setMenuRecentCommentsTId  = window.setInterval( setMenuData.setRecentComments, 1000 );
         setMenuData.setCustomData();
 
         // 设置菜单展开收缩
@@ -391,31 +393,33 @@ function Base() {
      * 设置菜单数据
      */
     this.setMenuData = function() {
-        var introduceHtml      = $('#profile_block').html(),        // 个人信息
-            calendar           = $('#blog-calendar'),               // 日历
-            calendarTable      = $('#blogCalendar'),                // 日历
-            sidebarSearch      = $('#sidebar_search_box'),          // 找找看
-            scorerank          = $('#sidebar_scorerank ul li'),     // 积分与排名
-            sidebar            = $('#sidebar_recentposts ul li'),   // 最新随笔
-            toptags            = $('#sidebar_toptags ul li'),       // 我的标签
-            sbClassify         = $('#sidebar_postcategory ul li'),  // 随笔分类
-            sbRecord           = $('#sidebar_postarchive ul li'),   // 随笔档案
-            sbArticle          = $('#sidebar_articlearchive ul li'),// 文章档案
-            sbTopview          = $('#TopViewPostsBlock ul li'),     // 阅读排行
-            topDiggPosts       = $('#TopDiggPostsBlock ul li'),     // 推荐排行
-            recentComments     = $('#sidebar_recentcomments ul'),   // 最新评论
-            menuIntroduce      = $('#introduce'),
-            menuCalendar       = $('#calendar-box'),
-            menuScorerank      = $('#sb-sidebarScorerank'),
-            menuSearchBox      = $('#sb-sidebarSearchBox'),
-            menuArticle        = $('#sb-articlearchive'),
-            menuSidebar        = $('#sb-sidebarRecentposts'),
-            menuToptags        = $('#sb-toptags'),
-            menuClassify       = $('#sb-classify'),
-            menuRecord         = $('#sb-record'),
-            menuTopview        = $('#sb-topview'),
-            menuTopDiggPosts   = $('#sb-topDiggPosts'),
-            menuRecentComments = $('#sb-recentComments');
+        var introduceHtml       = $('#profile_block').html(),          // 个人信息
+            calendar            = $('#blog-calendar'),                 // 日历
+            calendarTable       = $('#blogCalendar'),                  // 日历
+            sidebarSearch       = $('#sidebar_search_box'),            // 找找看
+            scorerank           = $('#sidebar_scorerank ul li'),       // 积分与排名
+            sidebar             = $('#sidebar_recentposts ul li'),     // 最新随笔
+            toptags             = $('#sidebar_toptags ul li'),         // 我的标签
+            sbClassify          = $('#sidebar_postcategory ul li'),    // 随笔分类
+            sbArticleCategory   = $('#sidebar_articlecategory ul li'), // 文章分类
+            sbRecord            = $('#sidebar_postarchive ul li'),     // 随笔档案
+            sbArticle           = $('#sidebar_articlearchive ul li'),  // 文章档案
+            sbTopview           = $('#TopViewPostsBlock ul li'),       // 阅读排行
+            topDiggPosts        = $('#TopDiggPostsBlock ul li'),       // 推荐排行
+            recentComments      = $('#sidebar_recentcomments ul'),     // 最新评论
+            menuIntroduce       = $('#introduce'),
+            menuCalendar        = $('#calendar-box'),
+            menuScorerank       = $('#sb-sidebarScorerank'),
+            menuSearchBox       = $('#sb-sidebarSearchBox'),
+            menuArticle         = $('#sb-articlearchive'),
+            menuSidebar         = $('#sb-sidebarRecentposts'),
+            menuToptags         = $('#sb-toptags'),
+            menuClassify        = $('#sb-classify'),
+            menuArticleCategory = $('#sb-ArticleCategory'),
+            menuRecord          = $('#sb-record'),
+            menuTopview         = $('#sb-topview'),
+            menuTopDiggPosts    = $('#sb-topDiggPosts'),
+            menuRecentComments  = $('#sb-recentComments');
 
         // 添加个人信息
         function setIntroduce() {
@@ -473,6 +477,14 @@ function Base() {
             if (sbClassify.length > 0 && menuClassify.html() === '') {
                 menuClassify.html(getMenuData(sbClassify, 'icon-marketing_fill')).prev('.m-list-title').show();
                 bndongJs.clearIntervalTimeId(timeIds.setMenuClassifyTId);
+            }
+        }
+
+        // 添加文章分类
+        function setArticleCategory() {
+            if (sbArticleCategory.length > 0 && menuArticleCategory.html() === '') {
+                menuArticleCategory.html(getMenuData(sbArticleCategory, 'icon-marketing_fill')).prev('.m-list-title').show();
+                bndongJs.clearIntervalTimeId(timeIds.setMenuArticleCategoryTId);
             }
         }
 
@@ -595,6 +607,7 @@ function Base() {
             setSidebar: setSidebar,
             setToptags: setToptags,
             setClassify: setClassify,
+            setArticleCategory: setArticleCategory,
             setArticle: setArticle,
             setRecord: setRecord,
             setTopview: setTopview,
@@ -670,7 +683,7 @@ function Base() {
             });
 
             $('.footer-image').css({
-                'background': 'url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/footer.png) no-repeat 50%',
+                'background': 'url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/footer.webp) no-repeat 50%',
                 'height': '368px',
                 'z-index': '1',
                 'position': 'absolute',
@@ -935,6 +948,16 @@ function Base() {
         bndongJs.setCodeHighlighting();
         bndongJs.baguetteBox();
 
+        // 初始化文章目录
+        require(['title', 'marvin', 'articleStatement'], function() {
+            timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
+            bndongJs.scrollMonitor();
+            $('#sideCatalog-catalog').mCustomScrollbar({
+                theme:"minimal-dark",
+                axis:"yx"
+            });
+        });
+
         // 设置右下角菜单
         timeIds.setNotHomeRightMenuTId = window.setInterval( bndongJs.addNotHomeRightMenu, 1000 );
 
@@ -965,7 +988,7 @@ function Base() {
         if (obj.length > 0) {
             $.each(obj, function (i) {
                 var tag = $(obj[i]);
-                $('#articleInfo').append('<span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span>');
+                $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span></a>');
             });
             bndongJs.clearIntervalTimeId(timeIds.blogPostCategoryTId);
         }
@@ -979,7 +1002,7 @@ function Base() {
         if (obj.length > 0) {
             $.each(obj, function (i) {
                 var tag = $(obj[i]);
-                $('#articleInfo').append('<span class="article-info-tag article-tag-color">'+(tag.text())+'</span>');
+                $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-color">'+(tag.text())+'</span></a>');
             });
             bndongJs.clearIntervalTimeId(timeIds.entryTagTId);
         }
@@ -1023,48 +1046,43 @@ function Base() {
         $('#home').css('margin-top', '40vh');
         $('#cb_post_title_url').addClass('post-del-title');
 
-        if (window.cnblogsConfig.essayTopAnimationRendered)
+        if (window.cnblogsConfig.essayTopAnimationRendered) {
+            if (window.cnblogsConfig.essayTopAnimation.colorsRandom) {
+                var colors = [];
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                colors.push(tools.getRandomColor());
+                window.cnblogsConfig.essayTopAnimation.colors = colors;
+            }
             require(['TweenMax_MyTween'], function() {
-                $('#notHomeTopCanvas').css({
-                    'margin': 'auto',
-                    'width': '100%',
-                    'height': '100%',
-                    'top': '0',
-                    'bottom': '0',
-                    'left': '0',
-                    'right': '0'
-                });
-            initCanvas('notHomeTopCanvas');
-            start();
-        });
+                initCanvas('notHomeTopCanvas');
+                start();
+            });
+        }
     };
 
     /**
      * 设置图片灯箱效果
      */
     this.baguetteBox = function () {
-        require(['baguetteBox', 'title', 'marvin', 'articleStatement'], function(baguetteBox) {
+        const cpb    = $('#cnblogs_post_body')
+            ,imgList = $('#cnblogs_post_body img');
 
-            // 设置图片点击查看
-            const cpb    = $('#cnblogs_post_body')
-                ,imgList = $('#cnblogs_post_body img');
+        if (cpb.length > 0 && imgList.length > 0) {
+            $.each(imgList, function (i) {
+                var tem = $(imgList[i]);
+                    if (!tem.hasClass('code_img_closed') && !tem.hasClass('code_img_opened'))
+                        tem.wrap('<a data-fancybox="gallery" href="'+tem.attr('src')+'"></a>');
+            });
+        }
 
-            if (cpb.length > 0 && imgList.length > 0) {
-                $.each(imgList, function (i) {
-                    let tem = $(imgList[i]);
-                    let flg = tem.attr('id');
-                    if (typeof flg == 'undefined' && tem.outerWidth() > 50) {
-                        tem.wrap("<a class='lightbox' href='"+tem.attr('src')+"'></a>");
-                    }
-                });
-                baguetteBox.run('.lightbox');
-            }
-
-            // 初始化文章目录位置
-            timeIds.setCatalogTId = window.setInterval( bndongJs.initCatalog, 1000 );
-
-            bndongJs.scrollMonitor();
-        });
+        require(['fancybox']);
     };
 
     /**
@@ -1081,15 +1099,32 @@ function Base() {
 
                 $.each(list.books, function (j) {
                     var book = list.books[j];
-                    html += '<div class="doulist-item"><div class="mod"><div class="hd"></div><div class="bd doulist-subject">' +
-                        '    <div class="post"><img width="100" src="' + book.cover + '"></div>' +
-                        '    <div class="title">' + book.name + '</div><div class="abstract">' +
-                        (book.formerNname ? '原名: '    + book.formerNname + '<br>' : '') +
-                        (book.author      ? '作者: '    + book.author + '<br>' : '') +
-                        (book.translator  ? '译者: '    + book.translator + '<br>' : '') +
-                        (book.press       ? '出版社: '  + book.press + '<br>' : '') +
-                        (book.year        ? '出版年: '  + book.year : '') +
-                        '</div></div></div></div>';
+                    html += '<div class="books-item">' +
+                        '    <span class="books-item-span">' +
+                        '        <div class="_1P9uD _3D3vq">' +
+                        '            <div class="_2aw_6">'+(j+1)+'</div>' +
+                        '        </div>' +
+                        '        <div class="_28asT">' +
+                        '            <svg>' +
+                        '                <image xlink:href="'+ book.cover +'" x="0" y="0" width="100%" height="100%"></image>' +
+                        '            </svg>' +
+                        '        </div>' +
+                        '        <div class="_34CGc">' +
+                        '            <div class="_2girK">' +
+                        '                <div>' +
+                        '                    <div class="_1P9dH">' +
+                        (book.name        ? book.name : '') +
+                        '                    </div>' +
+                        (book.formerNname ? '<div class="_3Oa5I"><span class="_6Y7v3">原名：</span>' + book.formerNname + '</div>' : '') +
+                        (book.author      ? '<div class="_3Oa5I"><span class="_6Y7v3">作者：</span>' + book.author + '</div>' : '') +
+                        (book.translator  ? '<div class="_3Oa5I"><span class="_6Y7v3">译者：</span>' + book.translator + '</div>' : '') +
+                        (book.press       ? '<div class="_3Oa5I"><span class="_6Y7v3">出版社：</span>' + book.press + '</div>' : '') +
+                        (book.year        ? '<div class="_3Oa5I"><span class="_6Y7v3">出版年：</span>' + book.year + '</div>' : '') +
+                        '                </div>' +
+                        '            </div>' +
+                        '        </div>' +
+                        '    </span>' +
+                        '</div>';
                 });
             });
 
@@ -1108,17 +1143,18 @@ function Base() {
 
         switch (hltype) {
             case 'highlightjs':
-                setCodeBefore();
+                setCodeBefore(1);
                 highlightjsCode(); break;
             case 'prettify':
-                setCodeBefore();
+                setCodeBefore(1);
                 prettifyCode(); break;
             case 'cnblogs':
             default:
+                setCodeBefore(2);
                 cnblogsCode(); break;
         }
-        setCopyBtn();
         setScrollbarStyle();
+        setCopyBtn();
 
         // 设置代码复制
         function setCopyBtn() {
@@ -1127,35 +1163,11 @@ function Base() {
 
             require(['clipboard'], function () {
                 pre.each(function (i) {
-                    var obj = $(this), id = tools.randomString(8);
+                    var obj = $(this), id = tools.randomString(6);
                     obj.wrap('<code-box id="' + id + '" style="position: relative;display: block;"></code-box>');
                     obj.attr('code-id', id);
 
-                    var html = '<button code-id="' + id + '" type="button" class="clipboard" data-clipboard-action="copy" data-clipboard-target="pre[code-id=' + id + ']" aria-label="复制代码" style="' +
-                        '    position: absolute;' +
-                        '    top: 8px;' +
-                        '    right: 23px;' +
-                        '    display: flex;' +
-                        '    justify-content: center;' +
-                        '    align-items: center;' +
-                        '    width: 30px;' +
-                        '    height: 25px;' +
-                        '    cursor: pointer;' +
-                        '    font-size: 14px;' +
-                        '    padding: 0 0 0 2px;' +
-                        '    border: none;' +
-                        '    border-radius: 6px;' +
-                        '    color: #ccc;' +
-                        '    opacity: 0;' +
-                        '    visibility: hidden;' +
-                        '    background-color: hsla(0,0%,90.2%,.2);' +
-                        '    -webkit-user-select: none;' +
-                        '    -moz-user-select: none;' +
-                        '    -ms-user-select: none;' +
-                        '    user-select: none;' +
-                        '    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;' +
-                        '    z-index: 1;' +
-                        '"><i class="iconfont icon-fuzhi1"></i></button>';
+                    var html = '<button code-id="' + id + '" type="button" class="clipboard code-copay-btn" data-clipboard-action="copy" data-clipboard-target="pre[code-id=' + id + ']" aria-label="复制代码" ><i class="iconfont icon-fuzhi1"></i></button>';
 
                     $('#'+id).prepend(html);
                 });
@@ -1190,6 +1202,12 @@ function Base() {
             pre.css({
                 'background-color': '#f6f8fa',
                 'overflow-x': 'auto'
+            });
+            var codeHljs = $('code.hljs');
+            codeHljs.each(function () {
+                var hj = $(this);
+                hj.after(hj.html());
+                hj.remove();
             });
         }
 
@@ -1229,12 +1247,31 @@ function Base() {
             }
         }
 
-        function setCodeBefore() {
+        function setCodeBefore(type) {
             $.each(pre, function (i) {
-                var obj = $(this);
-                obj.find('br').after('&#10;');
-                var codetext = obj.text();
-                obj.html('').text(codetext).css('overflow-x', 'auto');
+                var obj = $(this), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
+
+                switch (type) {
+                    case 1:
+                        codeLine = obj.text().split('\n');
+                        break;
+
+                    case 2:
+                        codeLine = obj.html().split('\n');
+                        break;
+                }
+                obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
+                $.each(codeLine, function (j) {
+                    html += '<code-line class="line-numbers-rows"></code-line>';
+                    switch (type) {
+                        case 1:
+                            html += tools.HTMLEncode(codeLine[j]) + '\n'; break;
+
+                        case 2:
+                            html += codeLine[j] + '\n'; break;
+                    }
+                });
+                $('#' + pid).append(html);
             });
         }
 
@@ -1270,8 +1307,13 @@ function Base() {
      */
     this.setCommentStyle = function() {
 
-        var commentList        = $('.blog_comment_body'),
+        var commentList        = $('.blog_comment_body[id!=tbCommentBodyPreviewBody]'),
             commentPlaceholder = $('#blog-comments-placeholder');
+
+        $('#comment_form_container .comment_textarea').css({
+            width:'100%',
+            height: '100%'
+        });
 
         commentAvatar(commentList);
         commentList.addClass('hvr-bob');
@@ -1298,7 +1340,7 @@ function Base() {
                         var patch = op.text();
                         html += '<img class="comment-avatar" src="'+patch+'"/>';
                     } else {
-                        html += '<img class="comment-avatar" src="https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/default_avatar.jpeg"/>';
+                        html += '<img class="comment-avatar" src="https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/default_avatar.webp"/>';
                     }
                     $(commentList[i]).before(html);
                 }

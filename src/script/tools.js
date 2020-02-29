@@ -1,16 +1,16 @@
 function myTools() {
-    const bndongTools = this;
-    const colors      = {
-        "gray": "color: #1B2B34;font-size: 12px; line-height: 18px;",
-        "red": "color: #EC5f67;font-size: 12px; line-height: 18px;",
-        "orange": "color: #F99157;font-size: 12px; line-height: 18px;",
-        "yellow": "color: #FAC863;font-size: 12px; line-height: 18px;",
-        "green": "color: #99C794;font-size: 12px; line-height: 18px;",
-        "teal": "color: #5FB3B3;font-size: 12px; line-height: 18px;",
-        "blue": "color: #6699CC;font-size: 12px; line-height: 18px;",
-        "purple": "color: #C594C5;font-size: 12px; line-height: 18px;",
-        "brown": "color: #AB7967;font-size: 12px; line-height: 18px;"
-    };
+    const tools  = this,
+          colors = {
+              "gray": "color: #1B2B34;font-size: 12px; line-height: 18px;",
+              "red": "color: #EC5f67;font-size: 12px; line-height: 18px;",
+              "orange": "color: #F99157;font-size: 12px; line-height: 18px;",
+              "yellow": "color: #FAC863;font-size: 12px; line-height: 18px;",
+              "green": "color: #99C794;font-size: 12px; line-height: 18px;",
+              "teal": "color: #5FB3B3;font-size: 12px; line-height: 18px;",
+              "blue": "color: #6699CC;font-size: 12px; line-height: 18px;",
+              "purple": "color: #C594C5;font-size: 12px; line-height: 18px;",
+              "brown": "color: #AB7967;font-size: 12px; line-height: 18px;"
+          };
 
     /**
      * 加载CSS文件
@@ -32,15 +32,19 @@ function myTools() {
      * 控制台输出内容
      */
     this.consoleText = function(list, mode) {
-        rHref = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
-        var e = ["\n %c %c %c Theme GitHub - "+(window.cnblogsConfig.GhVersions).substring(0,7)+" %c  %c "+rHref+"  %c \n\n", "background: #fadfa3; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "background: #FCEDC9; padding:5px 0;", "background: #fadfa3; padding:5px 0;"];
+        var rHref = 'https://github.com/'
+            + window.cnblogsConfig.GhUserName + '/'
+            + window.cnblogsConfig.GhRepositories + '/tree/'
+            + window.cnblogsConfig.GhVersions,
+
+            e = ["\n %c %c %c Theme GitHub - " + (window.cnblogsConfig.GhVersions).substring(0,7)+" %c  %c "+rHref+"  %c \n\n", "background: #fadfa3; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;", "background: #FCEDC9; padding:5px 0;", "background: #fadfa3; padding:5px 0;"];
         window.console.log.apply(console, e);
         switch (mode) {
             case 'random':
                 var colorList = [colors.red, colors.orange, colors.yellow, colors.green, colors.teal, colors.blue, colors.purple, colors.brown];
                 $.each(list, function (i) {
                     var str = (list[i]).toString();
-                    var ind = bndongTools.randomNum(0, colorList.length - 1);
+                    var ind = tools.randomNum(0, colorList.length - 1);
                     console.log('%c'+str, colorList[ind]);
                 });
                 break;
@@ -70,27 +74,21 @@ function myTools() {
     this.randomNum = function(minNum,maxNum) {
         switch(arguments.length){
             case 1:
-                return parseInt(Math.random()*minNum+1);
-                break;
+                return parseInt(Math.random()*minNum+1); break;
             case 2:
-                return parseInt(Math.random()*(maxNum-minNum+1)+minNum);
-                break;
+                return parseInt(Math.random()*(maxNum-minNum+1)+minNum); break;
             default:
-                return 0;
-                break;
+                return 0; break;
         }
     };
-
 
     /**
      * 随机字符串
      */
     this.randomString = function(len) {
         len = len || 32;
-        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
-        var maxPos = $chars.length;
-        var pwd = '';
-        for (i = 0; i < len; i++) {
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length, pwd = '';
+        for (var i = 0; i < len; i++) {
             pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
         }
         return pwd;
@@ -162,5 +160,28 @@ function myTools() {
             strDate = "0" + strDate;
         }
         return year + seperator1 + month + seperator1 + strDate;
+    };
+
+    /**
+     * html 转义
+     * @return {string}
+     */
+    this.HTMLEncode = function(html) {
+        var temp = document.createElement("div");
+        (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+        var output = temp.innerHTML;
+        temp = null;
+        return output;
+    };
+
+    /**
+     * 产生随机颜色
+     * @returns {string}
+     */
+    this.getRandomColor = function(){
+        return  '#' + (function(color){
+            return (color +=  '0123456789abcdef'[Math.floor(Math.random()*16)])
+            && (color.length == 6) ?  color : arguments.callee(color);
+        })('');
     }
 }
