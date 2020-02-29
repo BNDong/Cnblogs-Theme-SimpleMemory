@@ -1146,8 +1146,8 @@ function Base() {
                 setCodeBefore(1);
                 highlightjsCode(); break;
             case 'prettify':
-                setCodeBefore();
-                prettifyCode(1); break;
+                setCodeBefore(1);
+                prettifyCode(); break;
             case 'cnblogs':
             default:
                 setCodeBefore(2);
@@ -1307,8 +1307,13 @@ function Base() {
      */
     this.setCommentStyle = function() {
 
-        var commentList        = $('.blog_comment_body'),
+        var commentList        = $('.blog_comment_body[id!=tbCommentBodyPreviewBody]'),
             commentPlaceholder = $('#blog-comments-placeholder');
+
+        $('#comment_form_container .comment_textarea').css({
+            width:'100%',
+            height: '100%'
+        });
 
         commentAvatar(commentList);
         commentList.addClass('hvr-bob');
