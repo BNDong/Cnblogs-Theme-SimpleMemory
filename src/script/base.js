@@ -6,11 +6,12 @@
  **/
 function Base() {
 
-    const bndongJs    = this,
-          tools       = new myTools,
-          postMetaRex = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
-          progressBar = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
-    var   temScroll   = 0,  // 上一次页面滚动位置
+    const bndongJs     = this,
+          tools        = new myTools,
+          postMetaRex  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
+          postMetaRex2 = /.*posted\s*@\s*([0-9\-:\s]{16}).*/,
+          progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
+    var   temScroll    = 0,  // 上一次页面滚动位置
 
         /** 定时器 **/
         timeIds    = {
@@ -785,16 +786,17 @@ function Base() {
      * 设置主页文章信息样式
      */
     this.setHomePost = function () {
-        var day = $('#main .day');
-        $.each(day, function () {
-            var obj          = $(this),
-                read         = obj.find('.c_b_p_desc_readmore'),
-                title        = obj.find('.postTitle'),
-                titleText    = title.text(),
-                postDescText = obj.find('.postDesc').text().replace(/[\r\n]/g, ''),
-                info = postDescText.match(postMetaRex);
-            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
-            read.text('阅读全文 »');
+        var read = $('#main .c_b_p_desc_readmore'), titleList = $('#main .postTitle');
+        read.text('阅读全文 »');
+        $.each(titleList, function () {
+            var title = $(this),
+                titleText = title.text(),
+                postDescText = title.nextAll('.postDesc:eq(0)').text().replace(/[\r\n]/g, ''),
+                info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
+                date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
+                vnum = typeof info[2] === 'undefined' ? '0' : info[2],
+                cnum = typeof info[3] === 'undefined' ? '0' : info[3];
+            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>');
             if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
             title.find('a').text(titleText.replace('[置顶]', ''));
         });
@@ -804,15 +806,15 @@ function Base() {
      * 设置主页文章信息样式
      */
     this.setEntryPost = function () {
-        var day = $('#main .entrylistItem');
-        $.each(day, function () {
-            var obj          = $(this),
-                read         = obj.find('.c_b_p_desc_readmore'),
-                title        = obj.find('.entrylistPosttitle'),
-                postDescText = obj.find('.entrylistItemPostDesc').text().replace(/[\r\n]/g, ''),
-                info = postDescText.match(postMetaRex);
-            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+info[1]+'<i class="iconfont icon-browse"></i>阅读次数：'+info[2]+'<i class="iconfont icon-interactive"></i>评论次数：'+info[3]+'</span>');
-            read.text('阅读全文 »');
+        var titleList = $('#main .entrylistPosttitle');
+        $.each(titleList, function () {
+            var title = $(this),
+                postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text().replace(/[\r\n]/g, ''),
+                info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
+                date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
+                vnum = typeof info[2] === 'undefined' ? '0' : info[2],
+                cnum = typeof info[3] === 'undefined' ? '0' : info[3];
+            title.after('<span class="postMeta"><i class="iconfont icon-time1"></i>发表于 '+date+'<i class="iconfont icon-browse"></i>阅读次数：'+vnum+'<i class="iconfont icon-interactive"></i>评论次数：'+cnum+'</span>');
         });
     };
 
