@@ -10,7 +10,7 @@
 
 ## v1.\*.* 之间切换版本
 
-v1.\*.* 之间切换版本比较比较简便。
+v1.\*.* 之间切换版本比较简便。
 
 这里我举例 v1.1.2 切换至 v1.1.4:
 
@@ -22,27 +22,25 @@ v1.\*.* 之间切换版本比较比较简便。
 
 ![install_05](../../Images/install_06.png)
 
-### 获取版本样式文件
+### 获取需切换版本的样式文件
 
-CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面定制CSS代码文本框处。
+‼️ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面定制CSS代码文本框处。
 
-### 切换配置版本及引入文件版本
+### 修改版本配置及引入文件的版本
 
 **原配置：**
 
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
-        GhVersions    : 'v1.1.2', // 版本
-        blogUser      : "userName", // 用户名
-        blogAvatar    : "https://xxxx.png", // 用户头像
-        blogStartDate : "2016-11-17", // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+        GhVersions    : 'v1.1.2',
+        ...
     }
 </script>
 <script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.1.2/src/script/simpleMemory.min.js"></script>
 ```
 
-**1) 更改配置版本**
+**1) 修改版本配置**
 
 修改配置```window.cnblogsConfig.GhVersions```为```'v1.1.4'```
 
@@ -63,10 +61,8 @@ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面�
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
-        GhVersions    : 'v1.1.4', // 版本
-        blogUser      : "userName", // 用户名
-        blogAvatar    : "https://xxxx.png", // 用户头像
-        blogStartDate : "2016-11-17", // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+        GhVersions    : 'v1.1.4',
+        ...
     }
 </script>
 <script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.1.4/src/script/simpleMemory.min.js"></script>

@@ -2,23 +2,27 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 998;
+    z-index: 998
 }
 
-.sideToolbarFix{
+.sideToolbarFix {
     position: fixed !important;
-    top: 20px !important;
+    top: 5px !important
 }
 
-#sideToolbar ul,#sideToolbar ol{
-    padding: 0px;
+#sideToolbar ol, #sideToolbar ul {
+    padding: 0
 }
-#sideToolbar li{
-    list-style: none;
+
+#sideToolbar li {
+    list-style: none
 }
-#sideCatalog{
+
+#sideCatalog {
     position: absolute;
+    box-shadow: 0 0 20px 10px rgba(220, 220, 220, .3);
 }
+
 #sideCatalog-sidebar {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -34,30 +38,46 @@
     left: 5px;
     position: absolute;
     top: 0;
-    width: 0;
+    width: 0
 }
+
 #sideCatalog-catalog {
     position: relative;
     font-size: 14px;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, .9);
     overflow: visible;
     max-height: 90vh;
+    padding: 5px;
 }
+
 #sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-top {
     cursor: pointer;
     top: 0
 }
+
 #sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-bottom {
     bottom: 0
 }
-#sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-top,#sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-bottom {
-    background: url("https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/sideToolbar.webp") no-repeat scroll 0 -199px transparent;
+
+#sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-bottom, #sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-top {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/sideToolbar.webp) 0 -199px no-repeat;
     height: 10px;
     left: -5px;
     overflow: hidden;
     position: absolute;
     width: 10px
 }
+
+#sideCatalog li.active:after, #sideCatalog li.active:before {
+    content: "";
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute
+}
+
 #sideCatalog li {
     margin: 5px 0;
     text-align: left;
@@ -66,69 +86,55 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 3px 3px 3px 10px;
-}
-#sideCatalog li:hover {
-
+    border-bottom: 1px dashed #f7f7f7;
 }
 
 #sideCatalog li.active:before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.05);
+    background: rgba(80, 80, 80, .04)
 }
 
 #sideCatalog li.active:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
     left: 0;
     bottom: 0;
-    width: 100%;
-    height: 100%;
-    border-left: 3px solid #3f51b5;
+    border-left: 3px solid #5c8ec6
 }
 
-#sideCatalog-catalog ul .active {
-    /*background-color: #F1F0E8*/
-}
 #sideCatalog-catalog .active a {
     font-weight: 600;
-    color: #3f51b5;
+    color: #5c8ec6
 }
+
 #sideCatalog-catalog a:hover {
-    color: #3f51b5;
+    color: #5c8ec6
 }
+
 #sideCatalog span:first-child {
     color: #999;
     font-family: Arial;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     padding-right: 5px
 }
+
 #sideCatalog li.h2Offset {
-    /*padding-left: 45px;*/
     text-indent: -25px;
     padding: 3px 0 3px 45px;
-    display: none;
+    display: none
 }
+
 #sideCatalog li.h3Offset {
     padding-left: 90px;
     text-indent: -50px
 }
+
 #sideCatalog a {
     text-decoration: none;
     color: #555;
-    font-weight: bold
+    font-weight: 700
 }
+
 .sideCatalog-dot {
-    background: url("https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/sideToolbar.webp") repeat scroll 0 -222px transparent;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/sideToolbar.webp) 0 -222px;
     cursor: pointer;
     font-size: 12px;
     height: 10px;
@@ -139,48 +145,47 @@
     top: 4px;
     width: 6px
 }
+
+#sideCatalog .highlight .sideCatalog-dot, #sideCatalogBtn, #sideCatalogBtn:hover {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) 4px 6px no-repeat
+}
+
 #sideCatalog .highlight .sideCatalog-dot {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) no-repeat scroll 4px 6px transparent;
     height: 13px;
     left: -23px;
     top: 3px;
     width: 18px
 }
-#sideCatalogBtn {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) no-repeat scroll 4px 6px transparent;
-    cursor: pointer;
-    display: block;
-    height: 45px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    position: relative;
-    width: 45px;
-    margin-top: 10px;
-    outline: 0;
-    position: absolute;
-    right: 1px;
-    bottom: 96px;
-}
-#sideCatalogBtn:hover {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) no-repeat scroll 4px 6px transparent;
-}
-.sideCatalogBtnDisable {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) no-repeat scroll 4px 6px transparent !important;
-}
-#sideToolbar-up {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) no-repeat scroll 4px 6px transparent;
-    border-radius: 2px;
-    display: block;
+
+#sideCatalogBtn, #sideToolbar-up {
     height: 45px;
     margin-left: 5px;
     width: 45px;
     outline: 0
 }
-#sideToolbar-up:hover {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) no-repeat scroll 4px 6px transparent;
+
+#sideCatalogBtn {
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    position: absolute;
+    right: 1px;
+    bottom: 96px
 }
 
+.sideCatalogBtnDisable {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) 4px 6px no-repeat !important
+}
 
-#sideCatalogBtn, #sideCatalog-sidebar{
-    display: none;
+#sideToolbar-up, #sideToolbar-up:hover {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/list.webp) 4px 6px no-repeat
+}
+
+#sideToolbar-up {
+    border-radius: 2px;
+    display: block
+}
+
+#sideCatalog-sidebar, #sideCatalogBtn {
+    display: none
 }

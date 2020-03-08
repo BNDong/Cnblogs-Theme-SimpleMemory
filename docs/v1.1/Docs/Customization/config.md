@@ -42,7 +42,9 @@
 ?> JavaScript 对象是被命名值的容器。值以名称:值对的方式来书写（名称和值由冒号分隔）。
        
 
-## 仓库配置
+## 主题仓库配置
+
+用于设置样式文件加载源的配置。
 
 ### GhUserName - GitHub用户
 
@@ -579,7 +581,7 @@ window.cnblogsConfig = {
     codeImgUrl   : '', // >= v1.1.5 左侧图片设置，不配置使用 window.cnblogsConfig.blogAvatar
     aboutHtml    : '', // 关于博主，不配置使用默认
     copyrightHtml: '', // 版权声明，不配置使用默认
-    supportHtml  : '',  // 声援博主，不配置使用默认
+    supportHtml  : '', // 声援博主，不配置使用默认
 }
 ```
 
@@ -593,9 +595,24 @@ window.cnblogsConfig = {
 }
 ```
 
-## 代码高亮配置
+## 代码相关配置
 
-### 使用博客园默认高亮
+### codeMaxHeight - 限制代码框高度
+
+?> 版本 >= v1.2.5
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+限制代码框的最大高度；如开启，代码框高度不会超过页面可视区域的70%，隐藏部分通过滚动的方式查看。
+
+```javascript
+window.cnblogsConfig = {
+    codeMaxHeight: true,
+}
+```
+
+### 使用博客园默认代码样式
 
 #### essayCodeHighlightingType
 
@@ -617,7 +634,7 @@ window.cnblogsConfig = {
 
 当使用博客园代码高亮样式时，此配置不会对渲染产生影响。
 
-### 使用 highlightjs
+### 使用 highlightjs 渲染代码
 
 * 相关文档：[highlight](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/highlight)
 
@@ -626,7 +643,7 @@ window.cnblogsConfig = {
 * 类型：```String```
 * 默认值：```"cnblogs"```
 
-使用```highlightjs```插件渲染代码高亮。
+使用 ```highlightjs``` 插件渲染代码高亮。
 
 ```javascript
 window.cnblogsConfig = {
@@ -663,7 +680,7 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 */
 ```
 
-### 使用 prettify
+### 使用 prettify 渲染代码
 
 #### essayCodeHighlightingType
 
@@ -719,7 +736,6 @@ window.cnblogsConfig = {
     footerStyle: 1,
 }
 ```
-
 
 ### bottomBlogroll - 友情链接
 

@@ -1,59 +1,73 @@
-/* Minification failed. Returning unminified contents.
-(824,7): run-time error CSS1030: Expected identifier, found ' '
-(824,15): run-time error CSS1031: Expected selector, found ';'
-(824,15): run-time error CSS1025: Expected comma or open brace, found ';'
-(1154,42): run-time error CSS1062: Expected semicolon or closing curly-brace, found ')'
- */
+*, .Cal {
+    padding: 0
+}
 
-/**************************************************
-第一部分：
-**************************************************/
+body, html {
+    max-height: 100%
+}
+
+#blogTitle h1 a:hover, a:active {
+    color: #5c8ec6
+}
+
+#mainContent, #sideBar, #topics {
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+#BlogPostCategory a {
+    background: #E8A258;
+}
+
 #EntryTag {
     margin-top: 20px;
-    font-size: 9pt;
-    color: gray;
+}
+
+#EntryTag a {
+    background: #6fa3ef;
+}
+
+#EntryTag a span, #BlogPostCategory a span {
+    margin-right: 3px;
 }
 
 .topicListFooter {
     text-align: right;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 10px
+}
+
+#navList a, .dayTitle, button {
+    text-align: center
+}
+
+#home, .inner {
+    margin: 0 auto
 }
 
 #divRefreshComments {
-    text-align: right;
     margin-right: 10px;
-    margin-bottom: 5px;
-    font-size: 9pt;
+    font-size: 9pt
 }
 
-/*****第一部分结束*******************************/
-
-/**************************************************
-第二部：公共样式（全局样式）
-**************************************************/
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0
 }
 
 html {
     height: 100%;
-    max-height: 100%;
     font-size: 62.5%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent
 }
 
 body {
     background-color: #fff;
     font-size: 12px;
-    /*height: 100%;*/
-    max-height: 100%;
-    font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
+    font-family: Merriweather, "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
     color: #3A4145;
     -moz-font-feature-settings: 'kern' 1;
     -o-font-feature-settings: 'kern' 1;
-    overflow: hidden;
+    overflow: hidden
 }
 
 body:before {
@@ -65,146 +79,122 @@ body:before {
     left: 0;
     right: 0;
     bottom: 0;
-    /*background: #fcfcfc;*/
-    /*background-image: linear-gradient(rgba(221, 221, 221, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(221, 221, 221, 0.3) 1px, transparent 1px);*/
-    background-size: 20px 20px;
+    background-size: 20px 20px
 }
 
-/*body::-webkit-scrollbar {*/
-    /*display:none*/
-/*}*/
-
 ::-moz-selection {
-    background: #D6EDFF;
+    background: #D6EDFF
 }
 
 ::selection {
-    background: #D6EDFF;
+    background: #D6EDFF
 }
 
 table {
     border-collapse: collapse;
-    border-spacing: 0;
+    border-spacing: 0
 }
 
 fieldset, img {
-    border: 0;
+    border: 0
 }
 
 li {
-    list-style: none;
+    list-style: none
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
-    font-weight: normal;
-    padding-left: 20px;
+    font-weight: 400;
+    padding-left: 20px
 }
 
 a {
-    outline: none;
-    color: #2daebf;
+    outline: 0;
+    color: #5c8ec6
 }
 
-a:link {
-    color: #2daebf;
-    text-decoration: none;
-}
-
-a:visited {
-    color: #2daebf;
-    text-decoration: none;
+a:link, a:visited {
+    color: #5c8ec6;
+    text-decoration: none
 }
 
 a:hover {
-    color: #ff6600;
-    text-decoration: none;
+    color: #f60;
+    text-decoration: none
 }
 
 a:active {
-    color: #21759b;
-    text-decoration: none;
+    text-decoration: none
 }
 
 .clear {
-    clear: both;
+    clear: both
 }
 
 button {
     width: auto;
     display: inline-block;
-    padding: 0.1rem 1.5rem;
+    padding: .1rem 1.5rem;
     cursor: pointer;
-    outline: none;
+    outline: 0;
     text-decoration: none;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
-    font-size: 11px; /* Hacks targeting Firefox. */
-    line-height: 13px; /* Hacks targeting Firefox. */
+    font-size: 11px;
+    line-height: 13px;
     font-weight: 300;
-    text-align: center;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-shadow: none;
-    border-radius: 0.3rem;
-    border: rgba(0,0,0,0.05) 0.1em solid;
-    background: #5ba4e5;
+    border-radius: .3rem;
+    border: .1em solid rgba(0, 0, 0, .05);
+    background: #5ba4e5
 }
 
 b {
-    font-weight: 400;
+    font-weight: 400
 }
 
-/*****第二部分结束*******************************/
-
-
-/**************************************************
-第三部分：各个页面元素的样式。
-**************************************************/
-/*****home和头部开始**************************/
 #home {
-    margin: 0 auto;
     width: 70%;
     max-width: 900px;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 0 20px 30px 20px;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 0 20px 30px;
+    box-shadow: 0 0 20px 10px rgba(220, 220, 220, .3);
 }
 
 #header {
     padding-bottom: 5px;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 #blogTitle {
     height: 60px;
-    clear: both;
+    clear: both
 }
 
 #blogTitle h1 {
     font-size: 26px;
-    font-weight: bold;
+    font-weight: 700;
     line-height: 1.5em;
-    margin-top: 20px;
+    margin-top: 20px
 }
 
 #blogTitle h1 a {
-    color: #515151;
-}
-
-#blogTitle h1 a:hover {
-    color: #21759b;
+    color: #515151
 }
 
 #blogTitle h2 {
-    font-weight: normal;
+    font-weight: 400;
     font-size: 13px;
     line-height: 1.846153846;
     color: #757575;
-    float: left;
+    float: left
 }
 
 #blogLogo {
-    float: right;
+    float: right
 }
 
 #navigator {
@@ -213,17 +203,21 @@ b {
     border-top: 1px solid #ededed;
     height: 50px;
     clear: both;
-    margin-top: 25px;
+    margin-top: 25px
+}
+
+#blog-calendar td, #blog-calendar th, .Cal, .btn_my_zzk, .dayTitle {
+    font-size: 12px
 }
 
 #navList {
     min-height: 30px;
-    float: left;
+    float: left
 }
 
 #navList li {
     float: left;
-    margin: 0 40px 0 0;
+    margin: 0 40px 0 0
 }
 
 #navList a {
@@ -231,18 +225,17 @@ b {
     width: 5em;
     height: 22px;
     float: left;
-    text-align: center;
-    padding-top: 19px;
+    padding-top: 19px
 }
 
-#navList a:link, #navList a:visited, #navList a:active {
+#navList a:active, #navList a:link, #navList a:visited {
     color: #6a6a6a;
-    font-weight: bold;
+    font-weight: 700
 }
 
 #navList a:hover {
     color: #000;
-    text-decoration: none;
+    text-decoration: none
 }
 
 .blogStats {
@@ -250,150 +243,177 @@ b {
     color: #757575;
     margin-top: 19px;
     margin-right: 2px;
-    text-align: right;
+    text-align: right
 }
-/*****home和头部结束**************************/
 
-/*****主页文章列表开始**************************/
+#main, .feedbackItem {
+    margin-top: 30px
+}
+
 #main {
     width: 100%;
-    text-align: left;
-    margin-top: 30px;
+    text-align: left
 }
 
 #mainContent .forFlow {
-    /*margin-left: 22em;*/
     float: none;
-    width: auto;
+    width: auto
 }
 
 #mainContent {
     min-height: 200px;
-    padding: 0px 0px 10px 0;
+    padding: 0 0 10px;
     -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    overflow: hidden;
     float: none;
     margin: auto;
-    width: 100%;
+    width: 100%
 }
 
-.day {
+.day:not(:nth-child(12)), .entrylistItem:not(:last-of-type) {
     min-height: 10px;
-    _height: 10px;
-    position: relative;
-    /*max-width: 830px;*/
-    margin: 3.5rem auto;
-    padding-bottom: 3.5rem;
-    border-bottom: #EBF2F6 1px solid;
-    word-wrap: break-word;
+    border-bottom: #e9e9e9 1px solid
 }
 
-.day:after {
-    display: block;
+.day:not(:nth-child(12)):after, .entrylistItem:not(:last-of-type):after {
     content: "";
     width: 7px;
     height: 7px;
-    border: #E7EEF2 1px solid;
-    position: absolute;
     bottom: -5px;
-    left: 50%;
+    left: 50%
+}
+
+.day {
+    position: relative;
+    margin: 3.5rem auto;
+    padding-bottom: 3.3rem;
+    word-wrap: break-word
+}
+
+.c_b_p_desc_readmore {
+    display: block;
+    background: 0 0;
+    border: 0;
+    border-bottom: 2px solid #666;
+    font-size: 16px;
+    padding: 0;
+    transition-property: border;
+    font-weight: 600;
+    width: 80px;
+    text-align: center;
+    color: #555 !important;
+    margin-top: 20px;
+}
+
+.btn_my_zzk, .day:after, .dayTitle {
+    position: absolute
+}
+
+.day:not(:nth-child(12)):after {
+    display: block;
+    border: 1px solid #e9e9e9;
     margin-left: -5px;
     background: #FFF;
     border-radius: 100%;
-    box-shadow: rgba(255, 255, 255, 0.7) 0 0 0 5px;
+    box-shadow: rgba(255, 255, 255, .7) 0 0 0 5px
 }
 
 .dayTitle {
     display: none;
-    border: 1px solid #21759b;
+    border: 1px solid #5c8ec6;
     background: azure;
     border-radius: 50%;
-    font-size: 12px;
     height: 65px;
     line-height: 1.5;
-    margin: 15px;
-    text-align: center;
+    margin: 15px 15px 15px -100px;
     width: 63px;
-    margin-left: -100px;
     clear: both;
-    position: absolute;
-    top: -15px;
+    top: -15px
+}
+
+.entrylistPostSummary, .postCon {
+    font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
+    line-height: 1.7em;
+    word-wrap: break-word
 }
 
 .dayTitle a {
     display: inline-block;
-    color: #21759b;
+    color: #5c8ec6;
     margin-top: 15px;
-    width: 60px;
+    width: 60px
+}
+
+.postCon, .postDesc, .postSeparator, .postTitle {
+    width: 100%;
+    clear: both
 }
 
 .postTitle {
-    /*border-left: 3px solid #21759b;*/
-    /*margin-bottom: 10px;*/
     font-size: 20px;
-    float: right;
-    width: 100%;
-    clear: both;
+    float: right
 }
 
-.postTitle a:visited, .postTitle a:active {
+.postTitle a:active, .postTitle a:visited {
     color: #4A4A4A;
-    transition: color 0.3s ease;
+    transition: color .3s ease
 }
 
 .postTitle a:link {
     background-color: rgba(0, 0, 0, 0);
-    color: rgb(74, 74, 74);
+    color: #4a4a4a;
     font-family: "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
-    font-size: 3.2rem;
-    font-weight: bold;
+    font-size: 3.1rem;
+    font-weight: 700;
     letter-spacing: -1px;
     transition-delay: 0s;
-    transition-duration: 0.3s;
+    transition-duration: .3s;
     transition-property: color;
     transition-timing-function: ease;
     word-wrap: break-word;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent
 }
 
 #topics .postTitle a:link {
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, .3)
 }
 
 .postTitle a:hover {
-    /*margin-left: 30px;*/
-    color: #000;
-    /*text-decoration: none;*/
+    color: #000
 }
 
-.postCon {
-    width: 100%;
-    clear: both;
-    padding: 10px 0;
+.postCon, .entrylistPostSummary {
+    padding: 25px 0 10px 0;
     color: #3a4145;
-    font-family: STFangsong,Fangsong,FangSong_GB2312,STSong,serif;
-    font-feature-settings: 'liga' 1,'onum' 1,'kern' 1;
+    font-family: Noto Sans SC, serif;
     margin: 0;
     text-align: justify;
-    font-size: 18px;
-    line-height: 1.7em;
-    word-wrap: break-word;
+    font-size: 1.45em;
     display: block;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     -webkit-margin-start: 0;
-    -webkit-margin-end: 0;
+    -webkit-margin-end: 0
 }
 
-.day .postTitle a {
-    /*padding-left: 10px;*/
+.postMeta {
+    font-size: 14px;
+    color: #888;
+    position: relative;
+    top: 10px;
+    display: inline-block;
+}
+
+.postMeta > i {
+    font-size: 15px;
+    margin: 0 5px;
+}
+
+.postMeta > i:not(:first-child) {
+    margin-left: 10px;
 }
 
 .postDesc {
     float: left;
-    width: 100%;
-    clear: both;
     text-align: left;
     padding-right: 5px;
     margin: 0;
@@ -401,60 +421,76 @@ b {
     font-size: 1.4rem;
     line-height: 2.2rem;
     color: #9EABB3;
+    display: none;
 }
 
-.postDesc a:link, .postDesc a:visited, .postDesc a:active {
-    color: #666;
+p.article-info-text > .postMeta {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .8);
+    font-family: Noto Sans SC, serif;
+    text-shadow: 0 3px 6px rgba(0,0,0,.5);
+}
+
+p.article-info-text > .postMeta i {
+    font-size: 16px;
+}
+
+.postDesc a:active, .postDesc a:link, .postDesc a:visited {
+    color: #666
 }
 
 .postDesc a:hover {
-    color: #21759b;
-    text-decoration: none;
+    color: #5c8ec6;
+    text-decoration: none
+}
+
+.postSticky {
+    display: inline-block;
+    background: #6fa3ef;
+    font-size: 14px;
+    color: #fff;
+    padding: 1px 3px;
+    border-radius: 3px;
+    position: relative;
+    top: -6px;
 }
 
 .postSeparator {
-    clear: both;
     height: 1px;
-    width: 100%;
-    clear: both;
     float: right;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 15px
 }
-/*****主页文章列表开始**************************/
 
-/*****侧边栏开始********************************/
 #sideBar {
     margin-top: -15px;
     width: 230px;
-    /*min-height: 200px;*/
-    padding: 0px 0 0px 5px;
+    padding: 0 0 0 5px;
     float: right;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    -o-text-overflow: ellipsis
 }
 
 #sideBar a {
-    color: #757575;
+    color: #757575
 }
 
 #sideBar a:hover {
-    color: #21759b;
-    text-decoration: underline;
+    color: #5c8ec6;
+    text-decoration: underline
 }
 
 .div_my_zzk {
     width: 175px;
     position: relative;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 #btnZzk {
-    background: url("images/blog_search.png") no-repeat 5px 5px;
+    background: url(images/blog_search.png) 5px 5px no-repeat
 }
 
 #widget_my_google input[type=button] {
-    background: url("images/google_search.png") no-repeat 5px 5px;
+    background: url(images/google_search.png) 5px 5px no-repeat
 }
 
 .input_my_zzk {
@@ -465,60 +501,46 @@ b {
     padding-left: 5px;
     outline: 0;
     background: #000;
-    color: #ccc;
+    color: #ccc
 }
 
 #sb_widget_my_zzk {
     width: 100%;
-    text-align: center;
+    text-align: center
 }
 
 .btn_my_zzk {
-    font-size: 12px;
     width: 25px;
     height: 25px;
     color: transparent;
     border: 0;
-    border-style: none;
     cursor: pointer;
     top: 1px;
-    position: absolute;
-    right: -35px;
+    right: -35px
+}
+
+.input_my_zzk:focus, .input_my_zzk:hover {
+    border: 1px solid #666
 }
 
 .input_my_zzk:hover {
-    border: 1px solid #21759b;
-    transition: all 0.4s linear 0s;
+    transition: all .4s linear 0s
 }
 
-.input_my_zzk:focus {
-    border: 1px solid #21759b;
-}
-
-.newsItem, .catListEssay, .catListLink, .catListNoteBook, .catListTag, .catListPostCategory, .catListPostArchive, .catListImageCategory, .catListArticleArchive, .catListView, .catListFeedback, .mySearch, .catListComment, .catListBlogRank, .catList, .catListArticleCategory {
+.catList, .catListArticleArchive, .catListArticleCategory, .catListBlogRank, .catListComment, .catListEssay, .catListFeedback, .catListImageCategory, .catListLink, .catListNoteBook, .catListPostArchive, .catListPostCategory, .catListTag, .catListView, .mySearch, .newsItem {
     background: #fff;
     margin-bottom: 35px;
-    word-wrap: break-word;
+    word-wrap: break-word
 }
-
-.newsItem .catListTitle {
-}
-
-/**日历控件样式开始**/
 
 #blog-calendar {
     margin: 10px 5px 5px 10px;
-    visibility:hidden;
+    visibility: hidden
 }
 
 #blog-calendar td {
-    font-size: 12px;
     font-family: "Comic Sans MS";
-    text-align: center;
-}
-
-#blog-calendar th {
-    font-size: 12px;
+    text-align: center
 }
 
 #calendar {
@@ -526,7 +548,7 @@ b {
     padding-bottom: 5px;
     margin-bottom: 35px;
     border: 1px solid #EDEDED;
-    box-shadow: 0 1px 3px #ccc;
+    box-shadow: 0 1px 3px #ccc
 }
 
 .calendar {
@@ -535,299 +557,248 @@ b {
 
 #calendar .Cal {
     width: 100%;
-    line-height: 1.5em;
+    line-height: 1.5em
 }
 
 #calendar td {
     font-family: "Comic Sans MS";
-    background: #FFFFFF;
-    padding-top: 2px;
+    background: #FFF;
+    padding-top: 2px
 }
 
-.Cal { /**日历容器table**/
+.Cal {
     border: none;
     color: #666;
     width: 100%;
-    font-size: 12px;
-    font-family: arial;
-    padding: 0
+    font-family: arial
 }
 
-#calendar table a:link, #calendar table a:visited, #calendar table a:active {
-    font-weight: bold;
+.CalOtherMonthDay, .CalWeekendDay {
+    padding-top: 4px;
+    padding-bottom: 4px
+}
+
+#calendar table a:active, #calendar table a:link, #calendar table a:visited {
+    font-weight: 700
 }
 
 #calendar table a:hover {
-    color: white;
-    text-decoration: none;
+    color: #fff;
+    text-decoration: none
 }
 
-.CalTodayDay { /**今天日期样式**/
+.CalTodayDay {
     color: #b8b8b8;
-    font-weight: bold;
-    background: #2d2d2b;
+    font-weight: 700;
+    background: #2d2d2b
 }
 
 .CalWeekendDay {
-    background: #111;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    background: #111
 }
 
 .CalOtherMonthDay {
-    color: #3c3c3c;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    color: #3c3c3c
 }
 
-#calendar .CalNextPrev a:link, #calendar .CalNextPrev a:visited, #calendar .CalNextPrev a:active { /**上个月、下个月箭头样式**/
-    font-weight: bold;
+#calendar .CalNextPrev a:active, #calendar .CalNextPrev a:link, #calendar .CalNextPrev a:visited {
+    font-weight: 700;
     padding-left: 10px;
-    padding-right: 15px;
+    padding-right: 15px
 }
 
 .CalDayHeader {
-    font-weight: bold;
+    font-weight: 700;
     background: #111;
-    padding-bottom: 5px;
+    padding-bottom: 5px
 }
 
-.CalTitle { /**日历年月头部样式**/
+.CalTitle {
     background: #6293bb;
     width: 100%;
     height: 30px;
     text-align: center;
     font-size: 14px;
-    font-weight: bold;
-    padding: 5px 0;
+    font-weight: 700;
+    padding: 5px 0
 }
 
 .CalTitle td {
     background: #000;
     font-family: verdana;
     font-size: 12px;
-    font-weight: bold
+    font-weight: 700
 }
 
 .Cal td {
     height: 20px;
-    /*border: solid 1px #171716;*/
     font-size: 10px
 }
 
-.Cal a:link,.Cal a:visited,.Cal a:active {
+.Cal a:active, .Cal a:link, .Cal a:visited {
     color: #ff9;
     text-decoration: underline
 }
 
 .Cal a:hover {
-    text-decoration: none;
+    text-decoration: none
 }
 
 .CalSelector {
     background: #efefef
 }
 
-
-/**日历控件样式结束**/
 .catListTitle {
-    font-weight: bold;
+    font-weight: 700;
     line-height: 1.2;
     font-size: 110%;
     margin-top: 15px;
     margin-bottom: 10px;
-    text-align: left;
+    text-align: left
 }
 
-.catListComment {
-    line-height: 1.5em;
+#sideBarMain ul, .catListComment, .page-description, .pfl_feedback_area_title {
+    line-height: 1.5em
 }
 
 .divRecentComment {
     text-indent: 2em;
     color: #494949;
-    margin-bottom: 20px;
-}
-
-#sideBarMain ul {
-    line-height: 1.5em;
+    margin-bottom: 20px
 }
 
 #sideBarMain li {
-    line-height: 1.8;
+    line-height: 1.8
 }
-/*****侧边栏结束********************************/
 
-
-/****查看文章页面开始*************************/
 #topics {
     width: 100%;
     min-height: 200px;
-    padding: 0px 0px 10px 0;
+    padding: 0 0 10px;
     float: left;
     -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin: 4rem auto;
+    margin: 4rem auto
 }
 
 #topics .postTitle {
-    border: 0px;
+    border: 0;
     font-size: 130%;
-    font-weight: bold;
+    font-weight: 700;
     float: left;
     line-height: 1.5;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 5px
 }
 
-#EntryTag {
-    color: #666;
+#BlogPostCategory, #BlogPostCategory a:active, #BlogPostCategory a:link, #BlogPostCategory a:visited, #EntryTag, #EntryTag a:active, #EntryTag a:link, #EntryTag a:visited {
+    color: #666
 }
 
-#EntryTag a {
-    margin-left: 5px;
+#BlogPostCategory a, #EntryTag a {
     height: 20px;
     line-height: 20px;
-    color: #333333;
-    padding: 3px 14px;
-    border-radius: 10px;
+    color: #fff !important;
+    padding: 3px 5px;
+    border-radius: 3px;
     margin: 2px 5px 0;
-    background: #e7e7e7;
     text-decoration: none;
+    font-size: 14px;
 }
 
-#EntryTag a:link, #EntryTag a:visited, #EntryTag a:active {
-    color: #666;
-}
-
-#EntryTag a:hover {
-    color: #f5f5f5;
-    background: #21759b;
-    transition: all 0.4s linear 0s;
-}
-
-#BlogPostCategory {
-    color: #666;
-}
-
-#BlogPostCategory a {
-    margin-left: 5px;
-    height: 20px;
-    line-height: 20px;
-    color: #333333;
-    padding: 3px 14px;
-    border-radius: 10px;
-    margin: 2px 5px 0;
-    background: #e7e7e7;
-    text-decoration: none;
-}
-
-#BlogPostCategory a:link, #BlogPostCategory a:visited, #BlogPostCategory a:active {
-    color: #666;
-}
-
-#BlogPostCategory a:hover {
-    color: #f5f5f5;
-    background: #21759b;
-    transition: all 0.4s linear 0s;
+#BlogPostCategory a:hover, #EntryTag a:hover {
+    transition: all .3s linear 0s;
+    opacity: 0.8;
 }
 
 #topics .postDesc {
-    padding-left: 0px;
+    padding-left: 0;
     width: 100%;
     text-align: left;
     color: #666;
     margin-top: 5px;
-    background: none;
+    background: 0 0
 }
-
 
 .feedback_area_title {
     font: normal normal 16px/35px "Microsoft YaHei";
-    margin: 10px 0 30px;
-    border-bottom: 2px solid #cccccc;
+    margin: 10px 0 30px
 }
 
 .louzhu {
-    background: transparent url('/images/icoLouZhu.gif') no-repeat scroll right top;
-    padding-right: 16px;
+    background: url(/images/icoLouZhu.gif) right top no-repeat;
+    padding-right: 16px
 }
 
-.feedbackListSubtitle {
-    color: #A8A8A8;
-}
-
-.feedbackListSubtitle a:link, .feedbackListSubtitle a:visited, .feedbackListSubtitle a:active {
+.feedbackListSubtitle a:active, .feedbackListSubtitle a:link, .feedbackListSubtitle a:visited {
     color: #777;
-    font-weight: bold;
+    font-weight: 700
 }
 
 .feedbackListSubtitle a:hover {
-    color: #21759b;
-    text-decoration: underline;
+    color: #5c8ec6;
+    text-decoration: underline
 }
 
 .feedbackListSubtitle b {
-    color: #21759b;
+    color: #5c8ec6
 }
 
 .feedbackManage {
     width: 200px;
     text-align: right;
-    float: right;
+    float: right
 }
 
 .feedbackCon {
-    border-bottom: 1px solid #EEE;
     padding: 10px 20px 10px 5px;
     min-height: 35px;
-    _height: 35px;
     margin-bottom: 1em;
-    line-height: 1.5;
+    line-height: 1.5
 }
 
 #divRefreshComments {
     text-align: right;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .commenttb {
     padding: 8px;
     margin-bottom: 10px;
-    width: 50%;
     color: #555;
     border: 1px solid #ddd;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    width: 320px;
+    width: 320px
+}
+
+.commentTextBox:hover, .commenttb:hover {
+    color: #333;
+    border-color: rgba(82, 168, 236, .8);
+    transition: all .4s linear 0s
 }
 
 .commenttb:hover {
-    color: #333;
-    border-color: rgba(82, 168, 236, 0.8);
     outline: 0;
-    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    transition: all 0.4s linear 0s;
+    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), 0 0 4px rgba(82, 168, 236, .6);
+    -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), 0 0 4px rgba(82, 168, 236, .6);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), 0 0 4px rgba(82, 168, 236, .6)
+}
+
+#Profile1_panelAdd input[type=text]:hover, #Profile1_txtContent:hover, .commentTextBox:hover {
+    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), 0 0 4px rgba(82, 168, 236, .6);
+    -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), 0 0 4px rgba(82, 168, 236, .6);
+    outline: 0
 }
 
 .commentTextBox {
     width: 410px !important;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .commentTextBox:hover {
-    color: #333;
-    border-color: rgba(82, 168, 236, 0.8);
-    outline: 0;
-    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    transition: all 0.4s linear 0s;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), 0 0 4px rgba(82, 168, 236, .6)
 }
 
 #AjaxHolder_PostComment_btnSubmit {
@@ -836,49 +807,48 @@ b {
     font-size: 14px;
     color: #fff;
     border: none;
-    background: #21759b;
+    background: #5c8ec6;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    transition: all .4s ease;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
-    outline: none;
-    text-decoration: none;
+    outline: 0;
+    text-decoration: none
 }
 
 #AjaxHolder_PostComment_btnSubmit:hover {
-    background: #333;
+    background: #333
 }
 
 #AjaxHolder_PostComment_divCommnentArea tr {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
-/*博客园评论框*/
+
 .comment_vote {
-    padding-right: 10px;
+    padding-right: 10px
 }
 
 .comment_vote a {
-    color: #999;
+    color: #999
 }
 
 .comment_vote a:hover {
-    color: #21759b;
+    color: #5c8ec6
 }
 
 #commentform_title {
     font: normal normal 16px/35px "Microsoft YaHei";
     margin: 10px 0 30px;
-    border-bottom: 2px solid #cccccc;
     background-image: none;
-    padding: 0;
+    padding: 0
 }
 
 #comment_form_container .author {
@@ -890,20 +860,16 @@ b {
     -webkit-border-radius: 3px;
     width: 320px;
     height: 20px;
-    background-image: none;
+    background-image: none
 }
 
 #comment_form_container p {
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .commentbox_title_left {
-    font-size: 14px;
-}
-
-.commentbox_title_right {
-    float: left;
+    font-size: 14px
 }
 
 #comment_form_container .comment_textarea {
@@ -917,60 +883,44 @@ b {
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+    min-height: 250px;
 }
 
 #comment_form_container .comment_textarea:hover {
-    border-color: rgba(82, 168, 236, 0.8);
+    border-color: #5c8ec6;
     outline: 0;
-    transition: all 0.4s linear 0s;
+    transition: all .4s linear 0s
 }
 
 #comment_form_container .comment_textarea:focus {
-    outline: 0;
+    outline: 0
+}
+
+.commentbox_tab:hover, .commentbox_tab.active {
+    border-bottom: 0;
+    color: #5c8ec6;
 }
 
 .comment_btn {
-    width: 100px;
-    height: 38px;
-    padding: 8px 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #fff;
     border: none;
-    background: #21759b;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    outline: none;
-    text-decoration: none;
+    background-color: #5c8ec6;
 }
 
 .comment_btn:hover {
-    background: #333;
+    background: #71ace5
 }
 
-#comment_form_container {
-}
-/****查看文章页面开始*************************/
-
-/****列表页面开始******************************/
-.entrylistTitle, .PostListTitle, .thumbTitle { /**几个分类列表的标题样式**/
-    margin-top: 20px;
+.PostListTitle, .entrylistTitle, .thumbTitle {
     height: 38px;
     line-height: 38px;
-    font-size: 16px;
     font: normal normal 16px/35px "Microsoft YaHei";
     margin: 10px 0 30px;
     background-image: none;
-    padding: 0;
+    padding: 0
+}
+
+.dev__developer, .entrylistPosttitle a:active, .entrylistPosttitle a:link, .entrylistPosttitle a:visited {
+    font-family: "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif
 }
 
 .entrylistDescription {
@@ -979,78 +929,52 @@ b {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .entrylistItem {
-    min-height: 10px;
-    _height: 10px;
     position: relative;
-    max-width: 710px;
     margin: 3.5rem auto;
-    padding-bottom: 3.5rem;
-    border-bottom: #EBF2F6 1px solid;
+    padding-bottom: 3.3rem;
     word-wrap: break-word;
 }
 
 .entrylistItem:after {
     display: block;
-    content: "";
-    width: 7px;
-    height: 7px;
-    border: #E7EEF2 1px solid;
+    border: 1px solid #E7EEF2;
     position: absolute;
-    bottom: -5px;
-    left: 50%;
     margin-left: -5px;
     background: #FFF;
     border-radius: 100%;
-    box-shadow: #FFF 0 0 0 5px;
+    box-shadow: #FFF 0 0 0 5px
 }
 
 .entrylistPosttitle {
     font-size: 20px;
-    width: 100%;
+    width: 100%
 }
 
-.entrylistPosttitle a:link, .entrylistPosttitle a:visited, .entrylistPosttitle a:active {
-    transition: all 0.4s linear 0s;
+.entrylistPosttitle a:active, .entrylistPosttitle a:link, .entrylistPosttitle a:visited {
+    transition: all .4s linear 0s;
     background-color: rgba(0, 0, 0, 0);
-    color: rgb(74, 74, 74);
-    font-family: "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
+    color: #4a4a4a;
     font-size: 3.2rem;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: -1px;
     transition-delay: 0s;
-    transition-duration: 0.3s;
+    transition-duration: .3s;
     transition-property: color;
     transition-timing-function: ease;
     word-wrap: break-word;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent
 }
 
 .entrylistPosttitle a:hover {
-    /*margin-left: 30px;*/
-    color: #000;
-    /*text-decoration: none;*/
+    color: #000
 }
 
-.entrylistPostSummary {
-    width: 100%;
-    clear: both;
-    padding: 10px 0;
-    color: #3A4145;
-    font-family: Merriweather, "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
-    font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.7em;
-    word-wrap: break-word;
-    display: block;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0;
-    -webkit-margin-end: 0;
+.entrylistItemPostDesc, .sb-title {
+    font-family: "Open Sans", sans-serif
 }
 
 .entrylistItemPostDesc {
@@ -1060,18 +984,18 @@ b {
     text-align: left;
     padding-right: 5px;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
     font-size: 1.4rem;
     line-height: 2.2rem;
     color: #9EABB3;
+    display: none;
 }
 
-.entrylistItemPostDesc a:link, .entrylistItemPostDesc a:visited, .entrylistItemPostDesc a:active {
-    color: #666;
+.entrylistItemPostDesc a:active, .entrylistItemPostDesc a:link, .entrylistItemPostDesc a:visited {
+    color: #666
 }
 
 .entrylistItemPostDesc a:hover {
-    color: #21759b;
+    color: #5c8ec6
 }
 
 .entrylist .postSeparator {
@@ -1082,127 +1006,127 @@ b {
     margin: 0;
     padding: 0;
     height: 0;
-    border: none;
+    border: none
+}
+
+.divPhoto, .pager {
+    margin-right: 10px
 }
 
 .divRecentCommentAticle a {
-    color: #000;
+    color: #000
 }
 
 .pager {
     text-align: right;
-    margin-right: 10px;
     font-size: 12px;
-    color: #9EABB3;
+    color: #9EABB3
 }
 
-.pager a, #nav_next_page a {
+#nav_next_page a, .pager a {
     display: inline-block;
     min-width: 18px;
     text-align: center;
-    border: #bfc8cd 1px solid;
+    border: 1px solid #bfc8cd;
     text-decoration: none;
     border-radius: 4px;
     color: #9EABB3 !important;
-    transition: all 0.2s ease;
+    transition: all .2s ease
 }
 
-.pager a:link, .pager a:visited, .pager a:active, #nav_next_page a:link, #nav_next_page a:visited, #nav_next_page a:active {
-    color: #9EABB3 !important;
+#nav_next_page a:active, #nav_next_page a:link, #nav_next_page a:visited, .pager a:active, .pager a:link, .pager a:visited {
+    color: #9EABB3 !important
 }
 
 .pager a {
-    padding: 0 5px;
+    padding: 0 5px
 }
 
 #nav_next_page a {
-    padding: 3px 5px;
+    padding: 3px 5px
 }
 
-.pager a:hover, #nav_next_page a:hover {
+#nav_next_page a:hover, .pager a:hover {
     background: #fff;
     color: #889093;
-    border-color: #98a0a4;
+    border-color: #98a0a4
 }
 
 .PostList {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px dashed #e9e9e9;
     clear: both;
     min-height: 1.5em;
-    _height: 1.5em;
     padding-top: 20px;
     margin-bottom: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 20px
 }
 
 .postTitl2 {
     float: left;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 14px;
+    font-size: 14px
 }
 
 .postDesc2 {
     color: #666;
-    float: right;
+    float: right
 }
 
 .postText2 {
     clear: both;
-    color: #757575;
+    color: #757575
 }
 
-/*留言*/
 .pfl_feedback_area_title {
     text-align: right;
-    line-height: 1.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-weight: 700;
+    margin-bottom: 10px
 }
 
 .pfl_feedbackItem {
     border: 1px dashed #ccc;
     padding: 10px;
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .pfl_feedbacksubtitle {
     width: 100%;
-    height: 1.5em;
+    height: 1.5em
 }
 
 .pfl_feedbackname {
-    float: left;
+    float: left
+}
+
+.commentbox_title_right, .pfl_feedbackManage {
+    float: right
 }
 
 .pfl_feedbackname a {
-    color: #21759b;
-    font-weight: bold;
-}
-
-.pfl_feedbackManage {
-    float: right;
+    color: #5c8ec6;
+    font-weight: 700
 }
 
 .pfl_feedbackCon {
-    color: black;
+    color: #000;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 5px
 }
 
 .pfl_feedbackAnswer {
     color: #F40;
-    text-indent: 2em;
+    text-indent: 2em
 }
 
 .tdSentMessage {
-    text-align: right;
+    text-align: right
 }
 
 .errorMessage {
     width: 300px;
-    float: left;
+    float: left
 }
 
 #Profile1_panelAdd input[type=text], #Profile1_txtContent {
@@ -1212,22 +1136,19 @@ b {
     border: 1px solid #ddd;
     border-radius: 3px;
     -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
+    -webkit-border-radius: 3px
 }
 
 #Profile1_panelAdd input[type=text]:hover, #Profile1_txtContent:hover {
     color: #333;
-    border-color: rgba(82, 168, 236, 0.8);
-    outline: 0;
-    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
-    transition: all 0.4s linear 0s;
+    border-color: rgba(82, 168, 236, .8);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .075), 0 0 4px rgba(82, 168, 236, .6);
+    transition: all .4s linear 0s
 }
 
 #Profile1_panelAdd input[type=text]:focus, #Profile1_txtContent:focus {
     outline: 0;
-    border-color: rgba(82, 168, 236, 0.8);
+    border-color: rgba(82, 168, 236, .8)
 }
 
 #Profile1_panelAdd input[type=submit] {
@@ -1236,42 +1157,35 @@ b {
     font-size: 14px;
     color: #fff;
     border: none;
-    background: #21759b;
+    background: #5c8ec6;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    transition: all .4s ease;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
-    outline: none;
-    text-decoration: none;
+    outline: 0;
+    text-decoration: none
 }
 
 #Profile1_panelAdd input[type=submit]:hover {
-    background: #333;
+    background: #333
 }
 
 .feedbackListSubtitle {
     clear: both;
     color: #A8A8A8;
-    padding: 8px 5px;
+    padding: 8px 5px
 }
 
-.feedbackItem {
-    margin-top: 30px;
-}
-/****列表页面结束******************************/
-
-/****相册页面开始******************************/
 .divPhoto {
     border: 1px solid #ccc;
-    padding: 2px;
-    margin-right: 10px;
+    padding: 2px
 }
 
 .thumbDescription {
@@ -1280,22 +1194,16 @@ b {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-right: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 30px
 }
-/****相册页面开始******************************/
 
-
-/*****留言页面开始*****************************/
 #footer {
     min-height: 100px;
-    _height: 15px;
     position: absolute;
-    margin: 0;
-    margin-top: 20vh;
+    margin: 20vh 0 0;
     left: 0;
     right: 0;
-    padding: 17px 0 27px;
-    text-align: center;
+    padding: 15px 0;
     color: #888;
     font-size: 12px;
     line-height: 1.5;
@@ -1304,1731 +1212,765 @@ b {
 .my-face {
     animation: my-face 5s infinite ease-in-out;
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 5px
 }
 
 @-moz-keyframes my-face {
-    2% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
+    2%, 24%, 80% {
+        -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(1.5deg);
+        transform: translate(0, 1.5px) rotate(1.5deg)
     }
-
-    4% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
+    4%, 68%, 98% {
+        -webkit-transform: translate(0, -1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-.5deg);
+        transform: translate(0, -1.5px) rotate(-.5deg)
     }
-
-    6% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
+    38%, 6% {
+        -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-1.5deg);
+        transform: translate(0, 1.5px) rotate(-1.5deg)
     }
-
-    8% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
+    8%, 86% {
+        -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-1.5deg);
+        transform: translate(0, -1.5px) rotate(-1.5deg)
     }
-
-    10% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
+    10%, 72% {
+        -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(1.5deg);
+        transform: translate(0, 2.5px) rotate(1.5deg)
     }
-
-    12% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
+    12%, 64%, 78%, 96% {
+        -webkit-transform: translate(0, -.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(1.5deg);
+        -o-transform: translate(0, -.5px) rotate(1.5deg);
+        transform: translate(0, -.5px) rotate(1.5deg)
     }
-
-    14% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
+    14%, 54% {
+        -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(1.5deg);
+        transform: translate(0, -1.5px) rotate(1.5deg)
     }
-
     16% {
-        -webkit-transform: translate(0,-.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-.5px) rotate(-1.5deg);
-        transform: translate(0,-.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, -.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -.5px) rotate(-1.5deg);
+        transform: translate(0, -.5px) rotate(-1.5deg)
     }
-
-    18% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    18%, 22% {
+        -webkit-transform: translate(0, .5px) rotate(-1.5deg);
+        -moz-transform: translate(0, .5px) rotate(-1.5deg);
+        -ms-transform: translate(0, .5px) rotate(-1.5deg);
+        -o-transform: translate(0, .5px) rotate(-1.5deg);
+        transform: translate(0, .5px) rotate(-1.5deg)
     }
-
-    20% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    20%, 36%, 46% {
+        -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(2.5deg);
+        -o-transform: translate(0, -1.5px) rotate(2.5deg);
+        transform: translate(0, -1.5px) rotate(2.5deg)
     }
-
-    22% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    26%, 50% {
+        -webkit-transform: translate(0, .5px) rotate(.5deg);
+        -moz-transform: translate(0, .5px) rotate(.5deg);
+        -ms-transform: translate(0, .5px) rotate(.5deg);
+        -o-transform: translate(0, .5px) rotate(.5deg);
+        transform: translate(0, .5px) rotate(.5deg)
     }
-
-    24% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    26% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
     28% {
-        -webkit-transform: translate(0,.5px) rotate(1.5deg);
-        -moz-transform: translate(0,.5px) rotate(1.5deg);
-        -ms-transform: translate(0,.5px) rotate(1.5deg);
-        -o-transform: translate(0,.5px) rotate(1.5deg);
-        transform: translate(0,.5px) rotate(1.5deg)
+        -webkit-transform: translate(0, .5px) rotate(1.5deg);
+        -moz-transform: translate(0, .5px) rotate(1.5deg);
+        -ms-transform: translate(0, .5px) rotate(1.5deg);
+        -o-transform: translate(0, .5px) rotate(1.5deg);
+        transform: translate(0, .5px) rotate(1.5deg)
     }
-
-    30% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
+    30%, 40%, 62%, 76%, 88% {
+        -webkit-transform: translate(0, -.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -.5px) rotate(2.5deg);
+        -o-transform: translate(0, -.5px) rotate(2.5deg);
+        transform: translate(0, -.5px) rotate(2.5deg)
     }
-
-    32% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
+    32%, 34%, 66% {
+        -webkit-transform: translate(0, 1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-.5deg);
+        transform: translate(0, 1.5px) rotate(-.5deg)
     }
-
-    34% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    36% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
-    }
-
-    38% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
-    }
-
-    40% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     42% {
-        -webkit-transform: translate(0,2.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-1.5deg);
-        -o-transform: translate(0,2.5px) rotate(-1.5deg);
-        transform: translate(0,2.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-1.5deg);
+        transform: translate(0, 2.5px) rotate(-1.5deg)
     }
-
-    44% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
+    44%, 70% {
+        -webkit-transform: translate(0, 1.5px) rotate(.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(.5deg);
+        -o-transform: translate(0, 1.5px) rotate(.5deg);
+        transform: translate(0, 1.5px) rotate(.5deg)
     }
-
-    46% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    48%, 74%, 82% {
+        -webkit-transform: translate(0, -.5px) rotate(.5deg);
+        -moz-transform: translate(0, -.5px) rotate(.5deg);
+        -ms-transform: translate(0, -.5px) rotate(.5deg);
+        -o-transform: translate(0, -.5px) rotate(.5deg);
+        transform: translate(0, -.5px) rotate(.5deg)
     }
-
-    48% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
+    52%, 56%, 60% {
+        -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(2.5deg);
+        -o-transform: translate(0, 2.5px) rotate(2.5deg);
+        transform: translate(0, 2.5px) rotate(2.5deg)
     }
-
-    50% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
-    52% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    54% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
-    }
-
-    56% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
     58% {
-        -webkit-transform: translate(0,.5px) rotate(2.5deg);
-        -moz-transform: translate(0,.5px) rotate(2.5deg);
-        -ms-transform: translate(0,.5px) rotate(2.5deg);
-        -o-transform: translate(0,.5px) rotate(2.5deg);
-        transform: translate(0,.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, .5px) rotate(2.5deg);
+        -moz-transform: translate(0, .5px) rotate(2.5deg);
+        -ms-transform: translate(0, .5px) rotate(2.5deg);
+        -o-transform: translate(0, .5px) rotate(2.5deg);
+        transform: translate(0, .5px) rotate(2.5deg)
     }
-
-    60% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    62% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    64% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    66% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    68% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    70% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
-    }
-
-    72% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
-    }
-
-    74% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
-    76% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    78% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    80% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    82% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
     84% {
-        -webkit-transform: translate(0,1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,1.5px) rotate(2.5deg);
-        -o-transform: translate(0,1.5px) rotate(2.5deg);
-        transform: translate(0,1.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(2.5deg);
+        -o-transform: translate(0, 1.5px) rotate(2.5deg);
+        transform: translate(0, 1.5px) rotate(2.5deg)
     }
-
-    86% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
-    }
-
-    88% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     90% {
-        -webkit-transform: translate(0,2.5px) rotate(-.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-.5deg);
-        -o-transform: translate(0,2.5px) rotate(-.5deg);
-        transform: translate(0,2.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-.5deg);
+        transform: translate(0, 2.5px) rotate(-.5deg)
     }
-
     92% {
-        -webkit-transform: translate(0,.5px) rotate(-.5deg);
-        -moz-transform: translate(0,.5px) rotate(-.5deg);
-        -ms-transform: translate(0,.5px) rotate(-.5deg);
-        -o-transform: translate(0,.5px) rotate(-.5deg);
-        transform: translate(0,.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, .5px) rotate(-.5deg);
+        -moz-transform: translate(0, .5px) rotate(-.5deg);
+        -ms-transform: translate(0, .5px) rotate(-.5deg);
+        -o-transform: translate(0, .5px) rotate(-.5deg);
+        transform: translate(0, .5px) rotate(-.5deg)
     }
-
     94% {
-        -webkit-transform: translate(0,2.5px) rotate(.5deg);
-        -moz-transform: translate(0,2.5px) rotate(.5deg);
-        -ms-transform: translate(0,2.5px) rotate(.5deg);
-        -o-transform: translate(0,2.5px) rotate(.5deg);
-        transform: translate(0,2.5px) rotate(.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(.5deg);
+        -o-transform: translate(0, 2.5px) rotate(.5deg);
+        transform: translate(0, 2.5px) rotate(.5deg)
     }
-
-    96% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    98% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    0%,100% {
-        -webkit-transform: translate(0,0) rotate(0);
-        -moz-transform: translate(0,0) rotate(0);
-        -ms-transform: translate(0,0) rotate(0);
-        -o-transform: translate(0,0) rotate(0);
-        transform: translate(0,0) rotate(0)
+    0%, 100% {
+        -webkit-transform: translate(0, 0) rotate(0);
+        -moz-transform: translate(0, 0) rotate(0);
+        -ms-transform: translate(0, 0) rotate(0);
+        -o-transform: translate(0, 0) rotate(0);
+        transform: translate(0, 0) rotate(0)
     }
 }
 
 @-webkit-keyframes my-face {
-    2% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
+    2%, 24%, 80% {
+        -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(1.5deg);
+        transform: translate(0, 1.5px) rotate(1.5deg)
     }
-
-    4% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
+    4%, 68%, 98% {
+        -webkit-transform: translate(0, -1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-.5deg);
+        transform: translate(0, -1.5px) rotate(-.5deg)
     }
-
-    6% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
+    38%, 6% {
+        -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-1.5deg);
+        transform: translate(0, 1.5px) rotate(-1.5deg)
     }
-
-    8% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
+    8%, 86% {
+        -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-1.5deg);
+        transform: translate(0, -1.5px) rotate(-1.5deg)
     }
-
-    10% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
+    10%, 72% {
+        -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(1.5deg);
+        transform: translate(0, 2.5px) rotate(1.5deg)
     }
-
-    12% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
+    12%, 64%, 78%, 96% {
+        -webkit-transform: translate(0, -.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(1.5deg);
+        -o-transform: translate(0, -.5px) rotate(1.5deg);
+        transform: translate(0, -.5px) rotate(1.5deg)
     }
-
-    14% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
+    14%, 54% {
+        -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(1.5deg);
+        transform: translate(0, -1.5px) rotate(1.5deg)
     }
-
     16% {
-        -webkit-transform: translate(0,-.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-.5px) rotate(-1.5deg);
-        transform: translate(0,-.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, -.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -.5px) rotate(-1.5deg);
+        transform: translate(0, -.5px) rotate(-1.5deg)
     }
-
-    18% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    18%, 22% {
+        -webkit-transform: translate(0, .5px) rotate(-1.5deg);
+        -moz-transform: translate(0, .5px) rotate(-1.5deg);
+        -ms-transform: translate(0, .5px) rotate(-1.5deg);
+        -o-transform: translate(0, .5px) rotate(-1.5deg);
+        transform: translate(0, .5px) rotate(-1.5deg)
     }
-
-    20% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    20%, 36%, 46% {
+        -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(2.5deg);
+        -o-transform: translate(0, -1.5px) rotate(2.5deg);
+        transform: translate(0, -1.5px) rotate(2.5deg)
     }
-
-    22% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    26%, 50% {
+        -webkit-transform: translate(0, .5px) rotate(.5deg);
+        -moz-transform: translate(0, .5px) rotate(.5deg);
+        -ms-transform: translate(0, .5px) rotate(.5deg);
+        -o-transform: translate(0, .5px) rotate(.5deg);
+        transform: translate(0, .5px) rotate(.5deg)
     }
-
-    24% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    26% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
     28% {
-        -webkit-transform: translate(0,.5px) rotate(1.5deg);
-        -moz-transform: translate(0,.5px) rotate(1.5deg);
-        -ms-transform: translate(0,.5px) rotate(1.5deg);
-        -o-transform: translate(0,.5px) rotate(1.5deg);
-        transform: translate(0,.5px) rotate(1.5deg)
+        -webkit-transform: translate(0, .5px) rotate(1.5deg);
+        -moz-transform: translate(0, .5px) rotate(1.5deg);
+        -ms-transform: translate(0, .5px) rotate(1.5deg);
+        -o-transform: translate(0, .5px) rotate(1.5deg);
+        transform: translate(0, .5px) rotate(1.5deg)
     }
-
-    30% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
+    30%, 40%, 62%, 76%, 88% {
+        -webkit-transform: translate(0, -.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -.5px) rotate(2.5deg);
+        -o-transform: translate(0, -.5px) rotate(2.5deg);
+        transform: translate(0, -.5px) rotate(2.5deg)
     }
-
-    32% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
+    32%, 34%, 66% {
+        -webkit-transform: translate(0, 1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-.5deg);
+        transform: translate(0, 1.5px) rotate(-.5deg)
     }
-
-    34% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    36% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
-    }
-
-    38% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
-    }
-
-    40% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     42% {
-        -webkit-transform: translate(0,2.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-1.5deg);
-        -o-transform: translate(0,2.5px) rotate(-1.5deg);
-        transform: translate(0,2.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-1.5deg);
+        transform: translate(0, 2.5px) rotate(-1.5deg)
     }
-
-    44% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
+    44%, 70% {
+        -webkit-transform: translate(0, 1.5px) rotate(.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(.5deg);
+        -o-transform: translate(0, 1.5px) rotate(.5deg);
+        transform: translate(0, 1.5px) rotate(.5deg)
     }
-
-    46% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    48%, 74%, 82% {
+        -webkit-transform: translate(0, -.5px) rotate(.5deg);
+        -moz-transform: translate(0, -.5px) rotate(.5deg);
+        -ms-transform: translate(0, -.5px) rotate(.5deg);
+        -o-transform: translate(0, -.5px) rotate(.5deg);
+        transform: translate(0, -.5px) rotate(.5deg)
     }
-
-    48% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
+    52%, 56%, 60% {
+        -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(2.5deg);
+        -o-transform: translate(0, 2.5px) rotate(2.5deg);
+        transform: translate(0, 2.5px) rotate(2.5deg)
     }
-
-    50% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
-    52% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    54% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
-    }
-
-    56% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
     58% {
-        -webkit-transform: translate(0,.5px) rotate(2.5deg);
-        -moz-transform: translate(0,.5px) rotate(2.5deg);
-        -ms-transform: translate(0,.5px) rotate(2.5deg);
-        -o-transform: translate(0,.5px) rotate(2.5deg);
-        transform: translate(0,.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, .5px) rotate(2.5deg);
+        -moz-transform: translate(0, .5px) rotate(2.5deg);
+        -ms-transform: translate(0, .5px) rotate(2.5deg);
+        -o-transform: translate(0, .5px) rotate(2.5deg);
+        transform: translate(0, .5px) rotate(2.5deg)
     }
-
-    60% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    62% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    64% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    66% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    68% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    70% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
-    }
-
-    72% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
-    }
-
-    74% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
-    76% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    78% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    80% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    82% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
     84% {
-        -webkit-transform: translate(0,1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,1.5px) rotate(2.5deg);
-        -o-transform: translate(0,1.5px) rotate(2.5deg);
-        transform: translate(0,1.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(2.5deg);
+        -o-transform: translate(0, 1.5px) rotate(2.5deg);
+        transform: translate(0, 1.5px) rotate(2.5deg)
     }
-
-    86% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
-    }
-
-    88% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     90% {
-        -webkit-transform: translate(0,2.5px) rotate(-.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-.5deg);
-        -o-transform: translate(0,2.5px) rotate(-.5deg);
-        transform: translate(0,2.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-.5deg);
+        transform: translate(0, 2.5px) rotate(-.5deg)
     }
-
     92% {
-        -webkit-transform: translate(0,.5px) rotate(-.5deg);
-        -moz-transform: translate(0,.5px) rotate(-.5deg);
-        -ms-transform: translate(0,.5px) rotate(-.5deg);
-        -o-transform: translate(0,.5px) rotate(-.5deg);
-        transform: translate(0,.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, .5px) rotate(-.5deg);
+        -moz-transform: translate(0, .5px) rotate(-.5deg);
+        -ms-transform: translate(0, .5px) rotate(-.5deg);
+        -o-transform: translate(0, .5px) rotate(-.5deg);
+        transform: translate(0, .5px) rotate(-.5deg)
     }
-
     94% {
-        -webkit-transform: translate(0,2.5px) rotate(.5deg);
-        -moz-transform: translate(0,2.5px) rotate(.5deg);
-        -ms-transform: translate(0,2.5px) rotate(.5deg);
-        -o-transform: translate(0,2.5px) rotate(.5deg);
-        transform: translate(0,2.5px) rotate(.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(.5deg);
+        -o-transform: translate(0, 2.5px) rotate(.5deg);
+        transform: translate(0, 2.5px) rotate(.5deg)
     }
-
-    96% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    98% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    0%,100% {
-        -webkit-transform: translate(0,0) rotate(0);
-        -moz-transform: translate(0,0) rotate(0);
-        -ms-transform: translate(0,0) rotate(0);
-        -o-transform: translate(0,0) rotate(0);
-        transform: translate(0,0) rotate(0)
+    0%, 100% {
+        -webkit-transform: translate(0, 0) rotate(0);
+        -moz-transform: translate(0, 0) rotate(0);
+        -ms-transform: translate(0, 0) rotate(0);
+        -o-transform: translate(0, 0) rotate(0);
+        transform: translate(0, 0) rotate(0)
     }
 }
 
 @-o-keyframes my-face {
-    2% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
+    2%, 24%, 80% {
+        -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(1.5deg);
+        transform: translate(0, 1.5px) rotate(1.5deg)
     }
-
-    4% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
+    4%, 68%, 98% {
+        -webkit-transform: translate(0, -1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-.5deg);
+        transform: translate(0, -1.5px) rotate(-.5deg)
     }
-
-    6% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
+    38%, 6% {
+        -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-1.5deg);
+        transform: translate(0, 1.5px) rotate(-1.5deg)
     }
-
-    8% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
+    8%, 86% {
+        -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-1.5deg);
+        transform: translate(0, -1.5px) rotate(-1.5deg)
     }
-
-    10% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
+    10%, 72% {
+        -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(1.5deg);
+        transform: translate(0, 2.5px) rotate(1.5deg)
     }
-
-    12% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
+    12%, 64%, 78%, 96% {
+        -webkit-transform: translate(0, -.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(1.5deg);
+        -o-transform: translate(0, -.5px) rotate(1.5deg);
+        transform: translate(0, -.5px) rotate(1.5deg)
     }
-
-    14% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
+    14%, 54% {
+        -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(1.5deg);
+        transform: translate(0, -1.5px) rotate(1.5deg)
     }
-
     16% {
-        -webkit-transform: translate(0,-.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-.5px) rotate(-1.5deg);
-        transform: translate(0,-.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, -.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -.5px) rotate(-1.5deg);
+        transform: translate(0, -.5px) rotate(-1.5deg)
     }
-
-    18% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    18%, 22% {
+        -webkit-transform: translate(0, .5px) rotate(-1.5deg);
+        -moz-transform: translate(0, .5px) rotate(-1.5deg);
+        -ms-transform: translate(0, .5px) rotate(-1.5deg);
+        -o-transform: translate(0, .5px) rotate(-1.5deg);
+        transform: translate(0, .5px) rotate(-1.5deg)
     }
-
-    20% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    20%, 36%, 46% {
+        -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(2.5deg);
+        -o-transform: translate(0, -1.5px) rotate(2.5deg);
+        transform: translate(0, -1.5px) rotate(2.5deg)
     }
-
-    22% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    26%, 50% {
+        -webkit-transform: translate(0, .5px) rotate(.5deg);
+        -moz-transform: translate(0, .5px) rotate(.5deg);
+        -ms-transform: translate(0, .5px) rotate(.5deg);
+        -o-transform: translate(0, .5px) rotate(.5deg);
+        transform: translate(0, .5px) rotate(.5deg)
     }
-
-    24% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    26% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
     28% {
-        -webkit-transform: translate(0,.5px) rotate(1.5deg);
-        -moz-transform: translate(0,.5px) rotate(1.5deg);
-        -ms-transform: translate(0,.5px) rotate(1.5deg);
-        -o-transform: translate(0,.5px) rotate(1.5deg);
-        transform: translate(0,.5px) rotate(1.5deg)
+        -webkit-transform: translate(0, .5px) rotate(1.5deg);
+        -moz-transform: translate(0, .5px) rotate(1.5deg);
+        -ms-transform: translate(0, .5px) rotate(1.5deg);
+        -o-transform: translate(0, .5px) rotate(1.5deg);
+        transform: translate(0, .5px) rotate(1.5deg)
     }
-
-    30% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
+    30%, 40%, 62%, 76%, 88% {
+        -webkit-transform: translate(0, -.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -.5px) rotate(2.5deg);
+        -o-transform: translate(0, -.5px) rotate(2.5deg);
+        transform: translate(0, -.5px) rotate(2.5deg)
     }
-
-    32% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
+    32%, 34%, 66% {
+        -webkit-transform: translate(0, 1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-.5deg);
+        transform: translate(0, 1.5px) rotate(-.5deg)
     }
-
-    34% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    36% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
-    }
-
-    38% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
-    }
-
-    40% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     42% {
-        -webkit-transform: translate(0,2.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-1.5deg);
-        -o-transform: translate(0,2.5px) rotate(-1.5deg);
-        transform: translate(0,2.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-1.5deg);
+        transform: translate(0, 2.5px) rotate(-1.5deg)
     }
-
-    44% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
+    44%, 70% {
+        -webkit-transform: translate(0, 1.5px) rotate(.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(.5deg);
+        -o-transform: translate(0, 1.5px) rotate(.5deg);
+        transform: translate(0, 1.5px) rotate(.5deg)
     }
-
-    46% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    48%, 74%, 82% {
+        -webkit-transform: translate(0, -.5px) rotate(.5deg);
+        -moz-transform: translate(0, -.5px) rotate(.5deg);
+        -ms-transform: translate(0, -.5px) rotate(.5deg);
+        -o-transform: translate(0, -.5px) rotate(.5deg);
+        transform: translate(0, -.5px) rotate(.5deg)
     }
-
-    48% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
+    52%, 56%, 60% {
+        -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(2.5deg);
+        -o-transform: translate(0, 2.5px) rotate(2.5deg);
+        transform: translate(0, 2.5px) rotate(2.5deg)
     }
-
-    50% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
-    52% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    54% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
-    }
-
-    56% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
     58% {
-        -webkit-transform: translate(0,.5px) rotate(2.5deg);
-        -moz-transform: translate(0,.5px) rotate(2.5deg);
-        -ms-transform: translate(0,.5px) rotate(2.5deg);
-        -o-transform: translate(0,.5px) rotate(2.5deg);
-        transform: translate(0,.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, .5px) rotate(2.5deg);
+        -moz-transform: translate(0, .5px) rotate(2.5deg);
+        -ms-transform: translate(0, .5px) rotate(2.5deg);
+        -o-transform: translate(0, .5px) rotate(2.5deg);
+        transform: translate(0, .5px) rotate(2.5deg)
     }
-
-    60% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    62% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    64% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    66% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    68% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    70% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
-    }
-
-    72% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
-    }
-
-    74% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
-    76% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    78% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    80% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    82% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
     84% {
-        -webkit-transform: translate(0,1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,1.5px) rotate(2.5deg);
-        -o-transform: translate(0,1.5px) rotate(2.5deg);
-        transform: translate(0,1.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(2.5deg);
+        -o-transform: translate(0, 1.5px) rotate(2.5deg);
+        transform: translate(0, 1.5px) rotate(2.5deg)
     }
-
-    86% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
-    }
-
-    88% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     90% {
-        -webkit-transform: translate(0,2.5px) rotate(-.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-.5deg);
-        -o-transform: translate(0,2.5px) rotate(-.5deg);
-        transform: translate(0,2.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-.5deg);
+        transform: translate(0, 2.5px) rotate(-.5deg)
     }
-
     92% {
-        -webkit-transform: translate(0,.5px) rotate(-.5deg);
-        -moz-transform: translate(0,.5px) rotate(-.5deg);
-        -ms-transform: translate(0,.5px) rotate(-.5deg);
-        -o-transform: translate(0,.5px) rotate(-.5deg);
-        transform: translate(0,.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, .5px) rotate(-.5deg);
+        -moz-transform: translate(0, .5px) rotate(-.5deg);
+        -ms-transform: translate(0, .5px) rotate(-.5deg);
+        -o-transform: translate(0, .5px) rotate(-.5deg);
+        transform: translate(0, .5px) rotate(-.5deg)
     }
-
     94% {
-        -webkit-transform: translate(0,2.5px) rotate(.5deg);
-        -moz-transform: translate(0,2.5px) rotate(.5deg);
-        -ms-transform: translate(0,2.5px) rotate(.5deg);
-        -o-transform: translate(0,2.5px) rotate(.5deg);
-        transform: translate(0,2.5px) rotate(.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(.5deg);
+        -o-transform: translate(0, 2.5px) rotate(.5deg);
+        transform: translate(0, 2.5px) rotate(.5deg)
     }
-
-    96% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    98% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    0%,100% {
-        -webkit-transform: translate(0,0) rotate(0);
-        -moz-transform: translate(0,0) rotate(0);
-        -ms-transform: translate(0,0) rotate(0);
-        -o-transform: translate(0,0) rotate(0);
-        transform: translate(0,0) rotate(0)
+    0%, 100% {
+        -webkit-transform: translate(0, 0) rotate(0);
+        -moz-transform: translate(0, 0) rotate(0);
+        -ms-transform: translate(0, 0) rotate(0);
+        -o-transform: translate(0, 0) rotate(0);
+        transform: translate(0, 0) rotate(0)
     }
 }
 
 @keyframes my-face {
-    2% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
+    2%, 24%, 80% {
+        -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(1.5deg);
+        transform: translate(0, 1.5px) rotate(1.5deg)
     }
-
-    4% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
+    4%, 68%, 98% {
+        -webkit-transform: translate(0, -1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-.5deg);
+        transform: translate(0, -1.5px) rotate(-.5deg)
     }
-
-    6% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
+    38%, 6% {
+        -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-1.5deg);
+        transform: translate(0, 1.5px) rotate(-1.5deg)
     }
-
-    8% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
+    8%, 86% {
+        -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(-1.5deg);
+        transform: translate(0, -1.5px) rotate(-1.5deg)
     }
-
-    10% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
+    10%, 72% {
+        -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(1.5deg);
+        transform: translate(0, 2.5px) rotate(1.5deg)
     }
-
-    12% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
+    12%, 64%, 78%, 96% {
+        -webkit-transform: translate(0, -.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(1.5deg);
+        -o-transform: translate(0, -.5px) rotate(1.5deg);
+        transform: translate(0, -.5px) rotate(1.5deg)
     }
-
-    14% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
+    14%, 54% {
+        -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(1.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(1.5deg);
+        -o-transform: translate(0, -1.5px) rotate(1.5deg);
+        transform: translate(0, -1.5px) rotate(1.5deg)
     }
-
     16% {
-        -webkit-transform: translate(0,-.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-.5px) rotate(-1.5deg);
-        transform: translate(0,-.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, -.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, -.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, -.5px) rotate(-1.5deg);
+        -o-transform: translate(0, -.5px) rotate(-1.5deg);
+        transform: translate(0, -.5px) rotate(-1.5deg)
     }
-
-    18% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    18%, 22% {
+        -webkit-transform: translate(0, .5px) rotate(-1.5deg);
+        -moz-transform: translate(0, .5px) rotate(-1.5deg);
+        -ms-transform: translate(0, .5px) rotate(-1.5deg);
+        -o-transform: translate(0, .5px) rotate(-1.5deg);
+        transform: translate(0, .5px) rotate(-1.5deg)
     }
-
-    20% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    20%, 36%, 46% {
+        -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -1.5px) rotate(2.5deg);
+        -o-transform: translate(0, -1.5px) rotate(2.5deg);
+        transform: translate(0, -1.5px) rotate(2.5deg)
     }
-
-    22% {
-        -webkit-transform: translate(0,.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,.5px) rotate(-1.5deg);
-        -o-transform: translate(0,.5px) rotate(-1.5deg);
-        transform: translate(0,.5px) rotate(-1.5deg)
+    26%, 50% {
+        -webkit-transform: translate(0, .5px) rotate(.5deg);
+        -moz-transform: translate(0, .5px) rotate(.5deg);
+        -ms-transform: translate(0, .5px) rotate(.5deg);
+        -o-transform: translate(0, .5px) rotate(.5deg);
+        transform: translate(0, .5px) rotate(.5deg)
     }
-
-    24% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    26% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
     28% {
-        -webkit-transform: translate(0,.5px) rotate(1.5deg);
-        -moz-transform: translate(0,.5px) rotate(1.5deg);
-        -ms-transform: translate(0,.5px) rotate(1.5deg);
-        -o-transform: translate(0,.5px) rotate(1.5deg);
-        transform: translate(0,.5px) rotate(1.5deg)
+        -webkit-transform: translate(0, .5px) rotate(1.5deg);
+        -moz-transform: translate(0, .5px) rotate(1.5deg);
+        -ms-transform: translate(0, .5px) rotate(1.5deg);
+        -o-transform: translate(0, .5px) rotate(1.5deg);
+        transform: translate(0, .5px) rotate(1.5deg)
     }
-
-    30% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
+    30%, 40%, 62%, 76%, 88% {
+        -webkit-transform: translate(0, -.5px) rotate(2.5deg);
+        -moz-transform: translate(0, -.5px) rotate(2.5deg);
+        -ms-transform: translate(0, -.5px) rotate(2.5deg);
+        -o-transform: translate(0, -.5px) rotate(2.5deg);
+        transform: translate(0, -.5px) rotate(2.5deg)
     }
-
-    32% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
+    32%, 34%, 66% {
+        -webkit-transform: translate(0, 1.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(-.5deg);
+        -o-transform: translate(0, 1.5px) rotate(-.5deg);
+        transform: translate(0, 1.5px) rotate(-.5deg)
     }
-
-    34% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    36% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
-    }
-
-    38% {
-        -webkit-transform: translate(0,1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,1.5px) rotate(-1.5deg);
-        transform: translate(0,1.5px) rotate(-1.5deg)
-    }
-
-    40% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     42% {
-        -webkit-transform: translate(0,2.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-1.5deg);
-        -o-transform: translate(0,2.5px) rotate(-1.5deg);
-        transform: translate(0,2.5px) rotate(-1.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-1.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-1.5deg);
+        transform: translate(0, 2.5px) rotate(-1.5deg)
     }
-
-    44% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
+    44%, 70% {
+        -webkit-transform: translate(0, 1.5px) rotate(.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(.5deg);
+        -o-transform: translate(0, 1.5px) rotate(.5deg);
+        transform: translate(0, 1.5px) rotate(.5deg)
     }
-
-    46% {
-        -webkit-transform: translate(0,-1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(2.5deg);
-        -o-transform: translate(0,-1.5px) rotate(2.5deg);
-        transform: translate(0,-1.5px) rotate(2.5deg)
+    48%, 74%, 82% {
+        -webkit-transform: translate(0, -.5px) rotate(.5deg);
+        -moz-transform: translate(0, -.5px) rotate(.5deg);
+        -ms-transform: translate(0, -.5px) rotate(.5deg);
+        -o-transform: translate(0, -.5px) rotate(.5deg);
+        transform: translate(0, -.5px) rotate(.5deg)
     }
-
-    48% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
+    52%, 56%, 60% {
+        -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(2.5deg);
+        -o-transform: translate(0, 2.5px) rotate(2.5deg);
+        transform: translate(0, 2.5px) rotate(2.5deg)
     }
-
-    50% {
-        -webkit-transform: translate(0,.5px) rotate(.5deg);
-        -moz-transform: translate(0,.5px) rotate(.5deg);
-        -ms-transform: translate(0,.5px) rotate(.5deg);
-        -o-transform: translate(0,.5px) rotate(.5deg);
-        transform: translate(0,.5px) rotate(.5deg)
-    }
-
-    52% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    54% {
-        -webkit-transform: translate(0,-1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(1.5deg);
-        transform: translate(0,-1.5px) rotate(1.5deg)
-    }
-
-    56% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
     58% {
-        -webkit-transform: translate(0,.5px) rotate(2.5deg);
-        -moz-transform: translate(0,.5px) rotate(2.5deg);
-        -ms-transform: translate(0,.5px) rotate(2.5deg);
-        -o-transform: translate(0,.5px) rotate(2.5deg);
-        transform: translate(0,.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, .5px) rotate(2.5deg);
+        -moz-transform: translate(0, .5px) rotate(2.5deg);
+        -ms-transform: translate(0, .5px) rotate(2.5deg);
+        -o-transform: translate(0, .5px) rotate(2.5deg);
+        transform: translate(0, .5px) rotate(2.5deg)
     }
-
-    60% {
-        -webkit-transform: translate(0,2.5px) rotate(2.5deg);
-        -moz-transform: translate(0,2.5px) rotate(2.5deg);
-        -ms-transform: translate(0,2.5px) rotate(2.5deg);
-        -o-transform: translate(0,2.5px) rotate(2.5deg);
-        transform: translate(0,2.5px) rotate(2.5deg)
-    }
-
-    62% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    64% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    66% {
-        -webkit-transform: translate(0,1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,1.5px) rotate(-.5deg);
-        -o-transform: translate(0,1.5px) rotate(-.5deg);
-        transform: translate(0,1.5px) rotate(-.5deg)
-    }
-
-    68% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    70% {
-        -webkit-transform: translate(0,1.5px) rotate(.5deg);
-        -moz-transform: translate(0,1.5px) rotate(.5deg);
-        -ms-transform: translate(0,1.5px) rotate(.5deg);
-        -o-transform: translate(0,1.5px) rotate(.5deg);
-        transform: translate(0,1.5px) rotate(.5deg)
-    }
-
-    72% {
-        -webkit-transform: translate(0,2.5px) rotate(1.5deg);
-        -moz-transform: translate(0,2.5px) rotate(1.5deg);
-        -ms-transform: translate(0,2.5px) rotate(1.5deg);
-        -o-transform: translate(0,2.5px) rotate(1.5deg);
-        transform: translate(0,2.5px) rotate(1.5deg)
-    }
-
-    74% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
-    76% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
-    78% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    80% {
-        -webkit-transform: translate(0,1.5px) rotate(1.5deg);
-        -moz-transform: translate(0,1.5px) rotate(1.5deg);
-        -ms-transform: translate(0,1.5px) rotate(1.5deg);
-        -o-transform: translate(0,1.5px) rotate(1.5deg);
-        transform: translate(0,1.5px) rotate(1.5deg)
-    }
-
-    82% {
-        -webkit-transform: translate(0,-.5px) rotate(.5deg);
-        -moz-transform: translate(0,-.5px) rotate(.5deg);
-        -ms-transform: translate(0,-.5px) rotate(.5deg);
-        -o-transform: translate(0,-.5px) rotate(.5deg);
-        transform: translate(0,-.5px) rotate(.5deg)
-    }
-
     84% {
-        -webkit-transform: translate(0,1.5px) rotate(2.5deg);
-        -moz-transform: translate(0,1.5px) rotate(2.5deg);
-        -ms-transform: translate(0,1.5px) rotate(2.5deg);
-        -o-transform: translate(0,1.5px) rotate(2.5deg);
-        transform: translate(0,1.5px) rotate(2.5deg)
+        -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
+        -moz-transform: translate(0, 1.5px) rotate(2.5deg);
+        -ms-transform: translate(0, 1.5px) rotate(2.5deg);
+        -o-transform: translate(0, 1.5px) rotate(2.5deg);
+        transform: translate(0, 1.5px) rotate(2.5deg)
     }
-
-    86% {
-        -webkit-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-1.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-1.5deg);
-        transform: translate(0,-1.5px) rotate(-1.5deg)
-    }
-
-    88% {
-        -webkit-transform: translate(0,-.5px) rotate(2.5deg);
-        -moz-transform: translate(0,-.5px) rotate(2.5deg);
-        -ms-transform: translate(0,-.5px) rotate(2.5deg);
-        -o-transform: translate(0,-.5px) rotate(2.5deg);
-        transform: translate(0,-.5px) rotate(2.5deg)
-    }
-
     90% {
-        -webkit-transform: translate(0,2.5px) rotate(-.5deg);
-        -moz-transform: translate(0,2.5px) rotate(-.5deg);
-        -ms-transform: translate(0,2.5px) rotate(-.5deg);
-        -o-transform: translate(0,2.5px) rotate(-.5deg);
-        transform: translate(0,2.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(-.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(-.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(-.5deg);
+        -o-transform: translate(0, 2.5px) rotate(-.5deg);
+        transform: translate(0, 2.5px) rotate(-.5deg)
     }
-
     92% {
-        -webkit-transform: translate(0,.5px) rotate(-.5deg);
-        -moz-transform: translate(0,.5px) rotate(-.5deg);
-        -ms-transform: translate(0,.5px) rotate(-.5deg);
-        -o-transform: translate(0,.5px) rotate(-.5deg);
-        transform: translate(0,.5px) rotate(-.5deg)
+        -webkit-transform: translate(0, .5px) rotate(-.5deg);
+        -moz-transform: translate(0, .5px) rotate(-.5deg);
+        -ms-transform: translate(0, .5px) rotate(-.5deg);
+        -o-transform: translate(0, .5px) rotate(-.5deg);
+        transform: translate(0, .5px) rotate(-.5deg)
     }
-
     94% {
-        -webkit-transform: translate(0,2.5px) rotate(.5deg);
-        -moz-transform: translate(0,2.5px) rotate(.5deg);
-        -ms-transform: translate(0,2.5px) rotate(.5deg);
-        -o-transform: translate(0,2.5px) rotate(.5deg);
-        transform: translate(0,2.5px) rotate(.5deg)
+        -webkit-transform: translate(0, 2.5px) rotate(.5deg);
+        -moz-transform: translate(0, 2.5px) rotate(.5deg);
+        -ms-transform: translate(0, 2.5px) rotate(.5deg);
+        -o-transform: translate(0, 2.5px) rotate(.5deg);
+        transform: translate(0, 2.5px) rotate(.5deg)
     }
-
-    96% {
-        -webkit-transform: translate(0,-.5px) rotate(1.5deg);
-        -moz-transform: translate(0,-.5px) rotate(1.5deg);
-        -ms-transform: translate(0,-.5px) rotate(1.5deg);
-        -o-transform: translate(0,-.5px) rotate(1.5deg);
-        transform: translate(0,-.5px) rotate(1.5deg)
-    }
-
-    98% {
-        -webkit-transform: translate(0,-1.5px) rotate(-.5deg);
-        -moz-transform: translate(0,-1.5px) rotate(-.5deg);
-        -ms-transform: translate(0,-1.5px) rotate(-.5deg);
-        -o-transform: translate(0,-1.5px) rotate(-.5deg);
-        transform: translate(0,-1.5px) rotate(-.5deg)
-    }
-
-    0%,100% {
-        -webkit-transform: translate(0,0) rotate(0);
-        -moz-transform: translate(0,0) rotate(0);
-        -ms-transform: translate(0,0) rotate(0);
-        -o-transform: translate(0,0) rotate(0);
-        transform: translate(0,0) rotate(0)
+    0%, 100% {
+        -webkit-transform: translate(0, 0) rotate(0);
+        -moz-transform: translate(0, 0) rotate(0);
+        -ms-transform: translate(0, 0) rotate(0);
+        -o-transform: translate(0, 0) rotate(0);
+        transform: translate(0, 0) rotate(0)
     }
 }
 
-
-/*留言查看页面的个人信息*/
 .personInfo {
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
-/*留言分页区域*/
-.pages {
-    text-align: right;
-}
-/*****留言页面结束*****************************/
-/*****第三部分结束*******************************/
 
-/**************************************************
-第四部分：文章内容常用标签格式。
-**************************************************/
-/*文章内部常用标签格式*/
+.pages {
+    text-align: right
+}
+
 .postBody {
     color: #222;
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.55rem;
+    line-height: 1.6
 }
 
 .postBody p, .postCon p {
     text-indent: 2em;
-    margin: 0 auto 1em auto;
+    margin: 0 auto 1em
+}
+
+.postBody h2, .postBody h3, .postBody h4, .postBody h5 {
+    margin: 15px auto 2px;
+    font-weight: 700
 }
 
 .postBody h2 {
-    font-size: 150%;
-    margin: 15px auto 2px auto;
-    font-weight: bold;
+    font-size: 150%
 }
 
 .postBody h3 {
-    font-size: 120%;
-    margin: 15px auto 2px auto;
-    font-weight: bold;
+    font-size: 120%
 }
 
 .postBody h4 {
     font-size: 110%;
-    margin: 15px auto 2px auto;
-    font-weight: bold;
-    color: #333;
+    color: #333
 }
 
 .postBody h5 {
     font-size: 100%;
-    margin: 15px auto 2px auto;
-    font-weight: bold;
-    color: #333;
+    color: #333
 }
 
-.postBody a:link, .postBody a:visited, .postBody a:active {
-    /*text-decoration: underline;*/
+.postCon a:active, .postCon a:link, .postCon a:visited {
+    color: #9EABB3
 }
 
-.postCon a:link, .postCon a:visited, .postCon a:active {
-    /*text-decoration: underline;*/
-    color: #9EABB3;
-}
-
-.postCon a:hover{
-    color: #98a0a4;
+.postCon a:hover {
+    color: #98a0a4
 }
 
 .postBody ul, .postCon ul {
-    margin-left: 2em;
+    margin-left: 2em
 }
-
-.postBody li, .postCon li {
-    list-style-type: disc;
-    margin-bottom: 1em;
-}
-
-.postBody blockquote {
-    /*background: url('images/comment.gif')) no-repeat 25px 0px;*/
-    /*min-height: 35px;*/
-    /*_height: 35px;*/
-    /*line-height: 1.6em;*/
-    /*color: #333;*/
-}
-/*****第四部分结束*******************************/
 
 .myposts_title {
-    font-weight: bold;
-    text-align: center;
+    font-weight: 700;
+    text-align: center
 }
 
 #sideBar {
-    font-size: 12px;
+    font-size: 12px
 }
 
 #sideBar h3 {
-    font-size: 14px;
+    font-size: 14px
 }
 
-.c_b_p_desc {
-    /*font-size: 14px;*/
-    /*line-height: 1.7;*/
+#cnblogs_post_body img {
+    max-width: 700px
 }
 
-#cnblogs_post_body img{
-    max-width: 700px;
-}
-
-/**************************************************
-    自添加样式@ BNDong
-**************************************************/
-
-/* ==========================================================================
-   顶部图片区域
-   ========================================================================== */
-.main-header{
+.main-header {
     display: table;
     width: 100%;
     height: 100vh;
@@ -3040,78 +1982,71 @@ b {
     top: 0;
     left: 0;
     z-index: 998;
-    box-shadow: 0 1px 2px rgba(150,150,150,.7);
+    box-shadow: 0 1px 2px rgba(150, 150, 150, .7)
 }
 
 .inner {
     position: relative;
     width: 80%;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 10px;
+    padding: 10px
 }
 
 .page-title, .sb-title {
-    margin: 10px 0 10px 0;
     letter-spacing: -1px;
     font-weight: 700;
-    font-family: "Open Sans", sans-serif;
     color: #fff;
     -webkit-animation: fade-in-down 1s;
     animation: fade-in-down 1s both;
-    -webkit-animation-delay: 0.6s;
-    animation-delay: 0.5s;
-    text-shadow: 0 3px 6px rgba(0,0,0, 0.3);
+    -webkit-animation-delay: .6s;
+    animation-delay: .5s;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, .3)
 }
 
 .page-title {
     font-size: 5rem;
+    font-family: 'Playball', cursive;
 }
 
 .sb-title {
-    font-size: 4rem;
+    font-size: 3.55rem
 }
 
-/* Centres vertically yo. (IE8+) */
 .vertical {
     display: table-cell;
     vertical-align: middle;
-    width: 100%;
+    width: 100%
+}
+
+.page-author, .page-description {
+    margin: 0;
+    letter-spacing: .01rem;
+    color: rgba(255, 255, 255, .8);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, .5);
+    display: none;
+    font-weight: 400
 }
 
 .page-description {
-    margin: 0;
-    font-size: 2rem;
-    line-height: 1.5em;
-    font-weight: 400;
-    letter-spacing: 0.01rem;
-    font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-seri;
-    color: rgba(255,255,255,0.8);
-    -webkit-animation: fade-in-down 0.9s;
-    animation: fade-in-down 0.9s both;
-    -webkit-animation-delay: 0.1s;
-    animation-delay: 0.3s;
-    text-shadow: 0 3px 6px rgba(0,0,0, 0.5);
-    display: none;
+    font-size: 2.2rem;
+    -webkit-animation: fade-in-down .9s;
+    animation: fade-in-down .9s both;
+    -webkit-animation-delay: .1s;
+    animation-delay: .3s;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 10;
     overflow: hidden;
+    font-family: 'Long Cang', cursive;
 }
 
 .page-author {
-    margin: 0;
-    font-size: 1.4rem !important;
+    font-size: 1.5rem !important;
     line-height: 1.3em;
-    font-weight: 400;
-    letter-spacing: 0.01rem;
-    font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-seri;
-    color: rgba(255,255,255,0.8);
-    -webkit-animation: fade-in-down 0.9s;
-    animation: fade-in-down 0.9s both;
-    -webkit-animation-delay: 0.1s;
-    animation-delay: 0.3s;
-    text-shadow: 0 3px 6px rgba(0,0,0, 0.5);
-    display: none;
+    font-family: 'Ubuntu Mono', monospace;
+    -webkit-animation: fade-in-down .9s;
+    animation: fade-in-down .9s both;
+    -webkit-animation-delay: .1s;
+    animation-delay: .3s
 }
 
 .scroll-down {
@@ -3130,55 +2065,55 @@ b {
     transform: rotate(-90deg);
     -webkit-animation: bounce 4s 2s infinite;
     animation: bounce 4s 2s infinite;
-    text-decoration: none !important;
+    text-decoration: none !important
 }
 
 .scroll-down-icon {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, .6);
     font-size: 34px !important;
     position: relative;
-    bottom: 7px;
+    bottom: 7px
 }
-
 
 .scroll-down:hover {
     color: #fff;
     -webkit-animation: none;
-    animation: none;
+    animation: none
 }
 
 .hidden {
     text-indent: -9999px;
     visibility: hidden;
-    display: none;
+    display: none
 }
 
 @-webkit-keyframes bounce {
     0%, 10%, 25%, 40%, 50% {
         -webkit-transform: translateY(0) rotate(-90deg);
-        transform: translateY(0) rotate(-90deg);
+        transform: translateY(0) rotate(-90deg)
     }
     20% {
         -webkit-transform: translateY(-10px) rotate(-90deg);
-        transform: translateY(-10px) rotate(-90deg);
+        transform: translateY(-10px) rotate(-90deg)
     }
     30% {
         -webkit-transform: translateY(-5px) rotate(-90deg);
-        transform: translateY(-5px) rotate(-90deg);
+        transform: translateY(-5px) rotate(-90deg)
     }
 }
+
 @keyframes bounce {
     0%, 10%, 25%, 40%, 50% {
         -webkit-transform: translateY(0) rotate(-90deg);
-        transform: translateY(0) rotate(-90deg);
+        transform: translateY(0) rotate(-90deg)
     }
     20% {
         -webkit-transform: translateY(-10px) rotate(-90deg);
-        transform: translateY(-10px) rotate(-90deg);
+        transform: translateY(-10px) rotate(-90deg)
     }
     30% {
         -webkit-transform: translateY(-5px) rotate(-90deg);
-        transform: translateY(-5px) rotate(-90deg);
+        transform: translateY(-5px) rotate(-90deg)
     }
 }
 
@@ -3186,34 +2121,32 @@ b {
     0% {
         opacity: 0;
         -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
+        transform: translateY(-10px)
     }
     100% {
         opacity: 1;
         -webkit-transform: translateY(0);
-        transform: translateY(0);
+        transform: translateY(0)
     }
 }
+
 @keyframes fade-in-down {
     0% {
         opacity: 0;
         -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
+        transform: translateY(-10px)
     }
     100% {
         opacity: 1;
         -webkit-transform: translateY(0);
-        transform: translateY(0);
+        transform: translateY(0)
     }
 }
 
-/* ==========================================================================
-   菜单
-   ========================================================================== */
 .menu-button-scroll {
-    background: rgb(34, 34, 34) !important;
+    background: #222 !important;
     left: -20px !important;
-    width: 35px !important;
+    width: 35px !important
 }
 
 .m-list-title {
@@ -3221,8 +2154,8 @@ b {
     border-bottom: #3B3B3B 1px solid;
     word-wrap: break-word;
     margin: 24px 0;
-    font-family: "Merriweather","Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
-    display: none;
+    font-family: Merriweather, "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
+    display: none
 }
 
 .m-list-title-select {
@@ -3230,15 +2163,15 @@ b {
     font-size: 22px !important;
     position: absolute;
     right: -7px;
-    top: 1px;
+    top: 1px
 }
 
-.m-list-title-select:hover{
+.m-list-title-select:hover {
     color: #B8B8B8;
-    cursor:pointer;
+    cursor: pointer
 }
 
-.m-list-title > span{
+.m-list-title > span {
     display: block;
     width: 74px;
     text-align: center;
@@ -3249,7 +2182,7 @@ b {
     background: #000;
     box-shadow: #000 0 0 0 6px;
     color: #B8B8B8;
-    line-height: 20px;
+    line-height: 20px
 }
 
 .introduce-box {
@@ -3261,93 +2194,93 @@ b {
     z-index: 1;
     opacity: 1;
     height: 225px;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transition-delay: 0.4s;
-    transition-delay: 0.4s;
-    outline: none;
+    -webkit-transition: opacity .3s, -webkit-transform .3s;
+    transition: opacity .3s, transform .3s;
+    -webkit-transition-delay: .4s;
+    transition-delay: .4s;
+    outline: 0;
     cursor: pointer;
-    background: #000 url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/me_top_bg.webp) center no-repeat;
-    background-size: 100%;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/me_top_bg.webp) center no-repeat #000;
+    background-size: 100%
 }
 
 .introduce-head {
-    width: 100%;
+    width: 100%
 }
 
 .introduce-via {
     margin-top: 20px;
-    text-align: center;
+    text-align: center
 }
 
 .introduce-via img {
-    width: 66px;
-    height: 66px;
-    border: 4px solid rgba(255, 255, 255, 0.5);
+    width: 70px;
+    height: 70px;
+    padding: 1px;
+    border: 3px solid rgba(255, 255, 255, .5);
     border-radius: 100%;
-    box-shadow: inset 1px 1px 4px rgba(0,0,0,0.3), 0 2px 3px rgba(0,0,0,0.4);
+    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .3), 0 2px 3px rgba(0, 0, 0, .4);
+    transition: transform 1s ease-out;
+}
+
+.introduce-via img:hover {
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
 }
 
 #introduce {
     padding-left: 85px;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 #introduce a {
     margin-left: 10px;
     color: #f5f5f5;
-    line-height: 20px;
+    line-height: 20px
 }
 
 #introduce a:hover {
-    color: #fff !important;
+    color: #fff !important
 }
 
-#introduce a:active, #introduce a:hover, #introduce a:visited, #introduce a:link{
-    text-decoration: none !important;
+#introduce a:active, #introduce a:hover, #introduce a:link, #introduce a:visited {
+    text-decoration: none !important
 }
 
 #introduce div {
     position: absolute;
     right: 10px;
     bottom: 15px;
-    /*border: 1px solid rgba(255, 255, 255, 0.6);*/
     text-align: center;
     padding: 2px 4px;
-    border-radius: 3px;
+    border-radius: 3px
 }
 
 #introduce div a {
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 #introduce div:hover {
-    opacity: 0.6;
+    opacity: .6
 }
 
-/* ==========================================================================
-   文章详情页
-   ========================================================================== */
 .post-del-title {
-    /*position: absolute !important;*/
-    /*top: 17vh !important;*/
-    /*z-index: 999 !important;*/
-    /*color: rgb(255, 255, 255) !important;*/
-    /*font-size: 34px !important;*/
-    /*overflow: hidden !important;*/
-    display: none;
+    display: none
 }
 
 #topics {
-    font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
-    margin-top: 15px;
+    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+    margin-top: 15px
 }
 
 #cnblogs_post_body h6, blockquote {
     line-height: 20px;
-    margin: 0 0 24px 0;
-    padding: 1.3em;
+    margin: 0 0 24px;
+    padding: 1.45em;
     color: #313131;
     background-color: #f7f7f7;
     font-size: 13px;
@@ -3356,24 +2289,24 @@ b {
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
-    min-height: 0;
+    min-height: 0
 }
 
 blockquote p {
     margin: 0 !important;
     padding: 0;
-    text-indent: 0 !important;
+    text-indent: 0 !important
 }
 
 #cnblogs_post_body h2 {
     font-size: 1.8rem;
     height: 32px;
     line-height: 32px;
-    padding: 0px 0 0 30px;
-    color: #333;
+    padding: 0 0 0 30px;
+    color: #333
 }
 
-#cnblogs_post_body h3:before,#cnblogs_post_body h4:before,#cnblogs_post_body h5:before {
+#cnblogs_post_body h3:before, #cnblogs_post_body h4:before, #cnblogs_post_body h5:before {
     content: ' ';
     font-weight: lighter;
     width: 21px;
@@ -3382,28 +2315,25 @@ blockquote p {
     transition: all .3s;
     background-image: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/title_icon.webp);
     background-repeat: no-repeat;
-    background-position: 0 6px;
+    background-position: 0 6px
 }
 
 #cnblogs_post_body ul {
     margin-left: 30px;
     margin-top: 5px;
-    padding-left: 0;
-}
-
-#cnblogs_post_body ul li {
-    margin-left: 1em;
+    padding-left: 0
 }
 
 .postBody li, .postCon li {
-    margin-bottom: 0.5em;
+    list-style-type: disc;
+    margin-bottom: .5em
 }
 
-.feedback_area_title, #commentform_title, .entrylistTitle {
-    border-bottom: none;
+#commentform_title, .entrylistTitle, .feedback_area_title {
+    border-bottom: none
 }
 
-.feedback_area_title:after, #commentform_title:after, .entrylistTitle:after{
+#commentform_title:after, .entrylistTitle:after, .feedback_area_title:after {
     content: '';
     display: block;
     width: 100%;
@@ -3411,15 +2341,11 @@ blockquote p {
     position: relative;
     bottom: 16px;
     left: 110px;
-    border-bottom: 1px dashed #e9e9e9;
+    border-bottom: 1px dashed #e9e9e9
 }
 
 #tbCommentBody {
-    width: 100% !important;
-}
-
-.commentbox_title_right {
-    float: right;
+    width: 100% !important
 }
 
 #rightMenu {
@@ -3427,140 +2353,131 @@ blockquote p {
     bottom: 10px;
     right: 10px;
     min-width: 24px;
-    z-index: 1;
+    z-index: 1
 }
 
 #rightMenu i {
-    font-weight: bold;
+    font-weight: 700;
     text-shadow: 1px 1px 1px #eee;
-    font-size: 24px !important;
+    font-size: 24px !important
 }
 
-#toUpDown, #attention, #rightBuryit , #rightDiggit {
+#attention, #rightBuryit, #rightDiggit, #toUpDown {
     cursor: pointer;
     color: #555;
-    opacity: 0.5;
+    opacity: .5;
     filter: Alpha(opacity=50);
-    -webkit-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
-    position: relative;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+    position: relative
 }
 
 #attention {
-    bottom: 5px;
+    bottom: 5px
 }
 
 #rightBuryit {
-    bottom: 8px;
+    bottom: 8px
 }
 
 #rightDiggit {
-    bottom: 15px;
+    bottom: 15px
 }
 
-#toUpDown:hover, #attention:hover, #rightBuryit:hover, #rightDiggit:hover {
+#attention:hover, #rightBuryit:hover, #rightDiggit:hover, #toUpDown:hover {
     opacity: 1;
-    filter: Alpha(opacity=100);
+    filter: Alpha(opacity=100)
 }
 
 .rightMenuSpan {
     position: absolute;
     left: -150px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     width: 140px;
     text-align: right;
-    display: none;
+    display: none
+}
+
+#cnblogs_post_body table td, #cnblogs_post_body table th {
+    height: 40px;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    display: table-cell;
+    position: relative;
+    border: 0;
+    text-overflow: ellipsis;
+    vertical-align: middle
 }
 
 .attentionSpan {
-    top: 2px;
+    top: 2px
 }
 
 .rightBuryitSpan {
-    top: 0px;
+    top: 0
 }
 
 .rightDiggitSpan {
-    top: 7px;
+    top: 7px
 }
 
 .toUpDownSpan {
-    top: 3px;
+    top: 3px
 }
 
 #cnblogs_post_body table {
     position: relative;
     overflow: hidden !important;
     box-sizing: border-box;
-    width: 96%!important;
-    max-width: 96%!important;
+    width: 96% !important;
+    max-width: 96% !important;
     background-color: #fff;
     border: 1px solid #dfe3ec;
     font-size: 14px;
     color: #222;
-    margin: 0 auto;
+    margin: 0 auto 10px;
     padding: 0;
     border-right: 0;
     border-bottom: 0;
-    border-collapse: initial!important;
-    margin-bottom: 10px;
+    border-collapse: initial !important
 }
 
 .cnblogs-markdown .cnblogs_code_copy a {
-    top: 0;
+    top: 0
 }
 
 #cnblogs_post_body table tr {
-    border: 0;
+    border: 0
 }
 
 #cnblogs_post_body table th {
-    border: 0;
     border-bottom: 1px solid #dfe3ec;
     border-right: 1px solid #dfe3ec;
     background-color: #eef0f6;
     text-align: left;
     overflow: hidden;
-    height: 40px;
-    box-sizing: border-box;
-    text-overflow: ellipsis;
-    vertical-align: middle;
     padding: 0 18px;
-    position: relative;
-    background-clip: padding-box;
-    min-width: 100px;
-    display: table-cell;
+    min-width: 100px
 }
 
 #cnblogs_post_body table td {
-    border: 0;
     border-bottom: 1px solid #dfe6ec;
     border-right: 1px solid #dfe3ec;
-    height: 40px;
     min-width: 0;
-    box-sizing: border-box;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-    position: relative;
-    background-clip: padding-box;
     background-color: #fff;
-    display: table-cell;
-    padding: 0 20px;
+    padding: 0 20px
 }
 
 #cnblogs_post_body > p {
     margin: 10px auto;
-    padding: 0 20px;
+    padding: 0 20px
 }
 
 #cnblogs_post_body ul li {
-    margin-left: 18px;
+    margin-left: 18px
 }
 
-/* ==========================================================================
-   文章标题
-   ========================================================================== */
 .header__span {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -3571,222 +2488,223 @@ blockquote p {
     position: relative;
     display: inline-block;
     left: -20px;
-    margin: 25px 0 0px 0;
+    margin: 34px 0 0;
     width: 110%;
-    transition: border-color 0.3s;
-    padding-bottom: 14px;
-    /*border-bottom: 1px solid transparent;*/
-    /*border-image: linear-gradient(to right, #f5f5f5, #eee);*/
-    /*border-image-slice: 30;*/
+    transition: border-color .3s;
+    padding-bottom: 14px
 }
-/* ---------------------------------------- */
+
 .header__dev {
-    font-family: Lato,Arial,sans-serif;
-    font-weight: 300!important;
+    font-family: Lato, Arial, sans-serif;
+    font-weight: 300 !important;
     position: absolute;
     transition-delay: .5s;
     z-index: 2;
-    margin: 0!important;
-    color: #222 !important;
+    margin: 0 !important;
+    color: #222 !important
 }
+
 .header__span h1 {
-    font-size: 28px!important;
+    font-size: 28px !important;
     height: 28px;
-    line-height: 28px!important;
+    line-height: 28px !important
 }
+
 .header__span h2 {
-    font-size: 20px!important;
+    font-size: 20px !important;
     height: 20px;
-    line-height: 20px!important;
+    line-height: 20px !important
 }
-/* ---------------------------------------- */
+
+.dev__fe, .dev__fe i, .dev__ux, .dev__ux i {
+    width: 100px;
+    height: 100px;
+    position: absolute
+}
+
 .dev__slash {
     font-weight: 300;
     position: absolute;
     z-index: 5;
     -webkit-transform: rotateZ(22deg);
-    transform: rotateZ(22deg);
+    transform: rotateZ(22deg)
 }
+
 .header__span h1 .dev__slash {
     color: #5D69A5;
     top: -24px;
     left: 57px;
-    font-size: 35px;
+    font-size: 35px
 }
+
 .header__span h2 .dev__slash {
     color: #85C7B0;
     top: -20px;
     left: 58px;
-    font-size: 26px;
+    font-size: 26px
 }
-/* ---------------------------------------- */
+
+.cnblogs_code, .post pre {
+    font-size: 14px !important
+}
+
 .dev__fe, .dev__ux {
-    position: absolute;
-    width: 100px;
-    height: 100px;
     overflow: hidden;
     -webkit-transform: rotateZ(22deg);
-    transform: rotateZ(22deg);
+    transform: rotateZ(22deg)
 }
+
 .dev__fe {
     text-align: right;
     direction: rtl;
     top: -68px;
-    left: -40px;
+    left: -40px
 }
+
 .dev__ux {
     left: 66px;
     top: -57px;
-    text-align: left;
+    text-align: left
 }
-/* ---------------------------------------- */
+
 .dev__fe i, .dev__ux i {
     font-style: normal;
-    position: absolute;
-    width: 100px;
-    height: 100px;
     line-height: 100px;
     font-weight: 400;
     -webkit-transform: rotateZ(-22deg);
     transform: rotateZ(-22deg);
-    color: #333;
+    color: #333
 }
+
 .header__span h1 .dev__fe i {
     text-indent: -9px;
     top: 13px;
-    right: 0;
+    right: 0
 }
+
 .header__span h2 .dev__fe i {
     text-indent: -7px;
     top: 12px;
-    right: 0;
+    right: 0
 }
+
 .header__span h1 .dev__ux i {
     text-indent: -6px;
     top: 2px;
-    left: -3px;
+    left: -3px
 }
+
 .header__span h2 .dev__ux i {
     text-indent: -8px;
     top: 0;
-    left: 0;
+    left: 0
 }
-/* ---------------------------------------- */
+
 .dev__developer {
     position: absolute;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 75vw;
-    /*white-space: nowrap;*/
-    font-weight: bold;
-    font-family: "Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif;
+    font-weight: 700
 }
+
+.cnblogs_code, .cnblogs_code span, .post pre {
+    font-family: "Source Code Pro", Consolas, Menlo, Monaco, "Courier New", monospace !important;
+    font-weight: 400
+}
+
 .header__span h1 .dev__developer {
     top: -20px;
     left: 90px;
-    min-height: 34px;
+    min-height: 34px
 }
+
 .header__span h2 .dev__developer {
     top: -17px;
     left: 94px;
-    min-height: 24px;
+    min-height: 24px
 }
-/* ---------------------------------------- */
-.dev__fe, .dev__ux, .dev__fe i, .dev__ux i, .dev__developer, .dev__slash {
-    transition: all 0.6s cubic-bezier(0.555, -0.375, 0, 1.615);
+
+.dev__developer, .dev__fe, .dev__fe i, .dev__slash, .dev__ux, .dev__ux i {
+    transition: all .6s cubic-bezier(.555, -.375, 0, 1.615)
 }
 
 .header__dev--open .dev__fe i, .header__dev--open .dev__ux i {
-    text-indent: 5px !important;
+    text-indent: 5px !important
 }
+
 .header__dev--open .dev__developer {
     -webkit-transform: translateX(15px);
     transform: translateX(15px);
-    opacity: .6;
-}
-.header__dev--open .dev__slash {
-    -webkit-transform: scale(0.9) rotateZ(0deg);
-    transform: scale(0.9) rotateZ(0deg);
+    opacity: .6
 }
 
-.header__dev--slow .dev__fe, .header__dev--slow .dev__ux, .header__dev--slow .dev__fe i, .header__dev--slow .dev__ux i, .header__dev--slow .dev__developer, .header__dev--slow .dev__slash {
-    transition: all 1.2s cubic-bezier(0.555, -0.375, 0, 1.615);
+.header__dev--open .dev__slash {
+    -webkit-transform: scale(.9) rotateZ(0);
+    transform: scale(.9) rotateZ(0)
+}
+
+.header__dev--slow .dev__developer, .header__dev--slow .dev__fe, .header__dev--slow .dev__fe i, .header__dev--slow .dev__slash, .header__dev--slow .dev__ux, .header__dev--slow .dev__ux i {
+    transition: all 1.2s cubic-bezier(.555, -.375, 0, 1.615)
 }
 
 #notHomeTopCanvas {
-    position: absolute;
+    position: absolute
 }
 
 #m-nav-list li {
     position: relative;
-    overflow: hidden;
+    overflow: hidden
 }
 
-/* ==========================================================================
-   隐藏不需要部分
-   ========================================================================== */
-#header, .catListTitle, #profile_block, #leftcontentcontainer {
-    display: none !important;
+#header, #leftcontentcontainer, #profile_block, .catListTitle {
+    display: none !important
 }
 
-#under_post_kb, #ad_t1, #ad_t2, #ad_c1, #ad_c2, #under_post_news, #cnblogs_c1, #cnblogs_c2 {
-    display: none;
+#ad_c1, #ad_c2, #ad_t1, #ad_t2, #cnblogs_c1, #cnblogs_c2, #under_post_kb, #under_post_news {
+    display: none
 }
 
-/* ==========================================================================
-   底部进度
-   ========================================================================== */
 #bottomProgressBar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 998;
+    z-index: 998
 }
 
-/* ==========================================================================
-   代码样式
-   ========================================================================== */
 span.cnblogs_code {
     border: 0;
-    /*margin: 0 3px;*/
     padding: 2px 4px;
     color: #D83B64;
     background-color: #f9f2f4;
     border-radius: 3px;
     position: relative;
-    bottom: 1px;
+    bottom: 1px
 }
+
 .cnblogs_code {
     line-height: 20px;
     margin: 0 auto;
-    font-size: 14px!important;
     background-color: transparent;
     position: relative;
     overflow: hidden;
     border: 0;
-    font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace!important;
-    font-weight: 400;
-    z-index: 10;
+    z-index: 10
 }
 
 .post pre {
-    font-size: 14px!important;
-    /*word-wrap: break-word;*/
-    /*white-space: pre-wrap;*/
-    font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
-    font-weight: 400;
-    padding: 10px!important;
+    padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
-    margin: 5px 15px;
+    margin: 5px 15px
 }
 
 .postBody pre {
-    max-height: 70vh;
+    /*max-height: 70vh;*/
     word-break: break-all;
     word-wrap: break-word;
-    counter-reset: itemcounter;
+    counter-reset: itemcounter
 }
 
 .postBody pre .line-numbers-rows {
@@ -3795,10 +2713,11 @@ span.cnblogs_code {
     left: -34px;
     width: 30px;
     text-align: center;
-    color: #999;
+    color: #999
 }
+
 .postBody pre .line-numbers-rows:before {
-    content: counter(itemcounter);
+    content: counter(itemcounter)
 }
 
 .postBody pre .code-pre {
@@ -3806,7 +2725,7 @@ span.cnblogs_code {
     padding-left: 10px;
     display: block;
     left: 30px;
-    border-left: 1px solid #999;
+    border-left: 1px solid #999
 }
 
 .code-copay-btn {
@@ -3826,23 +2745,21 @@ span.cnblogs_code {
     color: #ccc;
     opacity: 0;
     visibility: hidden;
-    background-color: hsla(0,0%,90.2%,.2);
+    background-color: hsla(0, 0%, 90.2%, .2);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    transition: opacity .2s ease-in-out,visibility .2s ease-in-out;
-    z-index: 1;
+    transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+    z-index: 1
 }
 
 .cnblogs_code span {
-    font-family: "Source Code Pro",Consolas,Menlo,Monaco,"Courier New",monospace !important;
-    font-size: 14px !important;
-    font-weight: 400;
+    font-size: 14px !important
 }
 
 .cnblogs_code div {
-    background-color: transparent;
+    background-color: transparent
 }
 
 .cnblogs_code_collapse {
@@ -3851,18 +2768,18 @@ span.cnblogs_code {
     cursor: pointer;
     color: #d08770;
     top: 1px;
-    font-weight: bold;
+    font-weight: 700;
     position: relative;
-    font-family: Merriweather,"Open Sans","Microsoft Jhenghei","Microsoft Yahei",sans-serif!important;
-    display: inline;
+    font-family: Merriweather, "Open Sans", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif !important;
+    display: inline
+}
+
+#sideToolbar, .cnblogs_code_copy img, .list .out .icontd {
+    display: none
 }
 
 .cnblogs_code_toolbar {
-    height: 0;
-}
-
-.cnblogs_code_copy img {
-    display: none;
+    height: 0
 }
 
 .cnblogs_code_copy a {
@@ -3872,19 +2789,16 @@ span.cnblogs_code {
     margin: 0;
     width: 16px;
     height: 16px;
-    position: absolute;
-    /*right: 30px;*/
-    /*top: 8px;*/
-    /*opacity: 0.3;*/
+    position: absolute
 }
 
-.code_img_closed , .code_img_opened{
-    cursor: pointer;
+.code_img_closed, .code_img_opened {
+    cursor: pointer
 }
 
-.cnblogs_code_toolbar a:hover,.cnblogs_code_toolbar a:link,.cnblogs_code_toolbar a:visited,.cnblogs_code_toolbar a:active,.cnblogs_code_toolbar a:link img,.cnblogs_code_toolbar a:visited img {
-    background-color: transparent!important;
-    border: none!important;
+.cnblogs_code_toolbar a:active, .cnblogs_code_toolbar a:hover, .cnblogs_code_toolbar a:link, .cnblogs_code_toolbar a:link img, .cnblogs_code_toolbar a:visited, .cnblogs_code_toolbar a:visited img {
+    background-color: transparent !important;
+    border: none !important
 }
 
 .cnblogs-markdown code, .cnblogs-post-body code {
@@ -3893,38 +2807,38 @@ span.cnblogs_code {
     background-color: #f9f2f4 !important;
     border-radius: 3px !important;
     border: 0 !important;
-    text-indent: 0!important;
+    text-indent: 0 !important;
     position: relative;
-    bottom: 1px;
+    bottom: 1px
 }
 
 #cnblogs_post_body > pre .cnblogs_code_copy a {
-    right: 5px;
+    right: 5px
 }
 
 #cnblogs_post_body > pre {
-    margin: 10px 15px !important;
+    margin: 10px 15px !important
 }
 
 .my-line-numbers-rows {
     position: absolute;
     pointer-events: none;
     top: 10px;
-    left: 0px;
+    left: 0;
     width: 45px;
     letter-spacing: -1px;
     border-right: 1px solid #999;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none
 }
 
 .my-line-numbers-rows > span {
     color: #999;
     display: block;
     padding-right: .8em;
-    text-align: right;
+    text-align: right
 }
 
 #notHomeTopCanvas {
@@ -3935,63 +2849,70 @@ span.cnblogs_code {
     bottom: 0;
     left: 0;
     right: 0;
-    opacity: 0.5;
+    opacity: .5
 }
 
-/* ==========================================================================
-   播放器
-   ========================================================================== */
+#pageAnimationOffOn {
+    z-index: 999;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 14px;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+#pageAnimationOffOnIcon {
+    display: inline-block;
+}
+
 .aplayer-icon-lrc {
-    display: none !important;
+    display: none !important
 }
 
-body>meting-js, #aplayer {
-    -webkit-transform: translateZ(0);
+#aplayer, body > meting-js {
+    -webkit-transform: translateZ(0)
 }
 
-/* ==========================================================================
-   评论框
-   ========================================================================== */
 #tbCommentBody {
-    width: 100%;
     border-radius: 10px;
-    outline: none;
+    outline: 0;
     padding: 10px;
     height: 200px;
     position: relative;
-    background: #fff url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/comment_bg.webp) right -65px;
-    background-size: 250px;
-    background-repeat: no-repeat;
+    /*background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/comment_bg.webp) right -65px no-repeat #fff;*/
+    background-size: 250px
 }
 
 .commentbox_title {
     width: 100%;
+    border-bottom: 1px dashed #dedede;
 }
 
-#tbCommentAuthor{
+#tbCommentAuthor {
     border: 0;
-    background-color: #fff;
+    background-color: #fff
 }
 
-.comment-avatar{
+.comment-avatar {
     width: 48px;
     height: 48px;
     border: 1px solid #dcd6b3;
     padding: 3px;
     border-radius: 50%;
-    -webkit-transition: all 0.6s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -ms-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all .6s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out
 }
 
-.comment-avatar:hover{
+.comment-avatar:hover {
     -webkit-transform: rotateZ(360deg);
     -moz-transform: rotateZ(360deg);
     -ms-transform: rotateZ(360deg);
     -o-transform: rotateZ(360deg);
-    transform: rotateZ(360deg);
+    transform: rotateZ(360deg)
 }
 
 .blog_comment_body {
@@ -3999,19 +2920,19 @@ body>meting-js, #aplayer {
     width: 70%;
     margin-left: 15px;
     vertical-align: initial !important;
-    font-family: Lato,Helvetica,Arial,sans-serif;
+    font-family: Lato, Helvetica, Arial, sans-serif
 }
 
 .tbCommentBody_bg {
-    background: url('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/commentHintBg.webp') center center no-repeat;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/commentHintBg.webp) center center no-repeat
 }
 
 .commentbox_main {
-    padding-right: 30px;
+    padding-right: 30px
 }
 
 .conmts p {
-    margin: 0;
+    margin: 0
 }
 
 .commentlist .alt a.layer {
@@ -4022,64 +2943,154 @@ body>meting-js, #aplayer {
     top: 30px;
     background-image: none;
     font-style: italic;
-    font-weight: initial;
+    font-weight: initial
 }
 
-.list {width:100%; }
-.list .out,.list .inc{margin:6px 0;width:90%;}
-.list .out .icon,.list .inc .icon{width:48px;height:48px;}
-.list .icontd {width:48px;}
-.list .out .icontd{display:none;}
-.list .out .topleft,.list .out .topright,.list .out .bottomleft,.list .out .bottomright,.list .inc .topleft,.list .inc .topright,.list .inc .bottomleft,.list .inc .bottomright{background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_bubbles.webp) no-repeat;}
-.list .out .top,.list .out .bottom,.list .inc .top,.list .inc .bottom{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_horizontal.webp) repeat-x;}
-.list .out .left,.list .out .right,.list .inc .left,.list .inc .right{background:transparent url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_vertical.webp) repeat-y;}
+.list {
+    width: 100%
+}
 
-.list .out .topleft{background-position:left top;height:9px;width:18px;}
-.list .out .topright{background-position:-18px top;height:9px;width:11px;}
-.list .out .bottomleft{background-position:left -9px;width:18px;height:12px;}
-.list .out .bottomright{background-position:right -9px;width:11px;height:12px;}
-.list .out .top{background-position:top;font-size:1px;height:9px;}
-.list .out .bottom{background-position:0 -9px;height:12px;}
-.list .out .left{background-position:left;width:18px;}
-.list .out .right{background-position:-18px 0;width:11px;}
+.list .inc, .list .out {
+    margin: 6px 0;
+    width: 90%
+}
 
-.list .inc .topleft{background-position:0 -21px;height:9px;width:18px;}
-.list .inc .topright{background-position:-18px -21px;height:9px;width:11px;}
-.list .inc .bottomleft{background-position:0 bottom;width:18px;height:12px;}
-.list .inc .bottomright{background-position:right bottom;width:11px;height:12px;}
-.list .inc .top{background-position:0 -21px;font-size:1px;height:9px;}
-.list .inc .bottom{background-position:bottom;height:12px;}
-.list .inc .left{background-position:-29px 0;width:18px;}
-.list .inc .right{background-position:right;width:11px;}
+.list .inc .icon, .list .out .icon {
+    width: 48px;
+    height: 48px
+}
 
-.list .inc .conmts{font-size:12px;color:#000;}
-.list .out .conmts{background:#dcdcdc;/*text-shadow:0 1px 0 #eee;*/}
-.list .inc .conmts{background:#c0e668;/*text-shadow:0 1px 0 #dfa;*/}
-.list .out .conmts img{max-height:100px;}
+.list .icontd {
+    width: 48px
+}
+
+.list .inc .bottomleft, .list .inc .bottomright, .list .inc .topleft, .list .inc .topright, .list .out .bottomleft, .list .out .bottomright, .list .out .topleft, .list .out .topright {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_bubbles.webp) no-repeat
+}
+
+.list .inc .bottom, .list .inc .top, .list .out .bottom, .list .out .top {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_horizontal.webp) repeat-x
+}
+
+.list .inc .left, .list .inc .right, .list .out .left, .list .out .right {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_vertical.webp) repeat-y
+}
+
+.list .out .topleft {
+    background-position: left top;
+    height: 9px;
+    width: 18px
+}
+
+.list .out .topright {
+    background-position: -18px top;
+    height: 9px;
+    width: 11px
+}
+
+.list .out .bottomleft {
+    background-position: left -9px;
+    width: 18px;
+    height: 12px
+}
+
+.list .out .bottomright {
+    background-position: right -9px;
+    width: 11px;
+    height: 12px
+}
+
+.list .out .top {
+    background-position: top;
+    font-size: 1px;
+    height: 9px
+}
+
+.list .out .bottom {
+    background-position: 0 -9px;
+    height: 12px
+}
+
+.list .out .left {
+    background-position: left;
+    width: 18px
+}
+
+.list .out .right {
+    background-position: -18px 0;
+    width: 11px
+}
+
+.list .inc .topleft {
+    background-position: 0 -21px;
+    height: 9px;
+    width: 18px
+}
+
+.list .inc .topright {
+    background-position: -18px -21px;
+    height: 9px;
+    width: 11px
+}
+
+.list .inc .bottomleft {
+    background-position: 0 bottom;
+    width: 18px;
+    height: 12px
+}
+
+.list .inc .bottomright {
+    background-position: right bottom;
+    width: 11px;
+    height: 12px
+}
+
+.list .inc .top {
+    background-position: 0 -21px;
+    font-size: 1px;
+    height: 9px
+}
+
+.list .inc .bottom {
+    background-position: bottom;
+    height: 12px
+}
+
+.list .inc .left {
+    background-position: -29px 0;
+    width: 18px
+}
+
+.list .inc .right {
+    background-position: right;
+    width: 11px
+}
+
+.list .out .conmts {
+    background: #dcdcdc
+}
+
+.list .inc .conmts {
+    font-size: 12px;
+    color: #000;
+    background: #c0e668
+}
+
+.list .out .conmts img {
+    max-height: 100px
+}
 
 .toc {
-    margin-bottom: 30px;
+    margin-bottom: 30px
 }
 
-/* ==========================================================================
-   目录
-   ========================================================================== */
-#sideToolbar {
-    display: none;
-}
-
-/* ==========================================================================
-   文章信息
-   ========================================================================== */
 .article-info {
     color: #fff;
-    margin-top: 30px;
+    margin-top: 0
 }
 
 .article-info-text {
-    font-size: 18px;
-    font-family: 'Playball', cursive;
-    margin-bottom: 10px;
+    margin-bottom: 18px
 }
 
 .article-info-tag {
@@ -4100,45 +3111,36 @@ body>meting-js, #aplayer {
     color: #fff;
     width: fit-content;
     width: -webkit-fit-content;
-    width: -moz-fit-content;
+    width: -moz-fit-content
 }
 
 .article-tag-class-color {
-    background-color: #E8A258;
+    background-color: #E8A258
 }
 
 .article-tag-color {
-    background-color: #6fa3ef;
+    background-color: #6fa3ef
 }
 
-/* ==========================================================================
-   Loading
-   ========================================================================== */
-a[name=top], #loading{
-    background-color: rgb(240, 240, 240);
+#loading, a[name=top] {
+    background-color: #f0f0f0;
     z-index: 1099;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100vh
 }
 
-/* ==========================================================================
-   背景彩带
-   ========================================================================== */
 #evanyou {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -1
 }
 
-/* ==========================================================================
-   书单
-   ========================================================================== */
 .books-item .books-item-span {
     width: 98%;
     text-decoration: none;
@@ -4147,11 +3149,11 @@ a[name=top], #loading{
     align-self: flex-start;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    background: rgba(245,245,245,0.5);
+    background: rgba(245, 245, 245, .5);
     border-radius: 3px;
-    box-shadow: 3px 3px 3px 1px rgba(220,220,220,0.3);
+    box-shadow: 3px 3px 3px 1px rgba(220, 220, 220, .3);
     border: 0;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .books-item .books-item-span ._1P9uD {
@@ -4159,26 +3161,14 @@ a[name=top], #loading{
     z-index: 2;
     width: 24px;
     line-height: normal;
-    background-color: rgba(112,83,79,.9);
+    background-color: rgba(112, 83, 79, .9);
     text-align: center;
     padding: 3px 0;
-    border-radius: 6px 0 30px 0;
-}
-
-@media (max-width: 600px) {
-    .books-item .books-item-span ._1P9uD {
-        font-size:12px
-    }
-}
-
-@media (min-width: 600px) {
-    .books-item .books-item-span ._1P9uD {
-        font-size:13px
-    }
+    border-radius: 6px 0 30px
 }
 
 .books-item .books-item-span ._1P9uD._3D3vq {
-    background-color: rgba(206,155,78,.9)
+    background-color: rgba(206, 155, 78, .9)
 }
 
 .books-item .books-item-span ._1P9uD._3D3vq ._2aw_6 {
@@ -4192,20 +3182,6 @@ a[name=top], #loading{
     z-index: 1
 }
 
-@media (max-width: 600px) {
-    .books-item .books-item-span ._1P9uD ._2aw_6 {
-        left:-.02rem;
-        top: -.02rem
-    }
-}
-
-@media (min-width: 600px) {
-    .books-item .books-item-span ._1P9uD ._2aw_6 {
-        left:-2px;
-        top: -2px
-    }
-}
-
 .books-item .books-item-span ._28asT {
     position: relative;
     z-index: 1;
@@ -4214,17 +3190,35 @@ a[name=top], #loading{
 }
 
 @media (max-width: 600px) {
+    .books-item .books-item-span ._1P9uD {
+        font-size: 12px
+    }
+
+    .books-item .books-item-span ._1P9uD ._2aw_6 {
+        left: -.02rem;
+        top: -.02rem
+    }
+
     .books-item .books-item-span ._28asT {
-        width:100px;
+        width: 100px;
         height: 140px
     }
 }
 
 @media (min-width: 600px) {
+    .books-item .books-item-span ._1P9uD {
+        font-size: 13px
+    }
+
+    .books-item .books-item-span ._1P9uD ._2aw_6 {
+        left: -2px;
+        top: -2px
+    }
+
     .books-item .books-item-span ._28asT {
         width: 95px;
         height: 136px;
-        min-width: 95px;
+        min-width: 95px
     }
 }
 
@@ -4247,7 +3241,7 @@ a[name=top], #loading{
     align-items: flex-start;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    margin-top: 3px;
+    margin-top: 3px
 }
 
 .books-item .books-item-span ._2girK ._1P9dH {
@@ -4255,20 +3249,20 @@ a[name=top], #loading{
     font-weight: 600;
     margin-bottom: 3px;
     white-space: nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 
 .books-item .books-item-span ._2girK ._6Y7v3 {
     display: inline-block;
     width: 60px;
-    font-weight: 500;
+    font-weight: 500
 }
 
 @media (max-width: 600px) {
     .books-item .books-item-span ._2girK ._1P9dH {
-        font-size: 1.24rem;
-        line-height: 1.24rem;
+        font-size: 20px;
+        line-height: 29px;
         margin-bottom: 2px;
         width: 250px;
     }
@@ -4279,21 +3273,21 @@ a[name=top], #loading{
         font-size: 20px;
         line-height: 29px;
         margin-bottom: 3px;
-        width: 550px;
+        width: 550px
     }
 }
 
 .books-item .books-item-span ._2girK ._3Oa5I {
     color: #777;
     white-space: nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 
 @media (max-width: 600px) {
     .books-item .books-item-span ._2girK ._3Oa5I {
-        font-size: .8rem;
-        line-height: 1.16rem;
+        font-size: 14px;
+        line-height: 16px;
         width: 250px;
     }
 }
@@ -4302,15 +3296,12 @@ a[name=top], #loading{
     .books-item .books-item-span ._2girK ._3Oa5I {
         font-size: 14px;
         line-height: 20px;
-        width: 550px;
+        width: 550px
     }
 }
 
-/* ==========================================================================
-   分享关注按钮
-   ========================================================================== */
 #green_channel {
-    padding: 5px 0 15px 0;
+    padding: 5px 0 15px;
     margin-bottom: 10px;
     margin-top: 10px;
     border: 0;
@@ -4320,13 +3311,13 @@ a[name=top], #loading{
     width: 100% !important;
     text-align: center;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: middle
 }
 
-a#green_channel_digg, a#green_channel_follow, a#green_channel_favorite, a#green_channel_weibo, a#green_channel_wechat {
+a#green_channel_digg, a#green_channel_favorite, a#green_channel_follow, a#green_channel_wechat, a#green_channel_weibo, #btn_comment_submit {
     text-decoration: none;
     color: #fff;
-    margin: auto;
+    margin: 10px auto auto;
     width: 80px;
     height: 30px;
     display: inline-block;
@@ -4342,154 +3333,267 @@ a#green_channel_digg, a#green_channel_follow, a#green_channel_favorite, a#green_
     -ms-transition: all .4s;
     -o-transition: all .4s;
     position: relative;
-    background-image: none;
-    margin-top: 10px;
+    background-image: none
 }
 
-a#green_channel_digg:hover, a#green_channel_follow:hover, a#green_channel_favorite:hover, a#green_channel_weibo:hover, a#green_channel_wechat:hover {
-    /*box-shadow: 0px 22px 19px -8px rgba(95,193,206, 0.50);*/
-    transform: scale(1.02,1.02);
+a#green_channel_digg:hover, a#green_channel_favorite:hover, a#green_channel_follow:hover, a#green_channel_wechat:hover, a#green_channel_weibo:hover {
+    transform: scale(1.02, 1.02)
 }
 
-a#green_channel_digg:active, a#green_channel_follow:active, a#green_channel_favorite:active, a#green_channel_weibo:active, a#green_channel_wechat:active {
-    /*box-shadow: 0px 12px 18px -4px rgba(95,193,206, 0.90);*/
-    transform: scale(0.95,0.95);
-    transition: all 0.4s -0.125s;
+a#green_channel_digg:active, a#green_channel_favorite:active, a#green_channel_follow:active, a#green_channel_wechat:active, a#green_channel_weibo:active {
+    transform: scale(.95, .95);
+    transition: all .4s -125ms
 }
 
 a#green_channel_digg {
-    background-color: #2daebf;
-    box-shadow: 0px 15px 18px -6px rgba(95,193,206, 0.65);
+    background-color: #5c8ec6;
+    box-shadow: 0 15px 18px -6px rgba(95, 193, 206, .65)
 }
 
 a#green_channel_follow {
     background-color: #e33100 !important;
-    box-shadow: 0px 15px 18px -6px rgba(227,49,0, 0.65);
-    margin-left: 10px;
+    box-shadow: 0 15px 18px -6px rgba(227, 49, 0, .65);
+    margin-left: 10px
 }
 
 a#green_channel_favorite {
     background-color: #ffb515;
-    box-shadow: 0px 15px 18px -6px rgba(255,198,75, 0.65);
-    margin-left: 10px;
+    box-shadow: 0 15px 18px -6px rgba(255, 198, 75, .65);
+    margin-left: 10px
 }
 
 a#green_channel_weibo {
-    background-color: #ff464b!important;
-    box-shadow: 0 15px 18px -6px rgba(255,70,75,0.65)!important;
+    background-color: #ff464b !important;
+    box-shadow: 0 15px 18px -6px rgba(255, 70, 75, .65) !important;
     margin-left: 10px;
-    width: 45px;
+    width: 45px
 }
 
-
 a#green_channel_wechat {
-    background-color: #3cb034!important;
-    box-shadow: 0 15px 18px -6px rgba(60,176,52,0.65)!important;
+    background-color: #3cb034 !important;
+    box-shadow: 0 15px 18px -6px rgba(60, 176, 52, .65) !important;
     margin-left: 10px;
-    width: 45px;
+    width: 45px
 }
 
 #author_profile_info img.author_avatar {
     border-radius: 100%;
-    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.4);
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, .3), 0 1px 3px rgba(0, 0, 0, .4);
     border: 3px solid #f7f7f7;
     padding: 0;
     margin-left: 3px;
-    margin-right: 7px;
+    margin-right: 7px
 }
 
 div#green_channel img {
     height: 20px;
-    width: 20px;
-}
-
-
-/* ==========================================================================
-   页脚
-   ========================================================================== */
-#footerTextIcon {
-    display: inline-block;
-    /*animation: beating 1s infinite;*/
-    /*animation-timing-function: ease-out;*/
-    margin: 0 3px;
+    width: 20px
 }
 
 @keyframes beating {
-    0% {
-        transform: scale(1);
+    0%, 100%, 30%, 70% {
+        transform: scale(1)
     }
-
-    20% {
-        transform: scale(1.6);
-    }
-
-    30% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.6);
-    }
-
-    70% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(1);
+    20%, 50% {
+        transform: scale(1.6)
     }
 }
 
-/* ==========================================================================
-   文章后缀
-   ========================================================================== */
 .essaySuffix-eof {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 16px;
     text-align: center;
     color: #ddd;
-    text-indent: 0;
+    text-indent: 0
 }
 
 .essaySuffix-box {
     font-family: Microsoft YaHei, 微软雅黑, MicrosoftJhengHei, 华文细黑, STHeiti, MingLiu;
     font-size: 14px;
-    background: hsl(220, 23%, 98%) !important;
+    background: #f8f9fb !important;
     padding: 17px;
-    border: 1px solid hsl(220, 16%, 94%) !important;
+    border: 1px solid #edeef2 !important;
     border-radius: 3px;
     color: #414857;
-    text-indent: 0;
+    text-indent: 0
 }
 
 .essaySuffix-box-left {
     width: 15%;
-    float: left;
+    float: left
 }
 
 .essaySuffix-box-left img {
     width: 80%;
     max-height: 80%;
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 5px
 }
 
 .essaySuffix-box-right {
     width: 85%;
-    float: right;
+    float: right
 }
 
 .essaySuffix-right-title {
-    font-weight: bold;
-    white-space: nowrap;
+    font-weight: 700;
+    white-space: nowrap
 }
 
-/* ==========================================================================
-   Media Queries - Smaller than 1200px
-   ========================================================================== */
+.footer-t1 {
+    min-height: 130px !important;
+    margin: 250px 0 0 0 !important;
+    _height: 15px !important;
+    background: #232323;
+}
+
+.footer-image {
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/footer.webp) no-repeat 50%;
+    height: 368px;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    top: -293px;
+    pointer-events: none;
+}
+
+#footer .footer-box {
+    width: 70%;
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#footer .footer-text {
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #333;
+    font-family: 'Long Cang', cursive;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+#footer .footer-text .footer-text-icon {
+    display: inline-block;
+    margin: 0 0 0 7px;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    animation: iconAnimate 1.33s ease-in-out infinite;
+}
+
+footer footer-background {
+    bottom: 7.25rem;
+    left: 0;
+    height: 18rem;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    transform: translate3d(0, 0, 0)
+}
+
+footer footer-background figure {
+    bottom: 0;
+    left: 0;
+    height: 15rem;
+    margin: 0;
+    position: absolute;
+    width: 100%
+}
+
+footer footer-background .foreground {
+    background-repeat: repeat-x !important;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/foreground.webp) repeat-x;
+    background-size: 225em 15em;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+footer footer-background .background {
+    background-repeat: repeat-x !important;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/background.webp) repeat-x;
+    background-size: 225em 21.313em;
+    position: absolute;
+    top: -1em;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+footer footer-background .clouds {
+    background-repeat: repeat-x !important;
+    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/clouds.webp) repeat-x;
+    background-size: 225em 15em;
+    position: absolute;
+    top: -2em;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+table#blogCalendar>tbody>tr>td>a {
+    color: #bbb;
+}
+
+@-moz-keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
+}
+
+@-webkit-keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
+}
+
+@-o-keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
+}
+
+@keyframes iconAnimate {
+    0%,100% {
+        transform: scale(1)
+    }
+
+    10%,30% {
+        transform: scale(.9)
+    }
+
+    20%,40%,50%,60%,70%,80% {
+        transform: scale(1.1)
+    }
+}
 
 @media only screen and (max-width: 1200px) {
-
     .main-header {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -4497,151 +3601,179 @@ div#green_channel img {
         min-height: 240px;
         height: 60vh;
         max-height: 60vh;
-        padding: 15% 0;
+        padding: 15% 0
     }
 
     #home {
-        width:85%;
-        max-width:100vw;
+        width: 85%;
+        max-width: 100vw
     }
 
-    .postTitle a:link, .entrylistPosttitle a:link{
-        font-size: 2.8rem;
+    .entrylistPosttitle a:link, .postTitle a:link {
+        font-size: 2.8rem
     }
 
-    .postDesc, .entrylistItemPostDesc {
-        font-size: 1.3rem;
+    .entrylistItemPostDesc, .postDesc {
+        font-size: 1.3rem
     }
 
-    .page-title, .entrylistPosttitle {
+    .entrylistPosttitle, .page-title {
         font-size: 4rem;
-        letter-spacing: -1px;
+        letter-spacing: -1px
     }
 
     .sb-title {
-        font-size: 3.5rem;
-        letter-spacing: -1px;
+        font-size: 3.3rem;
+        letter-spacing: -1px
+    }
+
+    p.article-info-text > .postMeta, p.article-info-text > .postMeta i {
+        font-size: 15px;
     }
 
     .page-description {
-        font-size: 1.8rem;
-        line-height: 1.5em;
-        -webkit-line-clamp: 4;
+        font-size: 2rem;
+        line-height: 2rem;
+        -webkit-line-clamp: 4
     }
 
     .page-author {
-        font-size: 1.2rem !important;
-        line-height: 1.3em;
+        font-size: 1.3rem !important;
+        line-height: 1.3em
     }
 
-    #sideToolbar, #music-box, .scroll-down, #evanyou, body>meting-js, #aplayer, #homeTopCanvas, #notHomeTopCanvas {
-        display: none !important;
+    #aplayer, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #sideToolbar, .scroll-down, body > meting-js {
+        display: none !important
+    }
+
+    .c_b_p_desc_readmore {
+        font-size: 14px;
+        width: 75px;
     }
 }
 
-/* ==========================================================================
-   Media Queries - Smaller than 960px
-   ========================================================================== */
 @media only screen and (max-width: 960px) {
     .main-header {
-        -webkit-box-sizing:border-box;
+        -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         min-height: 240px;
         height: 50vh;
         max-height: 50vh;
-        padding: 15% 0;
+        padding: 15% 0
     }
+
     #home {
-        width:auto;
+        width: auto
     }
 
     #pageAnimationOffOn {
-        display: none;
+        display: none
     }
 
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left {
-        display: none !important;
+    #bgCanvas, #homeTopCanvas, #notHomeTopCanvas, .essaySuffix-box-left {
+        display: none !important
     }
 
     .essaySuffix-box-right {
-        width: 100%;
+        width: 100%
     }
 }
 
-/* ==========================================================================
-   Media Queries - Smaller than 720px
-   ========================================================================== */
-
 @media only screen and (max-width: 720px) {
-
-    #cnblogs_post_body>p {
-        padding: 0 10px;
+    #cnblogs_post_body > p {
+        padding: 0 10px
     }
 
     .post pre {
-        margin: 5px 5px;
+        margin: 5px
     }
 
     .main-header {
         margin-bottom: 15px;
         height: 40vh;
-        max-height: 40vh;
+        max-height: 40vh
     }
 
     #home {
         padding-left: 10px;
         padding-right: 10px;
+        box-shadow: unset;
     }
 
-    .postTitle a:link, .entrylistPosttitle a:link{
-        font-size: 2.3rem;
+    .entrylistPosttitle a:link, .postTitle a:link {
+        font-size: 2.3rem
     }
 
-    .postCon, .entrylistPostSummary {
-        font-size: 12px;
-    }
-
-    .postDesc, .entrylistItemPostDesc {
-        font-size: 12px;
+    .entrylistItemPostDesc, .entrylistPostSummary, .postCon, .postDesc {
+        font-size: 12px
     }
 
     .menu-button {
         border: none !important;
-        margin: 0 !important;
+        margin: 0 !important
     }
 
-    .inner{
+    .inner {
         width: auto;
-        margin: 2rem auto;
+        margin: 2rem auto
     }
 
-    .page-title, .sb-title, .entrylistPosttitle {
-        font-size: 3rem;
+    .entrylistPosttitle, .page-title, .sb-title {
+        font-size: 2.6rem
     }
 
     .page-description {
         font-size: 1.6rem;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 2
     }
 
     .page-author {
-        font-size: 1rem !important;
+        font-size: 1rem !important
     }
 
     .menu-button-scroll {
-        background: rgb(34, 34, 34) !important;
+        background: #222 !important;
         left: -8px !important;
-        width: 31px !important;
+        width: 31px !important
     }
 
-    #pageAnimationOffOn, #sideToolbar, #music-box, .scroll-down, #evanyou, #canvas, body>meting-js, #aplayer,
-    #homeTopCanvas, #notHomeTopCanvas, #bgCanvas, .essaySuffix-box-left
-    {
-        display: none !important;
+    #aplayer, #bgCanvas, #canvas, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #pageAnimationOffOn, #sideToolbar, .essaySuffix-box-left, .scroll-down, body > meting-js {
+        display: none !important
     }
 
     .essaySuffix-box-right {
-        width: 100%;
+        width: 100%
+    }
+
+    .postMeta {
+        font-size: 12px;
+    }
+
+    .postMeta > i {
+        font-size: 13px;
+    }
+
+    p.article-info-text > .postMeta, p.article-info-text > .postMeta i {
+        font-size: 13px;
+    }
+
+    .article-info-tag {
+        padding: 0 3px;
+    }
+
+    .c_b_p_desc_readmore {
+        font-size: 13px;
+        width: 68px;
+        border-bottom: 1px solid #666;
+    }
+
+    .postSticky {
+        font-size: 12px;
+        top: -4px;
+    }
+
+    #footer .footer-box {
+        width: 95%;
     }
 }
