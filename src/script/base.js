@@ -96,7 +96,7 @@ function Base() {
         $('#menuWrap').optiscroll({ forceScrollbars: true, maxTrackSize: 20, preventParentScroll: true });
 
         // 设置菜单个人简介头像
-        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/default_avatar.webp';
+        var blogAvatar = window.cnblogsConfig.blogAvatar ? window.cnblogsConfig.blogAvatar : 'https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/default_avatar.webp';
         $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
 
         // html5-title
@@ -1350,7 +1350,7 @@ function Base() {
                         var patch = op.text();
                         html += '<img class="comment-avatar" src="'+patch+'"/>';
                     } else {
-                        html += '<img class="comment-avatar" src="https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/default_avatar.webp"/>';
+                        html += '<img class="comment-avatar" src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/default_avatar.webp"/>';
                     }
                     $(commentList[i]).before(html);
                 }

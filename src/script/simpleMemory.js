@@ -174,12 +174,12 @@ if (initCheck()) {
             animateSections: true
         },
         homeTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+            "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
         ],
         homeBannerText: "",
         homeBannerTextType: "jinrishici",
         essayTopImg: [
-            "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+            "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
@@ -200,6 +200,7 @@ if (initCheck()) {
         consoleList: [],
         bookList: [],
         themeAuthor: false,
+        isVersionMapping: false,
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
@@ -230,13 +231,8 @@ function initCheck() {
 function getVersionConfig() {
 
     window.cnblogsConfig.CnVersions = window.cnblogsConfig.GhVersions;
-    if (window.cnblogsConfig.GhUserName === 'BNDong') {
 
-        $.getScript('https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/version.js', function () {
-            setConfVersion();
-        });
-
-    } else {
+    if (window.cnblogsConfig.isVersionMapping) {
         var url = 'https://raw.githubusercontent.com/' + window.cnblogsConfig.GhUserName + '/' + window.cnblogsConfig.GhRepositories + '/master/version.conf';
 
         $.ajax({
@@ -250,6 +246,42 @@ function getVersionConfig() {
                 window.themeVersion && setConfVersion();
             }
         });
+
+    } else if(window.cnblogsConfig.GhUserName === 'BNDong') {
+        window.themeVersion = [
+            [
+                "v1.1.6",
+                "d8adfb50252062f658350bda29d7145f5eff0b80"
+            ]
+            ,
+            [
+                "v1.1.8",
+                "461aab69de17a84f0af9ff0c326bfcb94438b06c"
+            ]
+            ,
+            [
+                "v1.2.2",
+                "08eab99303d7c463a495adabd8feccc784a8507d"
+            ]
+            ,
+            [
+                "v1.2.3",
+                "36901bf16e2aa3656d4e6f78d44486273b0b8972"
+            ]
+            ,
+            [
+                "v1.2.4",
+                "9354db2147c11fc56cfe02a502f1f8229332fc2f"
+            ]
+            ,
+            [
+                "v1.2.5",
+                "4d744f980758500078df349520472e3b360fb841"
+            ]
+        ];
+        setConfVersion();
+    } else {
+        init();
     }
 
     function setConfVersion() {

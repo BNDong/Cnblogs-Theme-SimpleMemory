@@ -193,7 +193,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    webpageIcon: "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/blog_logo.webp",
+    webpageIcon: "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/blog_logo.webp",
 }
 ```
 
@@ -499,7 +499,7 @@ window.cnblogsConfig = {
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
 ]
 ```
 
@@ -508,8 +508,8 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     homeTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
     ],
 }
 ```
@@ -556,7 +556,7 @@ one：每日获取一句话
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
 ]
 ```
 
@@ -565,8 +565,8 @@ one：每日获取一句话
 ```javascript
 window.cnblogsConfig = {
     essayTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
     ],
 }
 ```

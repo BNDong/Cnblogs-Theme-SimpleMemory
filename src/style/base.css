@@ -2200,7 +2200,7 @@ p.article-info-text > .postMeta i {
     transition-delay: .4s;
     outline: 0;
     cursor: pointer;
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/me_top_bg.webp) center no-repeat #000;
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/me_top_bg.webp) center no-repeat #000;
     background-size: 100%
 }
 
@@ -2313,7 +2313,7 @@ blockquote p {
     height: 16px;
     display: inline-block;
     transition: all .3s;
-    background-image: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/title_icon.webp);
+    background-image: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/title_icon.webp);
     background-repeat: no-repeat;
     background-position: 0 6px
 }
@@ -2880,7 +2880,7 @@ span.cnblogs_code {
     padding: 10px;
     height: 200px;
     position: relative;
-    /*background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/comment_bg.webp) right -65px no-repeat #fff;*/
+    /*background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/comment_bg.webp) right -65px no-repeat #fff;*/
     background-size: 250px
 }
 
@@ -2924,7 +2924,7 @@ span.cnblogs_code {
 }
 
 .tbCommentBody_bg {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/commentHintBg.webp) center center no-repeat
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/commentHintBg.webp) center center no-repeat
 }
 
 .commentbox_main {
@@ -2965,15 +2965,15 @@ span.cnblogs_code {
 }
 
 .list .inc .bottomleft, .list .inc .bottomright, .list .inc .topleft, .list .inc .topright, .list .out .bottomleft, .list .out .bottomright, .list .out .topleft, .list .out .topright {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_bubbles.webp) no-repeat
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/t_o_bubbles.webp) no-repeat
 }
 
 .list .inc .bottom, .list .inc .top, .list .out .bottom, .list .out .top {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_horizontal.webp) repeat-x
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/t_o_horizontal.webp) repeat-x
 }
 
 .list .inc .left, .list .inc .right, .list .out .left, .list .out .right {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/t_o_vertical.webp) repeat-y
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/t_o_vertical.webp) repeat-y
 }
 
 .list .out .topleft {
@@ -3448,7 +3448,7 @@ div#green_channel img {
 }
 
 .footer-image {
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/footer.webp) no-repeat 50%;
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/footer.webp) no-repeat 50%;
     height: 368px;
     z-index: 1;
     position: absolute;
@@ -3502,7 +3502,7 @@ footer footer-background figure {
 
 footer footer-background .foreground {
     background-repeat: repeat-x !important;
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/foreground.webp) repeat-x;
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/foreground.webp) repeat-x;
     background-size: 225em 15em;
     position: absolute;
     top: 1rem;
@@ -3513,7 +3513,7 @@ footer footer-background .foreground {
 
 footer footer-background .background {
     background-repeat: repeat-x !important;
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/background.webp) repeat-x;
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/background.webp) repeat-x;
     background-size: 225em 21.313em;
     position: absolute;
     top: -1em;
@@ -3524,7 +3524,7 @@ footer footer-background .background {
 
 footer footer-background .clouds {
     background-repeat: repeat-x !important;
-    background: url(https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/clouds.webp) repeat-x;
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/clouds.webp) repeat-x;
     background-size: 225em 15em;
     position: absolute;
     top: -2em;
