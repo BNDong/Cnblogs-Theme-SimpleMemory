@@ -209,7 +209,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    fontIconExtend: "//at.alicdn.com/t/font_543384_ezv3l7gd9r7.css",
+    fontIconExtend: "//at.alicdn.com/t/font_xxxxxxxxxx.css",
 }
 ```
 
@@ -798,5 +798,23 @@ window.cnblogsConfig = {
          ['BNDong GitHub', 'https://github.com/BNDong'],
          ['BNDong Email', 'dbuo@foxmail.com'],
     ],
+}
+```
+
+## 版本映射
+
+### isVersionMapping
+
+?> 版本 >= v1.2.6
+
+* 类型：```Boolean```
+* 相关文档：[版本映射](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/versionMapping)
+* 默认值：```"false"```
+
+是否开启版本映射，默认关闭。
+
+```javascript
+window.cnblogsConfig = {
+    isVersionMapping: true,
 }
 ```
