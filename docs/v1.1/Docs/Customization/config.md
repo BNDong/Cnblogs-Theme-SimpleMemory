@@ -193,7 +193,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    webpageIcon: "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/blog_logo.webp",
+    webpageIcon: "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/blog_logo.webp",
 }
 ```
 
@@ -209,7 +209,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    fontIconExtend: "//at.alicdn.com/t/font_543384_ezv3l7gd9r7.css",
+    fontIconExtend: "//at.alicdn.com/t/font_xxxxxxxxxx.css",
 }
 ```
 
@@ -499,7 +499,7 @@ window.cnblogsConfig = {
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
 ]
 ```
 
@@ -508,8 +508,8 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     homeTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/home_top_bg.webp"
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
     ],
 }
 ```
@@ -556,7 +556,7 @@ one：每日获取一句话
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
 ]
 ```
 
@@ -565,8 +565,8 @@ one：每日获取一句话
 ```javascript
 window.cnblogsConfig = {
     essayTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/webp/nothome_top_bg.webp"
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
     ],
 }
 ```
@@ -798,5 +798,23 @@ window.cnblogsConfig = {
          ['BNDong GitHub', 'https://github.com/BNDong'],
          ['BNDong Email', 'dbuo@foxmail.com'],
     ],
+}
+```
+
+## 版本映射
+
+### isVersionMapping
+
+?> 版本 >= v1.2.6
+
+* 类型：```Boolean```
+* 相关文档：[版本映射](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/versionMapping)
+* 默认值：```"false"```
+
+是否开启版本映射，默认关闭。
+
+```javascript
+window.cnblogsConfig = {
+    isVersionMapping: true,
 }
 ```
