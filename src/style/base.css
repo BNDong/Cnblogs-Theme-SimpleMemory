@@ -2585,7 +2585,7 @@ blockquote p {
 .dev__slash {
     font-weight: 300;
     position: absolute;
-    z-index: 5;
+    z-index: 1;
     -webkit-transform: rotateZ(22deg);
     transform: rotateZ(22deg)
 }
