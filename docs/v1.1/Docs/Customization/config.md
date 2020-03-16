@@ -595,6 +595,32 @@ window.cnblogsConfig = {
 }
 ```
 
+### reward - 打赏
+
+?> 版本 >= v1.2.7
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: false, // 是否开启打赏功能
+    wechatpay: '', // 微信支付二维码图片URL
+    alipay: '' // 支付宝支付二维码图片URL
+}
+```
+
+文章打赏按钮，显示在页面右下角。
+
+```javascript
+window.cnblogsConfig = {
+    reward: {
+        enable: true,
+        wechatpay: '//xxxx.png',
+    },
+}
+```
+
 ## 代码相关配置
 
 ### codeMaxHeight - 限制代码框高度

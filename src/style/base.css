@@ -269,12 +269,12 @@ b {
     width: 100%
 }
 
-.day:not(:nth-child(12)), .entrylistItem:not(:last-of-type) {
+.day, .entrylistItem:not(:last-of-type) {
     min-height: 10px;
     border-bottom: #e9e9e9 1px solid
 }
 
-.day:not(:nth-child(12)):after, .entrylistItem:not(:last-of-type):after {
+.day:after, .entrylistItem:not(:last-of-type):after {
     content: "";
     width: 7px;
     height: 7px;
@@ -308,7 +308,7 @@ b {
     position: absolute
 }
 
-.day:not(:nth-child(12)):after {
+.day:after {
     display: block;
     border: 1px solid #e9e9e9;
     margin-left: -5px;
@@ -1914,7 +1914,7 @@ p.article-info-text > .postMeta i {
 }
 
 .postBody p, .postCon p {
-    text-indent: 2em;
+    /*text-indent: 2em;*/
     margin: 0 auto 1em
 }
 
@@ -1967,7 +1967,8 @@ p.article-info-text > .postMeta i {
 }
 
 #cnblogs_post_body img {
-    max-width: 700px
+    max-width: 700px;
+    margin: 3px 0;
 }
 
 .main-header {
@@ -1981,7 +1982,7 @@ p.article-info-text > .postMeta i {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 998;
+    z-index: 1;
     box-shadow: 0 1px 2px rgba(150, 150, 150, .7)
 }
 
@@ -2351,18 +2352,20 @@ blockquote p {
 #rightMenu {
     position: fixed;
     bottom: 10px;
-    right: 10px;
+    right: 5px;
     min-width: 24px;
-    z-index: 1
+    z-index: 2;
+    width: 40px;
+    text-align: center;
 }
 
 #rightMenu i {
     font-weight: 700;
-    text-shadow: 1px 1px 1px #eee;
-    font-size: 24px !important
+    text-shadow: 1px 1px 1px #fff;
+    font-size: 24px
 }
 
-#attention, #rightBuryit, #rightDiggit, #toUpDown {
+#attention, #rightBuryit, #rightDiggit, #rightDashang, #toUpDown {
     cursor: pointer;
     color: #555;
     opacity: .5;
@@ -2373,18 +2376,23 @@ blockquote p {
 }
 
 #attention {
-    bottom: 5px
+    bottom: 3px
 }
 
 #rightBuryit {
-    bottom: 8px
+    bottom: 5px
 }
 
-#rightDiggit {
-    bottom: 15px
+#rightDiggit, #rightDashang {
+    bottom: 11px
 }
 
-#attention:hover, #rightBuryit:hover, #rightDiggit:hover, #toUpDown:hover {
+#rightDashang i {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+#attention:hover, #rightBuryit:hover, #rightDiggit:hover, #rightDashang:hover, #toUpDown:hover {
     opacity: 1;
     filter: Alpha(opacity=100)
 }
@@ -2397,6 +2405,54 @@ blockquote p {
     width: 140px;
     text-align: right;
     display: none
+}
+
+.rightDanshanSpan {
+    bottom: -120px;
+}
+
+.ds-pay {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.ds-alipay, .ds-wecat {
+    cursor: pointer;
+    text-align: center;
+    width: 140px;
+    height: 140px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 7px;
+    border-radius: 0 6px 6px 6px;
+    transition: all 1s ease-in-out 0s;
+    margin: 3px 0;
+    position: relative;
+    padding: 5px;
+    background: #fff;
+}
+
+.ds-alipay img, .ds-wecat img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+.ds-alipay span, .ds-wecat span {
+    position: absolute;
+    font-family: 'Ubuntu Mono',monospace;
+    left: -30px;
+    top: 14px;
+    background: #fff;
+    color: #777;
+    padding: 3px 6px 6px 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
+    border-radius: 0 0 6px 6px;
+    font-size: .85em;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
 }
 
 #cnblogs_post_body table td, #cnblogs_post_body table th {
@@ -2471,7 +2527,11 @@ blockquote p {
 
 #cnblogs_post_body > p {
     margin: 10px auto;
-    padding: 0 20px
+    padding: 0 20px;
+    line-height: 1.8em;
+    font-family: "Microsoft YaHei",Lato,"PingFang SC",sans-serif;
+    font-size: 16px;
+    letter-spacing: .015em;
 }
 
 #cnblogs_post_body ul li {
@@ -2690,7 +2750,6 @@ span.cnblogs_code {
     position: relative;
     overflow: hidden;
     border: 0;
-    z-index: 10
 }
 
 .post pre {
@@ -3642,7 +3701,7 @@ table#blogCalendar>tbody>tr>td>a {
         line-height: 1.3em
     }
 
-    #aplayer, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #sideToolbar, .scroll-down, body > meting-js {
+    #aplayer, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, .scroll-down, body > meting-js {
         display: none !important
     }
 
@@ -3696,8 +3755,8 @@ table#blogCalendar>tbody>tr>td>a {
     }
 
     #home {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
         box-shadow: unset;
     }
 
@@ -3719,8 +3778,12 @@ table#blogCalendar>tbody>tr>td>a {
         margin: 2rem auto
     }
 
-    .entrylistPosttitle, .page-title, .sb-title {
+    .entrylistPosttitle, .page-title {
         font-size: 2.6rem
+    }
+
+    .sb-title {
+        font-size: 2.4rem
     }
 
     .page-description {
@@ -3738,7 +3801,7 @@ table#blogCalendar>tbody>tr>td>a {
         width: 31px !important
     }
 
-    #aplayer, #bgCanvas, #canvas, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #pageAnimationOffOn, #sideToolbar, .essaySuffix-box-left, .scroll-down, body > meting-js {
+    #aplayer, #bgCanvas, #canvas, #evanyou, #homeTopCanvas, #music-box, #notHomeTopCanvas, #pageAnimationOffOn, .essaySuffix-box-left, .scroll-down, body > meting-js {
         display: none !important
     }
 

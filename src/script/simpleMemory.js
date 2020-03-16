@@ -201,6 +201,11 @@ if (initCheck()) {
         bookList: [],
         themeAuthor: false,
         isVersionMapping: false,
+        reward: {
+            enable: false,
+            wechatpay: '',
+            alipay: ''
+        },
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );

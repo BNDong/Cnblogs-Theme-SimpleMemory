@@ -2,7 +2,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 998
+    z-index: 1
 }
 
 .sideToolbarFix {
@@ -19,7 +19,7 @@
 }
 
 #sideCatalog {
-    position: absolute;
+    position: relative;
     box-shadow: 0 0 20px 10px rgba(220, 220, 220, .3);
 }
 
@@ -60,7 +60,7 @@
 }
 
 #sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-bottom, #sideCatalog #sideCatalog-sidebar .sideCatalog-sidebar-top {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/sideToolbar.webp) 0 -199px no-repeat;
+    /*background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/sideToolbar.webp) 0 -199px no-repeat;*/
     height: 10px;
     left: -5px;
     overflow: hidden;
@@ -134,7 +134,7 @@
 }
 
 .sideCatalog-dot {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/sideToolbar.webp) 0 -222px;
+    /*background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/sideToolbar.webp) 0 -222px;*/
     cursor: pointer;
     font-size: 12px;
     height: 10px;
@@ -146,9 +146,9 @@
     width: 6px
 }
 
-#sideCatalog .highlight .sideCatalog-dot, #sideCatalogBtn, #sideCatalogBtn:hover {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/list.webp) 4px 6px no-repeat
-}
+/*#sideCatalog .highlight .sideCatalog-dot, #sideCatalogBtn, #sideCatalogBtn:hover {*/
+    /*background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/list.webp) 4px 6px no-repeat*/
+/*}*/
 
 #sideCatalog .highlight .sideCatalog-dot {
     height: 13px;
@@ -173,13 +173,13 @@
     bottom: 96px
 }
 
-.sideCatalogBtnDisable {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/list.webp) 4px 6px no-repeat !important
-}
+/*.sideCatalogBtnDisable {*/
+    /*background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/list.webp) 4px 6px no-repeat !important*/
+/*}*/
 
-#sideToolbar-up, #sideToolbar-up:hover {
-    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/list.webp) 4px 6px no-repeat
-}
+/*#sideToolbar-up, #sideToolbar-up:hover {*/
+    /*background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/list.webp) 4px 6px no-repeat*/
+/*}*/
 
 #sideToolbar-up {
     border-radius: 2px;
@@ -188,4 +188,25 @@
 
 #sideCatalog-sidebar, #sideCatalogBtn {
     display: none
+}
+
+.catalog-btn {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    z-index: 2;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.catalog-btn:hover {
+    opacity: 1;
+}
+
+.catalog-btn i {
+    font-size: 30px;
+    font-weight: 400;
+    color: #555;
+    text-shadow: 1px 1px 1px #fff;
 }
