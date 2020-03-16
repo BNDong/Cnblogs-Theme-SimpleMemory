@@ -2320,7 +2320,7 @@ blockquote p {
 }
 
 #cnblogs_post_body ul {
-    margin-left: 30px;
+    margin-left: 20px;
     margin-top: 5px;
     padding-left: 0
 }
@@ -2559,7 +2559,7 @@ blockquote p {
     font-weight: 300 !important;
     position: absolute;
     transition-delay: .5s;
-    z-index: 2;
+    z-index: 1;
     margin: 0 !important;
     color: #222 !important
 }
@@ -2662,10 +2662,13 @@ blockquote p {
 
 .dev__developer {
     position: absolute;
+    width: 75vw;
+    font-weight: 700;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 75vw;
-    font-weight: 700
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .cnblogs_code, .cnblogs_code span, .post pre {
