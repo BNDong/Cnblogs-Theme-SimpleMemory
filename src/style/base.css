@@ -2779,6 +2779,9 @@ code-box {
     word-break: break-all;
     word-wrap: break-word;
     counter-reset: itemcounter;
+}
+
+.postBody pre:not(.hljs) {
     color: #000;
 }
 
