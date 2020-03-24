@@ -8,6 +8,7 @@ function Base() {
 
     const bndongJs     = this,
           tools        = new myTools,
+          isHome       = !!$('#topics').length;
           postMetaRex  = /.*posted\s*@\s*([0-9\-:\s]{16}).*阅读\s*\(([0-9]*)\).*评论\s*\(([0-9]*)\).*/,
           postMetaRex2 = /.*posted\s*@\s*([0-9\-:\s]{16}).*/,
           progressBar  = new ToProgress(window.cnblogsConfig.progressBar, '#bottomProgressBar'); // 进度条
@@ -63,13 +64,16 @@ function Base() {
         if (window.cnblogsConfig.fontIconExtend !== '') tools.dynamicLoadingCss(window.cnblogsConfig.fontIconExtend);
 
         // 页面初始化
-        ($('#topics').length > 0) ? bndongJs.notHomeInit() : bndongJs.homeInit();
+        isHome ? bndongJs.notHomeInit() : bndongJs.homeInit();
     };
 
     /**
      * Loading后初始化
      */
     this.loadingAfterInit = function () {
+
+        // 页面初始化
+        isHome ? bndongJs.notHomeInitAfter() : bndongJs.homeInitAfter();
 
         // 添加页脚
         bndongJs.addFooter();
@@ -126,7 +130,10 @@ function Base() {
         $('.m-list-title-select').click(function(){ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
 
         // 添加页面特效控制
-        bndongJs.setPageAnimationControl();
+        // bndongJs.setPageAnimationControl();
+
+        // 添加日/夜间模式控制
+        window.cnblogsConfig.switchDayNight.enable && bndongJs.setDayNightControl();
 
         // 控制台输出
         tools.consoleText(window.cnblogsConfig.consoleList, 'banner');
@@ -226,11 +233,11 @@ function Base() {
         // 设置目录插件左右位置
         if (sideToolbar.length > 0) {
             var mainContentWidth = $('#mainContent').outerWidth(true),
-                listWidth        = $('#sideCatalog').outerWidth(true);
+                sideCatalogBg    = $('#sideCatalog'),
+                listWidth        = sideCatalogBg.outerWidth(true);
             listWidth = listWidth > 220 ? listWidth : 242;
             var bothWidth        = (bodyWidth - mainContentWidth) / 2,
                 rightPx          = bothWidth - listWidth - 50,
-                sideCatalogBg    = $('.sideCatalogBg'),
                 catalogBtn       = $('.catalog-btn'),
                 sideToolbarTop   = $('.main-header').outerHeight();
 
@@ -241,10 +248,10 @@ function Base() {
 
             if (bodyWidth <= 1350) {
                 sideCatalogBg.hide();
-                catalogBtn.show();
+                sideCatalogBg.find('ul.nav li').length > 0 ? catalogBtn.show() : catalogBtn.hide();
             } else {
                 catalogBtn.hide();
-                sideCatalogBg.show();
+                sideCatalogBg.find('ul.nav li').length > 0 ? sideCatalogBg.show() : sideCatalogBg.hide();
             }
         }
     };
@@ -397,6 +404,47 @@ function Base() {
                 }
             });
         }
+    };
+
+    /**
+     * 日/夜间模式控制
+     */
+    this.setDayNightControl = function () {
+        var h = parseInt(new Date().getHours()),head = $('head'),
+            daySwitch = window.cnblogsConfig.switchDayNight.auto.enable ?
+            (h >= window.cnblogsConfig.switchDayNight.auto.nightHour ? '' :
+                    (h >= window.cnblogsConfig.switchDayNight.auto.dayHour ? 'daySwitch' : '')
+            ) : 'daySwitch',
+           html = '<div id="dayNightSwitch" class="generalWrapper">' +
+            '    <div class="onOff '+ daySwitch +'">' +
+            '        <div class="star star1"></div>' +
+            '        <div class="star star2"></div>' +
+            '        <div class="star star3"></div>' +
+            '        <div class="star star4"></div>' +
+            '        <div class="star star5"></div>' +
+            '        <div class="star sky"></div>' +
+            '        <div class="sunMoon">' +
+            '            <div class="crater crater1"></div>' +
+            '            <div class="crater crater2"></div>' +
+            '            <div class="crater crater3"></div>' +
+            '            <div class="cloud part1"></div>' +
+            '            <div class="cloud part2"></div>' +
+            '        </div>' +
+            '    </div>' +
+            '</div>';
+        $('body').prepend(html);
+
+        if (!daySwitch) head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
+
+        $('#dayNightSwitch .onOff').click(function () {
+            if ($(this).hasClass('daySwitch')) {
+                $(this).removeClass('daySwitch');
+                head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
+            } else {
+                $(this).addClass('daySwitch');
+                $('head link#baseDarkCss').remove();
+            }
+        });
     };
 
     /**
@@ -728,7 +776,7 @@ function Base() {
                 var cnzzArr  = $(cnzzStat[1]).text().split('|');
                 $.each(cnzzArr, function (i) {
                     var str = $.trim(cnzzArr[i]);
-                    if (str != '') {
+                    if (str !== '') {
                         str = str.replace('今日','Today').replace('昨日','Yesterday').replace('[',':').replace(']','');
                         cnzzInfo.push(str)
                     }
@@ -769,6 +817,12 @@ function Base() {
             'background-size': 'cover'
         });
 
+        bndongJs.setHitokoto();
+        bndongJs.scrollMonitor();
+        bndongJs.setDomHomePosition();
+    };
+
+    this.homeInitAfter = function () {
         bndongJs.setHomePost();
         bndongJs.setEntryPost();
 
@@ -779,10 +833,6 @@ function Base() {
 
         // 设置右下角菜单
         timeIds.setHomeRightMenuTId = window.setInterval( bndongJs.addHomeRightMenu, 1000 );
-
-        bndongJs.setHitokoto();
-        bndongJs.scrollMonitor();
-        bndongJs.setDomHomePosition();
 
         if (window.cnblogsConfig.homeTopAnimationRendered)
             require(['circleMagic'], function() {
@@ -960,11 +1010,15 @@ function Base() {
         timeIds.blogPostCategoryTId = window.setInterval( bndongJs.setArticleInfoClass, 1000 );
         timeIds.entryTagTId         = window.setInterval( bndongJs.setArticleInfoTag, 1000 );
 
+        bndongJs.setDomHomePosition();
+    };
+
+    this.notHomeInitAfter = function () {
+        bndongJs.setNotHomeTopImg();
+
         // 验证是否是书单文章
         if ($('#bookListFlg').length > 0) bndongJs.setBookList();
 
-        bndongJs.setDomHomePosition();
-        bndongJs.setNotHomeTopImg();
         bndongJs.setCodeHighlighting();
         bndongJs.baguetteBox();
 
@@ -988,7 +1042,7 @@ function Base() {
      * 设置文章信息
      */
     this.setArticleInfoAuthor = function () {
-        var postDescText = $('.postDesc').text().replace(/[\r\n]/g, ''),
+        var postDescText = $('.postDesc').show().text().replace(/[\r\n]/g, ''),
             info = postDescText.match(postMetaRex) || postDescText.match(postMetaRex2),
             date = typeof info[1] === 'undefined' ? '1970-01-01 00:00' : info[1],
             vnum = typeof info[2] === 'undefined' ? '0' : info[2],
@@ -1270,6 +1324,7 @@ function Base() {
         }
 
         function setCodeBefore(type) {
+            pre.css('cssText', "font-family:'Ubuntu Mono',monospace !important; font-size: 14px !important;");
             $.each(pre, function (i) {
                 var obj = $(this), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
 
@@ -1284,13 +1339,18 @@ function Base() {
                 }
                 obj.html('<code-pre class="code-pre" id="' + pid + '"></code-pre>');
                 $.each(codeLine, function (j) {
-                    html += '<code-line class="line-numbers-rows"></code-line>';
+                    var isEnd = j === codeLine.length - 1, fg = isEnd ? '' : '\n';
+                    if (isEnd) {
+                        if (codeLine[j] && codeLine[j] !== '</code>') html += '<code-line class="line-numbers-rows"></code-line>';
+                    } else {
+                        html += '<code-line class="line-numbers-rows"></code-line>';
+                    }
                     switch (type) {
                         case 1:
-                            html += tools.HTMLEncode(codeLine[j]) + '\n'; break;
+                            html += tools.HTMLEncode(codeLine[j]) + fg; break;
 
                         case 2:
-                            html += codeLine[j] + '\n'; break;
+                            html += codeLine[j] + fg; break;
                     }
                 });
                 $('#' + pid).append(html);

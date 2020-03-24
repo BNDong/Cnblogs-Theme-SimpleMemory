@@ -1968,7 +1968,7 @@ p.article-info-text > .postMeta i {
 
 #cnblogs_post_body img {
     max-width: 700px;
-    margin: 3px 0;
+    margin: 10px 0;
 }
 
 .main-header {
@@ -2284,7 +2284,7 @@ p.article-info-text > .postMeta i {
     padding: 1.45em;
     color: #313131;
     background-color: #f7f7f7;
-    font-size: 13px;
+    font-size: 14px;
     border-left: 4px solid #ddd;
     font-weight: 400;
     border-top: 0;
@@ -2341,8 +2341,15 @@ blockquote p {
     text-align: center;
     position: relative;
     bottom: 16px;
-    left: 110px;
     border-bottom: 1px dashed #e9e9e9
+}
+
+.entrylistTitle:after, .feedback_area_title:after {
+    left: 200px;
+}
+
+#commentform_title:after {
+    left: 80px;
 }
 
 #tbCommentBody {
@@ -2528,9 +2535,9 @@ blockquote p {
 #cnblogs_post_body > p {
     margin: 10px auto;
     padding: 0 20px;
-    line-height: 1.8em;
+    line-height: 1.9em;
     font-family: "Microsoft YaHei",Lato,"PingFang SC",sans-serif;
-    font-size: 16px;
+    font-size: 1.1em;
     letter-spacing: .015em;
 }
 
@@ -2755,11 +2762,16 @@ span.cnblogs_code {
     border: 0;
 }
 
+code-box {
+    margin: 10px 0;
+}
+
 .post pre {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
-    margin: 5px 15px
+    margin: 5px 15px;
+    border-radius: 5px !important;
 }
 
 .postBody pre {
@@ -2864,14 +2876,22 @@ span.cnblogs_code {
 }
 
 .cnblogs-markdown code, .cnblogs-post-body code {
-    padding: 2px 4px !important;
-    color: #d83b64;
-    background-color: #f9f2f4 !important;
-    border-radius: 3px !important;
+    background-color: unset !important;
     border: 0 !important;
-    text-indent: 0 !important;
+}
+
+.cnblogs-markdown code:not(.language-env), .cnblogs-post-body code:not(.language-env) {
+    padding: 2px 4px!important;
+    color: #d83b64;
+    background-color: #f9f2f4!important;
+    border-radius: 3px!important;
+    border: 0!important;
+    text-indent: 0!important;
     position: relative;
-    bottom: 1px
+    bottom: 1px;
+    font-size: 13px !important;
+    font-weight: 600;
+    font-family: "Ubuntu Mono", monospace !important;
 }
 
 #cnblogs_post_body > pre .cnblogs_code_copy a {
@@ -2919,13 +2939,14 @@ span.cnblogs_code {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 14px;
-    color: #f9f9f9;
+    color: rgba(255,255,255,.6);
     cursor: pointer;
 }
 
 #pageAnimationOffOnIcon {
     display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .aplayer-icon-lrc {
@@ -3489,7 +3510,8 @@ div#green_channel img {
     width: 80%;
     max-height: 80%;
     border: 1px solid #ccc;
-    padding: 5px
+    padding: 5px;
+    margin: 0!important;
 }
 
 .essaySuffix-box-right {
@@ -3655,6 +3677,308 @@ table#blogCalendar>tbody>tr>td>a {
     }
 }
 
+#dayNightSwitch {
+    display: inline-block;
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+    top: 25px;
+    opacity: .65;
+}
+
+#dayNightSwitch .onOff {
+    background: #324164;
+    width: 65px;
+    height: 25px;
+    border-radius: 25px;
+    box-shadow: 0 15px 10px -10px rgba(0,0,0,0.2),0px 5px 10px rgba(0,0,0,0.1);
+    border: 2px solid #1e2d50;
+    overflow: hidden;
+    position: relative;
+}
+
+#dayNightSwitch .onOff * {
+    transition: all .4s ease
+}
+
+#dayNightSwitch .onOff.daySwitch {
+    border: 2px solid #52a6bf;
+}
+
+#dayNightSwitch .onOff.daySwitch .sky {
+    width: 65px;
+    height: 25px;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(0px,0px);
+    animation: none!important;
+}
+
+#dayNightSwitch .onOff.daySwitch .sunMoon {
+    background: #ffdf61;
+    border: 2px solid #d9b31c;
+    left: calc(100% - 23px);
+}
+
+#dayNightSwitch .onOff.daySwitch .sunMoon .crater {
+    transform: scale(0)!important
+}
+
+#dayNightSwitch .onOff.daySwitch .sunMoon .cloud {
+    opacity: 1;
+    transform: translatex(0px);
+    transition-delay: .2s;
+    animation: cloudAnim 2.5s linear infinite
+}
+
+#dayNightSwitch .onOff .sunMoon {
+    background: #f0e1a5;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    border: 2px solid #ccc091;
+    position: absolute;
+    left: 3px;
+    top: 2.5px;
+}
+
+#dayNightSwitch .onOff .sunMoon .crater {
+    background: #ccc091;
+    width: 5px;
+    height: 5px;
+    border-radius: 13px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+}
+
+#dayNightSwitch .onOff .sunMoon .crater.crater1 {
+    left: 30%;
+    top: 45%;
+    transform: scale(0.5)
+}
+
+#dayNightSwitch .onOff .sunMoon .crater.crater2 {
+    left: 55%;
+    top: 60%;
+    transform: scale(0.7)
+}
+
+#dayNightSwitch .onOff .sunMoon .cloud {
+    background: white;
+    border-radius: 3px;
+    position: absolute;
+    opacity: 0;
+    transform: translatex(-20px);
+    transition-delay: 0s
+}
+
+#dayNightSwitch .onOff .sunMoon .cloud.part1 {
+    width: 20px;
+    height: 2px;
+    left: -12px;
+    top: calc(50% - 1.5px);
+}
+
+#dayNightSwitch .onOff .sunMoon .cloud.part1:before {
+    content: "";
+    background: white;
+    border-radius: 3px;
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    left: 40%;
+    top: -100%;
+}
+
+#dayNightSwitch .onOff .sunMoon .cloud.part1:after {
+    content: "";
+    background: white;
+    border-radius: 3px;
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    left: 20%;
+    top: -200%;
+}
+
+#dayNightSwitch .onOff .sunMoon .cloud.part2 {
+    width: 3px;
+    height: 3px;
+    left: -1px;
+    top: calc(50% + 0.3px);
+}
+
+#dayNightSwitch .onOff .sunMoon .cloud.part2:before {
+    content: "";
+    background: white;
+    border-radius: 3px;
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    left: -8px;
+    top: 100%;
+}
+
+#dayNightSwitch .onOff .star {
+    background: #5ebedb;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(20px,5px);
+}
+
+#dayNightSwitch .onOff .star.star1 {
+    transform: translate(10px,15px) scale(0.3);
+    animation: starAnim1 3s -2.4s linear infinite
+}
+
+#dayNightSwitch .onOff .star.star2 {
+    transform: translate(15px,-7px) scale(0.6);
+    animation: starAnim2 3s -1.1s linear infinite
+}
+
+#dayNightSwitch .onOff .star.star3 {
+    transform: translate(35px,-12px) scale(0.9);
+    animation: starAnim3 3s -1.5s linear infinite
+}
+
+#dayNightSwitch .onOff .star.star4 {
+    transform: translate(30px,12px) scale(0.4);
+    animation: starAnim4 3s -1.9s linear infinite
+}
+
+#dayNightSwitch .onOff .star.star5 {
+    transform: translate(0px,0px) scale(0.6);
+    animation: starAnim5 3s -2.8s linear infinite
+}
+
+#dayNightSwitch .onOff .star.sky {
+    animation: skyAnim 3s -.4s linear infinite
+}
+
+@keyframes starAnim1 {
+    0% {
+        transform: translate(5px, 30px) scale(0.3);
+    }
+    20% {
+        transform: translate(8px, 17px) scale(0.3);
+    }
+    50% {
+        transform: translate(10px, 0px) scale(0.3);
+    }
+    80% {
+        transform: translate(8px, -17px) scale(0.3);
+    }
+    100% {
+        transform: translate(5px, -30px) scale(0.3);
+    }
+}
+@keyframes starAnim2 {
+    0% {
+        transform: translate(10px, 30px) scale(0.6);
+    }
+    20% {
+        transform: translate(13px, 17px) scale(0.6);
+    }
+    50% {
+        transform: translate(15px, 0px) scale(0.6);
+    }
+    80% {
+        transform: translate(13px, -17px) scale(0.6);
+    }
+    100% {
+        transform: translate(10px, -30px) scale(0.6);
+    }
+}
+@keyframes starAnim3 {
+    0% {
+        transform: translate(30px, 30px) scale(0.9);
+    }
+    20% {
+        transform: translate(33px, 17px) scale(0.9);
+    }
+    50% {
+        transform: translate(35px, 0px) scale(0.9);
+    }
+    80% {
+        transform: translate(33px, -17px) scale(0.9);
+    }
+    100% {
+        transform: translate(30px, -30px) scale(0.9);
+    }
+}
+@keyframes starAnim4 {
+    0% {
+        transform: translate(25px, 30px) scale(0.4);
+    }
+    20% {
+        transform: translate(28px, 17px) scale(0.4);
+    }
+    50% {
+        transform: translate(30px, 0px) scale(0.4);
+    }
+    80% {
+        transform: translate(28px, -17px) scale(0.4);
+    }
+    100% {
+        transform: translate(25px, -30px) scale(0.4);
+    }
+}
+@keyframes starAnim5 {
+    0% {
+        transform: translate(0px, 30px) scale(0.6);
+    }
+    20% {
+        transform: translate(3px, 17px) scale(0.6);
+    }
+    50% {
+        transform: translate(5px, 0px) scale(0.6);
+    }
+    80% {
+        transform: translate(3px, -17px) scale(0.6);
+    }
+    100% {
+        transform: translate(0px, -30px) scale(0.6);
+    }
+}
+@keyframes skyAnim {
+    0% {
+        transform: translate(15px, 30px) scale(1);
+    }
+    20% {
+        transform: translate(18px, 17px) scale(1);
+    }
+    50% {
+        transform: translate(20px, 0px) scale(1);
+    }
+    80% {
+        transform: translate(18px, -17px) scale(1);
+    }
+    100% {
+        transform: translate(15px, -30px) scale(1);
+    }
+}
+@keyframes cloudAnim {
+    0% {
+        transform: translatex(0px);
+    }
+    14% {
+        transform: translatex(5px);
+    }
+    56% {
+        transform: translatex(-10px);
+    }
+    100% {
+        transform: translatex(0px);
+    }
+}
+
 @media only screen and (max-width: 1200px) {
     .main-header {
         -webkit-box-sizing: border-box;
@@ -3744,7 +4068,9 @@ table#blogCalendar>tbody>tr>td>a {
 
 @media only screen and (max-width: 720px) {
     #cnblogs_post_body > p {
-        padding: 0 10px
+        padding: 0 10px;
+        font-size: 1em;
+        line-height: 1.8em;
     }
 
     .post pre {
@@ -3841,5 +4167,39 @@ table#blogCalendar>tbody>tr>td>a {
 
     #footer .footer-box {
         width: 95%;
+    }
+
+    #dayNightSwitch .onOff, #dayNightSwitch .onOff.daySwitch .sky {
+        width: 50px;
+        height: 18px;
+        border-radius: 18px;
+    }
+    #dayNightSwitch .onOff .sunMoon {
+        height: 12px;
+        width: 12px;
+        top: 1px
+    }
+    #dayNightSwitch .onOff.daySwitch .sunMoon {
+        left: calc(100% - 19px);
+    }
+    #dayNightSwitch {
+        right: 12px;
+        top: 15px;
+    }
+    #dayNightSwitch .onOff .star {
+        top: -50%;
+    }
+    #dayNightSwitch .onOff .sunMoon .crater {
+        width: 3px;
+        height: 3px;
+    }
+    #dayNightSwitch .onOff .sunMoon .cloud.part1 {
+        width: 17px;
+    }
+    #dayNightSwitch .onOff .sunMoon .cloud.part1:after {
+        width: 12px;
+    }
+    #dayNightSwitch .onOff .sunMoon .cloud.part2:before {
+        width: 15px;
     }
 }

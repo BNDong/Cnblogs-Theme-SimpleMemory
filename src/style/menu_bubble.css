@@ -9,6 +9,10 @@ body{
 	width: 100%;
 }
 
+#dayNightSwitch .onOff .sunMoon .cloud.part2 {
+    top: calc(50% + 0.3px) !important;
+}
+
 .container {
 	background: #373a47;
 }

@@ -197,6 +197,37 @@ window.cnblogsConfig = {
 }
 ```
 
+### switchDayNight - 日/夜间模式
+
+?> 版本 >= v1.2.8
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: true,       // 是否开启日/夜间模式切换按钮
+    auto: {             // 自动切换相关配置
+        enable: false,  // 开启自动切换
+        dayHour: 5,     // 日间模式开始时间，整数型，24小时制
+        nightHour: 19   // 夜间模式开始时间，整数型，24小时制
+    }
+}
+```
+
+日/夜间模式配置。
+
+```javascript
+window.cnblogsConfig = {
+    switchDayNight: {
+        enable: true,
+        auto: {
+            enable: true
+        }
+    },
+}
+```
+
 ## 字体图标扩展
 
 ### fontIconExtend - 字体图标库扩展

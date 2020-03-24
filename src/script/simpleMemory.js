@@ -201,6 +201,14 @@ if (initCheck()) {
         bookList: [],
         themeAuthor: false,
         isVersionMapping: false,
+        switchDayNight: {
+            enable: true,
+            auto: {
+                enable: false,
+                dayHour: 5,
+                nightHour: 19
+            }
+        },
         reward: {
             enable: false,
             wechatpay: '',
