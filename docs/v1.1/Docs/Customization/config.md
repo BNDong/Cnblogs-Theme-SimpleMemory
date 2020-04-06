@@ -215,7 +215,7 @@ window.cnblogsConfig = {
 }
 ```
 
-日/夜间模式配置。
+日/夜间模式配置。页面使用日/夜间模式优先级：用户设置 > 自动切换 > 默认。
 
 ```javascript
 window.cnblogsConfig = {
@@ -669,6 +669,30 @@ window.cnblogsConfig = {
 }
 ```
 
+### essayCode - 代码框统一样式设置
+
+?> 版本 >= v1.2.9
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    fontFamily: "'Ubuntu Mono',monospace", // 代码框字体
+    fontSize: "14px" // 代码框字体大小
+}
+```
+
+代码框统一样式设置，目前只有字体设置，看需求后续可能会增加配置项。
+
+```javascript
+window.cnblogsConfig = {
+    essayCode: {
+        fontSize: "16px",
+    },
+}
+```
+
 ### 使用博客园默认代码样式
 
 #### essayCodeHighlightingType
@@ -866,7 +890,7 @@ window.cnblogsConfig = {
 
 * 类型：```Boolean```
 * 相关文档：[版本映射](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/versionMapping)
-* 默认值：```"false"```
+* 默认值：```false```
 
 是否开启版本映射，默认关闭。
 

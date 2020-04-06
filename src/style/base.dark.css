@@ -1,8 +1,8 @@
-#cnblogs_post_body table, #cnblogs_post_body table td, body {
+#cnblogs_post_body table, .feedbackCon table, #cnblogs_post_body table td, .feedbackCon table td, body {
     background-color: #333
 }
 
-#cnblogs_post_body table td, #cnblogs_post_body table th {
+#cnblogs_post_body table td, #cnblogs_post_body table th, .feedbackCon table td, .feedbackCon table th {
     border-bottom: 1px solid #2a2a2a;
     border-right: 1px solid #2a2a2a
 }
@@ -34,12 +34,12 @@ body {
     color: #ddd
 }
 
-#cnblogs_post_body table {
+#cnblogs_post_body table, .feedbackCon table {
     border: 1px solid #2a2a2a;
     color: #ddd
 }
 
-#cnblogs_post_body table th {
+#cnblogs_post_body table th, .feedbackCon table th {
     background-color: #3e3e3e
 }
 
@@ -111,10 +111,6 @@ footer-background {
     background: linear-gradient(#f9f9f9 20%, transparent 20%, transparent 40%, #f9f9f9 40%, #f9f9f9 60%, transparent 60%, transparent 80%, #f9f9f9 80%) !important
 }
 
-.main-header {
-    opacity: .85
-}
-
 .sb-title {
     color: #f9f9f9
 }
@@ -170,7 +166,7 @@ span.cnblogs_code {
     background: unset
 }
 
-.cnblogs-markdown code:not(.language-env), .cnblogs-post-body code:not(.language-env) {
+.postBody .cnblogs-markdown code:not(.language-env), .postBody .cnblogs-post-body code:not(.language-env) {
     background-color: #282c34 !important;
     color: #F92672;
 }
@@ -197,6 +193,69 @@ span.cnblogs_code {
 
 #sideCatalog-catalog .active a {
     color: #567fb5 !important;
+}
+
+.books-item .books-item-span {
+    background: #2a2a2a;
+    box-shadow: 3px 3px 3px 1px rgba(30,30,30,.3);
+}
+
+.books-item .books-item-span ._2girK ._3Oa5I {
+    color: #999;
+}
+
+.books-item .books-item-span ._2girK ._1P9dH {
+    color: #ddd;
+}
+
+.postBody pre, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #green_channel, .main-header, #btn_comment_submit {
+    filter: brightness(0.8);
+}
+
+.list .inc .conmts {
+    color: #ddd;
+    background: unset;
+}
+
+.feedbackListSubtitle {
+    color: #999;
+    background-color: #2a2a2a;
+    border: 1px solid #555;
+    border-bottom: 1px solid #555;
+}
+
+.feedbackCon {
+    border: 1px solid #555;
+    background: #333;
+}
+
+.feedbackListSubtitle-louzhu {
+    background-color: #25282d!important;
+    border-bottom-color: #444!important;
+}
+
+.feedbackListSubtitle-louzhu:after {
+    border-right-color: #25282d !important;
+}
+
+.feedbackAvatar img {
+    border: 1px solid #555;
+}
+
+.feedbackItem:before {
+    background-color: #555;
+}
+
+.feedbackListSubtitle:before {
+    border-right-color: #555;
+}
+
+.feedbackListSubtitle:after {
+    border-right-color: #2a2a2a;
+}
+
+#tbCommentBody, #tbCommentBodyPreview {
+    color: #ddd;
 }
 
 @media only screen and (max-width: 720px) {

@@ -183,6 +183,10 @@ if (initCheck()) {
         ],
         essayCodeHighlightingType: 'cnblogs',
         essayCodeHighlighting: '',
+        essayCode: {
+            fontFamily: "'Ubuntu Mono',monospace",
+            fontSize: "14px"
+        },
         codeMaxHeight: false,
         essaySuffix: {
             codeImgUrl: '',

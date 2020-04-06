@@ -181,7 +181,31 @@ function myTools() {
     this.getRandomColor = function(){
         return  '#' + (function(color){
             return (color +=  '0123456789abcdef'[Math.floor(Math.random()*16)])
-            && (color.length == 6) ?  color : arguments.callee(color);
+            && (color.length === 6) ?  color : arguments.callee(color);
         })('');
-    }
+    };
+
+    /**
+     * 设置 cookie
+     * @param key
+     * @param value
+     * @param expires 过期时间，单位秒
+     */
+    this.setCookie = function(key, value, expires) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() + expires * 1000);
+        document.cookie = key + "=" + escape (value) + "; expires=" + exp.toGMTString() + "; path=/";
+    };
+
+    /**
+     * 获取 cookie
+     * @param key
+     * @returns {string|null}
+     */
+    this.getCookie = function(key) {
+        var arr, reg = new RegExp("(^| )"+key+"=([^;]*)(;|$)");
+        arr = document.cookie.match(reg);
+        if (arr) return unescape(arr[2]);
+        else return null;
+    };
 }
