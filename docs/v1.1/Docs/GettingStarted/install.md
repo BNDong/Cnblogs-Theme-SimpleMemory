@@ -71,13 +71,13 @@ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面�
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
-        GhVersions    : 'v1.2.9', // 版本
+        GhVersions    : 'v1.3.0', // 版本
         blogUser      : "userName", // 用户名
         blogAvatar    : "https://xxxx.png", // 用户头像
         blogStartDate : "2016-11-17", // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
     }
 </script>
-<script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.2.9/src/script/simpleMemory.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v1.3.0/src/script/simpleMemory.min.js"></script>
 ```
 
 !> 注意：引入的文件 simpleMemory.min.js 版本需要与配置 window.cnblogsConfig.GhVersions 一致！

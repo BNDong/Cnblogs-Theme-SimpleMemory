@@ -258,6 +258,10 @@ span.cnblogs_code {
     color: #ddd;
 }
 
+.cnblogs_code_collapse {
+    background-color: #333;
+}
+
 @media only screen and (max-width: 720px) {
     .menu-button {
         border: none!important;

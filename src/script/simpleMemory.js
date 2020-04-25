@@ -93,7 +93,7 @@ if (initCheck()) {
     window.cnblogsConfigDefault = {
         GhUserName: 'BNDong',
         GhRepositories: 'Cnblogs-Theme-SimpleMemory',
-        GhVersions: 'v1.2.3',
+        GhVersions: 'v1.3.0',
         CnVersions: "",
         blogUser: "",
         blogAvatar: "",
@@ -185,9 +185,10 @@ if (initCheck()) {
         essayCodeHighlighting: '',
         essayCode: {
             fontFamily: "'Ubuntu Mono',monospace",
-            fontSize: "14px"
+            fontSize: "14px",
         },
         codeMaxHeight: false,
+        codeLineNumber: false,
         essaySuffix: {
             codeImgUrl: '',
             aboutHtml: '',
@@ -196,9 +197,13 @@ if (initCheck()) {
         },
         bottomBlogroll: [],
         bottomText: {
-            icon: "❤️",
+            iconFont: {
+                icon:  "icon-xl",
+                color: "red",
+                fontSize: "16px"
+            },
             left: "",
-            right: ""
+            right: "",
         },
         footerStyle: 2,
         consoleList: [],
@@ -218,6 +223,7 @@ if (initCheck()) {
             wechatpay: '',
             alipay: ''
         },
+        advertising: true,
     };
 
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );

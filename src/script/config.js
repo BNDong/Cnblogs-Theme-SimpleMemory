@@ -98,7 +98,7 @@ require.config({
         base: {
             deps: [
                 'tools',
-                'css!//at.alicdn.com/t/font_543384_6z41jpa1ptb.css', // 阿里云字体图标
+                'css!//at.alicdn.com/t/font_543384_ib4j0dbdod.css', // 阿里云字体图标
                 'css!'+getJsDelivrUrl('google-fonts.css'), // 谷歌字体
             ]
         },

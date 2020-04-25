@@ -669,6 +669,22 @@ window.cnblogsConfig = {
 }
 ```
 
+### codeLineNumber - 代码行号渲染
+
+?> 版本 >= v1.3.0
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+是否渲染代码行号，如开启会在代码框左侧增加行号显示，默认不开启。
+不与博客园行号渲染兼容，如果博客园添加代码时勾选显示行号并同时开启此配置，会出现双行号的现象。大家自己权衡使用此配置。
+
+```javascript
+window.cnblogsConfig = {
+    codeLineNumber: true,
+}
+```
+
 ### essayCode - 代码框统一样式设置
 
 ?> 版本 >= v1.2.9
@@ -844,7 +860,12 @@ window.cnblogsConfig = {
 
 ```json
 {
-    icon: "❤️",
+    icon: "❤️",   // v1.3.0 已废弃该配置
+    iconFont: {  // v1.3.0 新增配置
+        icon:  "icon-xl", // iconfont 图标名称
+        color: "red",     // 图标颜色
+        fontSize: "16px"  // 图标大小
+    },
     left : "",
     right: ""
 }
@@ -879,6 +900,23 @@ window.cnblogsConfig = {
          ['BNDong GitHub', 'https://github.com/BNDong'],
          ['BNDong Email', 'dbuo@foxmail.com'],
     ],
+}
+```
+
+## 广告
+
+### advertising
+
+?> 版本 >= v1.3.0
+
+* 类型：```Boolean```
+* 默认值：```true```
+
+是否显示博客园广告。
+
+```javascript
+window.cnblogsConfig = {
+    advertising: true,
 }
 ```
 

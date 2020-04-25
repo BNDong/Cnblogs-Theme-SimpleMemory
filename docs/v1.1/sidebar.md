@@ -22,6 +22,7 @@
 - 指南
 
   - [菜单数据](Docs/Guide/menuData.md)
+  - [文章标题与目录](Docs/Guide/articleDirectory.md)
   - [版本映射](Docs/Guide/versionMapping.md)
   - [highlight](Docs/Guide/highlight.md)
 

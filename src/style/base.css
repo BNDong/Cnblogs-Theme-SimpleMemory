@@ -2,9 +2,9 @@
     padding: 0
 }
 
-body, html {
-    max-height: 100%
-}
+/*body, html {*/
+/*    max-height: 100%*/
+/*}*/
 
 #blogTitle h1 a:hover, a:active {
     color: #5c8ec6
@@ -80,17 +80,17 @@ body {
     overflow: hidden
 }
 
-body:before {
-    content: '';
-    display: block;
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: 20px 20px
-}
+/*body:before {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    z-index: -1;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-size: 20px 20px*/
+/*}*/
 
 ::-moz-selection {
     background: #D6EDFF
@@ -111,12 +111,6 @@ fieldset, img {
 
 li {
     list-style: none
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
-    font-weight: 400;
-    padding-left: 20px
 }
 
 a {
@@ -685,16 +679,16 @@ p.article-info-text > .postMeta i {
     width: 100%;
     min-height: 200px;
     padding: 0 0 10px;
-    float: left;
     -o-text-overflow: ellipsis;
-    margin: 4rem auto
+    margin: 4rem auto;
+    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+    margin-top: 15px
 }
 
 #topics .postTitle {
     border: 0;
     font-size: 130%;
     font-weight: 700;
-    float: left;
     line-height: 1.5;
     width: 100%;
     padding-left: 5px
@@ -2019,31 +2013,7 @@ div#tbCommentBodyPreview {
 }
 
 .postBody p, .postCon p {
-    /*text-indent: 2em;*/
     margin: 0 auto 1em
-}
-
-.postBody h2, .postBody h3, .postBody h4, .postBody h5 {
-    margin: 15px auto 2px;
-    font-weight: 700
-}
-
-.postBody h2 {
-    font-size: 150%
-}
-
-.postBody h3 {
-    font-size: 120%
-}
-
-.postBody h4 {
-    font-size: 110%;
-    color: #333
-}
-
-.postBody h5 {
-    font-size: 100%;
-    color: #333
 }
 
 .postCon a:active, .postCon a:link, .postCon a:visited {
@@ -2378,11 +2348,6 @@ div#tbCommentBodyPreview {
     display: none
 }
 
-#topics {
-    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
-    margin-top: 15px
-}
-
 #cnblogs_post_body h6, blockquote {
     line-height: 20px;
     margin: 0 0 24px;
@@ -2404,24 +2369,11 @@ blockquote p {
     text-indent: 0 !important
 }
 
-#cnblogs_post_body h2 {
-    font-size: 1.8rem;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 0 0 30px;
-    color: #333
-}
-
-#cnblogs_post_body h3:before, #cnblogs_post_body h4:before, #cnblogs_post_body h5:before {
-    content: ' ';
-    font-weight: lighter;
-    width: 21px;
-    height: 16px;
-    display: inline-block;
-    transition: all .3s;
-    background-image: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/title_icon.webp);
-    background-repeat: no-repeat;
-    background-position: 0 6px
+.titleIcon {
+    position: relative;
+    font-size: 34px !important;
+    color: #5d69a5;
+    line-height: 50px;
 }
 
 #cnblogs_post_body ul {
@@ -2661,12 +2613,9 @@ blockquote p {
     -ms-user-select: none;
     user-select: none;
     cursor: default;
-    height: 100%;
     position: relative;
-    display: inline-block;
-    left: -20px;
-    margin: 0 0 5px 0;
-    width: 110%;
+    display: block;
+    margin: 0;
     transition: border-color .3s;
     padding: 0;
 }
@@ -2677,24 +2626,16 @@ blockquote p {
     position: relative;
     transition-delay: .5s;
     margin: 0 !important;
-    color: #222 !important
-}
-
-.header__span h1 {
+    color: #222 !important;
     font-size: 28px!important;
-    height: 34px;
+    height: 50px;
     line-height: 28px!important;
-}
-
-.header__span h2 {
-    font-size: 20px !important;
-    height: 20px;
-    line-height: 20px !important
+    left: -20px;
 }
 
 .dev__fe, .dev__fe i, .dev__ux, .dev__ux i {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     position: absolute
 }
 
@@ -2706,18 +2647,11 @@ blockquote p {
     transform: rotateZ(22deg)
 }
 
-.header__span h1 .dev__slash {
+.header__span .dev__slash {
     color: #5d69a5;
-    top: 9px;
+    top: 8px;
     left: 57px;
     font-size: 35px;
-}
-
-.header__span h2 .dev__slash {
-    color: #85c7b0;
-    top: 13px;
-    left: 58px;
-    font-size: 26px;
 }
 
 .cnblogs_code, .post pre {
@@ -2733,47 +2667,35 @@ blockquote p {
 .dev__fe {
     text-align: right;
     direction: rtl;
-    top: -35px;
-    left: -40px;
+    top: -11px;
+    left: 11px;
 }
 
 .dev__ux {
-    left: 65px;
-    top: -24px;
+    left: 64px;
+    top: 0px;
     text-align: left;
 }
 
 .dev__fe i, .dev__ux i {
     font-style: normal;
-    line-height: 100px;
+    line-height: 50px;
     font-weight: 400;
     -webkit-transform: rotateZ(-22deg);
     transform: rotateZ(-22deg);
     color: #333
 }
 
-.header__span h1 .dev__fe i {
+.header__span .dev__fe i {
     text-indent: -9px;
     top: 13px;
     right: 0
 }
 
-.header__span h2 .dev__fe i {
-    text-indent: -7px;
-    top: 12px;
-    right: 0
-}
-
-.header__span h1 .dev__ux i {
+.header__span .dev__ux i {
     text-indent: -6px;
     top: 2px;
     left: -3px
-}
-
-.header__span h2 .dev__ux i {
-    text-indent: -8px;
-    top: 0;
-    left: 0
 }
 
 .dev__developer {
@@ -2792,24 +2714,22 @@ blockquote p {
     font-weight: 400
 }
 
-.header__span h1 .dev__developer {
+.header__span .dev__developer {
     top: 12px;
     left: 90px;
     min-height: 34px;
-}
-
-.header__span h2 .dev__developer {
-    top: 16px;
-    left: 94px;
-    min-height: 24px;
 }
 
 .dev__developer, .dev__fe, .dev__fe i, .dev__slash, .dev__ux, .dev__ux i {
     transition: all .6s cubic-bezier(.555, -.375, 0, 1.615)
 }
 
-.header__dev--open .dev__fe i, .header__dev--open .dev__ux i {
+.header__dev--open .dev__fe i {
     text-indent: 5px !important
+}
+
+.header__dev--open .dev__ux i {
+    text-indent: 11px !important
 }
 
 .header__dev--open .dev__developer {
@@ -2900,7 +2820,8 @@ code-box {
     left: -34px;
     width: 30px;
     text-align: center;
-    color: #999
+    color: #999;
+    display: none;
 }
 
 .postBody pre .line-numbers-rows:before {
@@ -2911,6 +2832,9 @@ code-box {
     position: relative;
     padding-left: 10px;
     display: block;
+}
+
+.postBody pre .code-pre-line {
     left: 30px;
     border-left: 1px solid #999
 }
@@ -3123,6 +3047,10 @@ code-box {
     z-index: -1
 }
 
+.books-item {
+    margin-top: 10px;
+}
+
 .books-item .books-item-span {
     width: 98%;
     text-decoration: none;
@@ -3169,15 +3097,6 @@ code-box {
     z-index: 1;
     overflow: hidden;
     margin-right: 15px
-}
-
-.login_tips {
-    background-image: unset;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 10px;
-    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -3467,7 +3386,7 @@ div#green_channel img {
 
 #footer .footer-text .footer-text-icon {
     display: inline-block;
-    margin: 0 0 0 7px;
+    margin: 0 7px;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
     animation: iconAnimate 1.33s ease-in-out infinite;
