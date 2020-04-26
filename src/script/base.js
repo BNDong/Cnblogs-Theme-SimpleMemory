@@ -1354,10 +1354,13 @@ function Base() {
 
             $.each(pre, function (i) {
                 let obj = $(this), pid = 'pre-' + tools.randomString(6), codeLine, html = '';
+                const regex = /\<span\ style\=\"color\:\ \#008080\;\"\>(\s\d+|\d+)\<\/span\>/gm;
+                let preCodeLine;
 
                 switch (type) {
                     case 1:
-                        codeLine = obj.text().split('\n');
+                        preCodeLine = obj.html().replace(regex, ` `);
+                        codeLine = $("<div/>").html(preCodeLine).text().split('\n');
                         break;
 
                     case 2:
