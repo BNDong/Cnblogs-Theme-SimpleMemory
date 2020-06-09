@@ -226,6 +226,44 @@ if (initCheck()) {
         advertising: true,
     };
 
+    window.cnblogsConfigDefault.hook = {
+
+        // loading 开始前
+        beforeLoading: function (loading) {
+            // console.log('beforeLoading');
+        },
+
+        // loading 结束后
+        afterLoading: function (e, loading) {
+            // console.log('afterLoading');
+        },
+
+        // 页面标签变化
+        pageLabelChanges: function (e, text) {
+            // console.log('pageLabelChanges');
+        },
+
+        // 渲染代码开始前
+        beforeCodeHighlighting: function (e) {
+            // console.log('beforeCodeHighlighting');
+        },
+
+        // 渲染代码结束后
+        afterCodeHighlighting: function (e) {
+            // console.log('afterCodeHighlighting');
+        },
+
+        // 日夜间模式设置
+        dayNightControl: function (e, type) {
+            // console.log('dayNightControl');
+        },
+
+        // 页面初始化结束
+        pageInitEnd: function (e) {
+            // console.log('pageInitEnd');
+        },
+    };
+
     window.cnblogsConfig = $.extend( true, window.cnblogsConfigDefault, window.cnblogsConfig );
     getVersionConfig();
 
@@ -364,6 +402,7 @@ function init() {
     $.getScript(getJsDelivrUrl('loading.js'), function () {
 
         // Loading start
+        window.cnblogsConfig.hook.beforeLoading(pageLoading);
         pageLoading.initRebound();
         pageLoading.initSpinner();
         pageLoading.spinner.init(pageLoading.spring, true);

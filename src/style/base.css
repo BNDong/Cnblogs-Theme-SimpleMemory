@@ -6,6 +6,25 @@
 /*    max-height: 100%*/
 /*}*/
 
+::-webkit-scrollbar {
+    width:3px;
+}
+
+::-webkit-scrollbar-track {
+    width: 3px;
+    background-color:#f9f9f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#999;
+    background-clip:padding-box;
+    min-height:100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color:#555;
+}
+
 #blogTitle h1 a:hover, a:active {
     color: #5c8ec6
 }
@@ -302,7 +321,7 @@ b {
     padding: 0;
     transition-property: border;
     font-weight: 600;
-    width: 80px;
+    width: 85px;
     text-align: center;
     color: #555 !important;
     margin-top: 20px;
@@ -3028,7 +3047,7 @@ code-box {
     background-color: #6fa3ef
 }
 
-#loading, a[name=top] {
+div#loading, a[name=top] {
     background-color: #f0f0f0;
     z-index: 1099;
     position: fixed;

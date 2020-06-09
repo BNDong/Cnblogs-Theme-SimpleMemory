@@ -24,7 +24,7 @@ require.config({
         fancybox: setFileNameMin('jquery.fancybox.min', 'js'),
         //-- 文章标题
         title: setFileNameMin('articleTitle', 'js'),
-        //-- 文章目录
+        //-- 文章目录s
         marvin: setFileNameMin('marvin.nav2', 'js'),
         //-- 文章后缀
         articleStatement: setFileNameMin('articleStatement', 'js'),
@@ -98,7 +98,7 @@ require.config({
         base: {
             deps: [
                 'tools',
-                'css!//at.alicdn.com/t/font_543384_ib4j0dbdod.css', // 阿里云字体图标
+                'css!//at.alicdn.com/t/font_543384_msjvd6htfjp.css', // 阿里云字体图标
                 'css!'+getJsDelivrUrl('google-fonts.css'), // 谷歌字体
             ]
         },

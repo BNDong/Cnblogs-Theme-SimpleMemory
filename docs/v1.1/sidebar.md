@@ -13,6 +13,7 @@
   - [字体图标库](Docs/Customization/fonticon.md)
   - [Loading](Docs/Customization/loading.md)
   - [书单](Docs/Customization/bookList.md)
+  - [钩子](Docs/Customization/hook.md)
   
 - 扩展
 
