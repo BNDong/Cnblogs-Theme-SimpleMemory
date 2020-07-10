@@ -20,7 +20,7 @@
 
 #sideCatalog {
     position: relative;
-    box-shadow: 0 0 20px 10px rgba(220, 220, 220, .3);
+    box-shadow: 0 0 10px 2px rgba(220,220,220,.3);
 }
 
 #sideCatalog-sidebar {
@@ -44,7 +44,7 @@
 #sideCatalog-catalog {
     position: relative;
     font-size: 14px;
-    background: rgba(255, 255, 255, .9);
+    background: rgba(255, 255, 255, 1);
     overflow: visible;
     max-height: 90vh;
     padding: 5px;
@@ -96,16 +96,16 @@
 #sideCatalog li.active:after {
     left: 0;
     bottom: 0;
-    border-left: 3px solid #5c8ec6
+    border-left: 3px solid #807dd4
 }
 
 #sideCatalog-catalog .active a {
     font-weight: 600;
-    color: #5c8ec6
+    color: #807dd4
 }
 
 #sideCatalog-catalog a:hover {
-    color: #5c8ec6
+    color: #807dd4
 }
 
 #sideCatalog span:first-child {
@@ -193,20 +193,29 @@
 .catalog-btn {
     display: none;
     position: absolute;
-    top: 5px;
-    right: 8px;
+    top: 3px;
+    right: 16px;
     z-index: 2;
-    opacity: .5;
     cursor: pointer;
+    width: 20px;
+    height: 24px;
+    line-height: 24px;
+    padding: 4px;
+    font-size: 15px;
+    background: #FFF;
+    text-align: center;
+    border-radius: 3px;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 }
 
-.catalog-btn:hover {
-    opacity: 1;
+.catalog-btn-shadow {
+    -webkit-box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1), inset 0 -1px 0 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1), inset 0 -1px 0 0 rgba(0,0,0,0.1);
 }
 
 .catalog-btn i {
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 400;
     color: #555;
-    text-shadow: 1px 1px 1px #fff;
 }

@@ -223,6 +223,7 @@ if (initCheck()) {
             wechatpay: '',
             alipay: ''
         },
+        weChatOfficialAccounts: '',
         advertising: true,
     };
 
@@ -377,15 +378,16 @@ function init() {
     var url = window.location.href,tmp = [];
     tmp = url.split("/");
     var user = tmp[3];
-    var navListHtml = '<li><a href="https://www.cnblogs.com/'+user+'/" target="_self">首页</a></li>' +
-        '<li><a href="https://msg.cnblogs.com/send/'+user+'" target="_blank">联系</a></li>' +
-        '<li><a href="https://www.cnblogs.com/'+user+'/rss" target="_blank">订阅</a></li>' +
-        '<li><a href="https://i.cnblogs.com/" target="_blank">管理</a></li>';
+    var navListHtml = '<li><a href="https://www.cnblogs.com/'+user+'/" target="_self"><i class="iconfont icon-homepage_fill"></i>首页</a></li>' +
+        '<li><a href="https://msg.cnblogs.com/send/'+user+'" target="_blank"><i class="iconfont icon-zhifeiji"></i>联系</a></li>' +
+        '<li><a href="javascript:void(0)" onclick="$(\'#blog_nav_rss\').trigger(\'click\');" data-rss="https://www.cnblogs.com/'+user+'/rss/"><i class="iconfont icon-qinmifu"></i>订阅</a></li>' +
+        '<li><a href="https://i.cnblogs.com/" target="_blank"><i class="iconfont icon-setup_fill"></i>管理</a></li>';
 
     var menuNavList = window.cnblogsConfig.menuNavList;
     if (menuNavList.length > 0) {
         $.each(menuNavList, function (i) {
-            navListHtml += '<li><a href="'+(menuNavList[i][1])+'" target="_blank">'+(menuNavList[i][0])+'</a></li>';
+            let iconClass = menuNavList[i].length > 2 ? menuNavList[i][2] : "icon-qianzishenhe";
+            navListHtml += '<li><a href="'+(menuNavList[i][1])+'" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(menuNavList[i][0])+'</a></li>';
         });
     }
 
@@ -407,8 +409,8 @@ function init() {
         pageLoading.initSpinner();
         pageLoading.spinner.init(pageLoading.spring, true);
 
-        $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
-            $.getScript(getJsDelivrUrl('require.min.js'), function () {
+        $.getScript(getJsDelivrUrl('lib/jquery.mCustomScrollbar.min.js'), function () {
+            $.getScript(getJsDelivrUrl('lib/require.min.js'), function () {
                 $.getScript(getJsDelivrUrl('config.js'), function () {
                     var staticResource = [
                         // 'optiscroll', 'ToProgress', 'rotate',

@@ -276,62 +276,100 @@ function Base() {
     /**
      * 右下角菜单事件处理
      */
-    this.rightMenuMous = function(parentObject, subObject) {
-        $(parentObject).on({
-            mouseover : function(){
-                let str = '';
+    this.rightMenuMous = function(parentObjectStr, subObjectStr) {
+        let parentObject = $(parentObjectStr);
+        let subObject    = $(subObjectStr);
+        let updBuryitDiggitNum = () => {
+            let str = '';
 
-                if (subObject === '.rightBuryitSpan') {
-                    // 鼠标移入，更新踩值
+            switch (subObjectStr) {
+                case '.rightBuryitSpan':
                     str = $('#bury_count').text();
-                    if ($(subObject).text() !== str) {$(parentObject).attr('clickflg', 'false'); $(subObject).text(str);}
-                }
+                    break;
 
-                if (subObject === '.rightDiggitSpan') {
-                    // 鼠标移入，更新顶值
+                case '.rightDiggitSpan':
                     str = $('#digg_count').text();
-                    if ($(subObject).text() !== str) {$(parentObject).attr('clickflg', 'false'); $(subObject).text(str);}
-                }
+                    break;
+            }
 
-                $(subObject).show();
+            str !== '' && parentObject.attr('clickflg', 'false');
+            str !== '' && subObject.text(str);
+        }
+
+        parentObject.find('i').on({
+            mouseover : function(){
+                !$(this).hasClass('icon-zhiding') && $(this).rotate({animateTo:-60, duration: 250, callback: function () {
+                        $(this).rotate({animateTo:60, duration: 250, callback: function () {
+                                $(this).rotate({animateTo:-30, duration: 150, callback: function () {
+                                        $(this).rotate({animateTo:30, duration: 150, callback: function () {
+                                                $(this).rotate({animateTo:0, duration: 100});
+                                            }});
+                                    }});
+                            }});
+                    }});
+            }
+        });
+
+        parentObject.on({
+            mouseover : function(){
+                updBuryitDiggitNum();
+                subObject.stop().fadeIn(300);
             },
             mouseout : function(){
-                $(subObject).hide();
+                subObject.stop().fadeOut(300);
             },
             click: function () {
-                if (subObject === '.rightBuryitSpan' || subObject === '.rightDiggitSpan') {
-                    // 点击顶踩，数值变化
-                    if ($(this).attr('clickflg') === 'false') {
-                        $(this).attr('clickflg', 'true');
-                        $(subObject).text('提交中..');
-                        setTimeout("$('"+subObject+"').text($('#digg_tips').text())", 1500);
-                    }
-                }
 
-                if (subObject === '.attentionSpan') {
-                    // 点击关注
-                    if ($(this).attr('clickflg') === 'false') {
-                        setTimeout(hanFollow, 1500);
-                        function hanFollow() {
-                            if ('关注成功' === $.trim($('#p_b_follow').text())) {
-                                $(parentObject).attr('clickflg', 'true');
-                                $(subObject).text('已关注');
-                                $(parentObject).find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
+                switch (subObjectStr) {
+                    case '.rightBuryitSpan':
+                    case '.rightDiggitSpan':
+
+                        // 点击顶踩，数值变化
+                        if ($(this).attr('clickflg') === 'false') {
+                            $(this).attr('clickflg', 'true');
+                            subObject.text('提交中.');
+                            setTimeout("$('"+subObjectStr+"').text('提交中..')", 300);
+                            setTimeout("$('"+subObjectStr+"').text('提交中...')", 600);
+                            setTimeout("$('"+subObjectStr+"').text('更新中.')", 900);
+                            setTimeout("$('"+subObjectStr+"').text('更新中..')", 1200);
+                            setTimeout("$('"+subObjectStr+"').text('更新中...')", 1500);
+
+                            if (subObjectStr === '.rightBuryitSpan') {
+                                setTimeout("$('"+subObjectStr+"').text($('#bury_count').text())", 1800);
+                            } else {
+                                setTimeout("$('"+subObjectStr+"').text($('#digg_count').text())", 1800);
                             }
                         }
-                    }
-                }
+                        break;
 
-                if (subObject === '.toUpDownSpan') {
-                    // 点击滚动
-                    let ac = $(this).attr('data');
-                    if (ac === 'down') {
-                        let docHeight    = $(document).height();
-                        let windowHeight = $(window).height();
-                        tools.actScroll(docHeight - windowHeight, 900)
-                    } else {
-                        tools.actScroll(0, 900)
-                    }
+                    case '.attentionSpan':
+
+                        // 点击关注
+                        if ($(this).attr('clickflg') === 'false') {
+                            setTimeout(hanFollow, 1500);
+                            function hanFollow() {
+                                if ('关注成功' === $.trim($('#p_b_follow').text())) {
+                                    parentObject.attr('clickflg', 'true');
+                                    subObject.text('已关注');
+                                    parentObject.find('i').removeClass('icon-dianzan').addClass('icon-dianzan1');
+                                }
+                            }
+                        }
+                        break;
+
+
+                    case '.toUpDownSpan':
+
+                        // 点击滚动
+                        let ac = $(this).attr('data');
+                        if (ac === 'down') {
+                            let docHeight    = $(document).height();
+                            let windowHeight = $(window).height();
+                            tools.actScroll(docHeight - windowHeight, 900)
+                        } else {
+                            tools.actScroll(0, 900)
+                        }
+                        break;
                 }
             }
         }) ;
@@ -920,8 +958,19 @@ function Base() {
      */
     this.setHitokoto = function() {
 
-        if (window.cnblogsConfig.homeBannerText !== "") {
-            $('#hitokoto').text(window.cnblogsConfig.homeBannerText).css('display', '-webkit-box');
+
+        // 判断用户是否自定义了设置
+        let homeBannerText = window.cnblogsConfig.homeBannerText,
+            hitokoto = $('#hitokoto');
+        if ($.isArray(homeBannerText) && homeBannerText.length > 0) {
+
+            let listIndex = tools.randomNum(0, homeBannerText.length - 1);
+            hitokoto.text(homeBannerText[listIndex]).css('display', '-webkit-box');
+            return true;
+
+        } else if (typeof homeBannerText === "string" && homeBannerText !== "") {
+
+            hitokoto.text(homeBannerText).css('display', '-webkit-box');
             bndongJs.setDomHomePosition();
             return true;
         }
@@ -945,9 +994,8 @@ function Base() {
             '岁月不饶人，我亦未曾饶过岁月。',
             '当你凝视深渊时，深渊也在凝视着你。',
             '有的人25岁就死了，只是到75岁才埋葬'
-        ];
+        ], settings = {};
 
-        let settings = {};
         switch (window.cnblogsConfig.homeBannerTextType) {
             case "one": //  ONE . 每日一句
                 settings = {
@@ -968,11 +1016,11 @@ function Base() {
 
                 $.ajax(settings).done(function (response) {
                     if (response.errno === 0) {
-                        $('#hitokoto').text(response.note).css('display', '-webkit-box');
+                        hitokoto.text(response.note).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text(response.content).show();
                     } else {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
                     bndongJs.setDomHomePosition();
                     return false;
@@ -990,11 +1038,11 @@ function Base() {
 
                 $.ajax(settings).done(function (response) {
                     if (response && response.status === "success") {
-                        $('#hitokoto').text(response.data.content).css('display', '-webkit-box');
+                        hitokoto.text(response.data.content).css('display', '-webkit-box');
                         $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
                     } else {
                         let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
                     }
                     bndongJs.setDomHomePosition();
                     return false;
@@ -1172,9 +1220,16 @@ function Base() {
     this.initCatalog = function() {
         const sideToolbar = $('#sideToolbar');
         if (sideToolbar.length > 0) {
-            sideToolbar.prepend('<span class="catalog-btn"><i class="iconfont icon-menudots"></i></span>').fadeIn(300);
+            sideToolbar.prepend('<span class="catalog-btn catalog-btn-shadow"><i class="iconfont icon-mulu"></i></span>').fadeIn(300);
             $('.catalog-btn').click(function () {
-                $('.sideCatalogBg').toggle();
+                let sideCatalogBg = $('.sideCatalogBg');
+                if (sideCatalogBg.is(':hidden')) {
+                    sideCatalogBg.fadeIn(300);
+                    $(this).removeClass('catalog-btn-shadow');
+                } else {
+                    sideCatalogBg.fadeOut(300);
+                    $(this).addClass('catalog-btn-shadow');
+                }
             });
             bndongJs.resizeMonitor();
             bndongJs.clearIntervalTimeId(timeIds.setCatalogTId);
@@ -1373,7 +1428,7 @@ function Base() {
 
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
-            tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/BNDong/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
+            tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             require(['highlightjs'], function() {
                 $('.post pre').each(function(i, block) {
                     if ($.inArray(hltheme, [
@@ -1523,28 +1578,38 @@ function Base() {
      */
     this.addNotHomeRightMenu = function() {
         let rightMenu = $('#rightMenu');
-        if (rightMenu.length > 0 && $('#div_digg').length > 0) {
+        if (rightMenu.length > 0) {
 
             if ($('#toUpDown').length === 0 && $('#attention').length === 0) bndongJs.addHomeRightMenu();
 
             // 添加踩
-            let rightBuryitHtml = '<div id="rightBuryit" clickflg="false" onclick="' + ($(".buryit").attr("onclick")) + '"><span class="rightMenuSpan rightBuryitSpan">' + $('#bury_count').text() + '</span><i class="iconfont icon-buzan"></i></div>';
-            rightMenu.prepend(rightBuryitHtml);
-            bndongJs.rightMenuMous('#rightBuryit', '.rightBuryitSpan');
+            if ($('#div_digg').length > 0) {
+                let rightBuryitHtml = '<div id="rightBuryit" clickflg="false" onclick="' + ($(".buryit").attr("onclick")) + '"><span class="rightMenuSpan rightBuryitSpan">' + $('#bury_count').text() + '</span><i class="iconfont icon-buzan"></i></div>';
+                rightMenu.prepend(rightBuryitHtml);
+                bndongJs.rightMenuMous('#rightBuryit', '.rightBuryitSpan');
 
-            // 添加顶
-            let rightDiggitHtml = '<div id="rightDiggit" clickflg="false" onclick="' + ($(".diggit").attr("onclick")) + '"><span class="rightMenuSpan rightDiggitSpan">' + $('#digg_count').text() + '</span><i class="iconfont icon-zan1"></i></div>';
-            rightMenu.prepend(rightDiggitHtml);
-            bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
+                // 添加顶
+                let rightDiggitHtml = '<div id="rightDiggit" clickflg="false" onclick="' + ($(".diggit").attr("onclick")) + '"><span class="rightMenuSpan rightDiggitSpan">' + $('#digg_count').text() + '</span><i class="iconfont icon-zan1"></i></div>';
+                rightMenu.prepend(rightDiggitHtml);
+                bndongJs.rightMenuMous('#rightDiggit', '.rightDiggitSpan');
+            }
 
             // 添加打赏
             if (window.cnblogsConfig.reward.enable && (window.cnblogsConfig.reward.alipay || window.cnblogsConfig.reward.wechatpay)) {
                 let rightDashangHtml = '<div id="rightDashang" clickflg="false"><span class="rightMenuSpan rightDanshanSpan"><div class="ds-pay">' +
                     (window.cnblogsConfig.reward.alipay ? '<div class="ds-alipay"><img src="'+window.cnblogsConfig.reward.alipay+'"><span>Alipay</span></div>' : '') +
                     (window.cnblogsConfig.reward.wechatpay ? '<div class="ds-wecat"><img src="'+window.cnblogsConfig.reward.wechatpay+'"><span>WeChat</span></div>' : '') +
-                    '</div></span><i class="iconfont icon-shang"></i></div>';
+                    '</div></span><i class="iconfont icon-dashang2"></i></div>';
                 rightMenu.prepend(rightDashangHtml);
                 bndongJs.rightMenuMous('#rightDashang', '.rightDanshanSpan');
+            }
+            // 添加公众号
+            if (window.cnblogsConfig.weChatOfficialAccounts) {
+                let rightGzhHtml = '<div id="rightGzh" clickflg="false"><span class="rightMenuSpan rightGzhSpan">' +
+                    '<div class="ds-pay"><div class="ds-gzh"><img src="'+window.cnblogsConfig.weChatOfficialAccounts+'"><span>公众号</span></div></div>' +
+                    '</span><i class="iconfont icon-gongzhonghaoerweima"></i></div>';
+                rightMenu.prepend(rightGzhHtml);
+                bndongJs.rightMenuMous('#rightGzh', '.rightGzhSpan');
             }
 
             bndongJs.clearIntervalTimeId(timeIds.setNotHomeRightMenuTId);

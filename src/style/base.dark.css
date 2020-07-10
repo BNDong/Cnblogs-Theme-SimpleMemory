@@ -78,12 +78,25 @@ footer-background {
     border: 1px solid #555
 }
 
-#topics .postDesc, .commentbox_tab {
-    color: #999
+#topics .postDesc, .commentbox_tab, .catalog-btn i, #rightMenu i, #sideCatalog a,
+#rightDiggit .rightMenuSpan::before, #rightDiggit .rightMenuSpan::before, #rightBuryit .rightMenuSpan::before, #attention .rightMenuSpan::before, #toUpDown .rightMenuSpan::before
+{
+    color: #999 !important;
 }
 
-#sideCatalog-catalog {
-    background: rgba(51, 51, 51, .9) !important
+.catalog-btn-shadow, div#rightMenu>div, #rightDiggit .rightMenuSpan, #rightDiggit .rightMenuSpan, #rightBuryit .rightMenuSpan, #attention .rightMenuSpan, #toUpDown .rightMenuSpan,
+#rightDiggit .rightMenuSpan::before, #rightDiggit .rightMenuSpan::before, #rightBuryit .rightMenuSpan::before, #attention .rightMenuSpan::before, #toUpDown .rightMenuSpan::before
+{
+    -webkit-box-shadow: 0 1px 20px 0 rgba(0,0,0,.5), inset 0 0px 0 0 rgba(0,0,0,.5) !important;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,.5), inset 0 0px 0 0 rgba(0,0,0,.5) !important;
+}
+
+div#rightMenu>div {
+    background: #333 !important;
+}
+
+#sideCatalog-catalog, .catalog-btn {
+    background: rgba(51, 51, 51, 1) !important
 }
 
 #sideCatalog li {
@@ -92,10 +105,6 @@ footer-background {
 
 #sideCatalog {
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, .3) !important
-}
-
-#sideCatalog a {
-    color: #999 !important
 }
 
 #author_profile_info img.author_avatar {
@@ -260,6 +269,10 @@ span.cnblogs_code {
 
 .cnblogs_code_collapse {
     background-color: #333;
+}
+
+.aplayer {
+    color: #666;
 }
 
 @media only screen and (max-width: 720px) {

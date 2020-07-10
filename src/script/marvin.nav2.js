@@ -80,7 +80,7 @@ $(document).ready(function () {
 
     $('#' + f + '>ul>li').click(function () {
         let obj = $(this), title = $(':header[tid="'+obj.find('a').attr('goto')+'"]').parent('span.header__span');
-        title.length && tools.actScroll(title.offset().top + 3, 800);
+        title.length && tools.actScroll(title.offset().top + 3, 500);
     });
 
     let nav_li = $('#sideCatalog-catalog').find('ul li');

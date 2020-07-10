@@ -59,19 +59,19 @@ body{
     margin: 1em;
     padding: 0;
     width: 100px;
-    height: 35px;
+    height: 32px;
     text-indent: 2.5em;
-    background: transparent;
-    top: 10px;
+    background: 0 0;
+    top: 6px;
     left: 10px;
-    outline: none;
+    outline: 0;
     cursor: pointer;
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255,255,255,.6);
     border-radius: 3px;
     font-size: 12px;
     text-transform: uppercase;
-    line-height: 35px;
+    line-height: 32px;
     padding-right: 13px;
     text-align: center;
 }

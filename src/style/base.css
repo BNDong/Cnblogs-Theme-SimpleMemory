@@ -6,8 +6,26 @@
 /*    max-height: 100%*/
 /*}*/
 
+::-moz-selection{
+    background:#807dd4;
+    color: #FFF
+}
+::selection{
+    background:#807dd4;
+    color: #FFF
+}
+::-webkit-selection{
+    background:#807dd4;
+    color: #FFF
+}
+
+::-moz-selection {
+    background:#807dd4;
+}
+
 ::-webkit-scrollbar {
     width:3px;
+    height: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -110,14 +128,6 @@ body {
 /*    bottom: 0;*/
 /*    background-size: 20px 20px*/
 /*}*/
-
-::-moz-selection {
-    background: #D6EDFF
-}
-
-::selection {
-    background: #D6EDFF
-}
 
 table {
     border-collapse: collapse;
@@ -633,7 +643,8 @@ p.article-info-text > .postMeta i {
 .CalDayHeader {
     font-weight: 700;
     background: #111;
-    padding-bottom: 5px
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .CalTitle {
@@ -817,10 +828,13 @@ p.article-info-text > .postMeta i {
     padding: 10px 20px;
     min-height: 35px;
     line-height: 1.5;
-    border: 1px solid #d1d5da;
+    border: 1px solid #e9e9e9;
     border-top: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     background: #fff;
     position: relative;
+}
 }
 
 .feedbackListSubtitle-louzhu {
@@ -1291,10 +1305,10 @@ div#tbCommentBodyPreview {
     color: #586069;
     flex-direction: row-reverse;
     background-color: #f6f8fa;
-    border: 1px solid #d1d5da;
-    border-bottom: 1px solid #d1d5da;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     padding: 10px 20px;
     position: relative;
     white-space: nowrap;
@@ -2076,7 +2090,7 @@ div#tbCommentBodyPreview {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     box-shadow: 0 1px 2px rgba(150, 150, 150, .7)
 }
 
@@ -2435,63 +2449,114 @@ blockquote p {
 #rightMenu {
     position: fixed;
     bottom: 10px;
-    right: 5px;
+    right: 10px;
     min-width: 24px;
     z-index: 2;
     width: 40px;
     text-align: center;
 }
 
+div#rightMenu > div {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #FFF;
+    text-align: center;
+    line-height: 32px;
+    margin-bottom: 3px;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    -webkit-box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1), inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 1px 20px 0px rgba(0,0,0,0.1), inset 0px -1px 0px 0px rgba(0,0,0,0.1);
+}
+
 #rightMenu i {
-    font-weight: 700;
-    text-shadow: 1px 1px 1px #fff;
-    font-size: 24px
+    font-weight: 500;
+    font-size: 16px;
+    display: block;
+}
+
+#rightGzh i {
+    font-size: 18px;
+}
+
+#rightDashang i {
+    font-size: 32px;
+    position: relative;
+    left: -1px;
 }
 
 #attention, #rightBuryit, #rightDiggit, #rightDashang, #toUpDown {
     cursor: pointer;
-    color: #555;
-    opacity: .5;
+    color: #777;
     filter: Alpha(opacity=50);
     -webkit-transition: all .5s ease-out;
     transition: all .5s ease-out;
     position: relative
 }
 
-#attention {
-    bottom: 3px
+#toUpDownI i, #rightDiggit i, #rightBuryit i, #attention i {
+    font-weight: 600;
 }
 
-#rightBuryit {
-    bottom: 5px
-}
-
-#rightDiggit, #rightDashang {
-    bottom: 11px
-}
-
-#rightDashang i {
-    font-size: 32px;
-    font-weight: 500;
-}
-
-#attention:hover, #rightBuryit:hover, #rightDiggit:hover, #rightDashang:hover, #toUpDown:hover {
-    opacity: 1;
-    filter: Alpha(opacity=100)
-}
-
-.rightMenuSpan {
+#rightDashang .rightMenuSpan,  #rightGzh .rightMenuSpan{
     position: absolute;
-    left: -150px;
+    left: -156px;
     font-size: 14px;
     font-weight: 700;
     width: 140px;
+    color: #777;
     text-align: right;
     display: none
 }
 
+#rightDiggit .rightMenuSpan, #rightDiggit .rightMenuSpan, #rightBuryit .rightMenuSpan, #attention .rightMenuSpan, #toUpDown .rightMenuSpan {
+    position: absolute;
+    left: -95px;
+    font-size: 14px;
+    width: 83px;
+    background: #1b1c1d !important;
+    color: #fff;
+    opacity: 0.9;
+    white-space: nowrap;
+    max-width: unset;
+    border: 0;
+    -webkit-box-shadow: 0 0 6px -1px rgba(140,146,163,0.5);
+    box-shadow: 0 0 6px -1px rgba(140,146,163,0.5);
+    font-weight: normal;
+    font-style: normal;
+    border-radius: 3px;
+    text-align: center;
+    display: none;
+}
+
+#rightDiggit .rightMenuSpan::before, #rightDiggit .rightMenuSpan::before, #rightBuryit .rightMenuSpan::before, #attention .rightMenuSpan::before, #toUpDown .rightMenuSpan::before {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(27, 28, 29);
+    box-shadow: rgba(179, 179, 179, 0.2) 1px -1px 0px 0px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    content: "";
+    display: block;
+    height: 8.98438px;
+    margin-top: -3.89999px;
+    opacity: 0.9;
+    position: absolute;
+    transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+    white-space: nowrap;
+    width: 8.98438px;
+    top: 50%;
+    right: -0.325em;
+    bottom: auto;
+    left: auto;
+}
+
 .rightDanshanSpan {
-    bottom: -120px;
+    bottom: -134px;
 }
 
 .ds-pay {
@@ -2500,7 +2565,7 @@ blockquote p {
     text-align: center;
 }
 
-.ds-alipay, .ds-wecat {
+.ds-alipay, .ds-wecat, .ds-gzh {
     cursor: pointer;
     text-align: center;
     width: 140px;
@@ -2514,21 +2579,23 @@ blockquote p {
     background: #fff;
 }
 
-.ds-alipay img, .ds-wecat img {
+.ds-alipay img, .ds-wecat img, .ds-gzh img {
     width: 100%;
     height: 100%;
     border-radius: 6px;
 }
 
-.ds-alipay span, .ds-wecat span {
+.ds-alipay span, .ds-wecat span, .ds-gzh span {
     position: absolute;
     font-family: 'Ubuntu Mono',monospace;
-    left: -30px;
+    left: -32px;
     top: 14px;
+    height: 18px;
+    line-height: 18px;
     background: #fff;
     color: #777;
-    padding: 3px 6px 6px 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px;
+    padding: 0 6px 2px 6px;
+    box-shadow: rgba(0,0,0,0.1) 0 4px 7px;
     border-radius: 0 0 6px 6px;
     font-size: .85em;
     transform: rotate(90deg);
@@ -2773,6 +2840,13 @@ blockquote p {
 #m-nav-list li {
     position: relative;
     overflow: hidden
+}
+
+#m-nav-list li a i {
+    margin-right: 3px;
+    font-size: 16px;
+    position: relative;
+    top: 1px;
 }
 
 #header, #leftcontentcontainer, #profile_block, .catListTitle, #comment_nav {
@@ -3467,6 +3541,57 @@ table#blogCalendar>tbody>tr>td>a {
     color: #bbb;
 }
 
+.art-dialog {
+    background-color: rgba(0,0,0,.7) !important;
+    border: unset !important;
+    color: #f9f9f9 !important;
+}
+
+.art-dialog-header {
+    border-bottom: 1px solid #444 !important;
+}
+
+.art-dialog-footer {
+    padding: 0 20px 10px 20px !important;
+}
+
+.art-dialog-button button {
+    padding: 2px 6px !important;
+    color: #f9f9f9 !important;
+    border: unset !important;
+    font-size: 12px !important;
+}
+
+.art-dialog-button button[i-id=cancel] {
+    background-color: #d98d6f !important;
+}
+
+.art-dialog-statusbar {
+    padding: 0 0 0 16px !important;
+    background: url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/rss.webp) no-repeat 0;
+}
+
+.art-dialog-button button[i-id=cancel]:hover {
+    background-color: #ca8966 !important;
+}
+
+.art-dialog-statusbar a {
+    color: #ff9128;
+}
+
+.art-dialog-content a {
+    color: #85d6d9;
+}
+
+.art-dialog-close {
+    color: #fff !important;
+    text-shadow: unset !important;
+}
+
+.art-dialog-button button[i-id="注册"] {
+    background-color: #5fcc7d !important;
+}
+
 @-moz-keyframes iconAnimate {
     0%,100% {
         transform: scale(1)
@@ -3526,7 +3651,7 @@ table#blogCalendar>tbody>tr>td>a {
 #dayNightSwitch {
     display: inline-block;
     position: absolute;
-    z-index: 3;
+    z-index: 4;
     right: 20px;
     top: 25px;
     opacity: .65;

@@ -3,49 +3,49 @@ require.config({
     waitSeconds: 100,
     map: {
         '*': {
-            'css': setFileNameMin('css.min', 'js')
+            'css': setFileNameMin('lib/css.min', 'js')
         }
     },
     paths: {
         //-- 菜单滚动条
-        optiscroll: setFileNameMin('jquery.optiscroll', 'js'),
+        optiscroll: setFileNameMin('lib/jquery.optiscroll', 'js'),
         //-- 进度条
-        ToProgress: setFileNameMin('ToProgress.min', 'js'),
+        ToProgress: setFileNameMin('lib/ToProgress.min', 'js'),
         //-- 旋转
-        rotate: setFileNameMin('jquery.rotate.min', 'js'),
+        rotate: setFileNameMin('lib/jquery.rotate.min', 'js'),
         //-- snap svg
-        snapSvg: setFileNameMin('snap.svg-min', 'js'),
+        snapSvg: setFileNameMin('lib/snap.svg-min', 'js'),
         //-- 菜单
-        classie: setFileNameMin('classie', 'js'),
+        classie: setFileNameMin('lib/classie', 'js'),
         main4: setFileNameMin('main4', 'js'),
         //-- bootstrap
-        bootstrap: setFileNameMin('bootstrap.min', 'js'),
+        bootstrap: setFileNameMin('lib/bootstrap.min', 'js'),
         //-- 图片灯箱
-        fancybox: setFileNameMin('jquery.fancybox.min', 'js'),
+        fancybox: setFileNameMin('lib/jquery.fancybox.min', 'js'),
         //-- 文章标题
         title: setFileNameMin('articleTitle', 'js'),
-        //-- 文章目录s
+        //-- 文章目录
         marvin: setFileNameMin('marvin.nav2', 'js'),
         //-- 文章后缀
         articleStatement: setFileNameMin('articleStatement', 'js'),
         //-- 代码高亮 - prettify
-        codePrettify: setFileNameMin('run_prettify', 'js'),
-        codeDesert: setFileNameMin('run_prettify', 'js'),
-        codeSunburst: setFileNameMin('run_prettify', 'js'),
-        codeObsidian: setFileNameMin('run_prettify', 'js'),
-        codeDoxy: setFileNameMin('run_prettify', 'js'),
+        codePrettify: setFileNameMin('lib/run_prettify', 'js'),
+        codeDesert: setFileNameMin('lib/run_prettify', 'js'),
+        codeSunburst: setFileNameMin('lib/run_prettify', 'js'),
+        codeObsidian: setFileNameMin('lib/run_prettify', 'js'),
+        codeDoxy: setFileNameMin('lib/run_prettify', 'js'),
         //-- 代码高亮 - highlightjs
-        highlightjs: setFileNameMin('highlight.min', 'js'),
+        highlightjs: setFileNameMin('lib/highlight.min', 'js'),
         //-- 拷贝：博客园
-        encoder: setFileNameMin('encoder', 'js'),
+        encoder: setFileNameMin('lib/encoder', 'js'),
         //-- 拷贝：clipboard
-        clipboard: setFileNameMin('clipboard.min', 'js'),
+        clipboard: setFileNameMin('lib/clipboard.min', 'js'),
         //-- 主页头图动画
-        circleMagic: setFileNameMin('circleMagic', 'js'),
+        circleMagic: setFileNameMin('lib/circleMagic', 'js'),
         //-- 非主页头图动画
-        TweenMax: setFileNameMin('TweenMax.min', 'js'),
+        TweenMax: setFileNameMin('lib/TweenMax.min', 'js'),
         MyTween: setFileNameMin('MyTween', 'js'),
-	    //-- 背景动画：丝带（随机）
+        //-- 背景动画：丝带（随机）
         RibbonsEffect: setFileNameMin('RibbonsEffect', 'js'),
         //-- tools
         tools: setFileNameMin('tools', 'js'),
@@ -98,7 +98,7 @@ require.config({
         base: {
             deps: [
                 'tools',
-                'css!//at.alicdn.com/t/font_543384_msjvd6htfjp.css', // 阿里云字体图标
+                'css!//at.alicdn.com/t/font_543384_kv876ayucyc.css', // 阿里云字体图标
                 'css!'+getJsDelivrUrl('google-fonts.css'), // 谷歌字体
             ]
         },
