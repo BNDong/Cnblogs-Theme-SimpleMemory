@@ -152,6 +152,8 @@ window.cnblogsConfig = {
 
 当页面失去焦点，页面title变化的延时时间，单位毫秒。
 
+?> 版本 >= v1.3.3 后该配置值为 -1 时，当页面失去焦点，页面title显示的文字不会变化。
+
 ```javascript
 window.cnblogsConfig = {
     webpageTitleOnblurTimeOut: 500,
@@ -177,6 +179,8 @@ window.cnblogsConfig = {
 * 默认值：```1000```
 
 当页面获取焦点，页面title变化的延时时间，单位毫秒。
+
+?> 版本 >= v1.3.3 后该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
 
 ```javascript
 window.cnblogsConfig = {
@@ -554,6 +558,7 @@ window.cnblogsConfig = {
 主页banner上的标语，设置此选项会显示自定义文字，默认为空，自动获取一句。
 
 1) 设置文字，会固定显示该文字。
+
 2) 设置数组，随机从数组中获取一条文字显示。 （版本 >= v1.3.2）
 
 ```javascript
@@ -614,6 +619,21 @@ window.cnblogsConfig = {
         "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp",
         "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
     ],
+}
+```
+
+### essayTitleStyle - 文章内容标题样式设置
+
+?> 版本 >= v1.3.3
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+是否设置文章内容标题样式，默认不设置。
+
+```javascript
+window.cnblogsConfig = {
+    essayTitleStyle: true,
 }
 ```
 
@@ -805,6 +825,28 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 、solarized-dark、solarized-light、sunburst、tomorrow-night-blue、tomorrow-night-bright
 、tomorrow-night-eighties、tomorrow-night、tomorrow、vs、vs2015、xcode、xt256、zenburn
 */
+```
+
+#### essayCodeLanguages
+
+* 类型：```Array```
+* 默认值：```[]```
+
+?> 版本 >= v1.3.3
+
+使用 ```highlightjs``` 插件渲染代码高亮时，限制自动识别语言时的语言范围。
+
+支持配置的语言：[Languages](https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md)
+
+```javascript
+window.cnblogsConfig = {
+    essayCodeLanguages: [
+        "G-Code",
+        "PHP",
+        "python",
+        "SQL",
+    ],
+}
 ```
 
 ### 使用 prettify 渲染代码

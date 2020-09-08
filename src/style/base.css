@@ -376,6 +376,30 @@ b {
     width: 60px
 }
 
+.desc_img {
+    display: none;
+}
+
+.c_b_p_desc_img {
+    width: calc(39% - 20px);
+    height: 100%;
+    opacity: .9;
+    position: absolute;
+    top: -5px;
+    border-left: 1px dashed #e9e9e9;
+    right: 0;
+    padding-left: 13px;
+    overflow: hidden;
+}
+
+.c_b_p_desc_img div {
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: .95;
+}
+
 .postCon, .postDesc, .postSeparator, .postTitle {
     width: 100%;
     clear: both
@@ -422,6 +446,7 @@ b {
     text-align: justify;
     font-size: 1.45em;
     display: block;
+    position: relative;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     -webkit-margin-start: 0;
@@ -2634,20 +2659,19 @@ div#rightMenu > div {
 
 #cnblogs_post_body table, .feedbackCon table {
     position: relative;
-    overflow: hidden !important;
+    overflow: hidden!important;
     box-sizing: border-box;
-    width: 96% !important;
-    max-width: 96% !important;
+    width: 100%!important;
     background-color: #fff;
     border: 1px solid #dfe3ec;
     font-size: 14px;
     color: #222;
-    margin: 0 auto 10px;
+    margin: 0 0 10px 0;
     padding: 0;
     border-right: 0;
     border-bottom: 0;
-    display: table !important;
-    border-collapse: initial !important
+    display: table!important;
+    border-collapse: initial!important;
 }
 
 .feedbackCon table {
@@ -2681,12 +2705,16 @@ div#rightMenu > div {
 }
 
 #cnblogs_post_body > p {
-    margin: 10px auto;
-    padding: 0 20px;
-    line-height: 1.9em;
-    font-family: "Microsoft YaHei",Lato,"PingFang SC",sans-serif;
-    font-size: 1.1em;
+    margin: 13px auto;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
     letter-spacing: .015em;
+    font-feature-settings: "tnum";
+    font-variant: tabular-nums;
+    font-weight: 400;
+    line-height: 1.8;
+    word-break: break-word;
 }
 
 #cnblogs_post_body ul li {
@@ -2882,18 +2910,15 @@ span.cnblogs_code {
     position: relative;
     overflow: hidden;
     border: 0;
-}
-
-code-box {
-    margin: 10px 0;
+    padding: 0;
 }
 
 .post pre {
     padding: 10px !important;
     white-space: pre;
     word-wrap: normal;
-    margin: 5px 15px;
-    border-radius: 5px !important;
+    margin: 5px 0;
+    border-radius: 4px !important;
 }
 
 .postBody pre {
@@ -2935,7 +2960,7 @@ code-box {
 .code-copay-btn {
     position: absolute;
     top: 8px;
-    right: 23px;
+    right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3142,6 +3167,7 @@ div#loading, a[name=top] {
 
 .books-item {
     margin-top: 10px;
+    font-family: 'Noto Serif SC', serif;
 }
 
 .books-item .books-item-span {
@@ -3231,6 +3257,26 @@ div#loading, a[name=top] {
     border-radius: 6px
 }
 
+.books-item .books-item-span ._28asT svg.icon {
+    font-size: 3.5em;
+    position: absolute;
+    bottom: -20px;
+    z-index: 1;
+    left: 0;
+    height: 60px;
+}
+
+.books-item .books-item-span ._28asT zc {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 22px;
+    bottom: 0;
+    background: rgba(0,0,0,0.1);
+    z-index: 0;
+}
+
 .books-item .books-item-span ._34CGc {
     -webkit-box-flex: 1;
     flex: 1;
@@ -3253,7 +3299,8 @@ div#loading, a[name=top] {
     margin-bottom: 3px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
+    font-family: 'ZCOOL XiaoWei', serif;
 }
 
 .books-item .books-item-span ._2girK ._6Y7v3 {
@@ -4028,8 +4075,16 @@ table#blogCalendar>tbody>tr>td>a {
         display: none
     }
 
-    #bgCanvas, #homeTopCanvas, #notHomeTopCanvas, .essaySuffix-box-left {
+    #bgCanvas, #homeTopCanvas, #notHomeTopCanvas, .essaySuffix-box-left, .c_b_p_desc_img {
         display: none !important
+    }
+
+    .c_b_p_desc, .entrylistPostSummary {
+        width: 100% !important;
+    }
+
+    .postCon {
+        min-height: unset !important;
     }
 
     .essaySuffix-box-right {

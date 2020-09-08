@@ -30,20 +30,21 @@ $(document).ready(function () {
 
     let topHT = 'h' + topLev, topTwHT = 'h' + (topLev + 1);
 
-    o.each(function () {
+    o.each(function (ii) {
         let u = $(this),
             v = u[0];
         if ($.inArray((v.tagName.toLowerCase()), [topHT, topTwHT]) === -1) return true;
 
-        let lserialNum   = u.find('.dev__fe').text(),
-            rserialNum   = u.find('.dev__ux').text(),
-            titleContent = u.find('.dev__developer').text(),
+        let lserialNum   = u.find('.dev__fe').length  > 0 ? u.find('.dev__fe').text() : null,
+            rserialNum   = u.find('.dev__ux').length > 0  ? u.find('.dev__ux').text() : null,
+            titleContent = u.find('.dev__developer').length > 0 ? u.find('.dev__developer').text() : u.text(),
             titleId      = u.attr('tid'),
             hId          = u.attr('id');
 
         if (!titleId) {
             titleId = tools.randomString(6);
             u.attr('tid', 'tid-' + titleId);
+            titleId = 'tid-' + titleId;
         }
 
         if (!hId) {
@@ -53,18 +54,22 @@ $(document).ready(function () {
 
         if (v.localName === topHT) {
             l++; m = 0; r = true;
-            if(titleContent.length>26) titleContent=titleContent.substr(0,26) + "...";
+            if(titleContent.length > 26) titleContent = titleContent.substr(0,26) + "...";
             titleContent = tools.HTMLEncode(titleContent);
 
-            j += '<li h="'+topLev+'" g="'+ lserialNum +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a><span class="sideCatalog-dot"></span></li>';
+            let itemText = lserialNum === null && rserialNum === null ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
+
+            j += '<li h="'+topLev+'" g="'+ (lserialNum === null ? l : lserialNum) +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a><span class="sideCatalog-dot"></span></li>';
         } else if (r && v.localName === topTwHT) {
             m++; n = 0;
             if(q){
 
                 if(titleContent.length>30) titleContent = titleContent.substr(0,30) + "...";
                 titleContent = tools.HTMLEncode(titleContent);
+                let itemText = lserialNum === null && rserialNum === null ? titleContent : lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent;
 
-                j += '<li h="'+(topLev+1)+'" g="'+ lserialNum +'" class="h2Offset ceg'+lserialNum+'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + lserialNum + '.' + rserialNum + '&nbsp;&nbsp;' + titleContent + '</a></li>';
+                j += '<li h="'+(topLev+1)+'" g="'+ (lserialNum === null ? l : lserialNum) +'" ' +
+                    'class="h2Offset ceg'+ (lserialNum === null ? l : lserialNum) +'"><a href="#'+hId+'" goto="' + titleId + '" onclick="return false;">' + itemText + '</a></li>';
             }
         }
     });
@@ -76,10 +81,13 @@ $(document).ready(function () {
     b.scrollspy({
         target: '.sideCatalogBg'
     });
-    $sideCatelog = $('#' + e);
+    let $sideCatelog = $('#' + e);
 
     $('#' + f + '>ul>li').click(function () {
-        let obj = $(this), title = $(':header[tid="'+obj.find('a').attr('goto')+'"]').parent('span.header__span');
+        let obj = $(this), title, titleH = $(':header[tid="'+obj.find('a').attr('goto')+'"]'),
+        titleParent = titleH.parent('span.header__span');
+        title = titleParent.length > 0 ? titleParent : titleH;
+
         title.length && tools.actScroll(title.offset().top + 3, 500);
     });
 

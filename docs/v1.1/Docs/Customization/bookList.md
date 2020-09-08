@@ -4,6 +4,8 @@
 
 该功能是在```v1.2.3```添加的，样式参考：[https://www.cnblogs.com/bndong/p/10300036.html](https://www.cnblogs.com/bndong/p/10300036.html)
 
+> v1.3.3 新增评级属性
+
 ## 配置方式
 
 ### 标识页面为书单页面
@@ -55,7 +57,8 @@ window.cnblogsConfig = {
                     author: '郑也夫',
                     translator: '',
                     press: '中信出版社',
-                    year: '2016-8'
+                    year: '2016-8',
+                    score: 2,
                 }
             ]
         },
@@ -69,7 +72,8 @@ window.cnblogsConfig = {
                     author: '郑也夫',
                     translator: '',
                     press: '中信出版社',
-                    year: '2016-8'
+                    year: '2016-8',
+                    score: 5,
                 },
                 {
                     cover: 'https://images.weserv.nl/?url=https://img3.doubanio.com/view/subject/l/public/s2180473.jpg',
@@ -78,7 +82,8 @@ window.cnblogsConfig = {
                     author: '李宗吾',
                     translator: '',
                     press: '群言出版社',
-                    year: '2006-9'
+                    year: '2006-9',
+                    score: 3,
                 }
             ]
         },
@@ -98,3 +103,4 @@ window.cnblogsConfig = {
 |**books.translator**|译者|
 |**books.press**|出版社|
 |**books.year**|出版年|
+|**books.score**|评级1～5|

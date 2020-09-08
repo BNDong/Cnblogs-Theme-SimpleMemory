@@ -395,7 +395,11 @@ function Base() {
         let RelTitle = document.title,
             hidden,
             visibilityChange,
-            timer;
+            timer,
+            webpageTitleOnblur = window.cnblogsConfig.webpageTitleOnblur,
+            webpageTitleOnblurTimeOut = window.cnblogsConfig.webpageTitleOnblurTimeOut,
+            webpageTitleFocus = window.cnblogsConfig.webpageTitleFocus,
+            webpageTitleFocusTimeOut = window.cnblogsConfig.webpageTitleFocusTimeOut;
 
         if (typeof document.hidden !== "undefined") {
             hidden = "hidden";
@@ -411,16 +415,22 @@ function Base() {
         function handleVisibilityChange() {
             if (timer) clearTimeout(timer);
             if (document[hidden]) {
-                timer = setTimeout(function () {
-                    document.title = window.cnblogsConfig.webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
-                }, window.cnblogsConfig.webpageTitleOnblurTimeOut);
-                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, window.cnblogsConfig.webpageTitleOnblur);
+                if (webpageTitleOnblurTimeOut >= 0) {
+                    timer = setTimeout(function () {
+                        document.title = webpageTitleOnblur + ' - ' + RelTitle.split(' - ')[0];
+                    }, webpageTitleOnblurTimeOut);
+                }
+                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleOnblur);
             } else {
-                document.title = window.cnblogsConfig.webpageTitleFocus;
-                timer = setTimeout(function () {
+                if (webpageTitleFocusTimeOut >= 0) {
+                    document.title = webpageTitleFocus;
+                    timer = setTimeout(function () {
+                        document.title = RelTitle;
+                    }, webpageTitleFocusTimeOut);
+                } else {
                     document.title = RelTitle;
-                }, window.cnblogsConfig.webpageTitleFocusTimeOut);
-                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, window.cnblogsConfig.webpageTitleFocus);
+                }
+                window.cnblogsConfig.hook.pageLabelChanges(bndongJs, webpageTitleFocus);
             }
         }
         if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
@@ -898,7 +908,7 @@ function Base() {
             (homeTopImg.length > 1 ? bgImg = homeTopImg[tools.randomNum(0, homeTopImg.length - 1)] : bgImg = homeTopImg[0])
             : bgImg = "";
         $('.main-header').css({
-            'background': '#222 url('+encodeURI(bgImg)+')  center center no-repeat',
+            'background': '#222 url("'+encodeURI(bgImg)+'")  center center no-repeat',
             'background-size': 'cover'
         });
 
@@ -910,6 +920,7 @@ function Base() {
     this.homeInitAfter = function () {
         bndongJs.setHomePost();
         bndongJs.setEntryPost();
+        bndongJs.setPostConImg();
 
         // 头图点击滚动到内容位置
         $('.scroll-down').click(function () {
@@ -950,6 +961,24 @@ function Base() {
             let title = $(this),
                 postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text();
             title.after(bndongJs.getPostMetaHtml(postDescText));
+        });
+    };
+
+    /**
+     * 设置摘要文章
+     */
+    this.setPostConImg = function () {
+        let desc = $('.c_b_p_desc');
+        $.each(desc, function (i) {
+            let obj = $(this), img = obj.find('img.desc_img');
+            if (img.length > 0) {
+                let src = img.attr('src');
+                img.hide();
+                obj.css('width', '60%');
+                obj.parent('div').css('min-height', '150px');
+                let html = '<div class="c_b_p_desc_img"><div style="background: url(\''+ src +'\') center center / cover no-repeat rgb(34, 34, 34);"></div></div>';
+                obj.after(html);
+            }
         });
     };
 
@@ -1251,7 +1280,7 @@ function Base() {
 
         $('.main-header').css({
             'height': '40vh',
-            'background': '#222 url('+encodeURI(bgImg)+')  center center no-repeat',
+            'background': '#222 url("'+encodeURI(bgImg)+'")  center center no-repeat',
             'background-size': 'cover'
         });
 
@@ -1321,8 +1350,15 @@ function Base() {
                         '        <div class="_28asT">' +
                         '            <svg>' +
                         '                <image xlink:href="'+ book.cover +'" x="0" y="0" width="100%" height="100%"></image>' +
-                        '            </svg>' +
-                        '        </div>' +
+                        '            </svg>';
+
+                    if (book.score > 0) {
+                        html  += '<svg class="icon" aria-hidden="true">' +
+                            '             <use xlink:href="#iconpingji-'+book.score+'"></use>' +
+                            '         </svg><zc></zc>';
+                    }
+
+                    html += '        </div>' +
                         '        <div class="_34CGc">' +
                         '            <div class="_2girK">' +
                         '                <div>' +
@@ -1343,6 +1379,7 @@ function Base() {
             });
 
             postBody.append(html);
+            $.getScript('//at.alicdn.com/t/font_1975696_268p7s28tsh.js');
         }
     };
 
@@ -1430,6 +1467,12 @@ function Base() {
         function highlightjsCode() {
             tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
             require(['highlightjs'], function() {
+                let essayCodeLanguages = window.cnblogsConfig.essayCodeLanguages;
+                if (essayCodeLanguages && essayCodeLanguages.length > 0) {
+                    hljs.configure({
+                        languages: essayCodeLanguages
+                    });
+                }
                 $('.post pre').each(function(i, block) {
                     if ($.inArray(hltheme, [
                             'github-gist', 'googlecode', 'grayscale',

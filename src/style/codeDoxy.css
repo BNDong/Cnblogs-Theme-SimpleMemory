@@ -31,10 +31,8 @@ pre.prettyprint, code.prettyprint {
 }  /*  background is black (well, just a tad less dark )  */
 
 pre.prettyprint {
-    width: 95%;
-    margin: 1em auto;
+    /*margin: 1em auto;*/
     padding: 1em;
-    white-space: pre-wrap;
 }
 
 pre.prettyprint a, code.prettyprint a {
