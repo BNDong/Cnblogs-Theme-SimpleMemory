@@ -2877,7 +2877,7 @@ div#rightMenu > div {
     top: 1px;
 }
 
-#header, #leftcontentcontainer, #profile_block, .catListTitle, #comment_nav {
+#header, #leftcontentcontainer, #profile_block, .catListTitle, #comment_nav, #top_nav {
     display: none !important
 }
 
