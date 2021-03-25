@@ -1321,7 +1321,8 @@ function Base() {
             $.each(imgList, function (i) {
                 let tem = $(imgList[i]);
                     if (!tem.hasClass('code_img_closed') && !tem.hasClass('code_img_opened'))
-                        tem.wrap('<a data-fancybox="gallery" href="'+tem.attr('src')+'"></a>');
+                        tem.after('<a data-fancybox="gallery" href="'+tem.attr('src')+'"><img src="'+tem.attr('src')+'"/></a>');
+                        tem.remove();
             });
         }
 
