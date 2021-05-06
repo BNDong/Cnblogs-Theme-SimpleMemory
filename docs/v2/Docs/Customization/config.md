@@ -551,6 +551,7 @@ window.cnblogsConfig = {
 ### page - 友链页
 
 * 类型：```Array```
+* 相关文档：[友链](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/links)
 * 默认值：```[]```
 
 友链页。需要在页面源码中添加 `<input id="linkListFlg" type="hidden" />`
@@ -917,6 +918,7 @@ window.cnblogsConfig = {
 ## cnzz - 网站统计
 
 * 类型：```String```
+* 相关文档：[网站统计](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/statistical)
 * 默认值：```""```
 
 cnzz网站ID。
