@@ -3,3 +3,6 @@
 *.iml
 *.ipr
 .DS_Store
+node_modules
+src/test.json5
+src/test.js

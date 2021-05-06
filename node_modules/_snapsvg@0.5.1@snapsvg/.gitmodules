@@ -1,9 +1,0 @@
-[submodule "third-party/mocha"]
-	path = third-party/mocha
-	url = https://github.com/visionmedia/mocha.git
-[submodule "third-party/eve"]
-	path = third-party/eve
-	url = https://github.com/adobe-webplatform/eve.git
-[submodule "third-party/expect"]
-	path = third-party/expect
-	url = https://github.com/LearnBoost/expect.js.git
