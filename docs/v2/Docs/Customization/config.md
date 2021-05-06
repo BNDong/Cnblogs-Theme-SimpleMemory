@@ -612,6 +612,21 @@ window.cnblogsConfig = {
 }
 ```
 
+### downScrollDom - 跳至底部位置定义
+
+* 类型：```String```
+* 默认值：```""```
+
+跳至底部位置定义，配置为 JQuery 选择器。
+
+```javascript
+window.cnblogsConfig = {
+  rtMenu: {
+    downScrollDom: '#blog_post_info_block',
+  },
+}
+```
+
 ## switchDayNight - 日/夜间模式
 
 * 类型：```Object```
