@@ -19,6 +19,7 @@
 - 扩展
 
   - [播放器](Docs/Customization/player.md)
+  - [网站统计](Docs/Customization/statistical.md)
 
 - 指南
 

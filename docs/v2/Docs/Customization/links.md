@@ -22,7 +22,7 @@
 
 直接拷贝到文本即可。
 
-### 配置书单数据
+### 配置友链数据
 
 友链的配置，可以参考其他[配置](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/config)的方式。例如：
 
