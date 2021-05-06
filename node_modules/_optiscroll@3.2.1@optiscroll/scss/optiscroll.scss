@@ -1,0 +1,188 @@
+
+/* Set these values before importing optiscroll.scss 
+ * to override the defaults
+ */
+
+$optiscroll-namespace: 'optiscroll' !default;
+$optiscroll-classPrefix: $optiscroll-namespace + '-' !default;
+
+$optiscroll-forceScrollbarV: false !default;
+$optiscroll-forceScrollbarH: false !default;
+$optiscroll-supportRtl: true !default;
+$optiscroll-defaultStyle: true !default;
+
+
+/**************************************
+ *  Optiscroll container base style
+ */
+
+.#{$optiscroll-namespace} {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  &.is-enabled { overflow: hidden; }
+}
+
+.#{$optiscroll-namespace}.is-enabled > .#{$optiscroll-classPrefix}content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/**************************************
+ *  Optiscroll scrollbars base style
+ */
+
+.#{$optiscroll-classPrefix}v,
+.#{$optiscroll-classPrefix}h {
+  position: absolute;
+  visibility: hidden;
+  z-index: 2;
+  user-select: none;
+}
+
+.#{$optiscroll-classPrefix}v { right: 0; }
+.#{$optiscroll-classPrefix}h { bottom: 0; }
+
+.#{$optiscroll-namespace}.has-vtrack > .#{$optiscroll-classPrefix}v,
+.#{$optiscroll-namespace}.has-htrack > .#{$optiscroll-classPrefix}h {
+  visibility: visible;
+}
+
+@if $optiscroll-supportRtl {
+  .#{$optiscroll-namespace}.is-rtl > .#{$optiscroll-classPrefix}v { 
+    left: 0; 
+    right: auto; 
+  }
+}
+
+
+/**************************************
+ *  Optiscroll tracks base style
+ */
+
+.#{$optiscroll-classPrefix}vtrack,
+.#{$optiscroll-classPrefix}htrack {
+  display: block;
+  position: absolute;
+  opacity: 1;
+  transform: translate(0%, 0%);
+  transition: height 0.2s ease 0s, width 0.2s ease 0s, opacity 0.2s ease 0s;
+  box-sizing: border-box;
+}
+
+
+
+/**************************************
+ *  Prevent parent scroll
+ *  even when content is not longer enough.
+ */
+
+@if $optiscroll-forceScrollbarV {
+  .#{$optiscroll-classPrefix}content:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    box-sizing: content-box;
+  }
+}
+
+
+@if $optiscroll-forceScrollbarH {
+  .#{$optiscroll-classPrefix}content:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-right: 2px solid transparent;
+    box-sizing: content-box;
+  }
+}
+
+
+
+/**************************************
+ *  DEFAULT STYLE
+ **************************************/
+
+@if $optiscroll-defaultStyle {
+
+  /***
+   ***  Scrollbars style  ***/
+
+  .#{$optiscroll-classPrefix}v {
+    top: 4px;
+    bottom: 4px;
+    width: 0;
+  }
+
+  .#{$optiscroll-classPrefix}h {
+    left: 4px;
+    right: 4px;
+    height: 0;
+  }
+
+  /* Avoid overapping while both scrollbars are enabled */
+  .#{$optiscroll-namespace}.has-vtrack.has-htrack > .#{$optiscroll-classPrefix}v { 
+    bottom: 8px;
+  }
+  .#{$optiscroll-namespace}.has-vtrack.has-htrack > .#{$optiscroll-classPrefix}h { 
+    right: 8px;
+  }
+
+  /***
+   ***  Tracks style  ***/
+
+  .#{$optiscroll-classPrefix}vtrack,
+  .#{$optiscroll-classPrefix}htrack {
+    background: rgba(#000, 0.3);
+    border-radius: 2px;
+    box-shadow: 0 0 1px #FFF;
+    opacity: 0;
+  }
+
+  .#{$optiscroll-classPrefix}vtrack {
+    width: 3px;
+    right: 4px;
+  }
+
+  .#{$optiscroll-classPrefix}htrack {
+    height: 3px;
+    bottom: 4px;
+  }
+
+  .#{$optiscroll-namespace}:hover {
+    & > .#{$optiscroll-classPrefix}v .#{$optiscroll-classPrefix}vtrack,
+    & > .#{$optiscroll-classPrefix}h .#{$optiscroll-classPrefix}htrack { 
+      opacity: 1; 
+    }
+  }
+
+  @if $optiscroll-supportRtl {
+
+    .#{$optiscroll-namespace}.has-vtrack.has-htrack.is-rtl > .#{$optiscroll-classPrefix}h {
+      right: 4px;
+      left: 8px;
+    }
+
+    .#{$optiscroll-namespace}.is-rtl > .#{$optiscroll-classPrefix}v .#{$optiscroll-classPrefix}vtrack {
+      right: auto;
+      left: 4px;
+    }
+
+  }
+
+}

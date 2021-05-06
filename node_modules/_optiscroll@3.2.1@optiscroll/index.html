@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0">
+  <title>Optiscroll.js</title>
+
+  <link rel="stylesheet" href="dist/optiscroll.css">
+  <style type="text/css">
+    * { box-sizing: border-box; }
+    html, body { margin: 0; border: none; width: 100%; height: 100%; overflow: hidden; font: 21px/1.6 sans-serif; }
+    .m-wrapper { width: 100%; height: 100%; }
+    .optiscroll-vtrack { width: 10px; }
+    .optiscroll-htrack { height: 10px; }
+    .column { display: inline-block; width: 45%; height: 15rem; background: #f5f5f5; margin: 0 2%; }
+    .optiscroll-content { padding: 1em; }
+    #os1 .optiscroll-vtrack, #os1 .optiscroll-htrack { opacity: 1 }
+    #os1 p { transition: all 2s ease 0s; max-width: 99em; max-height: 99em; }
+    .collapse {  max-width: 0 !important; max-height: 0 !important; overflow: hidden; }
+  </style>
+
+  <script type="text/javascript" src="src/optiscroll.js"></script>
+  <script type="text/javascript" src="src/events.js"></script>
+  <script type="text/javascript" src="src/scrollbar.js"></script>
+  <script type="text/javascript" src="src/utils.js"></script>
+  <script type="text/javascript" src="src/globals.js"></script>
+</head>
+<body>
+
+  <div id="m-wrapper" class="m-wrapper optiscroll">
+
+    <h1>Optiscroll</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id nibh dictum ex ultrices pellentesque non eget eros. Sed pellentesque in lorem ac porttitor. Phasellus consectetur risus eu quam pellentesque, at malesuada odio hendrerit. Morbi vitae commodo lectus. In hac habitasse platea dictumst. Quisque placerat arcu ac risus pretium, a efficitur elit hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </p>
+
+    <h2>Nested</h2>
+
+    <div id="os1" class="optiscroll column">
+      <div id="os1-content" class="optiscroll-content">
+        <p style="width: 150%">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id nibh dictum ex ultrices pellentesque non eget eros. Sed pellentesque in lorem ac porttitor. Phasellus consectetur risus eu quam pellentesque, at malesuada odio hendrerit. Morbi vitae commodo lectus. In hac habitasse platea dictumst. Quisque placerat arcu ac risus pretium, a efficitur elit hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id nibh dictum ex ultrices pellentesque non eget eros. Sed pellentesque in lorem ac porttitor. Phasellus consectetur risus eu quam pellentesque, at malesuada odio hendrerit. Morbi vitae commodo lectus. In hac habitasse platea dictumst.
+        </p>
+        Lorem ipsum dolor sit amet
+      </div>
+    </div>
+    <div dir="rtl" id="os2" class="optiscroll column">
+      <div id="os2-content" class="optiscroll-content">
+        <p style="width: 150%">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id nibh dictum ex ultrices pellentesque non eget eros. Sed pellentesque in lorem ac porttitor. Phasellus consectetur risus eu quam pellentesque, at malesuada odio hendrerit. Morbi vitae commodo lectus. In hac habitasse platea dictumst. Quisque placerat arcu ac risus pretium, a efficitur elit hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id nibh dictum ex ultrices pellentesque non eget eros. Sed pellentesque in lorem ac porttitor. Phasellus consectetur risus eu quam pellentesque, at malesuada odio hendrerit. Morbi vitae commodo lectus. In hac habitasse platea dictumst.
+        </p>
+        Lorem ipsum dolor sit amet
+      </div>
+    </div>
+
+    <!-- comment -->
+    <h2>Lorem</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id nibh dictum ex ultrices pellentesque non eget eros. Sed pellentesque in lorem ac porttitor. <br>
+      Phasellus consectetur risus eu quam pellentesque, at malesuada odio hendrerit. Morbi vitae commodo lectus. In hac habitasse platea dictumst. Quisque placerat arcu ac risus pretium, a efficitur elit hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </p>
+    <p>
+      Nunc pulvinar, orci et lacinia malesuada, quam augue auctor libero, et egestas neque leo sit amet dolor. Quisque rhoncus vulputate tortor, in ultricies neque fringilla in. Aenean placerat purus vitae rhoncus tincidunt. Nullam varius erat nec fringilla porta. Sed at mi ac ipsum ultrices gravida. Duis quis auctor dolor. Cras tempus, tellus ut sodales consequat, velit elit pulvinar est, vitae venenatis odio felis ut augue. Phasellus rutrum justo ac leo tincidunt, convallis elementum magna malesuada. Nulla eget turpis a metus molestie auctor. Quisque sollicitudin ultrices elementum. Suspendisse tempor scelerisque fermentum. Phasellus dictum massa quis est sagittis, quis placerat sapien ullamcorper. Curabitur enim ex, bibendum at scelerisque a, congue et nunc. Aenean tincidunt sodales leo, vel lacinia neque posuere facilisis. Ut rhoncus egestas nunc, ac bibendum mi efficitur vitae. Curabitur tincidunt nibh eget nisi dictum, blandit dignissim ex maximus.
+    </p>
+    <p>
+      Etiam tempor imperdiet molestie. Phasellus imperdiet eros sed elit cursus, ut luctus quam varius. Nulla et suscipit ipsum. Proin hendrerit tellus sit amet lacinia euismod. Integer sit amet blandit velit. Donec eu maximus ex. Pellentesque sodales magna in rhoncus tempor. Sed tincidunt risus id turpis tristique, aliquet congue erat suscipit. Aenean ligula arcu, venenatis a tristique in, elementum eget tellus.
+    </p>
+
+    <script type="text/javascript">
+      var os1 = new Optiscroll(document.getElementById('os1'), {
+        maxTrackSize: 70,
+        preventParentScroll: true,
+        wrapContent: false,
+        forceScrollbars: true,
+      });
+      setInterval(function () {
+        document.querySelector('#os1-content p').classList.toggle('collapse');
+      }, 5000);
+
+      var os2 = new Optiscroll(document.getElementById('os2'), {
+        maxTrackSize: 70,
+        preventParentScroll: true,
+        wrapContent: false,
+      });
+    </script>
+
+  </div>
+
+  <script type="text/javascript">
+    var wr = new Optiscroll(document.getElementById('m-wrapper'), { forceScrollbars: true });
+  </script>
+
+</body>
+</html>

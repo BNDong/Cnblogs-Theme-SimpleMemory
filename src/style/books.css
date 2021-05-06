@@ -1,0 +1,128 @@
+.book-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 49%);
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+    margin: 5px;
+    position: relative;
+}
+
+@media only screen and (max-width: 960px) {
+    .book-cards {
+        grid-template-columns: repeat(1, 100%);
+        grid-column-gap: 15px;
+        grid-row-gap: 10px;
+    }
+}
+
+.book-card {
+    margin: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 11px -2px rgb(37 44 97 / 10%), 0 1px 3px 0 rgb(93 100 148 / 15%);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0 15px 15px 15px;
+    color: #8b939c;
+    position: relative;
+}
+
+.book-cards .book-rate i {
+    margin-right: 1px;
+    font-size: 13px;
+}
+
+.book-cards .book-card-img {
+    width: 160px;
+    margin-top: -35px;
+    border-radius: 2px;
+    box-shadow: 0px 1px 7px 2px #c7c9d3;
+    border-bottom: 1px solid #dcddde;
+    object-fit: cover;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+.book-cards .book-card-img:hover {
+    transform: scale(1.04);
+}
+
+.card-content {
+    color: #3d4954;
+    padding: 20px 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.book-cards .book-name {
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'ZCOOL XiaoWei',serif;
+    font-size: 16px;
+}
+
+.book-cards .book-by {
+    font-size: 13px;
+    color: #bbb;
+    margin-top: 4px;
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+}
+
+.book-cards .book-by i {
+    font-size: 14px;
+    margin: 0 4px;
+    display: none;
+}
+
+.book-cards .book-rate > label {
+    color: #cccccc;
+}
+
+.book-cards .rate {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.book-rate > input:checked ~ label,
+.book-rate:not(:checked) > label:hover,
+.book-rate:not(:checked) > label:hover ~ label {
+    color: #ff9700;
+}
+
+.book-rate > input:checked + label:hover,
+.book-rate > input:checked ~ label:hover,
+.book-rate > label:hover ~ input:checked ~ label,
+.book-rate > input:checked ~ label:hover ~ label {
+    color: #ff9700;
+}
+
+.book-cards .card-vote {
+    color: #8b939c;
+    font-size: 13px;
+}
+
+.book-cards .card-sum {
+    color: #8b939c;
+    font-size: 13px;
+    line-height: 1.6em;
+    -webkit-line-clamp: 4;
+    margin-top: 15px;
+}
+
+.book-cards .content-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.book-cards .book-rate i {
+    color: #ff9700;
+    font-size: 14px;
+    font-weight: bold;
+}

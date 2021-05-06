@@ -1,0 +1,127 @@
+rules:
+  #
+  # Coding helpers rules
+  # 
+  strict: 
+    - 2
+    - never
+  max-depth: 
+    - 1
+    - 5
+  max-nested-callbacks: 
+    - 1
+    - 4
+  #
+  # Avoid JS bad parts
+  #
+  no-use-before-define:
+    - 1
+    - nofunc
+  no-unused-vars:
+    - 1
+    - 
+      vars: all
+      args: none
+  no-console:
+    - 1
+  no-alert:
+    - 1
+  no-debugger:
+    - 1
+  no-dupe-args: 
+    - 2
+  no-dupe-keys: 
+    - 2
+  no-duplicate-case: 
+    - 2
+  no-func-assign:
+    - 2
+  no-inner-declarations:
+    - 2
+  no-unreachable:
+    - 2
+  no-redeclare:
+    - 2
+  no-shadow: 
+    - 2
+  no-undef:
+    - 2
+  no-undefined:
+    - 0
+  valid-typeof:
+    - 2
+  no-loop-func:
+    - 1
+  #
+  # Punctation rules
+  #
+  semi:
+    - 2
+    - always
+  comma-dangle:
+    - 1
+    - always-multiline
+  quotes:
+    - 1
+    - single
+  linebreak-style:
+    - 2
+    - unix
+  no-extra-semi: 
+    - 2
+  curly: 
+    - 2
+  #
+  # Spacing rules
+  # 
+  indent:
+    - 1
+    - 2
+    - 
+      SwitchCase: 1
+      VariableDeclarator:
+        var: 2
+        let: 2
+        const: 3
+  no-irregular-whitespace:
+    - 2
+  no-multi-spaces: 
+    - 1
+  key-spacing: 
+    - 1
+    - 
+      beforeColon: false
+      afterColon: true
+  space-infix-ops:
+    - 1
+  object-curly-spacing: 
+    - 1
+    - always
+    -
+      objectsInObjects: true
+      arraysInObjects: true
+  space-in-parens: 
+    - 1
+    - never
+  eol-last: 
+    - 1
+
+
+env:
+  es6: false
+  node: false
+  browser: true
+
+globals:
+  Optiscroll: true
+  G: true
+  GS: true
+  toggleClass: true
+  _extend: true
+  _invoke: true
+  _throttle: true
+  Scrollbar: true
+  Utils: true
+  Events: true
+  jQuery: true
+  Zepto: true

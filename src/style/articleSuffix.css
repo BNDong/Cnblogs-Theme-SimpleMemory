@@ -1,0 +1,68 @@
+#articleSuffix {
+    background-image: linear-gradient(180deg,#fff,#f5f5fa);
+    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 10%), 0 1px 3px 0 rgb(93 100 148 / 13%);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 5px;
+    color: #3a416f;
+    border-radius: 4px;
+}
+
+.essaySuffix-eof {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: #ddd;
+    text-indent: 0
+}
+
+#articleSuffix .articleSuffix-bg {
+    position: absolute;
+    right: -22px;
+    top: 0;
+    bottom: 0;
+    height: 240px;
+    margin-top: -23px;
+    width: 210px;
+    opacity: .5;
+}
+
+#articleSuffix .articleSuffix-left {
+    max-width: 140px;
+    float: left;
+    padding: 12px;
+}
+
+#articleSuffix .articleSuffix-left img {
+    width: 128px;
+    height: 128px;
+    border: 1px solid #ddd;
+    padding: 6px;
+    margin: 0;
+    display: block;
+    border-radius: 4px;
+}
+
+#articleSuffix .articleSuffix-right {
+    height: 160px;
+    width: calc(100% - 170px);
+    float: right;
+}
+
+#articleSuffix .articleSuffix-right item {
+    display:inline-block;
+    position:absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding-top: 8px;
+}
+
+#articleSuffix .articleSuffix-right li {
+    list-style: none;
+    line-height: 1.35em;
+}
+
+#articleSuffix .articleSuffix-right li b {
+    font-weight: bold;
+}

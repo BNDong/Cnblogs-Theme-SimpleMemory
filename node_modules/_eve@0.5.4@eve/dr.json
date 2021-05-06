@@ -1,0 +1,10 @@
+{
+    "title": "Eve",
+    "output": "README.md",
+    "template": "template.dot",
+    "css": "custom",
+    "files": [{
+        "url": "eve.js",
+        "link": "https://github.com/adobe-webplatform/eve/blob/master/eve.js"
+    }]
+}

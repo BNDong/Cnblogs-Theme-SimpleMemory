@@ -1,0 +1,180 @@
+/**
+ * UPDATES AND DOCS AT: https://github.com/BNDong
+ * https://www.cnblogs.com/bndong/
+ * @author: BNDong, dbnuo@foxmail.com
+  * ----------------------------------------------
+ * @describe: 默认配置
+ */
+{
+  // -- 基础信息 --
+  info: {
+    name: '',
+    startDate: '2021-01-01',
+    avatar: '',
+    blogIcon: '',
+  },
+
+  // -- 侧边栏 --
+  sidebar: {
+    navList: [],
+    customList: {},
+    infoBackground: '',
+  },
+
+  // -- 头图 --
+  banner: {
+    home: {
+      background: [],
+      title: [],
+      titleSource: 'jinrishici',
+    },
+    article: {
+      background: []
+    }
+  },
+
+  // -- Loading --
+  loading: {
+    rebound: {
+      tension: 16,
+      friction: 5
+    },
+    spinner: {
+      id: 'spinner',
+      radius: 90,
+      sides: 3,
+      depth: 4,
+      colors: {
+        background: '#f0f0f0',
+        stroke: '#272633',
+        base: null,
+        child: '#272633'
+      },
+      alwaysForward: true,
+      restAt: 0.5,
+      renderBase: false
+    }
+  },
+
+  // -- fontIcon --
+  fontIconExtend: '',
+
+  // -- 进度条 --
+  progressBar: {
+    id: 'top-progress-bar',
+    color: '#77b6ff',
+    height: '2px',
+    duration: 0.2
+  },
+
+  // -- 页面 title --
+  title: {
+    onblur: '(oﾟvﾟ)ノ Hi',
+    onblurTime: 500,
+    focus: '(*´∇｀*) 欢迎回来！',
+    focusTime: 1000
+  },
+
+  // -- footer --
+  footer: {
+    text: {
+      left: '',
+      right: '',
+      iconFont: {
+        icon:  "icon-xl",
+        color: "red",
+        fontSize: "16px"
+      }
+    },
+    style: 2
+  },
+
+  // -- 友情链接 --
+  links: {
+    footer: [],
+    page: []
+  },
+
+  // -- cnzz --
+  cnzz: '',
+
+  // -- 右下角菜单 --
+  rtMenu: {
+    qrCode: '',
+    reward: {
+      alipay: '',
+      wechatpay: ''
+    },
+  },
+
+  // -- 日/夜模式 --
+  switchDayNight: {
+    enable: true,
+    auto: {
+      enable: false,
+      dayHour: 5,
+      nightHour: 19
+    }
+  },
+
+  // -- 动效 --
+  animate: {
+    homeBanner: {
+      enable: true,
+      options: {
+        radius: 15,
+        density: 0.2,
+        color: 'rgba(255,255,255, .2)',
+        clearOffset: 0.3
+      }
+    },
+    articleBanner: {
+      enable: true
+    },
+    background: {
+      enable: true,
+      options: {
+        colorSaturation: "60%",
+        colorBrightness: "50%",
+        colorAlpha: 0.5,
+        colorCycleSpeed: 5,
+        verticalPosition: "random",
+        horizontalSpeed: 200,
+        ribbonCount: 3,
+        strokeSize: 0,
+        parallaxAmount: -0.2,
+        animateSections: true
+      }
+    },
+  },
+
+  // -- 代码 --
+  code: {
+    type: '',  // hljs
+    options: {
+      hljs: {
+        theme: 'atom-one-dark-reasonable',
+        languages: []
+      },
+      maxHeight: '',
+      line: false,
+      macStyle: true,
+    },
+  },
+
+  // -- 文章后缀 --
+  articleSuffix: {
+    aboutHtml: '',
+    copyrightHtml: '',
+    supportHtml: '',
+  },
+
+  // -- 控制台输出 --
+  consoleList: [],
+
+  // -- 书单信息 --
+  bookList: [],
+
+  // -- 钩子 --
+  hooks: {},
+}

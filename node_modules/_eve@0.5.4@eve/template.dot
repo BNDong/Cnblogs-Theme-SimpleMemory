@@ -1,0 +1,13 @@
+# Eve
+
+Tiny event helping JavaScript library.
+{{~it.out :item:index}}
+## {{=item[0].name}}
+{{~item :line:i}}{{ if (i > 0) { }}{{ if (line.text) { }}{{=line.text.join("\n").replace(/<\/?code>/g, "`").replace(/<\/?em>/g, "_")}}{{ } }}{{ if (line.attr) { }}### Parameters
+{{~line.attr :attr:j}}- _{{=attr.name}}_ {{~attr.type :type:k}} **{{=type}}**{{~}}
+    {{=attr.desc.replace(/<\/?code>/g, "`").replace(/<\/?em>/g, "_")}}
+{{~}}{{ } }}{{ if (line.html) { }}{{=line.html.replace(/<\/?code>/g, "`").replace(/<\/?em>/g, "_")}}{{ } }}{{ if (line.head) { }}
+### {{=line.head}}{{ } }}{{ if (line.code) { }}```js
+{{=line.code.join("\n")}}
+```{{ } }}{{ if (line.rtrn) { }}**Returns:** {{~line.rtrn.type :type:k}} **{{=type}}**{{~}} {{=line.rtrn.desc.replace(/<\/?code>/g, "`").replace(/<\/?em>/g, "_")}}{{ } }}
+{{ } }}{{~}}{{~}}

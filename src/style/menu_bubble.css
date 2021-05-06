@@ -130,7 +130,7 @@ body{
 
 /* Menu */
 .menu-wrap {
-    position: fixed;
+    position: fixed !important;
     z-index: 1001;
     width: 280px;
     height: 100%;
@@ -200,10 +200,10 @@ body{
     position: absolute;
     right: -43px;
     width: 22px;
-    background: #000;
     height: 20px;
     bottom: 8px;
     z-index: 1;
+    background: #000;
     padding: 0 40px 0 5px;
 }
 

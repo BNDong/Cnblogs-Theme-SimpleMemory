@@ -16,10 +16,52 @@ body {
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, .3)
 }
 
+#links-box .links-item {
+    background: #2a2a2a;
+    box-shadow: 0 4px 11px 0 rgb(0 0 0/20%),0 1px 3px 0 rgb(0 0 0/20%);
+}
+
+#links-box .links-item:hover {
+    box-shadow: 0 4px 11px 0 rgb(0 0 0/30%),0 1px 3px 0 rgb(0 0 0/20%);
+}
+
+#links-box .links-item .links-info .links-info-name {
+    color: #999;
+}
+
+#links-box .links-item .links-icon {
+    opacity: .8;
+}
+
 #cnblogs_post_body h6, blockquote {
-    background-color: #2a2a2a;
-    border-left: 4px solid #222;
-    color: #ddd
+    background: #2a2a2a !important;
+    border-left: 4px solid #222 !important;
+    color: #ddd !important;
+    box-shadow: 0 4px 11px 0 rgb(0 0 0/20%),0 1px 3px 0 rgb(0 0 0/20%)!important;
+}
+
+#div_digg .diggit {
+    float: left;
+    border: 1px solid #365E4A;
+    background: #333;
+    color: #44916A;
+}
+
+#div_digg .diggit .diggnum {
+    color: #44916A;
+    font-size: 16px;
+}
+
+#div_digg .buryit {
+    float: right;
+    border: 1px solid #777;
+    background: #333;
+    color: #999;
+}
+
+#div_digg .buryit .burynum {
+    color: #999;
+    font-size: 16px;
 }
 
 .postBody {
@@ -68,43 +110,61 @@ footer-background {
     display: none
 }
 
-.essaySuffix-box {
-    background: #333 !important;
+#articleSuffix {
+    background: #2a2a2a !important;
     border-color: #555 !important;
-    color: #ddd !important
+    color: #ddd !important;
+    box-shadow: 0 4px 11px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 20%) !important;
 }
 
-.essaySuffix-box-left img {
+#articleSuffix .articleSuffix-left img {
     border: 1px solid #555
 }
 
-#topics .postDesc, .commentbox_tab, .catalog-btn i, #rightMenu i, #sideCatalog a,
-#rightDiggit .rightMenuSpan::before, #rightDiggit .rightMenuSpan::before, #rightBuryit .rightMenuSpan::before, #attention .rightMenuSpan::before, #toUpDown .rightMenuSpan::before
+#topics .postDesc,
+.commentbox_tab,
+.catalog-btn i,
+#rightMenu i,
+#articleDirectory a,
+#rightDiggit .rightMenuSpan::before,
+#rightDiggit .rightMenuSpan::before,
+#rightBuryit .rightMenuSpan::before,
+#attention .rightMenuSpan::before,
+#toUpDown .rightMenuSpan::before,
+#rtaDirectory .rightMenuSpan::before,
+#rightMenuSite .rightMenuSpan::before
 {
     color: #999 !important;
 }
 
-.catalog-btn-shadow, div#rightMenu>div, #rightDiggit .rightMenuSpan, #rightDiggit .rightMenuSpan, #rightBuryit .rightMenuSpan, #attention .rightMenuSpan, #toUpDown .rightMenuSpan,
-#rightDiggit .rightMenuSpan::before, #rightDiggit .rightMenuSpan::before, #rightBuryit .rightMenuSpan::before, #attention .rightMenuSpan::before, #toUpDown .rightMenuSpan::before
+.catalog-btn-shadow,
+div#rightMenu .rightMenuItem,
+#rightDiggit .rightMenuSpan,
+#rightDiggit .rightMenuSpan,
+#rightBuryit .rightMenuSpan,
+#attention .rightMenuSpan,
+#toUpDown .rightMenuSpan,
+#rtaDirectory .rightMenuSpan,
+#rightMenuSite .rightMenuSpan,
+#rightDiggit .rightMenuSpan::before,
+#rightDiggit .rightMenuSpan::before,
+#rightBuryit .rightMenuSpan::before,
+#attention .rightMenuSpan::before,
+#toUpDown .rightMenuSpan::before,
+#rtaDirectory .rightMenuSpan::before,
+#rightMenuSite .rightMenuSpan::before
 {
     -webkit-box-shadow: 0 1px 20px 0 rgba(0,0,0,.5), inset 0 0px 0 0 rgba(0,0,0,.5) !important;
     box-shadow: 0 1px 20px 0 rgba(0,0,0,.5), inset 0 0px 0 0 rgba(0,0,0,.5) !important;
 }
 
-div#rightMenu>div {
+div#rightMenu .rightMenuItem {
     background: #333 !important;
 }
 
-#sideCatalog-catalog, .catalog-btn {
-    background: rgba(51, 51, 51, 1) !important
-}
-
-#sideCatalog li {
-    border-bottom: 1px dashed #3a3a3a !important
-}
-
-#sideCatalog {
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .3) !important
+#articleDirectory {
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .3) !important;
+    background: rgba(51,51,51,.9) !important;
 }
 
 #author_profile_info img.author_avatar {
@@ -125,7 +185,9 @@ div#rightMenu>div {
 }
 
 .menu-button-scroll {
-    background: #333 !important
+    background: #222!important;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,.5),inset 0 0 0 0 rgba(0,0,0,.5)!important;
+    border: 0 !important;
 }
 
 .introduce-box {
@@ -192,32 +254,38 @@ span.cnblogs_code {
     color: #ddd !important;
 }
 
-#sideCatalog li.active:before {
+#articleDirectory ul li a:hover, #articleDirectory ul li a.active {
     background: rgba(0,0,0,.1) !important;
-}
-
-#sideCatalog li.active:after {
-    border-left: 3px solid #567fb5 !important;
-}
-
-#sideCatalog-catalog .active a {
     color: #567fb5 !important;
 }
 
-.books-item .books-item-span {
-    background: #2a2a2a;
-    box-shadow: 3px 3px 3px 1px rgba(30,30,30,.3);
+#articleDirectory ul li a:hover::after, #articleDirectory ul li a.active:after {
+    border-left: 3px solid #567fb5 !important;
 }
 
-.books-item .books-item-span ._2girK ._3Oa5I {
+.book-card {
+    background: #2a2a2a;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,.5),inset 0 0 0 0 rgba(0,0,0,.5)!important
+}
+
+.book-cards .book-name {
     color: #999;
 }
 
-.books-item .books-item-span ._2girK ._1P9dH {
-    color: #ddd;
+.book-cards .book-by {
+    color: #777;
 }
 
-.postBody pre, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #green_channel, .main-header, #btn_comment_submit {
+.book-cards .book-rate i {
+    color: #cb7310;
+}
+
+.book-cards .book-card-img {
+    box-shadow: 0 1px 7px 2px #222;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+code-box, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #green_channel, .main-header, #btn_comment_submit {
     filter: brightness(0.8);
 }
 

@@ -1,0 +1,117 @@
+{
+  "definitions": {
+    "Rule": {
+      "description": "Filtering rule as regex or string.",
+      "anyOf": [
+        {
+          "instanceof": "RegExp",
+          "tsType": "RegExp"
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+    "Rules": {
+      "description": "Filtering rules.",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "description": "A rule condition.",
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Rule"
+              }
+            ]
+          }
+        },
+        {
+          "$ref": "#/definitions/Rule"
+        }
+      ]
+    }
+  },
+  "title": "CssMinimizerWebpackPluginOptions",
+  "type": "object",
+  "properties": {
+    "test": {
+      "description": "Include all modules that pass test assertion.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Rules"
+        }
+      ]
+    },
+    "include": {
+      "description": "Include all modules matching any of these conditions.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Rules"
+        }
+      ]
+    },
+    "exclude": {
+      "description": "Exclude all modules matching any of these conditions.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Rules"
+        }
+      ]
+    },
+    "sourceMap": {
+      "description": "Enables/Disables generation of source maps.",
+      "anyOf": [
+        {
+          "description": "Options for source map.",
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "minimizerOptions": {
+      "description": "Options for `cssMinimizerOptions`.",
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "cache": {
+      "description": "Enable file caching. Ignored in webpack 5, for webpack 5 please use https://webpack.js.org/configuration/other-options/#cache.",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "cacheKeys": {
+      "description": "Allows you to override default cache keys. Ignored in webpack 5, for webpack 5 please use https://webpack.js.org/configuration/other-options/#cache.",
+      "instanceof": "Function"
+    },
+    "parallel": {
+      "description": "Use multi-process parallel running to improve the build speed.",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "warningsFilter": {
+      "description": "Allow to filter `css minimizer` warnings.",
+      "instanceof": "Function"
+    },
+    "minify": {
+      "description": "Allows you to override default minify function.",
+      "instanceof": "Function"
+    }
+  },
+  "additionalProperties": false
+}
