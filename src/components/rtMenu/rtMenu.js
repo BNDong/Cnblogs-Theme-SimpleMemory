@@ -48,9 +48,16 @@ export default function main(_) {
         $('#toUpDown').click(function () {
             let ac = $(this).attr('data');
             if (ac === 'down') {
-                let docHeight    = $(document).height();
-                let windowHeight = $(window).height();
-                _.__tools.actScroll(docHeight - windowHeight, 900)
+                let downScroll;
+                if (_.__config.rtMenu.downScrollDom && $(_.__config.rtMenu.downScrollDom).length > 0) {
+                    downScroll = $(_.__config.rtMenu.downScrollDom).offset().top + 10;
+                } else {
+                    let docHeight    = $(document).height();
+                    let windowHeight = $(window).height();
+                    downScroll = docHeight - windowHeight;
+                }
+
+                _.__tools.actScroll(downScroll, 900)
             } else {
                 _.__tools.actScroll(0, 900)
             }

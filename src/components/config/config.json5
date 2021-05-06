@@ -105,6 +105,7 @@
       alipay: '',
       wechatpay: ''
     },
+    downScrollDom: '',
   },
 
   // -- 日/夜模式 --

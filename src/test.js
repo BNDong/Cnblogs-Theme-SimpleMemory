@@ -83,7 +83,8 @@ window.cnblogsConfig = {
     reward: {
       alipay: 'https://files.dbnuo.com/alipay.png',
       wechatpay: 'https://blog.dbnuo.com/images/wechatpay.png'
-    }
+    },
+    downScrollDom: '#blog_post_info_block',
   },
   code: {
     type: 'hljs',
