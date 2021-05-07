@@ -68,6 +68,10 @@ export default function main(_) {
             let toUpDown     = $("#toUpDown"),
                 toUpDownI    = $("#toUpDownI"),
                 toUpDownSpan = $('.toUpDownSpan');
+
+            _.__event.scroll.docScroll  = $(document).scrollTop(); // 当前滚动位置
+            _.__event.scroll.homeScroll = $('#home').offset().top - 40; // 主体滚动
+
             if (_.__event.scroll.homeScroll <= _.__event.scroll.docScroll) {
                 toUpDownI.rotate({animateTo:0});
                 toUpDown.attr('data', 'up');
