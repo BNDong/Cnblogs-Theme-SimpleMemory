@@ -94,4 +94,4 @@ CSS代码位置：```/src/style/base.min.css``` 拷贝此文件代码至页面�
 
 ---
 
-CND jsdelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。
+CDN jsdelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。
