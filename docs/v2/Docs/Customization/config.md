@@ -429,7 +429,7 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
   title: {
-    onblurTime: 1000,
+    focusTime: 1000,
   },
 }
 ```
