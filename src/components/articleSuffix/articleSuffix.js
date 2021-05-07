@@ -7,8 +7,13 @@
  */
 import suffixTemp from '../../template/articleSuffix.html';
 import "../../style/articleSuffix.css";
+import defaultAvatarImg from './../../images/webp/default_avatar.webp';
 
 export default function main(_) {
+
+    // 图片
+    let imgUrl  = _.__config.articleSuffix.imgUrl ? _.__config.articleSuffix.imgUrl :
+        (_.__config.info.avatar ? _.__config.info.avatar : defaultAvatarImg);
 
     // 本文作者 & 本文链接
     let articleAuthor = $('#articleAuthor');
@@ -29,6 +34,7 @@ export default function main(_) {
         '如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost(' + _.__status.articleId + ',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。';
 
     let re = [
+        ['imgUrl', imgUrl],
         ['author', author],
         ['source', source],
         ['aboutHtml', aboutHtml],

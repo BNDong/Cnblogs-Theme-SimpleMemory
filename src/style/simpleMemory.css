@@ -2506,11 +2506,11 @@ div#rightMenu .rightMenuItem {
 #div_digg .diggit, #div_digg .buryit  {
     text-align: center;
     cursor: pointer;
-    margin-top: 0;
     padding-top: 0;
     width: 58px;
     height: 58px;
     border-radius: 6px;
+    margin: 0;
 }
 
 #div_digg .diggit {

@@ -877,23 +877,64 @@ window.cnblogsConfig = {
 
 ## articleSuffix - 文章后缀
 
-* 类型：```Object```
-* 默认值：
+### imgUrl - 左侧图片
 
-```json
-{
-    aboutHtml    : '', // 关于博主，不配置使用默认
-    copyrightHtml: '', // 版权声明，不配置使用默认
-    supportHtml  : '', // 声援博主，不配置使用默认
+?> 版本 >= v2.0.1
+
+* 类型：```Url```
+* 默认值：```""```
+
+文章后缀左侧图片，不配置使用用户头像配置 `info.avatar`，用户头像没配置使用主题默认头像。
+
+```javascript
+window.cnblogsConfig = {
+  articleSuffix: {
+    imgUrl: 'https://x1.jpg',
+  },
 }
 ```
 
-文章后缀配置，不配置使用默认。
+### aboutHtml - 关于博主
+
+* 类型：```String```
+* 默认值：```""```
+
+关于博主，支持HTML代码，不配置使用默认。
 
 ```javascript
 window.cnblogsConfig = {
     articleSuffix: {
         aboutHtml: "I am a good person",
+    },
+}
+```
+
+### copyrightHtml - 版权声明
+
+* 类型：```String```
+* 默认值：```""```
+
+版权声明，支持HTML代码，不配置使用默认。
+
+```javascript
+window.cnblogsConfig = {
+    articleSuffix: {
+        copyrightHtml: "版权...",
+    },
+}
+```
+
+### supportHtml - 声援博主
+
+* 类型：```String```
+* 默认值：```""```
+
+声援博主，支持HTML代码，不配置使用默认。
+
+```javascript
+window.cnblogsConfig = {
+    articleSuffix: {
+        supportHtml: "声援...",
     },
 }
 ```

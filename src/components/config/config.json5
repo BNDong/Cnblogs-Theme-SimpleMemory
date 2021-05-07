@@ -165,6 +165,7 @@
 
   // -- 文章后缀 --
   articleSuffix: {
+    imgUrl: '',
     aboutHtml: '',
     copyrightHtml: '',
     supportHtml: '',
