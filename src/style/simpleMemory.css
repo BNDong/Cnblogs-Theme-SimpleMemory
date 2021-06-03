@@ -2856,7 +2856,7 @@ div#rightMenu .rightMenuItem {
     z-index: 998
 }
 
-span.cnblogs_code {
+span.cnblogs_code, #home code {
     border: 0;
     padding: 2px 4px;
     color: #D83B64;

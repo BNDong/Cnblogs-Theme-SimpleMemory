@@ -228,7 +228,7 @@ div#rightMenu .rightMenuItem {
     border-bottom: 1px dashed #555;
 }
 
-span.cnblogs_code {
+span.cnblogs_code, #home code {
     background-color: #282c34;
     color: #F92672;
 }

@@ -121,7 +121,7 @@
   // -- 动效 --
   animate: {
     homeBanner: {
-      enable: true,
+      enable: false,
       options: {
         radius: 15,
         density: 0.2,
@@ -130,10 +130,10 @@
       }
     },
     articleBanner: {
-      enable: true
+      enable: false
     },
     background: {
-      enable: true,
+      enable: false,
       options: {
         colorSaturation: "60%",
         colorBrightness: "50%",
