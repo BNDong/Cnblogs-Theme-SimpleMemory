@@ -659,6 +659,8 @@ window.cnblogsConfig = {
 
 ## animate - 动效
 
+?> 版本 v2.0.3 及之后，所有动效默认配置为关闭。
+
 ### homeBanner - 主页banner动效
 
 * 类型：```Object```

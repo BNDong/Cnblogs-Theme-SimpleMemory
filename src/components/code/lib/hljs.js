@@ -34,6 +34,9 @@ export default function main(_, setCodeLine) {
             $.each(code, function (i, e) {
                 let obj = $(code[i]);
 
+                // 做一次换行兼容处理
+                obj.html().replace(/\<br\>/g, '\n');
+
                 // 清除代码原有样式
                 obj.text(obj.text());
 

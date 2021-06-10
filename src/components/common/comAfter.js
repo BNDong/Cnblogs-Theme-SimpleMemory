@@ -33,7 +33,9 @@ export default function main(_) {
      * 日/夜模式
      */
     (() => {
-        dayNight(_);
+        if (_.__config.switchDayNight.enable) {
+            dayNight(_);
+        }
     })();
 
     /**
