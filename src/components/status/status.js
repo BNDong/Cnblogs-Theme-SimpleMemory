@@ -15,6 +15,9 @@ export default function main() {
     status.user = tmp[3];
     status.articleId = '';
 
+    // 主页链接
+    status.homeUrl = [tmp[0], tmp[1], tmp[2], tmp[3]].join("/");
+
     // 判断当前页面类型
     if (!$('#topics').length) {
         status.pageType = 'home'; // 当前页面为主页

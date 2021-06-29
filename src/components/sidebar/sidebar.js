@@ -18,7 +18,7 @@ export default function main(_) {
      * 设置侧边栏渲染
      */
     (() => {
-        $('#blog-news').prepend(sidebarTemp);
+        $('#sidebar_news').prepend(sidebarTemp);
         main4();
     })();
 

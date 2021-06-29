@@ -232,4 +232,13 @@ export default function main(_) {
             });
         }
     })();
+
+    /**
+     * 主页
+     */
+    (() => {
+        $('#rightMenuHome').click(function () {
+            window.location.href = _.__status.homeUrl;
+        });
+    })();
 }
