@@ -18,8 +18,9 @@ export default function main(_) {
     // 本文作者 & 本文链接
     let articleAuthor = $('#articleAuthor');
     let articleSource = $('#articleSource');
-    let author = articleAuthor.length ? articleAuthor.val() : _.__config.info.name,
-        source = articleSource.length ? articleSource.val() : _.__status.url;
+    let author  = articleAuthor.length ? articleAuthor.val() : _.__config.info.name,
+        source  = articleSource.length ? articleSource.val() : _.__status.url,
+        homeUrl = articleSource.length ? articleSource.val() : _.__status.homeUrl;
 
     // 关于博主
     let aboutHtml = _.__config.articleSuffix.aboutHtml ? _.__config.articleSuffix.aboutHtml :
@@ -35,7 +36,7 @@ export default function main(_) {
 
     let re = [
         ['imgUrl', imgUrl],
-        ['homeUrl', _.__status.homeUrl],
+        ['homeUrl', homeUrl],
         ['author', author],
         ['source', source],
         ['aboutHtml', aboutHtml],
