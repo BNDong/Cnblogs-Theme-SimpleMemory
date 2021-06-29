@@ -237,8 +237,14 @@ export default function main(_) {
      * 主页
      */
     (() => {
-        $('#rightMenuHome').click(function () {
-            window.location.href = _.__status.homeUrl;
-        });
+        if (_.__status.pageType !== 'home') {
+            let rightMenuHome = $('#rightMenuHome');
+            rightMenuHome.show();
+
+            // 点击事件
+            rightMenuHome.click(function () {
+                window.location.href = _.__status.homeUrl;
+            });
+        }
     })();
 }
