@@ -2574,7 +2574,7 @@ div#rightMenu .rightMenuItem {
     background-image: linear-gradient(180deg, #fff, #f5f5fa)
 }
 
-#attention i, #rightBuryit i, #rightDiggit i, #toUpDownI i, #rtaDirectory i {
+#attention i, #rightBuryit i, #rightDiggit i, #toUpDownI i, #rtaDirectory i, #rightMenuHome i {
     font-weight: 600
 }
 
@@ -2596,6 +2596,7 @@ div#rightMenu .rightMenuItem {
 #attention .rightMenuSpan,
 #rightBuryit .rightMenuSpan,
 #rightDiggit .rightMenuSpan,
+#rightMenuHome .rightMenuSpan,
 #rightMenuSite .rightMenuSpan,
 #rtaDirectory .rightMenuSpan,
 #toUpDown .rightMenuSpan
@@ -2622,6 +2623,7 @@ div#rightMenu .rightMenuItem {
 #attention .rightMenuSpan::before,
 #rightBuryit .rightMenuSpan::before,
 #rightDiggit .rightMenuSpan::before,
+#rightMenuHome .rightMenuSpan::before,
 #rightMenuSite .rightMenuSpan::before,
 #rtaDirectory .rightMenuSpan::before,
 #toUpDown .rightMenuSpan::before

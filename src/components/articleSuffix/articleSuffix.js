@@ -35,6 +35,7 @@ export default function main(_) {
 
     let re = [
         ['imgUrl', imgUrl],
+        ['homeUrl', _.__status.homeUrl],
         ['author', author],
         ['source', source],
         ['aboutHtml', aboutHtml],

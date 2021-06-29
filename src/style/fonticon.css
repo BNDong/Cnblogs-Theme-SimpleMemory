@@ -1,8 +1,8 @@
 @font-face {
     font-family: "iconfont"; /* Project id 543384 */
-    src: url('//at.alicdn.com/t/font_543384_uzjd0l1gz4i.woff2?t=1624934464109') format('woff2'),
-    url('//at.alicdn.com/t/font_543384_uzjd0l1gz4i.woff?t=1624934464109') format('woff'),
-    url('//at.alicdn.com/t/font_543384_uzjd0l1gz4i.ttf?t=1624934464109') format('truetype');
+    src: url('//at.alicdn.com/t/font_543384_5a81wu0p863.woff2?t=1624936104699') format('woff2'),
+    url('//at.alicdn.com/t/font_543384_5a81wu0p863.woff?t=1624936104699') format('woff'),
+    url('//at.alicdn.com/t/font_543384_5a81wu0p863.ttf?t=1624936104699') format('truetype');
 }
 
 .iconfont {
@@ -13,24 +13,24 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-icon:before {
-    content: "\e63b";
+.icon-home:before {
+    content: "\e7a5";
+}
+
+.icon-home1:before {
+    content: "\e65c";
+}
+
+.icon-home2:before {
+    content: "\e643";
+}
+
+.icon-home4:before {
+    content: "\e68b";
 }
 
 .icon-geren1:before {
     content: "\e63c";
-}
-
-.icon-zhuye:before {
-    content: "\e63e";
-}
-
-.icon-zhuye1:before {
-    content: "\e649";
-}
-
-.icon-zhuye2:before {
-    content: "\e640";
 }
 
 .icon-jindu:before {
