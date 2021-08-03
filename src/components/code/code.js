@@ -116,6 +116,12 @@ export default function main(_) {
             default:
                 preList.css('background', '#f5f5fa');
                 $('code-box .code-tools').css('background', '#f5f5fa');
+                $('pre .hljs').css({
+                    'background': 'none',
+                    'border': '0',
+                    'border-radius': '0',
+                    'padding': '0'
+                });
                 setCodeLine();
                 break;
         }

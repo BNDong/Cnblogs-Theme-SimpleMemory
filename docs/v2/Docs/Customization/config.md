@@ -636,6 +636,7 @@ window.cnblogsConfig = {
 ```json
 {
     enable: true,       // 是否开启日/夜间模式切换按钮
+    nightMode: false,   // 强制夜间模式 （版本 >= v2.0.6）
     auto: {             // 自动切换相关配置
         enable: false,  // 开启自动切换
         dayHour: 5,     // 日间模式开始时间，整数型，24小时制
@@ -643,6 +644,7 @@ window.cnblogsConfig = {
     }
 }
 ```
+?> nightMode 配置项要求，版本 >= v2.0.1
 
 日/夜间模式配置。页面使用日/夜间模式优先级：用户设置 > 自动切换 > 默认。
 
@@ -874,6 +876,25 @@ window.cnblogsConfig = {
       macStyle: true,
     },
   },
+}
+```
+
+## articleDirectory - 文章目录
+
+### position - 文章目录定位
+
+?> 版本 >= v2.0.6
+
+* 类型：```String```
+* 默认值：```"right"```
+
+用于设置文章目录显示在文章的左侧还是右侧，配置项：`right`、`left`
+
+```javascript
+window.cnblogsConfig = {
+    articleDirectory: {
+        position: 'right',
+    },
 }
 ```
 

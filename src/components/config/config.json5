@@ -111,6 +111,7 @@
   // -- 日/夜模式 --
   switchDayNight: {
     enable: true,
+    nightMode: false,
     auto: {
       enable: false,
       dayHour: 5,
@@ -169,6 +170,11 @@
     aboutHtml: '',
     copyrightHtml: '',
     supportHtml: '',
+  },
+
+  // -- 文章目录 --
+  articleDirectory: {
+    position: 'right'
   },
 
   // -- 控制台输出 --

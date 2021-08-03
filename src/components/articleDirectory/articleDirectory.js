@@ -39,6 +39,11 @@ export default function main(_) {
             let titleId = 'tid-' + _.__tools.randomString(6);
             obj.attr('tid', titleId);
             if (!hid || /^[0-9]+.*/.test(hid)) {
+                if (hid) {
+                    // 兼容修改toc生成的目录
+                    let tocObj = $('.toc a[href="#'+hid+'"]');
+                    tocObj.length && tocObj.attr('href', '#' + titleId);
+                }
                 hid = titleId;
                 obj.attr('id', hid);
             }
@@ -92,10 +97,21 @@ export default function main(_) {
                     rightPx          = bothWidth - listWidth - 40,
                     sideToolbarTop   = $('.main-header').outerHeight();
 
-                articleDirectory.css({
-                    'top': (sideToolbarTop + 5) + 'px',
-                    'right': (rightPx > 0 ? rightPx : 0) + 'px'
-                });
+                switch (_.__config.articleDirectory.position) {
+                    case 'left':
+                        articleDirectory.css({
+                            'top': (sideToolbarTop + 5) + 'px',
+                            'left' : (rightPx > 0 ? rightPx : 0) + 'px'
+                        });
+                        break;
+                    case 'right':
+                    default:
+                        articleDirectory.css({
+                            'top': (sideToolbarTop + 5) + 'px',
+                            'right' : (rightPx > 0 ? rightPx : 0) + 'px'
+                        });
+                        break;
+                }
 
                 if (bodyWidth <= 1350) {
                     articleDirectory.hide();

@@ -38,6 +38,13 @@ export default function main(_) {
     })();
 
     /**
+     * 判断是否强制夜间
+     */
+    (() => {
+        if (_.__config.switchDayNight.nightMode) daySwitch = '';
+    })();
+
+    /**
      * 设置基础模版
      */
     (() => {
