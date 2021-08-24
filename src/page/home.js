@@ -150,7 +150,7 @@ export default function main(_) {
                 img.hide();
                 obj.css('width', '60%');
                 obj.parent('div').css('min-height', '150px');
-                let html = '<div class="c_b_p_desc_img"><div style="background: url(\''+ src +'\') center center / cover no-repeat rgb(34, 34, 34);"></div></div>';
+                let html = '<div class="c_b_p_desc_img"><div style="background: url(\''+ src +'\') center center / auto no-repeat;"></div></div>';
                 obj.after(html);
             }
         });

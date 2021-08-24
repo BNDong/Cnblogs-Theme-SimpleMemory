@@ -15,7 +15,11 @@ export default function main(_) {
      */
     (() => {
         const sbTitle = $('#cb_post_title_url').text();
-        consoleText([sbTitle], 'sbTitleText', 'sbTitleConsole', ['#fff'], false, _.__tools.setDomHomePosition);
+        if (_.__config.animate.articleTitle.enable) {
+            consoleText([sbTitle], 'sbTitleText', 'sbTitleConsole', ['#fff'], false, _.__tools.setDomHomePosition);
+        } else {
+            $('#sbTitleText').text(sbTitle).css('color', '#fff');
+        }
         $('.inner').css('max-width', '100vw');
         _.__tools.setDomHomePosition();
     })();

@@ -1,3 +1,9 @@
+## 2021.08.24 - v2.0.7
+* 增加配置 `animate.articleTitle` 用以配置文章标题打字机效果
+* 增加配置 `articleDirectory.minBodyWeight` 用以配置文章目录在屏幕宽度到多少像素及以内时开始隐藏
+* 修复了因官方调整页面基础结构导致的无法设置banner的问题
+* 修复了文章题图设置为透明图片时背景为灰黑色、大小显示不全的问题
+
 ## 2021.08.03 - v2.0.6
 * 增加配置 `switchDayNight.nightMode` 用以配置强制开启夜间模式
 * 增加配置 `articleDirectory.position` 用于配置文章目录位置

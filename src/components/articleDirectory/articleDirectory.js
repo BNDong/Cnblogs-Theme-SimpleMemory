@@ -113,7 +113,7 @@ export default function main(_) {
                         break;
                 }
 
-                if (bodyWidth <= 1350) {
+                if (bodyWidth <= _.__config.articleDirectory.minBodyWeight) {
                     articleDirectory.hide();
                 } else {
                     articleDirectory.show();

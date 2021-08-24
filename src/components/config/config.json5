@@ -130,6 +130,9 @@
         clearOffset: 0.3
       }
     },
+    articleTitle: {
+      enable: true
+    },
     articleBanner: {
       enable: false
     },
@@ -174,7 +177,8 @@
 
   // -- 文章目录 --
   articleDirectory: {
-    position: 'right'
+    position: 'right',
+    minBodyWeight: 1350
   },
 
   // -- 控制台输出 --

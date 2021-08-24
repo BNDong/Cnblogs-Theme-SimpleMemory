@@ -251,7 +251,9 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     banner: {
-        titleSource: 'one',
+        home: {
+            titleSource: 'one',
+        }
     },
 }
 
@@ -670,7 +672,7 @@ window.cnblogsConfig = {
 
 ```json
 {
-    enable: true, // 是否开启动效
+    enable: false, // 是否开启动效
     options: {
         radius: 15,
         density: 0.2,
@@ -695,7 +697,9 @@ window.cnblogsConfig = {
 }
 ```
 
-### articleBanner - 文章页banner动效
+### articleTitle - 文章页标题动效
+
+?> 版本 >= v2.0.7
 
 * 类型：```Object```
 * 默认值：
@@ -703,6 +707,29 @@ window.cnblogsConfig = {
 ```json
 {
     enable: true // 是否开启动效
+}
+```
+
+文章页标题动效配置。
+
+```javascript
+window.cnblogsConfig = {
+  animate: {
+    articleTitle: {
+      enable: true,
+    },
+  }
+}
+```
+
+### articleBanner - 文章页banner动效
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: false // 是否开启动效
 }
 ```
 
@@ -725,7 +752,7 @@ window.cnblogsConfig = {
 
 ```json
 {
-  enable: true,
+  enable: false,
   options: {
     colorSaturation: "60%",
     colorBrightness: "50%",
@@ -894,6 +921,23 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
     articleDirectory: {
         position: 'right',
+    },
+}
+```
+
+### minBodyWeight - 文章目录隐藏宽度
+
+?> 版本 >= v2.0.7
+
+* 类型：```Int```
+* 默认值：```1350```
+
+文章目录在屏幕宽度到多少像素及以内时开始隐藏；例如：配置成 1000，当屏幕宽度 <= 1000 时，隐藏目录（可通过右下角按钮显示）
+
+```javascript
+window.cnblogsConfig = {
+    articleDirectory: {
+        minBodyWeight: 1400,
     },
 }
 ```

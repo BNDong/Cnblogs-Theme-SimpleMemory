@@ -11,7 +11,7 @@ import netHomeTopBg from "../../images/webp/nothome_top_bg.webp";
 
 export default function main(_) {
 
-    $('#blog-news').prepend(bannerTemp);
+    $('#sidebar_news').prepend(bannerTemp);
 
     /**
      * 设置banner背景图片，初始化高度
