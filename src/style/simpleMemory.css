@@ -2865,7 +2865,8 @@ span.cnblogs_code, #home code:not([class]) {
     background-color: #f9f2f4;
     border-radius: 3px;
     position: relative;
-    bottom: 1px
+    bottom: 1px;
+    font-weight: bold;
 }
 
 .cnblogs_code {
