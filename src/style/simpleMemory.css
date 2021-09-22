@@ -122,6 +122,10 @@ li {
     list-style: none
 }
 
+img {
+    max-width: none;
+}
+
 a {
     outline: 0
 }
@@ -2058,7 +2062,7 @@ div#tbCommentBodyPreview {
 }
 
 .main-header {
-    display: table;
+    display: flex;
     width: 100%;
     height: 100vh;
     max-height: 100vh;
@@ -2068,7 +2072,28 @@ div#tbCommentBodyPreview {
     top: 0;
     left: 0;
     z-index: 3;
-    box-shadow: 0 1px 2px rgba(150, 150, 150, .7)
+    box-shadow: 0 1px 2px rgba(150, 150, 150, .7);
+    background: #333;
+}
+
+.main-header .part {
+    flex: 1;
+}
+
+.main-header .part .section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header .part .section img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: var(--x);
+    pointer-events: none;
 }
 
 #homeTopCanvas {
@@ -2132,9 +2157,12 @@ div#tbCommentBodyPreview {
 }
 
 .vertical {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    align-items: center;
 }
 
 .page-author, .page-description {
@@ -3755,7 +3783,7 @@ table#blogCalendar > tbody > tr > td > a {
         min-height: 240px;
         height: 60vh;
         max-height: 60vh;
-        padding: 15% 0
+        /*padding: 15% 0*/
     }
 
     #home {
@@ -3814,7 +3842,7 @@ table#blogCalendar > tbody > tr > td > a {
         min-height: 240px;
         height: 50vh;
         max-height: 50vh;
-        padding: 15% 0
+        /*padding: 15% 0*/
     }
 
     #home {

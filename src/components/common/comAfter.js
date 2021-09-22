@@ -52,6 +52,25 @@ export default function main(_) {
                 new Ribbons(_.__config.animate.background.options);
             });
         }
+
+        if (_.__config.animate.backgroundMouse.enable) {
+            import(/* webpackChunkName: "particles" */ '../particles/particles').then(module => {
+                let particles = module.default;
+                particles(_);
+            });
+        }
+    })();
+
+    /**
+     * 鼠标动效
+     */
+    (() => {
+        if (_.__config.animate.mouse.enable) {
+            import(/* webpackChunkName: "mouse" */ '../mouse/mouse').then(module => {
+                let mouse = module.default;
+                mouse(_);
+            });
+        }
     })();
 
     /**

@@ -1,0 +1,41 @@
+#particles {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    opacity: .6;
+    z-index: -2;
+    pointer-events: none
+}
+
+#particles .particles-layer {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-repeat: repeat;
+    background-position: center center;
+    opacity: 0;
+    display: block
+}
+
+#particles .particles-layer--1 {
+    background-image: url('../images/bg-pattern-1.svg')
+}
+
+#particles .particles-layer--2 {
+    background-image: url('../images/bg-pattern-2.svg')
+}
+
+#particles .particles-layer--3 {
+    background-image: url('../images/bg-pattern-3.svg')
+}
+
+@media (max-width: 767px) {
+    #particles {
+        display: none;
+    }
+}

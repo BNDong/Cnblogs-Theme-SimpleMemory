@@ -67,6 +67,12 @@ export default function main(_) {
             target: '#articleDirectory'
         });
 
+        // 判断是否显示横向滚动条
+        if (!_.__config.articleDirectory.autoWidthScroll) {
+            $('#articleDirectory ul li').addClass('articleDirectory-overflow');
+            $('#articleDirectory ul li a').addClass('articleDirectory-overflow');
+        }
+
         // 滚动监听
         _.__event.scroll.handle.push(() => {
             let articleDirectory = $('#articleDirectory');

@@ -1,8 +1,8 @@
 @font-face {
     font-family: "iconfont"; /* Project id 543384 */
-    src: url('//at.alicdn.com/t/font_543384_5a81wu0p863.woff2?t=1624936104699') format('woff2'),
-    url('//at.alicdn.com/t/font_543384_5a81wu0p863.woff?t=1624936104699') format('woff'),
-    url('//at.alicdn.com/t/font_543384_5a81wu0p863.ttf?t=1624936104699') format('truetype');
+    src: url('./fonts/iconfont.woff2?t=1630937125878') format('woff2'),
+    url('./fonts/iconfont.woff?t=1630937125878') format('woff'),
+    url('./fonts/iconfont.ttf?t=1630937125878') format('truetype');
 }
 
 .iconfont {
@@ -828,3 +828,4 @@
 .icon-tag:before {
     content: "\e752";
 }
+

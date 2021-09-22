@@ -1,3 +1,12 @@
+## 2021.09.22 - v2.0.8
+* 增加banner背景图片自动切换的动效。增加配置 `animate.bannerImages` 用以配置
+* 增加一个新的背景动效。增加配置 `animate.backgroundMouse` 用以配置
+* 增加鼠标跟随动效。增加配置 `animate.mouse` 用以配置
+* 增加配置 `articleDirectory.autoWidthScroll` 用以配置文章目录是否显示横向滚动条
+* 更新文档
+* 更新基础样式
+* 修复了文章题图大小显示不全的问题
+
 ## 2021.08.24 - v2.0.7
 * 增加配置 `animate.articleTitle` 用以配置文章标题打字机效果
 * 增加配置 `articleDirectory.minBodyWeight` 用以配置文章目录在屏幕宽度到多少像素及以内时开始隐藏
