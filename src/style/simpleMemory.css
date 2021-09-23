@@ -161,6 +161,39 @@ b {
     font-weight: 400
 }
 
+details {
+    margin: 1.5rem 0;
+    padding: .5rem 1rem;
+    background: #448aff1a;
+    border: 1px solid #1B86F9;
+    border-radius: 3px;
+}
+
+summary {
+    display: block;
+    outline: none;
+    cursor: pointer;
+}
+
+details>summary:before {
+    font-family: Material Icons!important;
+    font-style: normal!important;
+    left: .6rem;
+    color: #448aff;
+    font-size: 1.5rem;
+    content: "\e3c9";
+}
+
+details>summary:after {
+    font-family: Material Icons!important;
+    font-style: normal!important;
+    top: .4rem;
+    float: right;
+    color: rgba(0,0,0,.26);
+    font-size: 1.5rem;
+    content: "\e313";
+}
+
 #home {
     width: 70%;
     max-width: 900px;
