@@ -2890,6 +2890,7 @@ span.cnblogs_code, #home code:not([class]) {
     border: 0;
     padding: 2px 4px;
     color: #D83B64;
+    display: inline;
     background-color: #f9f2f4;
     border-radius: 3px;
     position: relative;
