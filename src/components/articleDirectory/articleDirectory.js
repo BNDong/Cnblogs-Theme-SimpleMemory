@@ -96,30 +96,32 @@ export default function main(_) {
             const bodyWidth = parseFloat(document.body.clientWidth),
                 articleDirectory = $('#articleDirectory');
             if (articleDirectory.length > 0) {
-                let mainContentWidth = $('#mainContent').outerWidth(true),
+                let mainContentWidth = $('#home').outerWidth(false),
                     listWidth        = articleDirectory.outerWidth(true);
-                listWidth = listWidth > 220 ? listWidth : 242;
+                // listWidth = listWidth > 220 ? listWidth : 242;
                 let bothWidth        = (bodyWidth - mainContentWidth) / 2,
-                    rightPx          = bothWidth - listWidth - 40,
+                    rightPx          = bothWidth - listWidth - 5,
                     sideToolbarTop   = $('.main-header').outerHeight();
 
                 switch (_.__config.articleDirectory.position) {
                     case 'left':
                         articleDirectory.css({
                             'top': (sideToolbarTop + 5) + 'px',
-                            'left' : (rightPx > 0 ? rightPx : 0) + 'px'
+                            'left': (rightPx > 0 ? rightPx : 5) + 'px',
+                            'width': (bothWidth > 190 && bothWidth < 260 ? bothWidth - 10 : listWidth) + 'px'
                         });
                         break;
                     case 'right':
                     default:
                         articleDirectory.css({
                             'top': (sideToolbarTop + 5) + 'px',
-                            'right' : (rightPx > 0 ? rightPx : 0) + 'px'
+                            'right' : (rightPx > 0 ? rightPx : 5) + 'px',
+                            'width': (bothWidth > 190 && bothWidth < 260 ? bothWidth - 10 : listWidth) + 'px'
                         });
                         break;
                 }
 
-                if (bodyWidth <= _.__config.articleDirectory.minBodyWeight) {
+                if (bodyWidth <= _.__config.articleDirectory.minBodyWeight || bothWidth <= 190) {
                     articleDirectory.hide();
                 } else {
                     articleDirectory.show();

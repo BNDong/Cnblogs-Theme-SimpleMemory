@@ -10,16 +10,18 @@ import navTemp from '../../template/sidebarNav.html';
 import '../../style/menu_bubble.css';
 import main4 from './lib/main4';
 import defaultAvatarImg from './../../images/webp/default_avatar.webp';
-import meTopBg from './../../images/webp/me_top_bg.webp';
+import defaultSidebarBgImg from './../../images/sidebar_bg_4.png';
 
 export default function main(_) {
+
+    let mainObj;
 
     /**
      * 设置侧边栏渲染
      */
     (() => {
         $('#sidebar_news').prepend(sidebarTemp);
-        main4();
+        mainObj = main4();
     })();
 
     /**
@@ -28,29 +30,22 @@ export default function main(_) {
     (() => {
         // ------- 设置导航 -------
         let navHtml = _.__tools.tempReplacement(navTemp, 'user', _.__status.user);
-        let navList = _.__config.sidebar.navList;
-        if (navList.length > 0) {
-            $.each(navList, function (i) {
-                let iconClass = navList[i].length > 2 ? navList[i][2] : "icon-qianzishenhe";
-                navHtml += '<li><a href="'+(navList[i][1])+'" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
-            });
-        }
-        $('#m-nav-list').append(navHtml);
+        $('.sidebar-footer').html(navHtml);
 
         // ------- 设置头像 -------
         let blogAvatar = _.__config.info.avatar ? _.__config.info.avatar : defaultAvatarImg;
-        $('#menuBlogAvatar').append("<img src='"+blogAvatar+"'>");
+        $('#menuBlogAvatar').append("<img class='img-responsive img-rounded' alt='用户头像' src='"+blogAvatar+"'>");
+
+        // ------- 设置侧边栏信息 -------
+        $('.sidebar-title-msg').text(_.__config.sidebar.titleMsg);
     })();
 
     /**
      * 设置菜单个人信息背景图片
      */
     (() => {
-        let mbg = _.__config.sidebar.infoBackground ? _.__config.sidebar.infoBackground : meTopBg;
-        $('.introduce-box').css({
-            'background': '#000 url(\'' + mbg + '\') center no-repeat',
-            'background-size': '100%'
-        });
+        let mbg = _.__config.sidebar.infoBackground ? _.__config.sidebar.infoBackground : defaultSidebarBgImg;
+        $('.container .menu-wrap').css('background-image', 'url(\''+mbg+'\')');
     })();
 
     /**
@@ -78,7 +73,7 @@ export default function main(_) {
             if (calendarTable.length > 0 && menuCalendar.html() === ''){
                 let calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
                 calendar.remove();
-                menuCalendar.html(calendarHtml);
+                menuCalendar.html(calendarHtml).show();
                 $('#blog-calendar').css('visibility', 'visible');
                 _.__tools.clearIntervalTimeId(_.__timeIds.calendarTId);
             }
@@ -90,7 +85,8 @@ export default function main(_) {
                 menuSearchBox = $('#sb-sidebarSearchBox');
 
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
-                menuSearchBox.html('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"></div>').prev('.m-list-title').show();
+                menuSearchBox.prepend('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text"  autocomplete="off" placeholder="找找看..." onkeydown="return zzk_go_enter(event);" class="input_my_zzk form-control search-menu"></div>');
+                $('.sidebar-search').show();
                 _.__tools.clearIntervalTimeId(_.__timeIds.searchTId);
             }
         }, timeout);
@@ -100,7 +96,6 @@ export default function main(_) {
             listHdl(
                 $('#sidebar_scorerank ul li'),
                 $('#sb-sidebarScorerank'),
-                'icon-collection_fill',
                 _.__timeIds.scorerankTId
             );
         }, timeout);
@@ -110,7 +105,6 @@ export default function main(_) {
             listHdl(
                 $('#sidebar_recentposts ul li'),
                 $('#sb-sidebarRecentposts'),
-                'icon-time_fill',
                 _.__timeIds.newEssayTId
             );
         }, timeout);
@@ -120,7 +114,6 @@ export default function main(_) {
             listHdl(
                 $('#sidebar_toptags ul li'),
                 $('#sb-toptags'),
-                'icon-label_fill',
                 _.__timeIds.topTagsTId
             );
         }, timeout);
@@ -130,7 +123,6 @@ export default function main(_) {
             listHdl(
                 $('#sidebar_postcategory ul li'),
                 $('#sb-classify'),
-                'icon-marketing_fill',
                 _.__timeIds.classifyTId
             );
         }, timeout);
@@ -140,7 +132,6 @@ export default function main(_) {
             listHdl(
                 $('#sidebar_articlecategory ul li'),
                 $('#sb-ArticleCategory'),
-                'icon-marketing_fill',
                 _.__timeIds.articleCategoryTId
             );
         }, timeout);
@@ -170,7 +161,6 @@ export default function main(_) {
             listHdl(
                 $('#TopViewPostsBlock ul li'),
                 $('#sb-topview'),
-                'icon-browse_fill',
                 _.__timeIds.topViewTId
             );
         }, timeout);
@@ -180,7 +170,6 @@ export default function main(_) {
             listHdl(
                 $('#TopDiggPostsBlock ul li'),
                 $('#sb-topDiggPosts'),
-                'icon-like_fill',
                 _.__timeIds.topDiggPostsTId
             );
         }, timeout);
@@ -190,8 +179,8 @@ export default function main(_) {
             let recentComments     = $('#sidebar_recentcomments ul'),
                 menuRecentComments = $('#sb-recentComments');
 
-            let getMenuCommentsData = (obj, icon) => {
-                let html = '<div><ul>',
+            let getMenuCommentsData = (obj) => {
+                let html = '<ul>',
                     ret  = /^[1-9]+[0-9]*$/,
                     title, body, author;
 
@@ -207,71 +196,94 @@ export default function main(_) {
                             o = p.text() === p.html() ? {} : $(p.html()),
                             textArr = $.trim(p.text()).split('.');
                         if (ret.test(textArr[0])) textArr.splice(0,1);
-                        let text = $.trim(textArr.join('.')),
-                            iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 15px;margin-right: 5px;"></span>';
-                        o.length > 0 && o.html(iconHtml + text);
-                        html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>")
+                        let text = $.trim(textArr.join('.'));
+                        o.length > 0 && o.html(text);
+                        html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + text + "</a>")
 
-                            + '<div style="padding-left: 1.5em;color: #777;position: relative;top: -5px;">'
+                            + '<div class="sb-recent_comment_body">'
                             + $(body[i]).text()
                             + '</div>'
 
-                            + '<div style="text-align: right;color: #444;position: relative;top: -10px;">'
+                            + '<div class="sb-recent_comment_author">'
                             + $(author[i]).text()
                             + '</div></li>';
                     });
                 }
-                html += '</ul></div>';
+                html += '</ul>';
                 return html;
             }
 
             if (recentComments.length > 0 && menuRecentComments.html() === '') {
-                menuRecentComments.html(getMenuCommentsData(recentComments, 'icon-pinglunzu')).prev('.m-list-title').show();
+                menuRecentComments.html(getMenuCommentsData(recentComments));
+                menuRecentComments.parent('.sidebar-dropdown').show();
                 _.__tools.clearIntervalTimeId(_.__timeIds.commentsTId);
             }
         }, timeout);
+
+        // ------- 自定义导航 -------
+        (() => {
+            let navList = _.__config.sidebar.navList;
+            let navHtml = '';
+            if (navList.length > 0) {
+                navHtml = '<ul>';
+                $.each(navList, function (i) {
+                    let iconClass = navList[i].length > 2 ? navList[i][2] : "icon-qianzishenhe";
+                    navHtml += '<li><a href="'+(navList[i][1])+'" class="sidebar-dropdown-box" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
+                });
+                navHtml += '</ul>';
+                $('.customize-nav').append(navHtml).show();
+            }
+        })();
 
         // ------- 自定义列表 -------
         (() => {
             let customData = _.__config.sidebar.customList;
             if (Object.keys(customData).length > 0) {
                 $.each(customData, (title, list) => {
-                    let html = '<div class="m-list-title" style="display: block;"><span>' + title + '<span class="iconfont icon-select m-list-title-select"></span></span></div>';
-                    html += '<div class="m-icon-list"><div><ul>';
+                    let html = '<li class="ng-star-inserted sidebar-dropdown">';
+                    html += '<a href="javascript:void(0)" class="ng-star-inserted sidebar-dropdown-box">';
+                    html += '   <i class="iconfont '+ list.icon +'"></i>';
+                    html += '   <span class="sidebar-dropdown-title">'+ title +'</span>';
+                    html += '</a>';
+                    html += '<div class="sidebar-submenu"><ul>';
+
                     $.each(list.data, (key, val) => {
-                        html += '<li><a href="' + val[1] + '">';
-                        html += '<span class="iconfont '+ list.icon +'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
+                        html += '<li><a href="' + val[1] + '" target="_blank">';
                         html += val[0] + '</a></li>';
                     });
-                    html += '</ul></div></div>';
-                    // language=JQuery-CSS
-                    $('#menuCustomList').append(html);
+
+                    html += '</ul></div>';
+                    html += '</li>';
+
+                    $('#customize-sidebar-menu ul').append(html);
                 });
+                $('#customize-sidebar-menu').show();
+                $('#customize-sidebar-menu .sidebar-dropdown').show();
             }
         })();
 
         // ------- 公共函数 -------
-        function listHdl(old, nld, icon, tid) {
+        function listHdl(old, nld, tid) {
             if (old.length > 0 && nld.html() === '') {
-                nld.html(getMenuData(old, icon)).prev('.m-list-title').show();
+                nld.html(getMenuData(old));
+                nld.parent('.sidebar-dropdown').show();
                 _.__tools.clearIntervalTimeId(tid);
             }
         }
 
-        function getMenuData(obj, icon) {
-            let html = '<div><ul>',
+        function getMenuData(obj) {
+            let html = '<ul>',
                 ret  = /^[1-9]+[0-9]*$/;
             obj.each((i) => {
                 let p = $(obj[i]),
                     o = p.text() === p.html() ? {} : $(p.html()),
                     textArr = $.trim(p.text()).split('.');
                 if (ret.test(textArr[0])) textArr.splice(0,1);
-                let text = $.trim(textArr.join('.')),
-                    iconHtml = '<span class="iconfont '+icon+'" style="color: #888;font-size: 14px;margin-right: 5px;"></span>';
-                o.length > 0 && o.html(iconHtml + text);
-                html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + iconHtml + text + "</a>") + '</li>';
+                let text = $.trim(textArr.join('.'));
+                o.length > 0 && o.html(text);
+                html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : '<a href="javascript:void(0);">' + text + '</a>' ) + '</li>';
             });
-            html += '</ul></div>';
+            html += '</ul>';
             return html;
         }
     })();
@@ -280,6 +292,39 @@ export default function main(_) {
      * 设置菜单展开收缩
      */
     (() => {
-        $('.m-list-title-select').click(function () { $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(350) });
+        $('.sidebar-menu a.sidebar-dropdown-box').on('click', function () {
+           let obj  = $(this);
+           let pObj = obj.parent('li.sidebar-dropdown');
+           let lObj = pObj.find('.sidebar-submenu');
+           if (lObj.length > 0) {
+               if (pObj.hasClass('active')) {
+                   // 收起
+                   pObj.removeClass('active');
+                   lObj.slideUp(300);
+               } else {
+                   // 展开
+                   pObj.addClass('active');
+                   lObj.slideDown(300);
+               }
+               setTimeout(function () {
+                   if (mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') {
+                       mainObj.myOptiscrollInstance.update();
+                   }
+               }, 300);
+           }
+        });
+    })();
+
+    /**
+     * 窗口大小变化处理
+     */
+    (() => {
+        _.__event.resize.handle.push(() => {
+            setTimeout(function () {
+                if ($('body').hasClass('show-menu') && mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') {
+                    mainObj.myOptiscrollInstance.update();
+                }
+            }, 300);
+        });
     })();
 }

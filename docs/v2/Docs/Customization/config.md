@@ -170,12 +170,30 @@ window.cnblogsConfig = {
 * 类型：```Url```
 * 默认值：```""```
 
-侧边栏个人信息背景图片Url。
+< v2.1.0 侧边栏个人信息背景图片Url。
+>= v2.1.0 侧边栏背景图片。
 
 ```javascript
 window.cnblogsConfig = {
   sidebar: {
     infoBackground: 'https://x1.jpg',
+  },
+}
+```
+
+### titleMsg - 侧边栏title信息
+
+?> 版本 >= v2.1.0
+
+* 类型：```String```
+* 默认值：```"欢迎访问本博客~"```
+
+配置侧边栏title信息
+
+```javascript
+window.cnblogsConfig = {
+  sidebar: {
+      titleMsg: '欢迎访问本博客~',
   },
 }
 ```
@@ -1019,7 +1037,7 @@ window.cnblogsConfig = {
 ?> 版本 >= v2.0.7
 
 * 类型：```Int```
-* 默认值：```1350```
+* 默认值：```900```
 
 文章目录在屏幕宽度到多少像素及以内时开始隐藏；例如：配置成 1000，当屏幕宽度 <= 1000 时，隐藏目录（可通过右下角按钮显示）
 

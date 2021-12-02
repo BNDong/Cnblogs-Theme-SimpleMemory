@@ -19,6 +19,7 @@
     navList: [],
     customList: {},
     infoBackground: '',
+    titleMsg: '欢迎访问本博客~'
   },
 
   // -- 头图 --
@@ -197,7 +198,7 @@
   // -- 文章目录 --
   articleDirectory: {
     position: 'right',
-    minBodyWeight: 1350,
+    minBodyWeight: 900,
     autoWidthScroll: false
   },
 

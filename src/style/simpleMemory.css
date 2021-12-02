@@ -515,22 +515,22 @@ p.article-info-text > .postMeta br {
     text-decoration: underline
 }
 
-.div_my_zzk {
-    width: 175px;
-    position: relative;
-    margin-top: 10px
-}
+/*.div_my_zzk {*/
+/*    width: 175px;*/
+/*    position: relative;*/
+/*    margin-top: 10px*/
+/*}*/
 
-.input_my_zzk {
-    border: 1px solid #3b3b3b;
-    border-radius: 3px;
-    width: 90%;
-    height: 30px;
-    padding-left: 5px;
-    outline: 0;
-    background: #000;
-    color: #ccc
-}
+/*.input_my_zzk {*/
+/*    border: 1px solid #3b3b3b;*/
+/*    border-radius: 3px;*/
+/*    width: 90%;*/
+/*    height: 30px;*/
+/*    padding-left: 5px;*/
+/*    outline: 0;*/
+/*    background: #000;*/
+/*    color: #ccc*/
+/*}*/
 
 #sb_widget_my_zzk {
     width: 100%;
@@ -2345,85 +2345,85 @@ div#tbCommentBodyPreview {
     line-height: 20px
 }
 
-.introduce-box {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #f5f5f5;
-    z-index: 1;
-    opacity: 1;
-    height: 225px;
-    -webkit-transition: opacity .3s, -webkit-transform .3s;
-    transition: opacity .3s, transform .3s;
-    -webkit-transition-delay: .4s;
-    transition-delay: .4s;
-    outline: 0;
-    cursor: pointer;
-    background-size: 100%
-}
+/*.introduce-box {*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    color: #f5f5f5;*/
+/*    z-index: 1;*/
+/*    opacity: 1;*/
+/*    height: 225px;*/
+/*    -webkit-transition: opacity .3s, -webkit-transform .3s;*/
+/*    transition: opacity .3s, transform .3s;*/
+/*    -webkit-transition-delay: .4s;*/
+/*    transition-delay: .4s;*/
+/*    outline: 0;*/
+/*    cursor: pointer;*/
+/*    background-size: 100%*/
+/*}*/
 
-.introduce-head {
-    width: 100%
-}
+/*.introduce-head {*/
+/*    width: 100%*/
+/*}*/
 
-.introduce-via {
-    margin-top: 20px;
-    text-align: center
-}
+/*.introduce-via {*/
+/*    margin-top: 20px;*/
+/*    text-align: center*/
+/*}*/
 
-.introduce-via img {
-    width: 70px;
-    height: 70px;
-    padding: 1px;
-    border: 3px solid rgba(255, 255, 255, .5);
-    border-radius: 100%;
-    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .3), 0 2px 3px rgba(0, 0, 0, .4);
-    transition: transform 1s ease-out
-}
+/*.introduce-via img {*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    padding: 1px;*/
+/*    border: 3px solid rgba(255, 255, 255, .5);*/
+/*    border-radius: 100%;*/
+/*    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .3), 0 2px 3px rgba(0, 0, 0, .4);*/
+/*    transition: transform 1s ease-out*/
+/*}*/
 
-.introduce-via img:hover {
-    -webkit-transform: rotateZ(360deg);
-    -moz-transform: rotateZ(360deg);
-    -ms-transform: rotateZ(360deg);
-    -o-transform: rotateZ(360deg);
-    transform: rotateZ(360deg)
-}
+/*.introduce-via img:hover {*/
+/*    -webkit-transform: rotateZ(360deg);*/
+/*    -moz-transform: rotateZ(360deg);*/
+/*    -ms-transform: rotateZ(360deg);*/
+/*    -o-transform: rotateZ(360deg);*/
+/*    transform: rotateZ(360deg)*/
+/*}*/
 
-#introduce {
-    padding-left: 85px;
-    margin-top: 10px
-}
+/*#introduce {*/
+/*    padding-left: 85px;*/
+/*    margin-top: 10px*/
+/*}*/
 
-#introduce a {
-    margin-left: 10px;
-    color: #f5f5f5;
-    line-height: 20px
-}
+/*#introduce a {*/
+/*    margin-left: 10px;*/
+/*    color: #f5f5f5;*/
+/*    line-height: 20px*/
+/*}*/
 
-#introduce a:hover {
-    color: #fff !important
-}
+/*#introduce a:hover {*/
+/*    color: #fff !important*/
+/*}*/
 
-#introduce a:active, #introduce a:hover, #introduce a:link, #introduce a:visited {
-    text-decoration: none !important
-}
+/*#introduce a:active, #introduce a:hover, #introduce a:link, #introduce a:visited {*/
+/*    text-decoration: none !important*/
+/*}*/
 
-#introduce div {
-    position: absolute;
-    bottom: 15px;
-    padding: 2px 4px;
-    border-radius: 3px
-}
+/*#introduce div {*/
+/*    position: absolute;*/
+/*    bottom: 15px;*/
+/*    padding: 2px 4px;*/
+/*    border-radius: 3px*/
+/*}*/
 
-#introduce div a {
-    margin: 0;
-    padding: 0
-}
+/*#introduce div a {*/
+/*    margin: 0;*/
+/*    padding: 0*/
+/*}*/
 
-#introduce div:hover {
-    opacity: .6
-}
+/*#introduce div:hover {*/
+/*    opacity: .6*/
+/*}*/
 
 #cnblogs_post_body h6, blockquote {
     border-left: 3px solid rgba(84,104,255,.8) !important;
