@@ -106,7 +106,8 @@ body {
     color: #3A4145;
     -moz-font-feature-settings: 'kern' 1;
     -o-font-feature-settings: 'kern' 1;
-    overflow: hidden
+    overflow: hidden;
+    min-height: 0vh;
 }
 
 table {
