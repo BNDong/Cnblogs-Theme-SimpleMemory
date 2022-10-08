@@ -29,10 +29,14 @@ export default function main(_) {
                 if (!tem.hasClass('code_img_closed') && !tem.hasClass('code_img_opened')) {
                     let width  = tem.attr('width');
                     let height = tem.attr('height');
+                    let alt = tem.attr('alt') ?? '';
+                    let style = tem.attr('style') ?? ''
                     tem.after('<a data-fancybox="gallery" href="'+tem.attr('src')+'"><img ' +
                         (width ? ' width="' + width + '" ' : '') +
                         (height ? ' height="' + height + '" ' : '') +
-                        ' src="'+tem.attr('src')+'"/></a>');
+                        ` src="${tem.attr('src')}"` +
+                        ` alt="${alt}"` +
+                        ` style="${style}"` + '/></a>');
                     tem.remove();
                 }
             });
