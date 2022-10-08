@@ -16,6 +16,8 @@ window.cnblogsConfig = {
 
 > 本主题内置图标
 
+[预览页面>>](../v2/iconfontDemo/demo_index.html)
+
 <iframe  
 height=850
 width=98%
