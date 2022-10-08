@@ -15,7 +15,11 @@ export default function main(_) {
      */
     (() => {
         const sbTitle = $('#cb_post_title_url').text();
-        consoleText([sbTitle], 'sbTitleText', 'sbTitleConsole', ['#fff'], false, _.__tools.setDomHomePosition);
+        if (_.__config.animate.articleTitle.enable) {
+            consoleText([sbTitle], 'sbTitleText', 'sbTitleConsole', ['#fff'], false, _.__tools.setDomHomePosition);
+        } else {
+            $('#sbTitleText').text(sbTitle).css('color', '#fff');
+        }
         $('.inner').css('max-width', '100vw');
         _.__tools.setDomHomePosition();
     })();
@@ -38,7 +42,8 @@ export default function main(_) {
             let info = postMeta(postDescText);
             let textNum = $('#cnblogs_post_body').text().length;
 
-            return '<span class="postMeta"><i class="iconfont icon-time1"></i>' + info.date.replace(/-/g,"/").substr(2) + '' +
+            // return '<span class="postMeta"><i class="iconfont icon-time1"></i>' + info.date.replace(/-/g,"/").substr(2) + '' +
+            return '<span class="postMeta"><i class="iconfont icon-time1"></i>' + info.date + '' +
                 '<i class="iconfont icon-browse"></i>' + info.vnum + '' +
                 '<i class="iconfont icon-interactive"></i>' + info.cnum + '' +
                 '<i class="iconfont icon-hot"></i>' + info.tnum + '' +

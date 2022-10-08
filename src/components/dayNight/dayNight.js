@@ -9,6 +9,11 @@ import dayNightTemp from '../../template/dayNight.html';
 import dayNightControl from "../../hooks/dayNightControl";
 
 export default function main(_) {
+
+    if (!_.__config.switchDayNight.enable) {
+        return true;
+    }
+
     let h         = parseInt(new Date().getHours()),
         cookieKey = 'cnblogs_config_isNight',
         exp       =  4 * 3600,
@@ -30,6 +35,13 @@ export default function main(_) {
                             (h >= _.__config.switchDayNight.auto.dayHour ? 'daySwitch' : '')
                     ) : 'daySwitch'; break;
         }
+    })();
+
+    /**
+     * 判断是否强制夜间
+     */
+    (() => {
+        if (_.__config.switchDayNight.nightMode) daySwitch = '';
     })();
 
     /**

@@ -27,7 +27,12 @@ export default function main(_) {
             $.each(data, (i) => {
                 let tem = $(data[i]);
                 if (!tem.hasClass('code_img_closed') && !tem.hasClass('code_img_opened')) {
-                    tem.after('<a data-fancybox="gallery" href="'+tem.attr('src')+'"><img src="'+tem.attr('src')+'"/></a>');
+                    let width  = tem.attr('width');
+                    let height = tem.attr('height');
+                    tem.after('<a data-fancybox="gallery" href="'+tem.attr('src')+'"><img ' +
+                        (width ? ' width="' + width + '" ' : '') +
+                        (height ? ' height="' + height + '" ' : '') +
+                        ' src="'+tem.attr('src')+'"/></a>');
                     tem.remove();
                 }
             });

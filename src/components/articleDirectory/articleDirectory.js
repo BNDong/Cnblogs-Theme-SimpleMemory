@@ -38,7 +38,12 @@ export default function main(_) {
             let hid = obj.attr('id');
             let titleId = 'tid-' + _.__tools.randomString(6);
             obj.attr('tid', titleId);
-            if (!hid || /^[0-9]+.*/.test(hid)) {
+            if (!hid || /^-?[0-9]+.*/.test(hid)) {
+                if (hid) {
+                    // 兼容修改toc生成的目录
+                    let tocObj = $('.toc a[href="#'+hid+'"]');
+                    tocObj.length && tocObj.attr('href', '#' + titleId);
+                }
                 hid = titleId;
                 obj.attr('id', hid);
             }
@@ -61,6 +66,12 @@ export default function main(_) {
         body.scrollspy({
             target: '#articleDirectory'
         });
+
+        // 判断是否显示横向滚动条
+        if (!_.__config.articleDirectory.autoWidthScroll) {
+            $('#articleDirectory ul li').addClass('articleDirectory-overflow');
+            $('#articleDirectory ul li a').addClass('articleDirectory-overflow');
+        }
 
         // 滚动监听
         _.__event.scroll.handle.push(() => {
@@ -85,19 +96,32 @@ export default function main(_) {
             const bodyWidth = parseFloat(document.body.clientWidth),
                 articleDirectory = $('#articleDirectory');
             if (articleDirectory.length > 0) {
-                let mainContentWidth = $('#mainContent').outerWidth(true),
+                let mainContentWidth = $('#home').outerWidth(false),
                     listWidth        = articleDirectory.outerWidth(true);
-                listWidth = listWidth > 220 ? listWidth : 242;
+                // listWidth = listWidth > 220 ? listWidth : 242;
                 let bothWidth        = (bodyWidth - mainContentWidth) / 2,
-                    rightPx          = bothWidth - listWidth - 40,
+                    rightPx          = bothWidth - listWidth - 5,
                     sideToolbarTop   = $('.main-header').outerHeight();
 
-                articleDirectory.css({
-                    'top': (sideToolbarTop + 5) + 'px',
-                    'right': (rightPx > 0 ? rightPx : 0) + 'px'
-                });
+                switch (_.__config.articleDirectory.position) {
+                    case 'left':
+                        articleDirectory.css({
+                            'top': (sideToolbarTop + 5) + 'px',
+                            'left': (rightPx > 0 ? rightPx : 5) + 'px',
+                            'width': (bothWidth > 190 && bothWidth < 260 ? bothWidth - 10 : listWidth) + 'px'
+                        });
+                        break;
+                    case 'right':
+                    default:
+                        articleDirectory.css({
+                            'top': (sideToolbarTop + 5) + 'px',
+                            'right' : (rightPx > 0 ? rightPx : 5) + 'px',
+                            'width': (bothWidth > 190 && bothWidth < 260 ? bothWidth - 10 : listWidth) + 'px'
+                        });
+                        break;
+                }
 
-                if (bodyWidth <= 1350) {
+                if (bodyWidth <= _.__config.articleDirectory.minBodyWeight || bothWidth <= 190) {
                     articleDirectory.hide();
                 } else {
                     articleDirectory.show();

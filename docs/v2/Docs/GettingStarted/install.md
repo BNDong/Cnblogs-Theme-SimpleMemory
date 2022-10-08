@@ -17,6 +17,7 @@
 本主题当前页面所涉及的配置有：
 
 - 博客皮肤
+- 代码高亮
 - 页面定制CSS代码
 - 禁用模板默认CSS
 - 博客侧边栏公告
@@ -48,6 +49,12 @@
 
 ![install_02](../../Images/install_02.png)
 
+### 设置代码高亮
+
+不要勾选显示行号！
+
+![install_02](../../Images/install_08.png)
+
 ### 设置页面定制CSS代码
 
 CSS代码位置：```/dist/simpleMemory.css``` 拷贝此文件代码至页面定制CSS代码文本框处。
@@ -72,7 +79,7 @@ CSS代码位置：```/dist/simpleMemory.css``` 拷贝此文件代码至页面定
       },
     }
 </script>
-<script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v2.0.2/dist/simpleMemory.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@v2.1.0/dist/simpleMemory.js" defer></script>
 ```
 
 详细配置参考相关[文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/config)。
@@ -85,4 +92,4 @@ CSS代码位置：```/dist/simpleMemory.css``` 拷贝此文件代码至页面定
 
 ---
 
-CND jsdelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。
+CDN jsdelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。

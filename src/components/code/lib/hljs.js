@@ -34,6 +34,9 @@ export default function main(_, setCodeLine) {
             $.each(code, function (i, e) {
                 let obj = $(code[i]);
 
+                // 做一次换行兼容处理
+                obj.css('white-space', 'pre').html().replace(/\<br\>/g, '\n');
+
                 // 清除代码原有样式
                 obj.text(obj.text());
 
@@ -49,17 +52,9 @@ export default function main(_, setCodeLine) {
         })();
 
         /**
-         * 设置工具条背景色 & 添加语言标签
-         */
-        (() => {
-            $('code-box .code-tools').css('background', $('pre.hljs').css('background'))
-                .prepend('<hljs-len class="code-hljs-len"></hljs-len>');
-        })();
-
-        /**
          * 显示自动识别语言
          */
-        (() => {
+        let setCodeHljsLen = () => {
             let codeBox = $('code-box');
             $.each(codeBox, function (i, e) {
                 let obj = $(codeBox[i]);
@@ -74,6 +69,22 @@ export default function main(_, setCodeLine) {
                     }
                 }
             });
+        }
+
+        /**
+         * 设置工具条背景色 & 添加语言标签
+         */
+        (() => {
+            _.__timeIds.hljsCodeTId = window.setInterval(() => {
+                let preHljs = $('pre.hljs');
+                if (preHljs.length > 0) {
+                    $('code-box .code-tools').css('background', $('pre.hljs').css('background'))
+                        .prepend('<hljs-len class="code-hljs-len"></hljs-len>');
+
+                    setCodeHljsLen();
+                    _.__tools.clearIntervalTimeId(_.__timeIds.hljsCodeTId);
+                }
+            }, 1000);
         })();
 
         /**

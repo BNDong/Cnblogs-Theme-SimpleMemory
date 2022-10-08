@@ -170,12 +170,30 @@ window.cnblogsConfig = {
 * 类型：```Url```
 * 默认值：```""```
 
-侧边栏个人信息背景图片Url。
+< v2.1.0 侧边栏个人信息背景图片Url。
+>= v2.1.0 侧边栏背景图片。
 
 ```javascript
 window.cnblogsConfig = {
   sidebar: {
     infoBackground: 'https://x1.jpg',
+  },
+}
+```
+
+### titleMsg - 侧边栏title信息
+
+?> 版本 >= v2.1.0
+
+* 类型：```String```
+* 默认值：```"欢迎访问本博客~"```
+
+配置侧边栏title信息
+
+```javascript
+window.cnblogsConfig = {
+  sidebar: {
+      titleMsg: '欢迎访问本博客~',
   },
 }
 ```
@@ -251,7 +269,9 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     banner: {
-        titleSource: 'one',
+        home: {
+            titleSource: 'one',
+        }
     },
 }
 
@@ -636,6 +656,7 @@ window.cnblogsConfig = {
 ```json
 {
     enable: true,       // 是否开启日/夜间模式切换按钮
+    nightMode: false,   // 强制夜间模式 （版本 >= v2.0.6）
     auto: {             // 自动切换相关配置
         enable: false,  // 开启自动切换
         dayHour: 5,     // 日间模式开始时间，整数型，24小时制
@@ -643,6 +664,7 @@ window.cnblogsConfig = {
     }
 }
 ```
+?> nightMode 配置项要求，版本 >= v2.0.1
 
 日/夜间模式配置。页面使用日/夜间模式优先级：用户设置 > 自动切换 > 默认。
 
@@ -659,6 +681,10 @@ window.cnblogsConfig = {
 
 ## animate - 动效
 
+?> 版本 v2.0.3 及之后，所有动效默认配置为关闭。
+
+?> 动效会消耗GPU，请大家按需选择开启
+
 ### homeBanner - 主页banner动效
 
 * 类型：```Object```
@@ -666,7 +692,7 @@ window.cnblogsConfig = {
 
 ```json
 {
-    enable: true, // 是否开启动效
+    enable: false, // 是否开启动效
     options: {
         radius: 15,
         density: 0.2,
@@ -691,7 +717,9 @@ window.cnblogsConfig = {
 }
 ```
 
-### articleBanner - 文章页banner动效
+### articleTitle - 文章页标题动效
+
+?> 版本 >= v2.0.7
 
 * 类型：```Object```
 * 默认值：
@@ -699,6 +727,29 @@ window.cnblogsConfig = {
 ```json
 {
     enable: true // 是否开启动效
+}
+```
+
+文章页标题动效配置。
+
+```javascript
+window.cnblogsConfig = {
+  animate: {
+    articleTitle: {
+      enable: true,
+    },
+  }
+}
+```
+
+### articleBanner - 文章页banner动效
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: false // 是否开启动效
 }
 ```
 
@@ -721,7 +772,7 @@ window.cnblogsConfig = {
 
 ```json
 {
-  enable: true,
+  enable: false,
   options: {
     colorSaturation: "60%",
     colorBrightness: "50%",
@@ -749,9 +800,96 @@ window.cnblogsConfig = {
 }
 ```
 
+### bannerImages - banner背景图自动切换动效
+
+?> 版本 >= v2.0.8
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+  enable: false, // 是否开启
+  options: {
+    itemNum: 5, // 图片拆分成几列
+    current: 0, // 初始图片的下标，如果为负数则为随机
+    sort: 1, // 1 代表每次向下加载一个图片，-1 代表每次向上加载一个图片
+    time: 30000 // 每次切换间隔时间，单位：毫秒
+  }
+}
+```
+
+banner背景图自动切换动效。
+
+```javascript
+window.cnblogsConfig = {
+  animate: {
+    bannerImages: {
+      enable: true,
+    },
+  }
+}
+```
+
+### backgroundMouse - 背景动效
+
+?> 版本 >= v2.0.8
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+  enable: false // 是否开启
+}
+```
+
+背景动效，颜色比较浅不影响阅读，鼠标移动有简单动偏移动画。
+
+```javascript
+window.cnblogsConfig = {
+  animate: {
+    backgroundMouse: {
+      enable: true,
+    },
+  }
+}
+```
+
+### mouse - 背景动效
+
+?> 版本 >= v2.0.8
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+  enable: false, // 是否开启
+  options: {
+    size: 8, // 中心圆点的大小，单位 px
+    sizeF: 36 // 外部边框的大小，单位 px
+  }
+}
+```
+
+跟随鼠标动效。
+
+> 不会隐藏原鼠标，如果想隐藏原鼠标可以自行添加css样式 `html {cursor: none;}`
+
+```javascript
+window.cnblogsConfig = {
+  animate: {
+    mouse: {
+      enable: true,
+    },
+  }
+}
+```
+
 ## code - 代码
 
-### type - 渲染类型
+### type - 代码渲染类型
 
 * 类型：```String```
 * 默认值：```""```
@@ -771,7 +909,7 @@ hljs: 使用 Highlighting 插件渲染代码高亮样式。
 */
 ```
 
-### options - 渲染配置
+### options - 代码配置
 
 #### hljs - Highlighting 插件样式配置
 
@@ -875,6 +1013,78 @@ window.cnblogsConfig = {
 }
 ```
 
+#### fontSize - 代码字体大小
+
+?> 版本 >= v2.1.1
+
+* 类型：```Int```
+* 默认值：```14```
+
+代码字体大小，数值类型，单位px。
+
+```javascript
+window.cnblogsConfig = {
+  code: {
+    options: {
+        fontSize: 20,
+    },
+  },
+}
+```
+
+## articleDirectory - 文章目录
+
+### position - 文章目录定位
+
+?> 版本 >= v2.0.6
+
+* 类型：```String```
+* 默认值：```"right"```
+
+用于设置文章目录显示在文章的左侧还是右侧，配置项：`right`、`left`
+
+```javascript
+window.cnblogsConfig = {
+    articleDirectory: {
+        position: 'right',
+    },
+}
+```
+
+### minBodyWeight - 文章目录隐藏宽度
+
+?> 版本 >= v2.0.7
+
+* 类型：```Int```
+* 默认值：```900```
+
+文章目录在屏幕宽度到多少像素及以内时开始隐藏；例如：配置成 1000，当屏幕宽度 <= 1000 时，隐藏目录（可通过右下角按钮显示）
+
+```javascript
+window.cnblogsConfig = {
+    articleDirectory: {
+        minBodyWeight: 1400,
+    },
+}
+```
+
+### autoWidthScroll - 文章目录横向滚动条
+
+?> 版本 >= v2.0.8
+
+* 类型：```Boolean```
+* 默认值：```false```
+
+文章目录中标题过长时候是否显示横向滚动条。
+
+```javascript
+window.cnblogsConfig = {
+    articleDirectory: {
+        autoWidthScroll: true,
+    },
+}
+```
+
 ## articleSuffix - 文章后缀
 
 ### imgUrl - 左侧图片
@@ -953,19 +1163,5 @@ window.cnblogsConfig = {
          ['BNDong GitHub', 'https://github.com/BNDong'],
          ['BNDong Email', 'dbuo@foxmail.com'],
     ],
-}
-```
-
-## cnzz - 网站统计
-
-* 类型：```String```
-* 相关文档：[网站统计](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/statistical)
-* 默认值：```""```
-
-cnzz网站ID。
-
-```javascript
-window.cnblogsConfig = {
-    cnzz: "123456",
 }
 ```

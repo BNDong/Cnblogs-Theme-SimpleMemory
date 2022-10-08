@@ -126,7 +126,7 @@ footer-background {
 .catalog-btn i,
 #rightMenu i,
 #articleDirectory a,
-#rightDiggit .rightMenuSpan::before,
+#rightMenuHome .rightMenuSpan::before,
 #rightDiggit .rightMenuSpan::before,
 #rightBuryit .rightMenuSpan::before,
 #attention .rightMenuSpan::before,
@@ -139,14 +139,14 @@ footer-background {
 
 .catalog-btn-shadow,
 div#rightMenu .rightMenuItem,
-#rightDiggit .rightMenuSpan,
+#rightMenuHome .rightMenuSpan,
 #rightDiggit .rightMenuSpan,
 #rightBuryit .rightMenuSpan,
 #attention .rightMenuSpan,
 #toUpDown .rightMenuSpan,
 #rtaDirectory .rightMenuSpan,
 #rightMenuSite .rightMenuSpan,
-#rightDiggit .rightMenuSpan::before,
+#rightMenuHome .rightMenuSpan::before,
 #rightDiggit .rightMenuSpan::before,
 #rightBuryit .rightMenuSpan::before,
 #attention .rightMenuSpan::before,
@@ -228,7 +228,7 @@ div#rightMenu .rightMenuItem {
     border-bottom: 1px dashed #555;
 }
 
-span.cnblogs_code {
+span.cnblogs_code, #home code:not([class]) {
     background-color: #282c34;
     color: #F92672;
 }

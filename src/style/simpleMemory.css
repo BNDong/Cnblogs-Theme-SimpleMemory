@@ -122,6 +122,10 @@ li {
     list-style: none
 }
 
+img {
+    max-width: none;
+}
+
 a {
     outline: 0
 }
@@ -511,22 +515,22 @@ p.article-info-text > .postMeta br {
     text-decoration: underline
 }
 
-.div_my_zzk {
-    width: 175px;
-    position: relative;
-    margin-top: 10px
-}
+/*.div_my_zzk {*/
+/*    width: 175px;*/
+/*    position: relative;*/
+/*    margin-top: 10px*/
+/*}*/
 
-.input_my_zzk {
-    border: 1px solid #3b3b3b;
-    border-radius: 3px;
-    width: 90%;
-    height: 30px;
-    padding-left: 5px;
-    outline: 0;
-    background: #000;
-    color: #ccc
-}
+/*.input_my_zzk {*/
+/*    border: 1px solid #3b3b3b;*/
+/*    border-radius: 3px;*/
+/*    width: 90%;*/
+/*    height: 30px;*/
+/*    padding-left: 5px;*/
+/*    outline: 0;*/
+/*    background: #000;*/
+/*    color: #ccc*/
+/*}*/
 
 #sb_widget_my_zzk {
     width: 100%;
@@ -2058,7 +2062,7 @@ div#tbCommentBodyPreview {
 }
 
 .main-header {
-    display: table;
+    display: flex;
     width: 100%;
     height: 100vh;
     max-height: 100vh;
@@ -2068,7 +2072,28 @@ div#tbCommentBodyPreview {
     top: 0;
     left: 0;
     z-index: 3;
-    box-shadow: 0 1px 2px rgba(150, 150, 150, .7)
+    box-shadow: 0 1px 2px rgba(150, 150, 150, .7);
+    background: #333;
+}
+
+.main-header .part {
+    flex: 1;
+}
+
+.main-header .part .section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header .part .section img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: var(--x);
+    pointer-events: none;
 }
 
 #homeTopCanvas {
@@ -2132,9 +2157,12 @@ div#tbCommentBodyPreview {
 }
 
 .vertical {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    align-items: center;
 }
 
 .page-author, .page-description {
@@ -2317,85 +2345,85 @@ div#tbCommentBodyPreview {
     line-height: 20px
 }
 
-.introduce-box {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #f5f5f5;
-    z-index: 1;
-    opacity: 1;
-    height: 225px;
-    -webkit-transition: opacity .3s, -webkit-transform .3s;
-    transition: opacity .3s, transform .3s;
-    -webkit-transition-delay: .4s;
-    transition-delay: .4s;
-    outline: 0;
-    cursor: pointer;
-    background-size: 100%
-}
+/*.introduce-box {*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    color: #f5f5f5;*/
+/*    z-index: 1;*/
+/*    opacity: 1;*/
+/*    height: 225px;*/
+/*    -webkit-transition: opacity .3s, -webkit-transform .3s;*/
+/*    transition: opacity .3s, transform .3s;*/
+/*    -webkit-transition-delay: .4s;*/
+/*    transition-delay: .4s;*/
+/*    outline: 0;*/
+/*    cursor: pointer;*/
+/*    background-size: 100%*/
+/*}*/
 
-.introduce-head {
-    width: 100%
-}
+/*.introduce-head {*/
+/*    width: 100%*/
+/*}*/
 
-.introduce-via {
-    margin-top: 20px;
-    text-align: center
-}
+/*.introduce-via {*/
+/*    margin-top: 20px;*/
+/*    text-align: center*/
+/*}*/
 
-.introduce-via img {
-    width: 70px;
-    height: 70px;
-    padding: 1px;
-    border: 3px solid rgba(255, 255, 255, .5);
-    border-radius: 100%;
-    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .3), 0 2px 3px rgba(0, 0, 0, .4);
-    transition: transform 1s ease-out
-}
+/*.introduce-via img {*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    padding: 1px;*/
+/*    border: 3px solid rgba(255, 255, 255, .5);*/
+/*    border-radius: 100%;*/
+/*    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, .3), 0 2px 3px rgba(0, 0, 0, .4);*/
+/*    transition: transform 1s ease-out*/
+/*}*/
 
-.introduce-via img:hover {
-    -webkit-transform: rotateZ(360deg);
-    -moz-transform: rotateZ(360deg);
-    -ms-transform: rotateZ(360deg);
-    -o-transform: rotateZ(360deg);
-    transform: rotateZ(360deg)
-}
+/*.introduce-via img:hover {*/
+/*    -webkit-transform: rotateZ(360deg);*/
+/*    -moz-transform: rotateZ(360deg);*/
+/*    -ms-transform: rotateZ(360deg);*/
+/*    -o-transform: rotateZ(360deg);*/
+/*    transform: rotateZ(360deg)*/
+/*}*/
 
-#introduce {
-    padding-left: 85px;
-    margin-top: 10px
-}
+/*#introduce {*/
+/*    padding-left: 85px;*/
+/*    margin-top: 10px*/
+/*}*/
 
-#introduce a {
-    margin-left: 10px;
-    color: #f5f5f5;
-    line-height: 20px
-}
+/*#introduce a {*/
+/*    margin-left: 10px;*/
+/*    color: #f5f5f5;*/
+/*    line-height: 20px*/
+/*}*/
 
-#introduce a:hover {
-    color: #fff !important
-}
+/*#introduce a:hover {*/
+/*    color: #fff !important*/
+/*}*/
 
-#introduce a:active, #introduce a:hover, #introduce a:link, #introduce a:visited {
-    text-decoration: none !important
-}
+/*#introduce a:active, #introduce a:hover, #introduce a:link, #introduce a:visited {*/
+/*    text-decoration: none !important*/
+/*}*/
 
-#introduce div {
-    position: absolute;
-    bottom: 15px;
-    padding: 2px 4px;
-    border-radius: 3px
-}
+/*#introduce div {*/
+/*    position: absolute;*/
+/*    bottom: 15px;*/
+/*    padding: 2px 4px;*/
+/*    border-radius: 3px*/
+/*}*/
 
-#introduce div a {
-    margin: 0;
-    padding: 0
-}
+/*#introduce div a {*/
+/*    margin: 0;*/
+/*    padding: 0*/
+/*}*/
 
-#introduce div:hover {
-    opacity: .6
-}
+/*#introduce div:hover {*/
+/*    opacity: .6*/
+/*}*/
 
 #cnblogs_post_body h6, blockquote {
     border-left: 3px solid rgba(84,104,255,.8) !important;
@@ -2574,7 +2602,7 @@ div#rightMenu .rightMenuItem {
     background-image: linear-gradient(180deg, #fff, #f5f5fa)
 }
 
-#attention i, #rightBuryit i, #rightDiggit i, #toUpDownI i, #rtaDirectory i {
+#attention i, #rightBuryit i, #rightDiggit i, #toUpDownI i, #rtaDirectory i, #rightMenuHome i {
     font-weight: 600
 }
 
@@ -2596,6 +2624,7 @@ div#rightMenu .rightMenuItem {
 #attention .rightMenuSpan,
 #rightBuryit .rightMenuSpan,
 #rightDiggit .rightMenuSpan,
+#rightMenuHome .rightMenuSpan,
 #rightMenuSite .rightMenuSpan,
 #rtaDirectory .rightMenuSpan,
 #toUpDown .rightMenuSpan
@@ -2622,6 +2651,7 @@ div#rightMenu .rightMenuItem {
 #attention .rightMenuSpan::before,
 #rightBuryit .rightMenuSpan::before,
 #rightDiggit .rightMenuSpan::before,
+#rightMenuHome .rightMenuSpan::before,
 #rightMenuSite .rightMenuSpan::before,
 #rtaDirectory .rightMenuSpan::before,
 #toUpDown .rightMenuSpan::before
@@ -2785,7 +2815,7 @@ div#rightMenu .rightMenuItem {
 }
 
 .cnblogs_code, pre {
-    font-size: 14px !important
+    font-size: 14px
 }
 
 .cnblogs_code, .cnblogs_code span, pre, .cnblogs_code pre {
@@ -2856,14 +2886,16 @@ div#rightMenu .rightMenuItem {
     z-index: 998
 }
 
-span.cnblogs_code {
+span.cnblogs_code, #home code:not([class]) {
     border: 0;
     padding: 2px 4px;
     color: #D83B64;
+    display: inline;
     background-color: #f9f2f4;
     border-radius: 3px;
     position: relative;
-    bottom: 1px
+    bottom: 1px;
+    font-weight: bold;
 }
 
 .cnblogs_code {
@@ -2880,7 +2912,8 @@ pre {
     padding: 10px;
     white-space: pre;
     margin: 0;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px !important;
+    border: 0 !important;
     word-break: break-all;
     word-wrap: break-word;
     counter-reset: itemcounter;
@@ -3751,7 +3784,7 @@ table#blogCalendar > tbody > tr > td > a {
         min-height: 240px;
         height: 60vh;
         max-height: 60vh;
-        padding: 15% 0
+        /*padding: 15% 0*/
     }
 
     #home {
@@ -3810,7 +3843,7 @@ table#blogCalendar > tbody > tr > td > a {
         min-height: 240px;
         height: 50vh;
         max-height: 50vh;
-        padding: 15% 0
+        /*padding: 15% 0*/
     }
 
     #home {

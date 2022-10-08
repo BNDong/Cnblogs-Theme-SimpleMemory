@@ -26,6 +26,9 @@ export default function main(_) {
             pre.wrap('<code-box id="' + boxId + '"></code-box>');
             pre.attr('boxid', boxId);
 
+            // 设置代码字体大小
+            pre.css('font-size', _.__config.code.options.fontSize);
+
             // 增加语言标签
             let preCode = pre.find('code');
             if (preCode.length > 0) {
@@ -116,6 +119,12 @@ export default function main(_) {
             default:
                 preList.css('background', '#f5f5fa');
                 $('code-box .code-tools').css('background', '#f5f5fa');
+                $('pre .hljs').css({
+                    'background': 'none',
+                    'border': '0',
+                    'border-radius': '0',
+                    'padding': '0'
+                });
                 setCodeLine();
                 break;
         }

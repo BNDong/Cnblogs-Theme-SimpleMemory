@@ -24,13 +24,17 @@
 #articleDirectory ul li {
     list-style: none;
     text-align: left;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-overflow: ellipsis;
     white-space: nowrap;
     margin: 0;
     padding: 2px 0;
     height: 24px;
     cursor: pointer;
+}
+
+.articleDirectory-overflow {
+    overflow: hidden;
 }
 
 #articleDirectory ul li a {
@@ -40,7 +44,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-overflow: ellipsis;
     white-space: nowrap;
 }

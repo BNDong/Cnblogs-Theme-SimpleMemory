@@ -30,6 +30,7 @@
             canvas.style.position = 'absolute';
             canvas.style.left = '0';
             canvas.style.bottom = '0';
+            canvas.style.zIndex = '1';
             ctx = canvas.getContext('2d');
 
             //  create circles

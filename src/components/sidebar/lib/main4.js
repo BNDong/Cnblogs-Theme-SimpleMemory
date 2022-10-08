@@ -27,11 +27,7 @@ export default function main() {
 		stepsTotal = steps.length,
 		isAnimating = false;
 
-	// 初始化滚动条
-	let myOptiscrollInstance = new optiscroll(document.querySelector('#menuWrap'), {
-		preventParentScroll: true,
-		forceScrollbars: true
-	});
+	let myOptiscrollInstance;
 
 	function init() {
 		// 防止移动端滚动
@@ -43,6 +39,12 @@ export default function main() {
 		// }, false)
 
 		initEvents();
+
+		// 初始化滚动条
+		myOptiscrollInstance = new optiscroll(document.querySelector('#menuWrap'), {
+			preventParentScroll: true,
+			forceScrollbars: true
+		});
 	}
 
 	function initEvents() {
@@ -61,8 +63,8 @@ export default function main() {
 	}
 
 	function toggleMenu() {
-		if( isAnimating ) return false;
-		isAnimating = true;
+		// if( isAnimating ) return false;
+		// isAnimating = true;
 		$('.menu-wrap').show();
 
 		let homeMarginLeft = $('#home').css('margin-left');
@@ -79,36 +81,41 @@ export default function main() {
 			$("#mainContent").off("touchmove");
 
 			// animate path
-			setTimeout( function() {
+			// setTimeout( function() {
 				// reset path
 				path.attr( 'd', initialPath );
 				isAnimating = false;
-			}, 300 );
+			// }, 300 );
 		}
 		else {
 			classie.add( bodyEl, 'show-menu' );
 
 			// animate path
-			let pos = 0,
-				nextStep = function( pos ) {
-					if( pos > stepsTotal - 1 ) {
-						isAnimating = false;
-						return;
-					}
-					path.animate( { 'path' : steps[pos] }, pos === 0 ? 400 : 500, pos === 0 ? mina.easein : mina.elastic, function() { nextStep(pos); } );
-					pos++;
-				};
+			// let pos = 0,
+			// 	nextStep = function( pos ) {
+			// 		if( pos > stepsTotal - 1 ) {
+			// 			isAnimating = false;
+			// 			return;
+			// 		}
+			// 		path.animate( { 'path' : steps[pos] }, pos === 0 ? 400 : 500, pos === 0 ? mina.easein : mina.elastic, function() { nextStep(pos); } );
+			// 		pos++;
+			// 	};
 
-			$('#content-wrap').fadeIn(300);
+			// $('#content-wrap').fadeIn(300);
+			$('#content-wrap').show();
 			$('body').css('overflow', 'hidden');
 
 			// 初始化滚动条到顶部位置
 			myOptiscrollInstance.scrollTo(false, 'top');
 
-			nextStep(pos);
+			// nextStep(pos);
 		}
 		isOpen = !isOpen;
 	}
 
 	init();
+
+	return {
+		myOptiscrollInstance: myOptiscrollInstance
+	}
 }

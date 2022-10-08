@@ -19,6 +19,7 @@
     navList: [],
     customList: {},
     infoBackground: '',
+    titleMsg: '欢迎访问本博客~'
   },
 
   // -- 头图 --
@@ -95,7 +96,7 @@
     page: []
   },
 
-  // -- cnzz --
+  // -- cnzz(废弃) --
   cnzz: '',
 
   // -- 右下角菜单 --
@@ -111,6 +112,7 @@
   // -- 日/夜模式 --
   switchDayNight: {
     enable: true,
+    nightMode: false,
     auto: {
       enable: false,
       dayHour: 5,
@@ -120,8 +122,17 @@
 
   // -- 动效 --
   animate: {
+    bannerImages: {
+      enable: false,
+      options: {
+        itemNum: 5,
+        current: 0,
+        sort: 1,
+        time: 30000
+      }
+    },
     homeBanner: {
-      enable: true,
+      enable: false,
       options: {
         radius: 15,
         density: 0.2,
@@ -129,11 +140,14 @@
         clearOffset: 0.3
       }
     },
-    articleBanner: {
+    articleTitle: {
       enable: true
     },
+    articleBanner: {
+      enable: false
+    },
     background: {
-      enable: true,
+      enable: false,
       options: {
         colorSaturation: "60%",
         colorBrightness: "50%",
@@ -147,6 +161,16 @@
         animateSections: true
       }
     },
+    backgroundMouse: {
+      enable: false
+    },
+    mouse: {
+      enable: false,
+      options: {
+        size: 8,
+        sizeF: 36
+      }
+    }
   },
 
   // -- 代码 --
@@ -158,6 +182,7 @@
         languages: []
       },
       maxHeight: '',
+      fontSize: 14,
       line: false,
       macStyle: true,
     },
@@ -169,6 +194,13 @@
     aboutHtml: '',
     copyrightHtml: '',
     supportHtml: '',
+  },
+
+  // -- 文章目录 --
+  articleDirectory: {
+    position: 'right',
+    minBodyWeight: 900,
+    autoWidthScroll: false
   },
 
   // -- 控制台输出 --

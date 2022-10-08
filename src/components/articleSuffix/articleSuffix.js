@@ -18,8 +18,10 @@ export default function main(_) {
     // 本文作者 & 本文链接
     let articleAuthor = $('#articleAuthor');
     let articleSource = $('#articleSource');
-    let author = articleAuthor.length ? articleAuthor.val() : _.__config.info.name,
-        source = articleSource.length ? articleSource.val() : _.__status.url;
+    let author  = articleAuthor.length ? articleAuthor.val() : _.__config.info.name,
+        source  = articleSource.length ? articleSource.val() : _.__status.url,
+        homeUrl = articleSource.length ? articleSource.val() : _.__status.homeUrl,
+        origin  = articleAuthor.length || articleSource.length ? '原' : '本';
 
     // 关于博主
     let aboutHtml = _.__config.articleSuffix.aboutHtml ? _.__config.articleSuffix.aboutHtml :
@@ -34,7 +36,9 @@ export default function main(_) {
         '如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost(' + _.__status.articleId + ',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。';
 
     let re = [
+        ['origin', origin],
         ['imgUrl', imgUrl],
+        ['homeUrl', homeUrl],
         ['author', author],
         ['source', source],
         ['aboutHtml', aboutHtml],
