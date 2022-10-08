@@ -16,10 +16,12 @@
   - [钩子](Docs/Customization/hook.md)
   - [友链](Docs/Customization/links.md)
   
-- 扩展
+[//]: # (- 扩展)
 
-  - [播放器](Docs/Customization/player.md)
-  - [网站统计](Docs/Customization/statistical.md)
+[//]: # ()
+[//]: # (  - [播放器]&#40;Docs/Customization/player.md&#41;)
+
+[//]: # (  - [网站统计]&#40;Docs/Customization/statistical.md&#41;)
 
 - 指南
 
