@@ -29,7 +29,7 @@ export default function main(_) {
 
     // 版权声明
     let copyrightHtml = _.__config.articleSuffix.copyrightHtml ? _.__config.articleSuffix.copyrightHtml :
-        '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" alt="BY-NC-SA" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！';
+        '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" alt="BY-NC-SA" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！';
 
     // 声援博主
     let supportHtml = _.__config.articleSuffix.supportHtml ? _.__config.articleSuffix.supportHtml :
