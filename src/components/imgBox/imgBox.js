@@ -31,9 +31,11 @@ export default function main(_) {
                     let height = tem.attr('height');
                     let alt    = tem.attr('alt');
                     let style  = tem.attr('style');
+                    let src    = tem.attr('src');
                     tem.after('<a data-fancybox="gallery" href="'+tem.attr('src')+'"><img ' +
                         (width  ? ' width="' + width + '" ' : '') +
                         (height ? ' height="' + height + '" ' : '') +
+                        (src    ? ' src="' + src + '" ' : '') +
                         (alt    ? ' alt="' + alt + '" ' : '') +
                         (style  ? ' style="' + style + '" ' : '') +
                         '/></a>');
