@@ -77,6 +77,13 @@ module.exports = {
                 }
             },
             {
+                test: /\.(eot|ttf|woff|woff2)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[hash][ext][query]'
+                }
+            },
+            {
                 test: /\.json5$/i,
                 type: 'json',
                 parser: {
