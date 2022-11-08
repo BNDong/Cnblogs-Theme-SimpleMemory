@@ -26,7 +26,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         filename: 'simpleMemory.js',
-        chunkFilename:'script/[name].[hash:8].js',
+        chunkFilename:'script/[name].[contenthash:8].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
@@ -41,8 +41,8 @@ module.exports = {
             }
         }),
         new miniCssExtractPlugin({
-            filename: 'style/[name].[hash:8].css',
-            chunkFilename:'style/[name].[hash:8].css',
+            filename: 'style/[name].[contenthash:8].css',
+            chunkFilename:'style/[name].[contenthash:8].css',
         }),
     ],
     // devtool: 'inline-source-map',
@@ -73,14 +73,14 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'images/[hash][ext][query]'
+                    filename: 'images/[contenthash][ext][query]'
                 }
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'fonts/[hash][ext][query]'
+                    filename: 'fonts/[contentcontenthash][ext][query]'
                 }
             },
             {
