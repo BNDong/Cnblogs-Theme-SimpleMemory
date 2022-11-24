@@ -17,7 +17,7 @@
             avatar: 'http://xxxx.png', // 用户头像
         },
     }
-<script>
+</script>
 ```
 
 我需要新增关于主页图片的配置，新增配置为：
