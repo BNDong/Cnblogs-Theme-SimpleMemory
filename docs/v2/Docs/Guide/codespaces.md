@@ -22,6 +22,6 @@
 
 ![打开终端，执行命令语句](../../Images/codespaces/replace-script.png)
 
-在codespaces编译后，在刷新博客圆网站就能看到更改后的内容
+在codespaces编译后，在刷新博客园网站就能看到更改后的内容
 
 ?> github codespaces 每个月免费时长为120 core/h，2核数CPU可以使用60h。
