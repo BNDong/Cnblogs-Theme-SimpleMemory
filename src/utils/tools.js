@@ -188,5 +188,31 @@ export default function main() {
             return `${minTime}:${second}`;
         },
 
+        /**
+         * 替换HTML内容
+         *
+         * @param {string} id 内容
+         * @param {string} reg 正则
+         * @param {string} replacement 替换内容
+         */
+        htmlReplace: (id, reg, replacement) => {
+            $(id).html($(id).html().replace(reg, replacement))
+        },
+
+        /**
+         * 处理文章信息分类和标签
+         * @param obj {object} 获取的dom对象
+         * @param type {number} 1为分类 2为标签
+         */
+        articleInfo: (obj, type) => {
+            let iconfont = type === 1 ? 'icon-marketing_fill' : 'icon-label-fill'
+            let style = type === 1 ? 'article-tag-class-color' : 'article-tag-color'
+            $.each(obj, i => {
+                let tag = $(obj[i])
+                tag.prepend(`<span class="iconfont ${iconfont}"></span>`)
+                $('#articleInfo').append(`<a href=" ${tag.attr('href')}" target="_blank"><span class="article-info-tag ${style}"> ${ tag.text()}</span></a>`)
+            })
+}
+
     };
 }
