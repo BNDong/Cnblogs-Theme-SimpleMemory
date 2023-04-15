@@ -40,6 +40,16 @@ body {
     box-shadow: 0 4px 11px 0 rgb(0 0 0/20%),0 1px 3px 0 rgb(0 0 0/20%)!important;
 }
 
+.blogpost-body p.tip {
+    background-color: rgb(66 185 131 / 10%)!important;
+    color: #ddd !important;
+}
+
+.blogpost-body p.warn {
+    background-color: rgb(255 102 102 / 10%)!important;
+    color: #ddd !important;
+}
+
 #div_digg .diggit {
     float: left;
     border: 1px solid #365E4A;

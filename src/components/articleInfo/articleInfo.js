@@ -89,4 +89,14 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 设置文章引用 | 扩展markdown语法
+     */
+    (() => {
+        $('.blogpost-body p').html((i, c) => {
+            if (/^\?&gt;/.test(c)) return '<p class="tip">' + c.slice(5).trim() + '</p>'
+            if (/^!&gt;/.test(c)) return '<p class="warn">' + c.slice(5).trim() + '</p>'
+        })
+    })();
+
 }
