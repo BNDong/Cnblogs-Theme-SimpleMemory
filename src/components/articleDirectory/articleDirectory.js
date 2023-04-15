@@ -38,7 +38,7 @@ export default function main(_) {
             let hid = obj.attr('id');
             let titleId = 'tid-' + _.__tools.randomString(6);
             obj.attr('tid', titleId);
-            if (!hid || /^-?[0-9]+.*/.test(hid)) {
+            if (!hid || /^-?[\W]+.*/.test(hid)) {
                 if (hid) {
                     // 兼容修改toc生成的目录
                     let tocObj = $('.toc a[href="#'+hid+'"]');
@@ -51,7 +51,8 @@ export default function main(_) {
             // 添加标题
             let num = uniqTagList.indexOf(h);
             let str = num === 0 || num === -1 ? '' : '&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(num);
-            html += '<li class="nav-item"><a class="nav-link" href="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + str + obj.text() + '</a></li>';
+            let text =  str + obj.text().replace(/</g, "&lt;").replace(/>/g, "&gt;")
+            html += '<li class="nav-item"><a class="nav-link" href="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + text + '</a></li>';
         });
 
         let dirHtml = _.__tools.tempReplacement(articleDirectoryTemp, 'dirHtml', html);
@@ -142,12 +143,6 @@ export default function main(_) {
      * @returns {[]}
      */
     function uniq(array){
-        let temp = [];
-        for(let i = 0; i < array.length; i++){
-            if(temp.indexOf(array[i]) === -1){
-                temp.push(array[i]);
-            }
-        }
-        return temp;
+         return [...new Set(array)];
     }
 }
