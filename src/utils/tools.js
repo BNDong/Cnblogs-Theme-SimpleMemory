@@ -188,5 +188,27 @@ export default function main() {
             return `${minTime}:${second}`;
         },
 
+        /**
+         * 动态加载JS文件
+         * @param url {String} JavaScript文件地址
+         *
+         */
+        dynamicLoadingJs:(url) => {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'script',
+                    cache: true,
+                    url,
+                    success: function (data) {
+                        resolve(data)
+                    },
+                    error: function (err) {
+                        reject(err)
+                    },
+                })
+            })
+        },
+
     };
 }

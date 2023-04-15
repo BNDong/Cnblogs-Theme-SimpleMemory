@@ -1085,6 +1085,57 @@ window.cnblogsConfig = {
 }
 ```
 
+## articleContent - 文章内容
+
+### prefixIcon - 文章标题前图标
+
+?> 版本 >= v2.1.3
+
+* 类型：```Object```
+* 相关文档：[字体图标库](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/fonticon)
+* 默认值：
+
+```json5
+{
+    enable: false,
+    options: {
+        // iconfont 地址
+        link: "https://at.alicdn.com/t/c/font_3628204_t6n3fw8b1zn.js",
+        // 用于展示的iconfont名称
+        iconfontArr: [
+            'hebaodan','bingtanghulu','kesong','qianceng','fengmi','feiyuguantou','shengjian','youtiao','yuzijiang','zhutongfan','doujiang','sanmingzhi',
+            'paofu','shanbei','dangaojuan','futejia','huangyou','xiangchang','banji','danta','qingning','lajiao','shizi','mojituo','pijiu','putaojiu',
+            'kouxiangtang','xiangcaobingqilin','jiaozi','tilamisu','huoguo','hongshu','bingkuai','mianhuatang','paobing','meishikafei','mantou','qishui',
+            'ganlan','jiroujuan','guodong','baozi','pingguo','chengzi','qingjiao','jidan','xihongshi','mangguo','baocai','niunai','mianbao','huluobu','zhangyu',
+            'pangxie','longxia','yangcong','rou','jitui','huage','xianyu','mogu','qiezi','xilanhua','ningmeng','liulian','banli','sanwenyu','tudou','xigua','nangua',
+            'huolongguo','fantuan','zhusun','shuiluobu','shanzhu','lanmei','shiliu','yezi','tiangua','mihoutao','boluo','kaixinguo','hetao','xiaweiyiguo','huasheng',
+            'bigenguo','kuihuazi','songzi','xiguazi','badanmu','yaoguo','danhuangsu','dangao','binggan','buding','tangguo','qiaokeli','hongzao','candou','putaogan',
+            'manyuemei','taozi','xiangjiao','caomei','niuyouguo','hamigua','chelizi','li','bale','kafei1','shutiao','zhenzhunaicha','xuegao','nailao','kele','tiantong',
+            'hanbao','xiezishousi','baomihua','regou','makalong','tianfuluo','juzi','baixiangguo','putao','shaomai','yumi','pipa','yangtao','youzi','lianwu','wuhuaguo',
+            'paomian','wandou','huanggua','suantou','tiantianquan','shupian','huafubing','bangbangtang','shousi','lizhi','doufu','mocha','boluomi','zhouzi','bingsha',
+            'suannai','pisa','haixing','haizhe','tongluoshao','nuomici','kuangquanshui','roujiamo','cha','zhangyuxiaowanzi','chengzhi','yuancaitou','baicai'
+        ],
+    }
+}
+```
+标题前的图标，便于区分内容和标题
+
+?> 如果使用默认的配置项，只需要将`enable`设置为`true`即可，其他无需配置；
+
+```javascript
+window.cnblogsConfig = {
+    articleContent: {
+        prefixIcon: {
+            enable: false,
+            options: {
+                link: '',
+                iconfontArr: [],
+            }
+        }
+    },
+}
+```
+
 ## articleSuffix - 文章后缀
 
 ### imgUrl - 左侧图片
