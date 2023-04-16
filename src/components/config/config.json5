@@ -170,6 +170,9 @@
         size: 8,
         sizeF: 36
       }
+    },
+    avatar: {
+        enable: false,
     }
   },
 
