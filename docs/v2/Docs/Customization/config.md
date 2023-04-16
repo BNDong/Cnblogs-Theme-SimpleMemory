@@ -887,6 +887,40 @@ window.cnblogsConfig = {
 }
 ```
 
+
+### season - 背景动效
+
+?> 版本 >= v2.1.3
+
+-   类型：`Object`
+-   默认值：
+
+```json
+{
+    "enable": false,
+    "options": {
+        "img": "",
+        "size": 40
+    }
+}
+```
+
+?> img 建议使用 base64 转码后的图片,素材建议到 [花瓣网](https://huaban.com/follow) 寻找透明背景素材
+
+```javascript
+window.cnblogsConfig = {
+  animate: {
+    season: {
+        enable: false,
+        options: {
+            img: '',
+            size: 40,
+        },
+    }
+  }
+}
+```
+
 ## code - 代码
 
 ### type - 代码渲染类型
