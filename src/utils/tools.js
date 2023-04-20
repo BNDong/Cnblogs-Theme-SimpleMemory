@@ -187,6 +187,5 @@ export default function main() {
             second = ('' + second).length === 1 ? '0' + second : second;
             return `${minTime}:${second}`;
         },
-
     };
 }
