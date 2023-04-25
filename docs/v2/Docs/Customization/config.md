@@ -198,6 +198,46 @@ window.cnblogsConfig = {
 }
 ```
 
+### submenu - 侧边栏是否展开配置
+
+?> 版本 >= v2.1.2
+
+-   类型：`Object`
+-   默认值：`{}`
+
+> 默认都不展开,设置为 true 则展开
+
+```javascript
+window.cnblogsConfig = {
+    sidebar: {
+        submenu: {
+            // 积分排行
+            pointsRank: false,
+            // 最新随笔
+            latestPosts: false,
+            // 我的标签
+            myTags: false,
+            // 随笔分类
+            postsClassify: false,
+            // 文章分类
+            articleClassify: false,
+            // 阅读排行
+            readRank: false,
+            // 推荐排行
+            recommendRank: false,
+            // 帖子档案
+            postsArchive: false,
+            // 文章档案
+            articleArchive: false,
+            // 自定义列表
+            customList: false,
+            // 最新评论
+            latestComment: false,
+        },
+    },
+}
+```
+
 ## banner - banner图
 
 ### home - 主页banner

@@ -19,7 +19,31 @@
     navList: [],
     customList: {},
     infoBackground: '',
-    titleMsg: '欢迎访问本博客~'
+    titleMsg: '欢迎访问本博客~',
+    submenu: {
+            // 积分排行
+            pointsRank: false,
+            // 最新随笔
+            latestPosts: false,
+            // 我的标签
+            myTags: false,
+            // 随笔分类
+            postsClassify: false,
+            // 文章分类
+            articleClassify: false,
+            // 阅读排行
+            readRank: false,
+            // 推荐排行
+            recommendRank: false,
+            // 最新评论
+            latestComment: false,
+            // 随笔档案
+            postsArchive: false,
+            // 文章档案
+            articleArchive: false,
+            // 自定义列表
+            customList: false,
+        },
   },
 
   // -- 头图 --
