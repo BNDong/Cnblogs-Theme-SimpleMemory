@@ -8,6 +8,14 @@
 
 !> 目前发现受影响的有：1) Markdown 文章中 ```[toc]``` 生成的目录链接跳转。2) 博客园原有的返回顶部链接跳转。
 
+
+?> 榜单ID获取 | 默认配置为热歌榜
+
+![img](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221217233703.png)
+
+
+!> 版本 <=2.1.2 配置
+
 ```html
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">

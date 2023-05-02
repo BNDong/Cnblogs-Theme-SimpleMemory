@@ -131,4 +131,39 @@ export default function main(_) {
     //         }, 1000 );
     //     }
     // })();
+
+    /**
+     * 设置音乐播放器
+     */
+    (() => {
+        if (config.aplayer.enable) {
+            Promise.all([_.__tools.dynamicLoadingJs(_.__config.default.aplayer), _.__tools.dynamicLoadingJs(_.__config.default.meting)])
+                .then(r => {
+                    _.__tools.dynamicLoadingCss(_.__config.default.aplayercss)
+                    $('#footer').append(`
+               <meting-js
+                  id="${config.aplayer.options.id}"
+                  api="${config.aplayer.options.api}"
+                  server="${config.aplayer.options.server}"
+                  type="${config.aplayer.options.type}"
+                  auto="${config.aplayer.options.auto}"
+                  fixed="${config.aplayer.options.fixed}"
+                  mini="${config.aplayer.options.mini}"
+                  autoplay="${config.aplayer.options.autoplay}"
+                  theme="${config.aplayer.options.theme}"
+                  loop="${config.aplayer.options.loop}"
+                  order="${config.aplayer.options.order}"
+                  preload="${config.aplayer.options.preload}"
+                  volume="${config.aplayer.options.volume}"
+                  mutex="${config.aplayer.options.mutex}"
+                  ${Number(config.aplayer.options.lrcType) ? `lrcType` : `lrc-type`}="${config.aplayer.options.lrcType}"
+                  listFolded="${config.aplayer.options.listFolded}"
+                  listMaxHeight="${config.aplayer.options.listMaxHeight}"
+                  storageName="${config.aplayer.options.storageName}"
+               >
+              </meting-js>`)
+                })
+                .catch(e => console.error('aplayer|meting', e))
+        }
+    })();
 }
