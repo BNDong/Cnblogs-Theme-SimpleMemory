@@ -545,9 +545,53 @@ window.cnblogsConfig = {
 }
 ```
 
-### aplayer - 音乐播放器 [(#388)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/388)
+### aplayer - 音乐播放器
+
+[GitHub Pull requests (#388)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/388)
 
 ?> 版本 >= v2.1.3
+
+-   类型：`Object`
+-   相关文档: [音乐播放器](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/player)
+-   默认值：
+
+```json
+{
+    enable: false,
+    cdn: {
+        aplayer: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.js',
+        aplayercss: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.css',
+        meting: 'https://cdn.staticfile.org/meting/2.0.1/Meting.min.js'
+    },
+    options: {
+        id: '3778678',
+        server: 'netease',
+        type: 'playlist',
+        auto: 'netease',
+        fixed: 'true',
+        mini: 'true',
+        autoplay: 'false',
+        theme: '#2980b9',
+        loop: 'all',
+        order: 'random',
+        preload: 'auto',
+        volume: '0.7',
+        mutex: 'true',
+        lrcType: '0',
+        listFolded: 'true',
+        listMaxHeight: '340px',
+        storageName: 'cnblogsTheme',
+    }
+}
+```
+
+音乐播放器
+
+* aplayer.cdn
+
+引入的外部播放器脚本文件地址，可自行修改。
+
+* aplayer.options:
 
 | option        | default                                                                   | description                                                                                                                  |
 | ------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -570,34 +614,6 @@ window.cnblogsConfig = {
 | storageName   | `cnblogsTheme`                                                            | localStorage key that store player setting                                                                                   |
 | api           | `https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r` | When there is a problem with the API, you can use a different API instead                                                    |
 
--   类型：`Object`
--   相关文档: [音乐播放器](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/player)
--   默认值：
-
-```json5
-{
-    enable: false,
-    options: {
-        id: '3778678',
-        server: 'netease',
-        type: 'playlist',
-        auto: 'netease',
-        fixed: 'true',
-        mini: 'true',
-        autoplay: 'false',
-        theme: '#2980b9',
-        loop: 'all',
-        order: 'random',
-        preload: 'auto',
-        volume: '0.7',
-        mutex: 'true',
-        lrcType: '0',
-        listFolded: 'true',
-        listMaxHeight: '340px',
-        storageName: 'cnblogsTheme',
-    },
-}
-```
 
 ```javascript
 window.cnblogsConfig = {

@@ -6,6 +6,7 @@
  * @describe: footer
  */
 import footerTemp from '../../template/footer.html';
+import aplayerTemp from '../../template/aplayer.html';
 import footerImg from './../../images/webp/footer.webp';
 import backgroundImg from './../../images/webp/background.webp';
 import cloudsImg from './../../images/webp/clouds.webp';
@@ -16,10 +17,8 @@ export default function main(_) {
     const footer = $('#footer');
     const footerText = footer.text();
 
-    let footerHtml = footerTemp;
     let config = _.__config.footer;
-
-    footerHtml = _.__tools.tempReplacement(footerHtml, 'footerText', footerText);
+    let footerHtml = _.__tools.tempReplacement(footerTemp, 'footerText', footerText);
 
     /**
      * 设置标语
@@ -137,31 +136,32 @@ export default function main(_) {
      */
     (() => {
         if (config.aplayer.enable) {
-            Promise.all([_.__tools.dynamicLoadingJs(_.__config.default.aplayer), _.__tools.dynamicLoadingJs(_.__config.default.meting)])
+            Promise.all([_.__tools.dynamicLoadingJs(config.aplayer.cdn.aplayer), _.__tools.dynamicLoadingJs(config.aplayer.cdn.meting)])
                 .then(r => {
-                    _.__tools.dynamicLoadingCss(_.__config.default.aplayercss)
-                    $('#footer').append(`
-               <meting-js
-                  id="${config.aplayer.options.id}"
-                  api="${config.aplayer.options.api}"
-                  server="${config.aplayer.options.server}"
-                  type="${config.aplayer.options.type}"
-                  auto="${config.aplayer.options.auto}"
-                  fixed="${config.aplayer.options.fixed}"
-                  mini="${config.aplayer.options.mini}"
-                  autoplay="${config.aplayer.options.autoplay}"
-                  theme="${config.aplayer.options.theme}"
-                  loop="${config.aplayer.options.loop}"
-                  order="${config.aplayer.options.order}"
-                  preload="${config.aplayer.options.preload}"
-                  volume="${config.aplayer.options.volume}"
-                  mutex="${config.aplayer.options.mutex}"
-                  ${Number(config.aplayer.options.lrcType) ? `lrcType` : `lrc-type`}="${config.aplayer.options.lrcType}"
-                  listFolded="${config.aplayer.options.listFolded}"
-                  listMaxHeight="${config.aplayer.options.listMaxHeight}"
-                  storageName="${config.aplayer.options.storageName}"
-               >
-              </meting-js>`)
+                    _.__tools.dynamicLoadingCss(config.aplayer.cdn.aplayercss);
+
+                    let aplayerHtml = _.__tools.batchTempReplacement(aplayerTemp, [
+                        ['id', config.aplayer.options.id],
+                        ['api', config.aplayer.options.api],
+                        ['server', config.aplayer.options.server],
+                        ['type', config.aplayer.options.type],
+                        ['auto', config.aplayer.options.auto],
+                        ['fixed', config.aplayer.options.fixed],
+                        ['mini', config.aplayer.options.mini],
+                        ['autoplay', config.aplayer.options.autoplay],
+                        ['theme', config.aplayer.options.theme],
+                        ['loop', config.aplayer.options.loop],
+                        ['order', config.aplayer.options.order],
+                        ['preload', config.aplayer.options.preload],
+                        ['volume', config.aplayer.options.volume],
+                        ['mutex', config.aplayer.options.mutex],
+                        ['lrcType', config.aplayer.options.lrcType],
+                        ['listFolded', config.aplayer.options.listFolded],
+                        ['listMaxHeight', config.aplayer.options.listMaxHeight],
+                        ['storageName', config.aplayer.options.storageName],
+                    ]);
+
+                    $('#footer').append(aplayerHtml)
                 })
                 .catch(e => console.error('aplayer|meting', e))
         }

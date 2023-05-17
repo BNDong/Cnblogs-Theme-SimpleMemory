@@ -89,28 +89,33 @@
     },
     style: 2,
     aplayer: {
-            enable: false,
-            options: {
-                id: '3778678',
-                api: '',
-                server: 'netease',
-                type: 'playlist',
-                auto: 'netease',
-                fixed: 'true',
-                mini: 'true',
-                autoplay: 'false',
-                theme: '#2980b9',
-                loop: 'all',
-                order: 'random',
-                preload: 'auto',
-                volume: '0.7',
-                mutex: 'true',
-                lrcType: '0',
-                listFolded: 'true',
-                listMaxHeight: '340px',
-                storageName: 'cnblogsTheme',
-            },
-        },
+      enable: false,
+      cdn: {
+        aplayer: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.js',
+        aplayercss: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.css',
+        meting: 'https://cdn.staticfile.org/meting/2.0.1/Meting.min.js'
+      },
+      options: {
+          id: '3778678',
+          api: '',
+          server: 'netease',
+          type: 'playlist',
+          auto: 'netease',
+          fixed: 'true',
+          mini: 'true',
+          autoplay: 'false',
+          theme: '#2980b9',
+          loop: 'all',
+          order: 'random',
+          preload: 'auto',
+          volume: '0.7',
+          mutex: 'true',
+          lrcType: '0',
+          listFolded: 'true',
+          listMaxHeight: '340px',
+          storageName: 'cnblogsTheme',
+      },
+    },
   },
 
   // -- 友情链接 --
@@ -235,10 +240,4 @@
   // -- 钩子 --
   hooks: {},
 
-  // -- 缺省配置 --
-  default: {
-    aplayer: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.js',
-    aplayercss: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.css',
-    meting: 'https://cdn.staticfile.org/meting/2.0.1/Meting.min.js',
-  }
 }
