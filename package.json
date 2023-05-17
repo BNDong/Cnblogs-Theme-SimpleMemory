@@ -23,10 +23,13 @@
   },
   "homepage": "https://github.com/BNDong/Cnblogs-Theme-SimpleMemory#readme",
   "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
     "@popperjs/core": "^2.9.2",
+    "babel-loader": "^9.1.2",
     "bootstrap": "^5.0.0-beta3",
     "clipboard": "^2.0.8",
-    "css-loader": "^5.1.1",
+    "css-loader": "^5.2.7",
     "css-minimizer-webpack-plugin": "^1.2.0",
     "exports-loader": "^2.0.0",
     "filemanager-webpack-plugin": "^4.0.0",
@@ -41,11 +44,13 @@
     "snapsvg-cjs": "^0.0.6",
     "style-loader": "^2.0.0",
     "toml": "^3.0.0",
-    "webpack": "^5.24.4",
+    "webpack": "^5.82.1",
     "webpack-cli": "^4.5.0",
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "gsap": "^3.11.5",
+    "happypack": "^5.0.1",
     "lodash": "^4.17.21"
   },
   "browserslist": {
