@@ -1,5 +1,6 @@
 ## 2022.10.08 - v2.1.3
 * 合并播放器功能 [(#388)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/388)
+* 合并侧边栏配置隐藏功能 [(#387)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/387)
 
 ## 2022.10.08 - v2.1.2
 * 评估集成了一些网友提供的优化解决方案（感谢！）
