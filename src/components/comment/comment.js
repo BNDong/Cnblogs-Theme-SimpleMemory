@@ -99,7 +99,7 @@ export default function main(_) {
         // 头像动效
         if (_.__config.animate.avatar.enable) {
             let authorAvatar   = $('.author_avatar');
-            let feedbackAvatar = $('.feedbackAvatar');
+            let feedbackAvatar = $('.feedbackAvatar img');
 
             if (!authorAvatar.hasClass('img-rounded')) {
                 authorAvatar.addClass('img-rounded').css('border-radius', '50%');
