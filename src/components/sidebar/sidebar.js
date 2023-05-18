@@ -345,7 +345,7 @@ export default function main(_) {
      */
     (() => {
         if (_.__config.animate.avatar.enable) {
-            $('#menuBlogAvatar').addClass('img-rounded')
+            $('#menuBlogAvatar').addClass('img-rounded').css('border-radius', '50%')
             $('.author_avatar').addClass('img-rounded')
             $('.feedbackAvatar').addClass('img-rounded')
         }
