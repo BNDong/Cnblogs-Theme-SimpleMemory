@@ -341,6 +341,17 @@ export default function main(_) {
     })();
 
     /**
+     * 头像旋转动效
+     */
+    (() => {
+        if (_.__config.animate.avatar.enable) {
+            $('#menuBlogAvatar').addClass('img-rounded')
+            $('.author_avatar').addClass('img-rounded')
+            $('.feedbackAvatar').addClass('img-rounded')
+        }
+     })();
+      
+    /**
      * 设置是否默认展开菜单栏
      */
     (() => {
