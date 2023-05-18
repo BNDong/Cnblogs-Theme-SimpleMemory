@@ -95,6 +95,20 @@ export default function main(_) {
             $(`#comment_body_${commentId}`).parent().parent().remove()
             $(".feedbackItem:last").css("padding-bottom", "0")
         }
+
+        // 头像动效
+        if (_.__config.animate.avatar.enable) {
+            let authorAvatar   = $('.author_avatar');
+            let feedbackAvatar = $('.feedbackAvatar');
+
+            if (!authorAvatar.hasClass('img-rounded')) {
+                authorAvatar.addClass('img-rounded').css('border-radius', '50%');
+            }
+
+            if (!feedbackAvatar.hasClass('img-rounded')) {
+                feedbackAvatar.addClass('img-rounded');
+            }
+        }
     });
 
 }
