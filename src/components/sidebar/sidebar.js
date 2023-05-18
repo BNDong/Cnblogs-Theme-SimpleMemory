@@ -345,7 +345,7 @@ export default function main(_) {
      */
     (() => {
         let submenuShow = (obj)  => {
-            obj.parent('li.sidebar-dropdown').addClass('active').show();
+            obj.show().parent('li.sidebar-dropdown').addClass('active');
         }
         if (_.__config.sidebar.submenu.pointsRank) submenuShow($('#sb-sidebarScorerank'));
         if (_.__config.sidebar.submenu.latestPosts) submenuShow( $('#sb-sidebarRecentposts'));
