@@ -40,8 +40,6 @@ export default function main(_) {
         if (_.__config.animate.avatar.enable) {
             $('#menuBlogAvatar').css('border-radius', '50%')
             $('#menuBlogAvatar .img-responsive').addClass('img-rounded')
-            $('.author_avatar').addClass('img-rounded')
-            $('.feedbackAvatar').addClass('img-rounded')
         }
 
         // ------- 设置侧边栏信息 -------
