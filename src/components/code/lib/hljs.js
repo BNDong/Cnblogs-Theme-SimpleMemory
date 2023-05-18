@@ -59,7 +59,7 @@ export default function main(_, setCodeLine) {
             $.each(codeBox, function (i, e) {
                 let obj = $(codeBox[i]);
                 let cla = obj.find('pre').attr('class');
-                let len = $.trim(cla.replace(/hljs/g, '').replace(/code-pre-line/g, ''));
+                let len = $.trim(cla.replace(/hljs/g, '').replace(/code-pre-line/g, '').replace(/highlighter-/g, ''));
                 if (len) {
                     let tem = len.match(/.*(language-[a-z0-9]+)\s?.*/);
                     if (!!tem && tem.length > 0) {

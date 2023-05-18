@@ -1,7 +1,10 @@
-## 2022.10.08 - v2.1.3
+## **** - v2.1.3
 * 合并播放器功能 [(#388)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/388)
 * 合并侧边栏配置隐藏功能 [(#387)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/387)
 * 合并评论优化功能 [(#384)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/384)
+* 合并头像旋转功能 [(#383)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/383)
+
+* 修复文章中文标题目录解析报错的问题
 
 ## 2022.10.08 - v2.1.2
 * 评估集成了一些网友提供的优化解决方案（感谢！）
