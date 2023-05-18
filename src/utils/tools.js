@@ -40,6 +40,26 @@ export default function main() {
         },
 
         /**
+         * 加载JS文件
+         */
+        dynamicLoadingJs: (url) => {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'script',
+                    cache: true,
+                    url,
+                    success: function (data) {
+                        resolve(data)
+                    },
+                    error: function (err) {
+                        reject(err)
+                    },
+                })
+            })
+        },
+
+        /**
          * 过滤HTML中JavaScript代码
          */
         htmlFiltrationScript: (str) => {

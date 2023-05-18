@@ -17,7 +17,7 @@
             avatar: 'http://xxxx.png', // 用户头像
         },
     }
-<script>
+</script>
 ```
 
 我需要新增关于主页图片的配置，新增配置为：
@@ -40,7 +40,7 @@
             },
         }
     }
-<script>
+</script>
 ```
 
 ?> JavaScript 对象是被命名值的容器。值以名称:值对的方式来书写（名称和值由冒号分隔）。
@@ -195,6 +195,48 @@ window.cnblogsConfig = {
   sidebar: {
       titleMsg: '欢迎访问本博客~',
   },
+}
+```
+
+### submenu - 侧边栏是否展开配置
+
+[GitHub Pull requests (#387)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/387)
+
+?> 版本 >= v2.1.3
+
+-   类型：`Object`
+-   默认值：`{}`
+
+> 默认都不展开,设置为 true 则展开
+
+```javascript
+window.cnblogsConfig = {
+    sidebar: {
+        submenu: {
+            // 积分排行
+            pointsRank: false,
+            // 最新随笔
+            latestPosts: false,
+            // 我的标签
+            myTags: false,
+            // 随笔分类
+            postsClassify: false,
+            // 文章分类
+            articleClassify: false,
+            // 阅读排行
+            readRank: false,
+            // 推荐排行
+            recommendRank: false,
+            // 帖子档案
+            postsArchive: false,
+            // 文章档案
+            articleArchive: false,
+            // 自定义列表
+            customList: false,
+            // 最新评论
+            latestComment: false,
+        },
+    },
 }
 ```
 
@@ -544,6 +586,87 @@ window.cnblogsConfig = {
   },
 }
 ```
+
+### aplayer - 音乐播放器
+
+[GitHub Pull requests (#388)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/388)
+
+?> 版本 >= v2.1.3
+
+-   类型：`Object`
+-   相关文档: [音乐播放器](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/player)
+-   默认值：
+
+```json
+{
+    enable: false,
+    cdn: {
+        aplayer: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.js',
+        aplayercss: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.css',
+        meting: 'https://cdn.staticfile.org/meting/2.0.1/Meting.min.js'
+    },
+    options: {
+        id: '3778678',
+        server: 'netease',
+        type: 'playlist',
+        auto: 'netease',
+        fixed: 'true',
+        mini: 'true',
+        autoplay: 'false',
+        theme: '#2980b9',
+        loop: 'all',
+        order: 'random',
+        preload: 'auto',
+        volume: '0.7',
+        mutex: 'true',
+        lrcType: '0',
+        listFolded: 'true',
+        listMaxHeight: '340px',
+        storageName: 'cnblogsTheme',
+    }
+}
+```
+
+音乐播放器
+
+* aplayer.cdn
+
+引入的外部播放器脚本文件地址，可自行修改。
+
+* aplayer.options:
+
+| option        | default                                                                   | description                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| id            | **require**                                                               | song id / playlist id / album id / search keyword                                                                            |
+| server        | **require**                                                               | music platform: `netease`, `tencent`, `kugou`, `xiami`, `baidu`                                                              |
+| type          | **require**                                                               | `song`, `playlist`, `album`, `search`, `artist`                                                                              |
+| auto          | options                                                                   | music link, support: `netease`, `tencent`, `xiami`                                                                           |
+| fixed         | `true`                                                                    | enable fixed mode                                                                                                            |
+| mini          | `false`                                                                   | enable mini mode                                                                                                             |
+| autoplay      | `false`                                                                   | audio autoplay                                                                                                               |
+| theme         | `#2980b9`                                                                 | main color                                                                                                                   |
+| loop          | `all`                                                                     | player loop play, values: 'all', 'one', 'none'                                                                               |
+| order         | `random`                                                                  | player play order, values: 'list', 'random'                                                                                  |
+| preload       | `auto`                                                                    | values: 'none', 'metadata', 'auto'                                                                                           |
+| volume        | `0.7`                                                                     | default volume, notice that player will remember user setting, default volume will not work after user set volume themselves |
+| mutex         | `true`                                                                    | prevent to play multiple player at the same time, pause other players when this player start play                            |
+| lrcType       | `0`                                                                       | lyric type , Don't display lyrics when the value is 0                                                                        |
+| listFolded    | `true`                                                                    | indicate whether list should folded at first                                                                                 |
+| listMaxHeight | `340px`                                                                   | list max height                                                                                                              |
+| storageName   | `cnblogsTheme`                                                            | localStorage key that store player setting                                                                                   |
+| api           | `https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r` | When there is a problem with the API, you can use a different API instead                                                    |
+
+
+```javascript
+window.cnblogsConfig = {
+    footer: {
+        aplayer: {
+            enable: false,
+        },
+    },
+}
+```
+
 
 ## links - 友情链接
 

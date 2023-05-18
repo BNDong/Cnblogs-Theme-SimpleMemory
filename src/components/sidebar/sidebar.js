@@ -349,5 +349,25 @@ export default function main(_) {
             $('.author_avatar').addClass('img-rounded')
             $('.feedbackAvatar').addClass('img-rounded')
         }
+     })();
+      
+    /**
+     * 设置是否默认展开菜单栏
+     */
+    (() => {
+        let submenuShow = (obj)  => {
+            obj.show().parent('li.sidebar-dropdown').addClass('active');
+        }
+        if (_.__config.sidebar.submenu.pointsRank) submenuShow($('#sb-sidebarScorerank'));
+        if (_.__config.sidebar.submenu.latestPosts) submenuShow( $('#sb-sidebarRecentposts'));
+        if (_.__config.sidebar.submenu.myTags) submenuShow($('#sb-toptags'));
+        if (_.__config.sidebar.submenu.postsClassify) submenuShow($('#sb-classify'));
+        if (_.__config.sidebar.submenu.articleClassify) submenuShow($('#sb-ArticleCategory'));
+        if (_.__config.sidebar.submenu.readRank) submenuShow($('#sb-topview'));
+        if (_.__config.sidebar.submenu.recommendRank) submenuShow($('#sb-topDiggPosts'));
+        if (_.__config.sidebar.submenu.postsArchive) submenuShow($('#sb-record'));
+        if (_.__config.sidebar.submenu.articleArchive) submenuShow($('#sb-articlearchive'));
+        if (_.__config.sidebar.submenu.latestComment) submenuShow($('#sb-recentComments'));
+        if (_.__config.sidebar.submenu.customList) submenuShow($('#customize-sidebar-menu .sidebar-submenu'));
     })();
 }
