@@ -200,7 +200,9 @@ window.cnblogsConfig = {
 
 ### submenu - 侧边栏是否展开配置
 
-?> 版本 >= v2.1.2
+[GitHub Pull requests (#387)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/387)
+
+?> 版本 >= v2.1.3
 
 -   类型：`Object`
 -   默认值：`{}`
