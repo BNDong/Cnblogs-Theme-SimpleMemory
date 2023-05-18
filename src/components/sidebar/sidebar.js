@@ -339,4 +339,64 @@ export default function main(_) {
             }, 300);
         });
     })();
+
+    /**
+     * 设置是否默认展开菜单栏
+     */
+    (() => {
+        if (_.__config.sidebar.submenu.pointsRank) {
+            $('#sb-sidebarScorerank').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-sidebarScorerank').show()
+        }
+
+        if (_.__config.sidebar.submenu.latestPosts) {
+            $('#sb-sidebarRecentposts').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-sidebarRecentposts').show()
+        }
+
+        if (_.__config.sidebar.submenu.myTags) {
+            $('#sb-toptags').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-toptags').show()
+        }
+
+        if (_.__config.sidebar.submenu.postsClassify) {
+            $('#sb-classify').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-classify').show()
+        }
+
+        if (_.__config.sidebar.submenu.articleClassify) {
+            $('#sb-ArticleCategory').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-ArticleCategory').show()
+        }
+
+        if (_.__config.sidebar.submenu.readRank) {
+            $('#sb-topview').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-topview').show()
+        }
+
+        if (_.__config.sidebar.submenu.recommendRank) {
+            $('#sb-topDiggPosts').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-topDiggPosts').show()
+        }
+
+        if (_.__config.sidebar.submenu.postsArchive) {
+            $('#sb-record').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-record').show()
+        }
+
+        if (_.__config.sidebar.submenu.articleArchive) {
+            $('#sb-articlearchive').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-articlearchive').show()
+        }
+
+        if (_.__config.sidebar.submenu.latestComment) {
+            $('#sb-recentComments').parent('li.sidebar-dropdown').addClass('active')
+            $('#sb-recentComments').show()
+        }
+
+        if (_.__config.sidebar.submenu.customList) {
+            $('#customize-sidebar-menu .sidebar-submenu').parent('li.sidebar-dropdown').addClass('active')
+            $('#customize-sidebar-menu .sidebar-submenu').show()
+        }
+    })();
 }
