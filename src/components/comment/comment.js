@@ -106,7 +106,7 @@ export default function main(_) {
             }
 
             if (!feedbackAvatar.hasClass('img-rounded')) {
-                feedbackAvatar.addClass('img-rounded');
+                feedbackAvatar.addClass('img-rounded').css('border-radius', '50%');
             }
         }
     });
