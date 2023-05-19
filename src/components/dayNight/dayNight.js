@@ -21,10 +21,10 @@ export default function main(_) {
     _.__status.dayNightCssHref = ''; // 夜间模式css样式文件路径，用于记录webpack打包后路径
 
     const commentBackgroundHandler = (dayStatus) => {
-        if (!_.__config.articleContent.commentBackground.enable) return;
-        dayStatus == 'day'
-            ? $('textarea').css('background', _.__config.articleContent.commentBackground.options.day)
-            : $('textarea').css('background', _.__config.articleContent.commentBackground.options.night)
+        if (!_.__config.articleComment.background.enable) return;
+        dayStatus === 'day'
+            ? $('textarea').css('background', _.__config.articleComment.background.options.day)
+            : $('textarea').css('background', _.__config.articleComment.background.options.night)
     };
 
     /**
