@@ -532,6 +532,22 @@ p.article-info-text > .postMeta br {
 /*    color: #ccc*/
 /*}*/
 
+.sidebar-title-msg {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 195px;
+}
+
+.sidebar-title-msg:hover {
+    cursor: pointer;
+    width: 195px;
+    white-space: unset;
+    overflow: auto;
+    text-overflow: unset;
+    animation: none;
+}
+
 #sb_widget_my_zzk {
     width: 100%;
     text-align: center
