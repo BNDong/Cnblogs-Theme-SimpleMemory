@@ -1261,6 +1261,37 @@ window.cnblogsConfig = {
 }
 ```
 
+## articleComment - 文章评论
+
+### background - 文章评论背景
+
+?> 版本 >= v2.1.3
+
+* 类型：```Object```
+* 默认值：
+
+```json5
+    {
+      enable: false,
+      options: {
+        day: 'rgba(0, 0, 0, 0) url("images/comment_bg_day.png") no-repeat scroll 100% 31% / 35% padding-box border-box',
+        night: 'rgba(0, 0, 0, 0) url("images/comment_bg_dark.png") no-repeat scroll 100% 31% / 35% padding-box border-box',
+      },
+    }
+```
+
+文章评论背景
+
+```javascript
+window.cnblogsConfig = {
+    articleComment: {
+        background: {
+            enable: false,
+        },
+    },
+}
+```
+
 ## articleContent - 文章内容
 
 ### prefixIcon - 文章标题前图标
