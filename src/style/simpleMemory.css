@@ -532,6 +532,22 @@ p.article-info-text > .postMeta br {
 /*    color: #ccc*/
 /*}*/
 
+.sidebar-title-msg {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 195px;
+}
+
+.sidebar-title-msg:hover {
+    cursor: pointer;
+    width: 195px;
+    white-space: unset;
+    overflow: auto;
+    text-overflow: unset;
+    animation: none;
+}
+
 #sb_widget_my_zzk {
     width: 100%;
     text-align: center
@@ -2054,6 +2070,18 @@ div#tbCommentBodyPreview {
 
 #sideBar h3 {
     font-size: 14px
+}
+
+.img-rounded {
+    transition: transform 0.5s ease-out;
+    -webkit-transition: transform 0.6s ease-out;
+    -moz-transition: transform 0.5s ease-out;
+    -ms-transition: transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+}
+
+.img-rounded:hover {
+    transform: rotate(1turn);
 }
 
 #cnblogs_post_body img {
