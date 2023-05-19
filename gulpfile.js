@@ -10,17 +10,10 @@ gulp.task('minify-css', function () {
 });
 
 gulp.task('minify-js', function () {
-    return gulp.src('dist/*.js')
+    return gulp.src('dist/**/*.js')
         .pipe(uglify())
         .pipe(gzip())
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('minify-script-js', function () {
-    return gulp.src('dist/script/*.js')
-        .pipe(uglify())
-        .pipe(gzip())
-        .pipe(gulp.dest('./dist/script/'));
-});
-
-gulp.task('default', gulp.series(['minify-css', 'minify-js', 'minify-script-js'], done => done()));
+gulp.task('default', gulp.series(['minify-css', 'minify-js'], done => done()));
