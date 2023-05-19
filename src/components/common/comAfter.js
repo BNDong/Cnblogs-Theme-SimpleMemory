@@ -61,7 +61,7 @@ export default function main(_) {
         }
 
         if (_.__config.animate.season.enable) {
-            import(/* webpackChunkName: "season" */ '../season/season').then(module => {
+            import(/* webpackChunkName: "season" */ '../../vendor/season/season').then(module => {
                 let season = module.default;
                 season(_.__config.animate.season.options);
             });
