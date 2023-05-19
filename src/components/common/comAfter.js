@@ -59,6 +59,13 @@ export default function main(_) {
                 particles(_);
             });
         }
+
+        if (_.__config.animate.season.enable) {
+            import(/* webpackChunkName: "season" */ '../../vendor/season/season').then(module => {
+                let season = module.default;
+                season(_.__config.animate.season.options);
+            });
+        }
     })();
 
     /**
