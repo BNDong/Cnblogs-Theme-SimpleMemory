@@ -20,6 +20,13 @@ export default function main(_) {
         daySwitch;
     _.__status.dayNightCssHref = ''; // 夜间模式css样式文件路径，用于记录webpack打包后路径
 
+    const commentBackgroundHandler = (dayStatus) => {
+        if (!_.__config.articleContent.commentBackground.enable) return;
+        dayStatus == 'day'
+            ? $('textarea').css('background', _.__config.articleContent.commentBackground.options.day)
+            : $('textarea').css('background', _.__config.articleContent.commentBackground.options.night)
+    };
+
     /**
      * 判断当前日/夜模式
      */
@@ -68,13 +75,22 @@ export default function main(_) {
                 $(this).removeClass('daySwitch');
                 loadDarkCss();
                 dayNightControl(_, 'night');
+                commentBackgroundHandler('night');
             } else { // 日间
                 _.__tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
                 dayNightControl(_, 'day');
+                commentBackgroundHandler('day');
             }
         });
+    })();
+
+    /**
+     * 设置评论框背景
+     */
+    (() => {
+        daySwitch ? commentBackgroundHandler('day') : commentBackgroundHandler('night');
     })();
 
     /**

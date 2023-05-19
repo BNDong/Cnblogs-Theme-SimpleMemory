@@ -265,6 +265,18 @@
     autoWidthScroll: false
   },
 
+
+  // -- 文章评论 --
+  articleComment: {
+       background: {
+          enable: false,
+          options: {
+              day: 'rgba(0, 0, 0, 0) url("https://images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_230301073716_comment_bg_day.png") no-repeat scroll 100% 31% / 35% padding-box border-box',
+              night: 'rgba(0, 0, 0, 0) url("https://images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_230301073520_comment_bg_dark.png") no-repeat scroll 100% 31% / 35% padding-box border-box',
+          },
+      },
+  },
+
   // --文章内容--
   articleContent: {
     prefixIcon: {

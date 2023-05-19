@@ -234,6 +234,5 @@ export default function main() {
             })
         }
 
-
     };
 }
