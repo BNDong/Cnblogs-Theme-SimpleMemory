@@ -1,5 +1,7 @@
-let gulp = require('gulp');
-let minifycss = require('gulp-minify-css');
+const gulp = require('gulp');
+const minifycss = require('gulp-minify-css');
+const uglify = require('gulp-uglify');
+const gzip = require('gulp-gzip');
 
 gulp.task('minify-css', function () {
     return gulp.src('./src/style/simpleMemory.css')
@@ -7,4 +9,11 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', gulp.series('minify-css', done => done()));
+gulp.task('minify-js', function () {
+    return gulp.src('dist/**/*.js')
+        .pipe(uglify())
+        .pipe(gzip())
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default', gulp.series(['minify-css', 'minify-js'], done => done()));

@@ -28,5 +28,6 @@
   - [菜单数据](Docs/Guide/menuData.md)
   - [文章标题与目录](Docs/Guide/articleDirectory.md)
   - [资源托管](Docs/Guide/cdn.md)
+  - [使用Codespaces调试开发](Docs/Guide/codespaces.md)
 
 - [Changelog](Docs/changelog.md)

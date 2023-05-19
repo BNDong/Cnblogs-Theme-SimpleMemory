@@ -58,14 +58,12 @@ export default function main(_, setCodeLine) {
             let codeBox = $('code-box');
             $.each(codeBox, function (i, e) {
                 let obj = $(codeBox[i]);
-                let cla = obj.find('pre').attr('class');
-                let len = $.trim(cla.replace(/hljs/g, '').replace(/code-pre-line/g, ''));
-                if (len) {
-                    let tem = len.match(/.*(language-[a-z0-9]+)\s?.*/);
+                let claArr = obj.find('pre').attr('class').split(" ");
+                for (let claName of claArr) {
+                    let tem = claName.match(/.*(language-[a-z0-9]+)\s?.*/);
                     if (!!tem && tem.length > 0) {
                         obj.find('.code-hljs-len').text(tem[1].replace(/language-/g, '')).css('visibility', 'visible');
-                    } else {
-                        obj.find('.code-hljs-len').text(len).css('visibility', 'visible');
+                        break;
                     }
                 }
             });
