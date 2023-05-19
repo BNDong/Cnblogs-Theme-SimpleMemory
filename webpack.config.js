@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const terserPlugin = require("terser-webpack-plugin");

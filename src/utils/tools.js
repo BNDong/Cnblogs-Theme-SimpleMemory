@@ -209,28 +209,6 @@ export default function main() {
         },
 
         /**
-         * 动态加载JS文件
-         * @param url {String} JavaScript文件地址
-         *
-         */
-        dynamicLoadingJs:(url) => {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    type: 'GET',
-                    dataType: 'script',
-                    cache: true,
-                    url,
-                    success: function (data) {
-                        resolve(data)
-                    },
-                    error: function (err) {
-                        reject(err)
-                    },
-                })
-            })
-        },
-
-
          * 替换HTML内容
          *
          * @param {string} id 内容

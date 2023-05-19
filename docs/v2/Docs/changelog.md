@@ -7,8 +7,8 @@
 * 文章分类和标签去除中间的逗号 [(#376)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/376)
 * 对titleMsg显示进行优化 [(#378)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/378)
 
-* 修复文章中文标题目录解析报错的问题
-* 修复解析自动识别代码语言的信息出错 [(#377)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/377)
+* 修复文章中文标题目录解析报错的问题 [(#377)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/377)
+* 修复解析自动识别代码语言的信息出错
 
 ## 2022.10.08 - v2.1.2
 * 评估集成了一些网友提供的优化解决方案（感谢！）
