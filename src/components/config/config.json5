@@ -223,6 +223,13 @@
         sizeF: 36
       }
     },
+    season: {
+        enable: false,
+        options: {
+            img: '',
+            size: 40,
+        },
+    },
     avatar: {
         enable: false,
     }
