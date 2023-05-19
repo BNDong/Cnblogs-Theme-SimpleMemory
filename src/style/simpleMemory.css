@@ -2056,6 +2056,18 @@ div#tbCommentBodyPreview {
     font-size: 14px
 }
 
+.img-rounded {
+    transition: transform 0.5s ease-out;
+    -webkit-transition: transform 0.6s ease-out;
+    -moz-transition: transform 0.5s ease-out;
+    -ms-transition: transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+}
+
+.img-rounded:hover {
+    transform: rotate(1turn);
+}
+
 #cnblogs_post_body img {
     max-width: 700px;
     margin: 10px 0
