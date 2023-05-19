@@ -55,6 +55,10 @@
     <img width=50 src="https://avatars.githubusercontent.com/u/36377605?v=4"/>
 </a>
 
+<a href="https://github.com/fzxiang" target="_blank">
+    <img width=50 src="https://avatars.githubusercontent.com/u/38209301?v=4"/>
+</a>
+
 # Author
 
 **Cnblogs-Theme-SimpleMemory** © [BNDong](https://github.com/BNDong), Released under the [MIT](./LICENSE) License.<br>
