@@ -2477,6 +2477,28 @@ blockquote p {
     text-indent: 0 !important
 }
 
+details {
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    background: #448aff1a;
+    border: 1px solid #1b86f9;
+    border-radius: 3px;
+}
+
+summary {
+    display: block;
+    outline: none;
+    cursor: pointer;
+}
+
+details > summary:before {
+    font-family: 'iconfont' !important;
+    font-style: normal !important;
+    left: 0.6rem;
+    color: #448aff;
+    font-size: 1.5rem;
+    content: '\e699';
+
 .blogpost-body p.tip {
     border-left: 4px solid #42b983 !important;
     border-right: none !important;
