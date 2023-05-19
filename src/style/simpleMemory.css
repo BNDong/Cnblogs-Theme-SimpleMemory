@@ -2498,6 +2498,7 @@ details > summary:before {
     color: #448aff;
     font-size: 1.5rem;
     content: '\e699';
+}
 
 .blogpost-body p.tip {
     border-left: 4px solid #42b983 !important;
