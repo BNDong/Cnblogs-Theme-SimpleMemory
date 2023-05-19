@@ -1,8 +1,9 @@
+const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const terserPlugin = require("terser-webpack-plugin");
 const fileManagerPlugin = require('filemanager-webpack-plugin');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
 const cssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 /**
@@ -22,13 +23,14 @@ function randomString(len) {
 }
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/main.js',
     output: {
         filename: 'simpleMemory.js',
-        chunkFilename:'script/[name].[hash:8].js',
+        chunkFilename:'script/[name].[contenthash:8].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        charset: true
     },
     plugins: [
         new fileManagerPlugin({
@@ -41,13 +43,25 @@ module.exports = {
             }
         }),
         new miniCssExtractPlugin({
-            filename: 'style/[name].[hash:8].css',
-            chunkFilename:'style/[name].[hash:8].css',
+            filename: 'style/[name].[contenthash:8].css',
+            chunkFilename:'style/[name].[contenthash:8].css',
+            ignoreOrder: true
         }),
     ],
     // devtool: 'inline-source-map',
     optimization: {
         minimize: true,
+        innerGraph: false,
+        mangleWasmImports: true,
+        splitChunks: {
+            chunks: 'async',
+            minSize: 20000,
+            minRemainingSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 30,
+            maxInitialRequests: 30,
+            enforceSizeThreshold: 50000
+        },
         minimizer: [
             new terserPlugin({
                 extractComments: false,
@@ -90,6 +104,13 @@ module.exports = {
                     minimize: true,
                 },
             },
+            {
+                test: /\.(woff|woff2|eot|ttf)?$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[hash][ext][query]'
+                }
+            }
         ],
     },
 };

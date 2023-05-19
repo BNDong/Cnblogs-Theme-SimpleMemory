@@ -19,7 +19,31 @@
     navList: [],
     customList: {},
     infoBackground: '',
-    titleMsg: '欢迎访问本博客~'
+    titleMsg: '欢迎访问本博客~',
+    submenu: {
+            // 积分排行
+            pointsRank: false,
+            // 最新随笔
+            latestPosts: false,
+            // 我的标签
+            myTags: false,
+            // 随笔分类
+            postsClassify: false,
+            // 文章分类
+            articleClassify: false,
+            // 阅读排行
+            readRank: false,
+            // 推荐排行
+            recommendRank: false,
+            // 最新评论
+            latestComment: false,
+            // 随笔档案
+            postsArchive: false,
+            // 文章档案
+            articleArchive: false,
+            // 自定义列表
+            customList: false,
+        },
   },
 
   // -- 头图 --
@@ -87,7 +111,35 @@
         fontSize: "16px"
       }
     },
-    style: 2
+    style: 2,
+    aplayer: {
+      enable: false,
+      cdn: {
+        aplayer: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.js',
+        aplayercss: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.css',
+        meting: 'https://cdn.staticfile.org/meting/2.0.1/Meting.min.js'
+      },
+      options: {
+          id: '3778678',
+          api: '',
+          server: 'netease',
+          type: 'playlist',
+          auto: 'netease',
+          fixed: 'true',
+          mini: 'true',
+          autoplay: 'false',
+          theme: '#2980b9',
+          loop: 'all',
+          order: 'random',
+          preload: 'auto',
+          volume: '0.7',
+          mutex: 'true',
+          lrcType: '0',
+          listFolded: 'true',
+          listMaxHeight: '340px',
+          storageName: 'cnblogsTheme',
+      },
+    },
   },
 
   // -- 友情链接 --
@@ -178,6 +230,9 @@
             size: 40,
         },
     },
+    avatar: {
+        enable: false,
+    }
   },
 
   // -- 代码 --
@@ -210,6 +265,29 @@
     autoWidthScroll: false
   },
 
+  // --文章内容--
+  articleContent: {
+    prefixIcon: {
+        enable: false,
+        options: {
+            link: 'https://at.alicdn.com/t/c/font_3628204_t6n3fw8b1zn.js',
+            iconfontArr: [
+                'hebaodan','bingtanghulu','kesong','qianceng','fengmi','feiyuguantou','shengjian','youtiao','yuzijiang','zhutongfan','doujiang','sanmingzhi',
+                'paofu','shanbei','dangaojuan','futejia','huangyou','xiangchang','banji','danta','qingning','lajiao','shizi','mojituo','pijiu','putaojiu',
+                'kouxiangtang','xiangcaobingqilin','jiaozi','tilamisu','huoguo','hongshu','bingkuai','mianhuatang','paobing','meishikafei','mantou','qishui',
+                'ganlan','jiroujuan','guodong','baozi','pingguo','chengzi','qingjiao','jidan','xihongshi','mangguo','baocai','niunai','mianbao','huluobu','zhangyu',
+                'pangxie','longxia','yangcong','rou','jitui','huage','xianyu','mogu','qiezi','xilanhua','ningmeng','liulian','banli','sanwenyu','tudou','xigua','nangua',
+                'huolongguo','fantuan','zhusun','shuiluobu','shanzhu','lanmei','shiliu','yezi','tiangua','mihoutao','boluo','kaixinguo','hetao','xiaweiyiguo','huasheng',
+                'bigenguo','kuihuazi','songzi','xiguazi','badanmu','yaoguo','danhuangsu','dangao','binggan','buding','tangguo','qiaokeli','hongzao','candou','putaogan',
+                'manyuemei','taozi','xiangjiao','caomei','niuyouguo','hamigua','chelizi','li','bale','kafei1','shutiao','zhenzhunaicha','xuegao','nailao','kele','tiantong',
+                'hanbao','xiezishousi','baomihua','regou','makalong','tianfuluo','juzi','baixiangguo','putao','shaomai','yumi','pipa','yangtao','youzi','lianwu','wuhuaguo',
+                'paomian','wandou','huanggua','suantou','tiantianquan','shupian','huafubing','bangbangtang','shousi','lizhi','doufu','mocha','boluomi','zhouzi','bingsha',
+                'suannai','pisa','haixing','haizhe','tongluoshao','nuomici','kuangquanshui','roujiamo','cha','zhangyuxiaowanzi','chengzhi','yuancaitou','baicai'
+            ],
+        }
+    }
+  },
+
   // -- 控制台输出 --
   consoleList: [],
 
@@ -218,4 +296,5 @@
 
   // -- 钩子 --
   hooks: {},
+
 }
