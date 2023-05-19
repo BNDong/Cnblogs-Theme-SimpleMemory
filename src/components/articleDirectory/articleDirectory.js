@@ -51,7 +51,8 @@ export default function main(_) {
             // 添加标题
             let num = uniqTagList.indexOf(h);
             let str = num === 0 || num === -1 ? '' : '&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(num);
-            html += '<li class="nav-item"><a class="nav-link" href="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + str + obj.text() + '</a></li>';
+            // html += '<li class="nav-item"><a class="nav-link" href="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + str + obj.text() + '</a></li>';
+            html += '<li class="nav-item"><a class="nav-link" href="javascript:void(0);" hid="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + str + obj.text() + '</a></li>';
         });
 
         let dirHtml = _.__tools.tempReplacement(articleDirectoryTemp, 'dirHtml', html);
