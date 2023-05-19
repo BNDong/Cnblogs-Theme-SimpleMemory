@@ -60,11 +60,8 @@ export default function main(_) {
         _.__timeIds.articleInfoClassTId = window.setInterval(() => {
             let obj = $('#BlogPostCategory').find('a');
             if (obj.length > 0) {
-                $.each(obj, (i) => {
-                    let tag = $(obj[i]);
-                    tag.prepend('<span class="iconfont icon-marketing_fill"></span>');
-                    $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span></a>');
-                });
+                _.__tools.htmlReplace('#BlogPostCategory', /,/g, '')
+                _.__tools.articleInfo(obj, 1)
                 _.__tools.setDomHomePosition();
                 _.__tools.clearIntervalTimeId(_.__timeIds.articleInfoClassTId);
             }
@@ -78,11 +75,8 @@ export default function main(_) {
         _.__timeIds.articleInfoTagTId = window.setInterval(() => {
             let obj = $('#EntryTag').find('a');
             if (obj.length > 0) {
-                $.each(obj, (i) => {
-                    let tag = $(obj[i]);
-                    tag.prepend('<span class="iconfont icon-label_fill"></span>');
-                    $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-color">'+(tag.text())+'</span></a>');
-                });
+                _.__tools.htmlReplace('#EntryTag', /,/g, '')
+                _.__tools.articleInfo(obj, 2)
                 _.__tools.setDomHomePosition();
                 _.__tools.clearIntervalTimeId(_.__timeIds.articleInfoTagTId);
             }
