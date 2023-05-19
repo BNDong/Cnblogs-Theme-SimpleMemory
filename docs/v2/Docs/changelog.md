@@ -10,6 +10,7 @@
 * markdown extend [(#380)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/380)
 * 代码折叠 [(#381)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/381)
 * 自定义飘落背景特效 [(#382)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/382)
+* 文章评论背景 [(#386)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/386)
 
 * 修复文章中文标题目录解析报错的问题 [(#377)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/377)
 * 修复解析自动识别代码语言的信息出错
