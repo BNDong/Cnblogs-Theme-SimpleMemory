@@ -35,28 +35,8 @@
 
 # Contributors
 
-<a href="https://github.com/QQ2017" target="_blank">
-    <img width=50 src="https://avatars0.githubusercontent.com/u/23667705?s=50&v=4"/>
-</a>
-
-<a href="https://github.com/alessandrocyc" target="_blank">
-    <img width=50 src="https://avatars1.githubusercontent.com/u/43987494?s=50&v=4"/>
-</a>
-
-<a href="https://github.com/ElderJames" target="_blank">
-    <img width=50 src="https://avatars3.githubusercontent.com/u/7550366?s=50&v=4"/>
-</a>
-
-<a href="https://github.com/sky5454" target="_blank">
-    <img width=50 src="https://avatars2.githubusercontent.com/u/12370628?s=460&v=4"/>
-</a>
-
-<a href="https://github.com/wangyang0210" target="_blank">
-    <img width=50 src="https://avatars.githubusercontent.com/u/36377605?v=4"/>
-</a>
-
-<a href="https://github.com/fzxiang" target="_blank">
-    <img width=50 src="https://avatars.githubusercontent.com/u/38209301?v=4"/>
+<a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BNDong/Cnblogs-Theme-SimpleMemory" />
 </a>
 
 # Author
