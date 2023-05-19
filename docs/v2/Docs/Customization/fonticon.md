@@ -21,7 +21,7 @@ window.cnblogsConfig = {
 <iframe  
 height=850
 width=98%
-src="../v2/iconfontDemo/demo_index.html"  
+src="https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/iconfontDemo/demo_index.html"  
 frameborder=0  
 allowfullscreen>
 </iframe>
