@@ -83,4 +83,26 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 设置文章标题-iconfont
+     */
+    (() => {
+        let titleInfo = $('#cnblogs_post_body').find(':header')
+        if (_.__config.articleContent.prefixIcon.enable && titleInfo.length > 0) {
+            _.__tools.dynamicLoadingJs(_.__config.articleContent.prefixIcon.options.link).then(r => {
+                let iconfonts = _.__config.articleContent.prefixIcon.options.iconfontArr
+                titleInfo.html((i, c) => {
+                    let arr = []
+                    let num = Math.floor(Math.random() * (iconfonts.length - i) + i)
+                    if (arr.indexOf(num) == -1) {
+                        arr.push(num)
+                        $('<svg class="icon"> <use xlink:href="#icon-' + iconfonts[num] + '"></use></svg>').prependTo(titleInfo[i])
+                    } else {
+                        i--
+                    }
+                })
+            }).catch(e => console.error('iconfont.js', e))
+        }
+    })()
+
 }
