@@ -50,6 +50,8 @@
   },
   "dependencies": {
     "gsap": "^3.11.5",
+    "gulp-gzip": "^1.4.2",
+    "gulp-uglify": "^3.0.2",
     "happypack": "^5.0.1",
     "lodash": "^4.17.21"
   },

@@ -26,7 +26,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         filename: 'simpleMemory.js',
-        chunkFilename:'script/[name].[chunkhash:8].js',
+        chunkFilename:'script/[name].[contenthash:8].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
         charset: true
@@ -42,8 +42,8 @@ module.exports = {
             }
         }),
         new miniCssExtractPlugin({
-            filename: 'style/[name].[chunkhash:8].css',
-            chunkFilename:'style/[name].[chunkhash:8].css',
+            filename: 'style/[name].[contenthash:8].css',
+            chunkFilename:'style/[name].[contenthash:8].css',
             ignoreOrder: true
         }),
     ],
