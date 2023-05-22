@@ -33,6 +33,10 @@
 > <br>文档的源文件在 /docs 目录，大家有更完善的文档或建议可以 Pull Request 或 Issues 给我。
 > <br>文档我已经禁止浏览器缓存，但仍可能存在缓存，大家可以尝试强制刷新下(ctrl+f5 / command+shift+r)
 
+# Project Status
+
+![Status](https://repobeats.axiom.co/api/embed/51764e075e7f11d8175d32e700a5c0c9938a9b2b.svg)
+
 # Contributors
 
 <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors">
