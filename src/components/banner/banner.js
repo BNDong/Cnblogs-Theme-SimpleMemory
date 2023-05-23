@@ -69,7 +69,7 @@ export default function main(_) {
 
     // banner title 动效
     (() => {
-        if (_.__config.animate.homeBannerTitle) {
+        if (_.__config.animate.homeBannerTitle.enable) {
             $('#main-header h1.page-title').addClass('page-title-hover');
         }
     })();

@@ -174,7 +174,9 @@
 
   // -- 动效 --
   animate: {
-    homeBannerTitle: true,
+    homeBannerTitle: {
+      enable: false
+    },
     bannerImages: {
       enable: false,
       options: {
@@ -194,7 +196,7 @@
       }
     },
     articleTitle: {
-      enable: true
+      enable: false
     },
     articleBanner: {
       enable: false

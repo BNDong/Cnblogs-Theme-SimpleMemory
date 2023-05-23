@@ -808,6 +808,31 @@ window.cnblogsConfig = {
 
 !> 动效会消耗GPU，可能会导致页面卡顿，请大家按需谨慎选择开启！！！
 
+### homeBannerTitle - 主页banner上name的动效
+
+?> 版本 >= v2.1.3
+
+* 类型：```Object```
+* 默认值：
+
+```json5
+{
+    enable: false // 是否开启动效
+}
+```
+
+主页 banner 上 name 的动效（鼠标移入显示）
+
+```javascript
+window.cnblogsConfig = {
+    animate: {
+        homeBannerTitle: {
+            enable: true
+        },
+    },
+}
+```
+
 ### homeBanner - 主页banner动效
 
 * 类型：```Object```
@@ -1012,6 +1037,8 @@ window.cnblogsConfig = {
 
 ### season - 背景动效
 
+[GitHub Pull requests (#382)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/382)
+
 ?> 版本 >= v2.1.3
 
 -   类型：`Object`
@@ -1042,12 +1069,14 @@ window.cnblogsConfig = {
 
 ### avatar - 头像旋转特效
 
+[GitHub Pull requests (#383)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/383)
+
 ?> 版本 >= v2.1.3
 
 -   类型：`Object`
 -   默认值：
 
-```json
+```json5
 {
   enable: false // 是否开启
 }
@@ -1265,6 +1294,8 @@ window.cnblogsConfig = {
 
 ### background - 文章评论背景
 
+[GitHub Pull requests (#386)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/386)
+
 ?> 版本 >= v2.1.3
 
 * 类型：```Object```
@@ -1295,6 +1326,8 @@ window.cnblogsConfig = {
 ## articleContent - 文章内容
 
 ### prefixIcon - 文章标题前图标
+
+[GitHub Pull requests (#379)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/379)
 
 ?> 版本 >= v2.1.3
 

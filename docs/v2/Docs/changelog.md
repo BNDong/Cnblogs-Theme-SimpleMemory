@@ -1,6 +1,6 @@
 ## **** - v2.1.3
 * 合并播放器功能 [(#388)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/388)
-* 侧边栏配置隐藏 [(#387)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/387)
+* 侧边栏是否展开配置 [(#387)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/387)
 * 评论优化 [(#384)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/384)
 * 头像旋转 [(#383)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/383)
 * 修复未开启找一找功能显示异常的问题 [(#374)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/374)
@@ -11,6 +11,8 @@
 * 代码折叠 [(#381)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/381)
 * 自定义飘落背景特效 [(#382)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/382)
 * 文章评论背景 [(#386)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/386)
+* 默认关闭文章页标题动效
+* 增加配置 `animate.homeBannerTitle` 用以配置主页 banner 上 name 的动效
 
 * 修复文章中文标题目录解析报错的问题 [(#377)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/377)
 * 修复解析自动识别代码语言的信息出错
