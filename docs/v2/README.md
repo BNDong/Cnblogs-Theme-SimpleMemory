@@ -1,43 +1,46 @@
 <div align="center">
-<img src="./Images/simple2.png" />
-<br>
+  <img src="./Images/simple2.png" />
 </div>
 
 <div align="center">
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases" style="text-decoration:none;">
     <img alt="GitHub release" src="https://img.shields.io/github/release/BNDong/Cnblogs-Theme-SimpleMemory.svg">
   </a>
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/stargazers">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/stargazers" style="text-decoration:none;">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/BNDong/Cnblogs-Theme-SimpleMemory.svg">
   </a>
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/network">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/network" style="text-decoration:none;">
     <img alt="GitHub forks" src="https://img.shields.io/github/forks/BNDong/Cnblogs-Theme-SimpleMemory.svg">
   </a>
 </div>
 
 <div align="center">
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues" style="text-decoration:none;">
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/BNDong/Cnblogs-Theme-SimpleMemory.svg">
   </a>
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors" style="text-decoration:none;">
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/BNDong/Cnblogs-Theme-SimpleMemory.svg">
   </a>
-  <a href="https://www.jsdelivr.com/package/gh/BNDong/Cnblogs-Theme-SimpleMemory">
+  <a href="https://www.jsdelivr.com/package/gh/BNDong/Cnblogs-Theme-SimpleMemory" style="text-decoration:none;">
     <img alt="" src="https://data.jsdelivr.com/v1/package/gh/BNDong/Cnblogs-Theme-SimpleMemory/badge?style=rounded">
   </a>
 </div>
 
 <div align="center">
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master" style="text-decoration:none;">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/BNDong/Cnblogs-Theme-SimpleMemory.svg">
   </a>
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/blob/master/LICENSE">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/blob/master/LICENSE" style="text-decoration:none;">
     <img alt="GitHub license" src="https://img.shields.io/github/license/esofar/cnblogs-theme-silence.svg">
   </a>
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory">
+  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory" style="text-decoration:none;">
     <img alt="compatibility" src="https://camo.githubusercontent.com/31ac3f0ce805dc34a29b615131caa26cbf4dc127/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f62726f777365722d2532306368726f6d6525323025374325323066697265666f782532302537432532306f706572612532302537432532307361666172692532302537432532306965253230253345253344253230392d6c69676874677265792e737667">
   </a>
 </div>
+
+<br>
+<br>
+<br>
 
 # Silence
 
