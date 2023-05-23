@@ -42,15 +42,15 @@
 <br>
 <br>
 
-# Silence
+## Introduce
 
-📖 本主题以阅读为核心，美化博客园的显示效果，提高用户体验。 
+📖 本主题以阅读为核心，美化博客园的显示效果，提高用户体验。
 
 🍰 基于博皮“SimpleMemory”进行的修改；[页面效果](https://www.cnblogs.com/bndong/)
 
 🧀 支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
 
-# Docs
+## Document
 
 [文档地址](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2)
 
@@ -58,25 +58,17 @@
 > <br>文档的源文件在 /docs 目录，大家有更完善的文档或建议可以 Pull Request 或 Issues 给我。
 > <br>文档我已经禁止浏览器缓存，但仍可能存在缓存，大家可以尝试强制刷新下(ctrl+f5 / command+shift+r)
 
-# Contributors
+## Project Status
 
-<a href="https://github.com/QQ2017" target="_blank">
-    <img width=50 src="https://avatars0.githubusercontent.com/u/23667705?s=50&v=4"/>
+![Status](https://repobeats.axiom.co/api/embed/51764e075e7f11d8175d32e700a5c0c9938a9b2b.svg)
+
+## Contributors
+
+<a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BNDong/Cnblogs-Theme-SimpleMemory" />
 </a>
 
-<a href="https://github.com/alessandrocyc" target="_blank">
-    <img width=50 src="https://avatars1.githubusercontent.com/u/43987494?s=50&v=4"/>
-</a>
-
-<a href="https://github.com/ElderJames" target="_blank">
-    <img width=50 src="https://avatars3.githubusercontent.com/u/7550366?s=50&v=4"/>
-</a>
-
-<a href="https://github.com/sky5454" target="_blank">
-    <img width=50 src="https://avatars2.githubusercontent.com/u/12370628?s=460&v=4"/>
-</a>
-
-# Author
+## Author
 
 **Cnblogs-Theme-SimpleMemory** © [BNDong](https://github.com/BNDong), Released under the [MIT](./LICENSE) License.<br>
 
