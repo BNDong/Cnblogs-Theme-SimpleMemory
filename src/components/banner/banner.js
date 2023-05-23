@@ -67,6 +67,13 @@ export default function main(_) {
         }
     })();
 
+    // banner title 动效
+    (() => {
+        if (_.__config.animate.homeBannerTitle) {
+            $('#main-header h1.page-title').addClass('page-title-hover');
+        }
+    })();
+
     // 添加事件监听
     _.__event.scroll.handle.push(() => {
         let openButton = $('#open-button');

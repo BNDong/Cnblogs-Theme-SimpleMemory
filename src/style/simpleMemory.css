@@ -2157,7 +2157,7 @@ div#tbCommentBodyPreview {
     font-family: Playball, cursive
 }
 
-.page-title span:hover {
+.page-title-hover span:hover {
     animation: pageTitleText 2s infinite;
     -webkit-animation: pageTitleText 1s infinite;
 }
