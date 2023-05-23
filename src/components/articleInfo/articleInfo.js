@@ -104,7 +104,8 @@ export default function main(_) {
                 titleInfo.html((i, c) => {
                     let arr = []
                     let num = Math.floor(Math.random() * (iconfonts.length - i) + i)
-                    if (arr.indexOf(num) == -1) {
+                    let h = parseInt(titleInfo[i].tagName.replace(/H/g, ''));
+                    if (arr.indexOf(num) === -1 && h !== 6) {
                         arr.push(num)
                         $('<svg class="icon"> <use xlink:href="#icon-' + iconfonts[num] + '"></use></svg>').prependTo(titleInfo[i])
                     } else {
