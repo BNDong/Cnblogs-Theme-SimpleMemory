@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="./src/images/simple2.png" />
+  <img width="450" src="./src/images/simple2.png" />
 </div>
+
+<br>
 
 <div align="center">
   <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/releases" style="text-decoration:none;">
@@ -38,7 +40,6 @@
   </a>
 </div>
 
-<br>
 <br>
 <br>
 
