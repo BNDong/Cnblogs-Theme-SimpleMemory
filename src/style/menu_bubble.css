@@ -617,7 +617,7 @@ body{
     align-items: center;
     transition: -webkit-transform .3s ease;
     transition: transform .3s ease,-webkit-transform .3s ease;
-    font-family: simple-memory-iconfont!important;
+    font-family: 'iconfont', 'simple-memory-iconfont' !important;
     font-size: 16px;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -696,7 +696,7 @@ body{
     font-size: 13px;
     position: absolute;
     left: 20px;
-    font-family: simple-memory-iconfont!important;
+    font-family: 'iconfont', 'simple-memory-iconfont' !important;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

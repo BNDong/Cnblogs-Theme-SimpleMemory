@@ -229,7 +229,7 @@ export default function main() {
             let style = type === 1 ? 'article-tag-class-color' : 'article-tag-color'
             $.each(obj, i => {
                 let tag = $(obj[i])
-                tag.prepend(`<span class="simple-memory-iconfont iconfont ${iconfont}"></span>`)
+                tag.prepend(`<span class="simple-memory-iconfont simple-memory-${iconfont} iconfont ${iconfont}"></span>`)
                 $('#articleInfo').append(`<a href=" ${tag.attr('href')}" target="_blank"><span class="article-info-tag ${style}"> ${ tag.text()}</span></a>`)
             })
         }

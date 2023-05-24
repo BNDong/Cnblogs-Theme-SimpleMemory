@@ -2492,7 +2492,7 @@ summary {
 }
 
 details > summary:before {
-    font-family: 'simple-memory-iconfont' !important;
+    font-family: 'iconfont', 'simple-memory-iconfont' !important;
     font-style: normal !important;
     left: 0.6rem;
     color: #448aff;

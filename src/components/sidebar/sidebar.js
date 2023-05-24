@@ -246,7 +246,7 @@ export default function main(_) {
                 navHtml = '<ul>';
                 $.each(navList, function (i) {
                     let iconClass = navList[i].length > 2 ? navList[i][2] : "icon-qianzishenhe";
-                    navHtml += '<li><a href="'+(navList[i][1])+'" class="sidebar-dropdown-box" target="_blank"><i class="simple-memory-iconfont iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
+                    navHtml += '<li><a href="'+(navList[i][1])+'" class="sidebar-dropdown-box" target="_blank"><i class="simple-memory-iconfont simple-memory-'+iconClass+' iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
                 });
                 navHtml += '</ul>';
                 $('.customize-nav').append(navHtml).show();
