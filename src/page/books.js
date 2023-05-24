@@ -36,13 +36,13 @@ export default function main(_) {
                     // 评星
                     let scoreHtml = '';
                     if (typeof books.score !== 'undefined' && books.score > 0) {
-                        scoreHtml += '<i class="iconfont icon-pingjixingquanxing"></i>'.repeat(parseInt(books.score));
+                        scoreHtml += '<i class="simple-memory-iconfont simple-memory-icon-pingjixingquanxing"></i>'.repeat(parseInt(books.score));
                         if (books.score > parseInt(books.score)) {
-                            scoreHtml += '<i class="iconfont icon-pingjixingbanxing"></i>';
+                            scoreHtml += '<i class="simple-memory-iconfont simple-memory-icon-pingjixingbanxing"></i>';
                         }
-                        scoreHtml += '<i class="iconfont icon-pingjixingxiantiao"></i>'.repeat(parseInt(5 - books.score));
+                        scoreHtml += '<i class="simple-memory-iconfont simple-memory-icon-pingjixingxiantiao"></i>'.repeat(parseInt(5 - books.score));
                     } else {
-                        scoreHtml += '<i class="iconfont icon-pingjixingxiantiao"></i>'.repeat(5);
+                        scoreHtml += '<i class="simple-memory-iconfont simple-memory-icon-pingjixingxiantiao"></i>'.repeat(5);
                     }
 
                     // 图书信息

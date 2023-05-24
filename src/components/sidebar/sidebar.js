@@ -246,7 +246,7 @@ export default function main(_) {
                 navHtml = '<ul>';
                 $.each(navList, function (i) {
                     let iconClass = navList[i].length > 2 ? navList[i][2] : "icon-qianzishenhe";
-                    navHtml += '<li><a href="'+(navList[i][1])+'" class="sidebar-dropdown-box" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
+                    navHtml += '<li><a href="'+(navList[i][1])+'" class="sidebar-dropdown-box" target="_blank"><i class="simple-memory-iconfont iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
                 });
                 navHtml += '</ul>';
                 $('.customize-nav').append(navHtml).show();
@@ -260,7 +260,7 @@ export default function main(_) {
                 $.each(customData, (title, list) => {
                     let html = '<li class="ng-star-inserted sidebar-dropdown">';
                     html += '<a href="javascript:void(0)" class="ng-star-inserted sidebar-dropdown-box">';
-                    html += '   <i class="iconfont '+ list.icon +'"></i>';
+                    html += '   <i class="simple-memory-iconfont iconfont '+ list.icon +'"></i>';
                     html += '   <span class="sidebar-dropdown-title">'+ title +'</span>';
                     html += '</a>';
                     html += '<div class="sidebar-submenu"><ul>';

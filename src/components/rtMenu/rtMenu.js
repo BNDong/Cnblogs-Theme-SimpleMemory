@@ -163,7 +163,7 @@ export default function main(_) {
         _.__timeIds.diggitTId = window.setInterval(() => {
             let diggit = $(".diggit");
             if (diggit.length > 0) {
-                diggit.prepend('<i class="iconfont icon-zan1"></i>');
+                diggit.prepend('<i class="simple-memory-iconfont simple-memory-icon-zan1"></i>');
 
                 let rightDiggit   = $('#rightDiggit');
                 let rightMenuSpan = rightDiggit.find('.rightMenuSpan');
@@ -183,7 +183,7 @@ export default function main(_) {
         _.__timeIds.buryitTId = window.setInterval(() => {
             let buryit = $(".buryit");
             if (buryit.length > 0) {
-                buryit.prepend('<i class="iconfont icon-buzan"></i>');
+                buryit.prepend('<i class="simple-memory-iconfont simple-memory-icon-buzan"></i>');
 
                 let rightBuryit   = $('#rightBuryit');
                 let rightMenuSpan = rightBuryit.find('.rightMenuSpan');

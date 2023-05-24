@@ -42,13 +42,12 @@ export default function main(_) {
             let info = postMeta(postDescText);
             let textNum = $('#cnblogs_post_body').text().length;
 
-            // return '<span class="postMeta"><i class="iconfont icon-time1"></i>' + info.date.replace(/-/g,"/").substr(2) + '' +
-            return '<span class="postMeta"><i class="iconfont icon-time1"></i>' + info.date + '' +
-                '<i class="iconfont icon-browse"></i>' + info.vnum + '' +
-                '<i class="iconfont icon-interactive"></i>' + info.cnum + '' +
-                '<i class="iconfont icon-hot"></i>' + info.tnum + '' +
-                '<br><i class="iconfont icon-wenzi4"></i>' + textNum + '' +
-                '<i class="iconfont icon-shangwutubiao-"></i>' + _.__tools.minToTime(textNum / 500) + ' ~ ' + _.__tools.minToTime(textNum / 300) +
+            return '<span class="postMeta"><i class="simple-memory-iconfont simple-memory-icon-time1"></i>' + info.date + '' +
+                '<i class="simple-memory-iconfont simple-memory-icon-browse"></i>' + info.vnum + '' +
+                '<i class="simple-memory-iconfont simple-memory-icon-interactive"></i>' + info.cnum + '' +
+                '<i class="simple-memory-iconfont simple-memory-icon-hot"></i>' + info.tnum + '' +
+                '<br><i class="simple-memory-iconfont simple-memory-icon-wenzi4"></i>' + textNum + '' +
+                '<i class="simple-memory-iconfont simple-memory-icon-shangwutubiao-"></i>' + _.__tools.minToTime(textNum / 500) + ' ~ ' + _.__tools.minToTime(textNum / 300) +
                 '</span>';
         }
     })();

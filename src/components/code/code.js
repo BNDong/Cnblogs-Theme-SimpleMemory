@@ -66,7 +66,7 @@ export default function main(_) {
             let code  = $(codeBox[i]);
             let boxId = code.attr('id');
 
-            let copyHtml = '<button boxid="' + boxId + '" type="button" class="clipboard code-copay-btn" data-clipboard-action="copy" data-clipboard-target="#' + boxId + ' pre" aria-label="复制代码" ><i class="iconfont icon-fuzhi1"></i></button>';
+            let copyHtml = '<button boxid="' + boxId + '" type="button" class="clipboard code-copay-btn" data-clipboard-action="copy" data-clipboard-target="#' + boxId + ' pre" aria-label="复制代码" ><i class="simple-memory-iconfont simple-memory-icon-fuzhi1"></i></button>';
             code.prepend(copyHtml);
         });
 
