@@ -106,7 +106,7 @@ export default function main(_) {
                     let h = parseInt(titleInfo[i].tagName.replace(/H/g, ''));
                     if (arr.indexOf(num) === -1 && h !== 6) {
                         arr.push(num)
-                        $('<svg class="icon"> <use xlink:href="#icon-' + iconfonts[num] + '"></use></svg>').prependTo(titleInfo[i])
+                        $('<svg class="simple-memory-symbol"> <use xlink:href="#icon-' + iconfonts[num] + '"></use></svg>').prependTo(titleInfo[i])
                     } else {
                         i--
                     }

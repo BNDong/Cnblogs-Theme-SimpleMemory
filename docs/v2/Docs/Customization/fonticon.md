@@ -3,8 +3,12 @@
 本主题使用的图标库为阿里巴巴矢量图标库 [iconfont](https://www.iconfont.cn/)。
 
 ## 拓展图标
-大家可以在 iconfont 生成自己的图标库，生成方法参考[教程](https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.13&helptype=about)。
+大家可以在 iconfont 生成自己的图标库，生成方法参考[官方教程](https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.13&helptype=about)。
 <br>获取样式地址后按照下面示例方式添加到配置中
+
+!> 2.1.3 版本后内置图标库的 class 前缀使用 "simple-memory-" 防止硬编码的图标被异常覆盖。在配置项中的可配置图标：同名自定义图标优先级大于内置图标
+
+!> 拓展图标库不要修改 FontClass/ Symbol 前缀，使用默认的 "icon-"
 
 ```javascript
 window.cnblogsConfig = {
@@ -27,11 +31,9 @@ window.cnblogsConfig = {
 }
 ```
 
-
 ## 内置图标
 
 > 内置图标分为基本图标和文章图标， 两者加载的文件和位置均不同；
-
 
 ### 基本图标
 
