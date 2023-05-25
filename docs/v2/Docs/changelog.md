@@ -13,9 +13,12 @@
 * 文章评论背景 [(#386)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/386)
 * 默认关闭文章页标题动效
 * 增加配置 `animate.homeBannerTitle` 用以配置主页 banner 上 name 的动效
+* 更新文档
+* 更新基础样式
 
 * 修复文章中文标题目录解析报错的问题 [(#377)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/377)
 * 修复解析自动识别代码语言的信息出错
+* 修复移动端出现白边的兼容性问题
 
 ## 2022.10.08 - v2.1.2
 * 评估集成了一些网友提供的优化解决方案（感谢！）

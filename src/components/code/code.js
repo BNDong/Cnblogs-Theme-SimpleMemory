@@ -72,8 +72,8 @@ export default function main(_) {
 
         // 点击效果
         $('code-box .code-copay-btn').click(function () {
-            $(this).find('i').removeClass('icon-fuzhi1').addClass('icon-right');
-            setTimeout("$('code-box button[boxid="+$(this).attr('boxid')+"] i').removeClass('icon-right').addClass('icon-fuzhi1')", 1500);
+            $(this).find('i').removeClass('simple-memory-icon-fuzhi1').addClass('simple-memory-icon-right');
+            setTimeout("$('code-box button[boxid="+$(this).attr('boxid')+"] i').removeClass('simple-memory-icon-right').addClass('simple-memory-icon-fuzhi1')", 1500);
         });
 
         // 显示/隐藏
