@@ -3970,6 +3970,12 @@ table#blogCalendar > tbody > tr > td > a {
     }
 }
 
+@media only screen and (max-width: 767px) {
+    .skin-simplememory #main {
+        padding: 0 !important;
+    }
+}
+
 @media only screen and (max-width: 720px) {
     #cnblogs_post_body > p {
         padding: 0 10px;
