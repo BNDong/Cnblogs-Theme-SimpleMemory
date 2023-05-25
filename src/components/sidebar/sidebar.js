@@ -63,7 +63,7 @@ export default function main(_) {
         // ------- 用户个人信息 -------
         _.__timeIds.introduceTId = window.setInterval(() => {
             let introduceHtml = $('#profile_block').html(),
-                menuIntroduce = $('#introduce');
+                menuIntroduce = $('.sidebar-userinfo#introduce');
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html(_.__tools.htmlFiltrationScript(introduceHtml));
                 _.__tools.clearIntervalTimeId(_.__timeIds.introduceTId);
