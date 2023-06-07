@@ -54,7 +54,6 @@ export default function main(_) {
         postBody.append(dirHtml);
 
         // 锚点监听
-        body.css('position', 'relative');
         body.attr('data-bs-spy', 'scroll');
         body.attr('data-bs-target', '#articleDirectory');
         body.attr('data-bs-offset', '0');
@@ -64,9 +63,10 @@ export default function main(_) {
             target: '#articleDirectory'
         })
 
-        // body.scrollspy({
-        //     target: '#articleDirectory'
-        // });
+        let firstScrollSpyEl = document.querySelector('[data-bs-spy="scroll"]')
+        firstScrollSpyEl.addEventListener('activate.bs.scrollspy', function () {
+            console.log('activate.bs.scrollspy', this);
+        })
 
         // 判断是否显示横向滚动条
         if (!_.__config.articleDirectory.autoWidthScroll) {
