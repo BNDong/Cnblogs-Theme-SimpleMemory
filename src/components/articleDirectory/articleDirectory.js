@@ -59,13 +59,13 @@ export default function main(_) {
         body.attr('data-bs-offset', '0');
         body.attr('tabindex', '0');
 
-        // new ScrollSpy(document.body, {
-        //     target: '#articleDirectory'
-        // })
-
-        body.scrollspy({
+        new ScrollSpy(document.body, {
             target: '#articleDirectory'
-        });
+        })
+
+        // body.scrollspy({
+        //     target: '#articleDirectory'
+        // });
 
         // 判断是否显示横向滚动条
         if (!_.__config.articleDirectory.autoWidthScroll) {
