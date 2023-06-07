@@ -54,13 +54,19 @@ export default function main(_) {
         postBody.append(dirHtml);
 
         // 锚点监听
+        body.css('position', 'relative');
         body.attr('data-bs-spy', 'scroll');
         body.attr('data-bs-target', '#articleDirectory');
         body.attr('data-bs-offset', '0');
         body.attr('tabindex', '0');
-        body.scrollspy({
+
+        new bootstrap.ScrollSpy(body, {
             target: '#articleDirectory'
-        });
+        })
+
+        // body.scrollspy({
+        //     target: '#articleDirectory'
+        // });
 
         // 判断是否显示横向滚动条
         if (!_.__config.articleDirectory.autoWidthScroll) {
