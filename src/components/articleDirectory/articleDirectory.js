@@ -63,15 +63,7 @@ export default function main(_) {
             target: '#articleDirectory'
         });
 
-        console.log(scrollSpy);
-
-        // new ScrollSpy(body, {
-        //     target: '#articleDirectory'
-        // })
-
-        // body.scrollspy({
-        //     target: '#articleDirectory'
-        // });
+        // console.log(scrollSpy);
 
         // 判断是否显示横向滚动条
         if (!_.__config.articleDirectory.autoWidthScroll) {
