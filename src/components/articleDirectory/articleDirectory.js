@@ -38,21 +38,15 @@ export default function main(_) {
             let hid = obj.attr('id');
             let titleId = 'tid-' + _.__tools.randomString(6);
             obj.attr('tid', titleId);
-            if (!hid || /^[\W|\d]+.*/.test(hid)) {
-                if (hid) {
-                    // 兼容修改toc生成的目录
-                    let tocObj = $('.toc a[href="#'+hid+'"]');
-                    tocObj.length && tocObj.attr('href', '#' + titleId);
-                }
-                hid = titleId;
-                obj.attr('id', hid);
-            }
+            obj.attr('id', titleId);
+            let tocObj = $('.toc a[href="#'+hid+'"]');
+            tocObj.length && tocObj.attr('href', '#' + titleId);
 
             // 添加标题
             let num = uniqTagList.indexOf(h);
             let str = num === 0 || num === -1 ? '' : '&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(num);
             let text =  str + obj.text().replace(/</g, "&lt;").replace(/>/g, "&gt;")
-            html += '<li class="nav-item"><a class="nav-link" href="javascript:void(0);" hid="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + text + '</a></li>';
+            html += '<li class="nav-item"><a class="nav-link" href="#' + titleId + '" goto="' + titleId + '" onclick="return false;">' + text + '</a></li>';
         });
 
         let dirHtml = _.__tools.tempReplacement(articleDirectoryTemp, 'dirHtml', html);
