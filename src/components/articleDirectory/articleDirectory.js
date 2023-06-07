@@ -7,8 +7,7 @@
  */
 import articleDirectoryTemp from '../../template/articleDirectory.html';
 import "../../style/articleDirectory.css";
-
-window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
+import {ScrollSpy} from "bootstrap";
 
 export default function main(_) {
     let body     = $('body');
@@ -61,7 +60,7 @@ export default function main(_) {
         body.attr('data-bs-offset', '0');
         body.attr('tabindex', '0');
 
-        new bootstrap.ScrollSpy(body, {
+        new ScrollSpy(document.body, {
             target: '#articleDirectory'
         })
 
