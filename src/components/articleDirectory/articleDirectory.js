@@ -7,7 +7,8 @@
  */
 import articleDirectoryTemp from '../../template/articleDirectory.html';
 import "../../style/articleDirectory.css";
-import "bootstrap";
+
+window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 
 export default function main(_) {
     let body     = $('body');
