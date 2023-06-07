@@ -7,7 +7,7 @@
  */
 import articleDirectoryTemp from '../../template/articleDirectory.html';
 import "../../style/articleDirectory.css";
-import {ScrollSpy} from "bootstrap";
+import "bootstrap";
 
 export default function main(_) {
     let body     = $('body');
@@ -56,21 +56,16 @@ export default function main(_) {
         // 锚点监听
         body.attr('data-bs-spy', 'scroll');
         body.attr('data-bs-target', '#articleDirectory');
-        // body.attr('data-bs-offset', '0');
+        body.attr('data-bs-offset', '0');
         body.attr('tabindex', '0');
 
-        const bodyScrollSpy = new ScrollSpy(document.body, {
-            target: '#articleDirectory'
-        })
+        // new ScrollSpy(document.body, {
+        //     target: '#articleDirectory'
+        // })
 
-        const firstScrollSpyEl = document.querySelector('[data-bs-spy="scroll"]')
-        firstScrollSpyEl.addEventListener('activate.bs.scrollspy', () => {
-            console.log('activate.bs.scrollspy', this);
-            const dataSpyList = document.querySelectorAll('[data-bs-spy="scroll"]')
-            dataSpyList.forEach(dataSpyEl => {
-                ScrollSpy.getInstance(dataSpyEl).refresh()
-            })
-        })
+        body.scrollspy({
+            target: '#articleDirectory'
+        });
 
         // 判断是否显示横向滚动条
         if (!_.__config.articleDirectory.autoWidthScroll) {
