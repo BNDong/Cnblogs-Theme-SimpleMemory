@@ -51,15 +51,15 @@ export default function main(_) {
 
         let dirHtml = _.__tools.tempReplacement(articleDirectoryTemp, 'dirHtml', html);
 
-        postBody.append(dirHtml);
+        body.append(dirHtml);
 
         // 锚点监听
-        body.attr('data-bs-spy', 'scroll');
-        body.attr('data-bs-target', '#articleDirectory');
-        // body.attr('data-bs-offset', '0');
-        body.attr('tabindex', '0');
+        postBody.attr('data-bs-spy', 'scroll');
+        postBody.attr('data-bs-target', '#articleDirectory');
+        postBody.attr('data-bs-offset', '0');
+        postBody.attr('tabindex', '0');
 
-        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        const scrollSpy = new bootstrap.ScrollSpy($('#cnblogs_post_body'), {
             target: '#articleDirectory'
         });
 
