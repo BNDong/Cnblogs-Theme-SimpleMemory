@@ -56,16 +56,20 @@ export default function main(_) {
         // 锚点监听
         body.attr('data-bs-spy', 'scroll');
         body.attr('data-bs-target', '#articleDirectory');
-        body.attr('data-bs-offset', '0');
+        // body.attr('data-bs-offset', '0');
         body.attr('tabindex', '0');
 
-        new ScrollSpy(document.body, {
+        const bodyScrollSpy = new ScrollSpy(document.body, {
             target: '#articleDirectory'
         })
 
-        let firstScrollSpyEl = document.querySelector('[data-bs-spy="scroll"]')
-        firstScrollSpyEl.addEventListener('activate.bs.scrollspy', function () {
+        const firstScrollSpyEl = document.querySelector('[data-bs-spy="scroll"]')
+        firstScrollSpyEl.addEventListener('activate.bs.scrollspy', () => {
             console.log('activate.bs.scrollspy', this);
+            const dataSpyList = document.querySelectorAll('[data-bs-spy="scroll"]')
+            dataSpyList.forEach(dataSpyEl => {
+                ScrollSpy.getInstance(dataSpyEl).refresh()
+            })
         })
 
         // 判断是否显示横向滚动条
