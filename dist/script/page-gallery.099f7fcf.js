@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkCnblogs_Theme_SimpleMemory=self.webpackChunkCnblogs_Theme_SimpleMemory||[]).push([[7258],{6694:function(e,n,u){u.r(n),u.d(n,{default:function(){return t}});var l=u(2178);function t(e){(0,l.default)(e)}}}]);

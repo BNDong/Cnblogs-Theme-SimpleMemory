@@ -46,7 +46,9 @@ export default function main(_) {
      * 设置文章目录
      */
     (() => {
-        _.__status.pageType !== 'books' && articleDirectory(_);
+        if (_.__status.pageType !== 'books') {
+            articleDirectory(_);
+        }
     })();
 
     /**

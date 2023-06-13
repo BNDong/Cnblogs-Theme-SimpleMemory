@@ -5,14 +5,16 @@
  * ----------------------------------------------
  * @describe: 相册图片详情页处理
  */
-import comArticle from "./common/comArticle";
+
+import comGallery from "./common/comGallery";
 
 export default function main(_) {
+
     /**
-     * 文章页公共处理
+     * 相册页公共处理
      */
     (() => {
-        comArticle(_);
+        comGallery(_);
     })();
 
 }
