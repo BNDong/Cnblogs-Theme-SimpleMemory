@@ -3,6 +3,7 @@ const path = require('path');
 const json5 = require('json5');
 const terserPlugin = require("terser-webpack-plugin");
 const fileManagerPlugin = require('filemanager-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 const miniCssExtractPlugin = require("mini-css-extract-plugin");
 const cssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
@@ -64,9 +65,25 @@ module.exports = {
         },
         minimizer: [
             new terserPlugin({
-                extractComments: false,
+                  parallel: true,
+                  extractComments: false,
             }),
-            new cssMinimizerPlugin(),
+            new cssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: ["default", {
+                        discardComments: { removeAll: true },
+                    },
+                    ],
+                },
+                parallel: true,
+            }),
+            new CompressionPlugin({
+                algorithm: 'gzip',
+                test: /\.js$|\.html$|\.css$/,
+                minRatio: 1,
+                threshold: 10240,
+                deleteOriginalAssets: false,
+            })
         ],
     },
     module: {
