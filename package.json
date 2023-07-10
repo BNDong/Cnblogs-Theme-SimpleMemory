@@ -39,8 +39,6 @@
     "file-loader": "^6.2.0",
     "filemanager-webpack-plugin": "^4.0.0",
     "gsap": "^3.11.4",
-    "gulp": "^4.0.2",
-    "gulp-minify-css": "^1.2.4",
     "highlight.js": "^10.7.1",
     "html-loader": "^2.1.2",
     "http-server": "^14.1.1",
@@ -59,8 +57,6 @@
   },
   "dependencies": {
     "gsap": "^3.11.5",
-    "gulp-gzip": "^1.4.2",
-    "gulp-uglify": "^3.0.2",
     "happypack": "^5.0.1",
     "lodash": "^4.17.21"
   },
