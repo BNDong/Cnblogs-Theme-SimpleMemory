@@ -64,6 +64,7 @@ export default function main(_) {
         _.__timeIds.introduceTId = window.setInterval(() => {
             let introduceHtml = $('#profile_block').html(),
                 menuIntroduce = $('.sidebar-userinfo#introduce');
+            if($('#profile_block img')[0]) introduceHtml = introduceHtml.replace('<br>', '')
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html(_.__tools.htmlFiltrationScript(introduceHtml));
                 _.__tools.clearIntervalTimeId(_.__timeIds.introduceTId);
@@ -345,7 +346,7 @@ export default function main(_) {
             }, 300);
         });
     })();
-      
+
     /**
      * 设置是否默认展开菜单栏
      */
