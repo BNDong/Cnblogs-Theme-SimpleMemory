@@ -39,6 +39,7 @@
     "file-loader": "^6.2.0",
     "filemanager-webpack-plugin": "^4.0.0",
     "gsap": "^3.11.4",
+    "happypack": "^5.0.1",
     "highlight.js": "^10.7.1",
     "html-loader": "^2.1.2",
     "http-server": "^14.1.1",
@@ -57,7 +58,6 @@
   },
   "dependencies": {
     "gsap": "^3.11.5",
-    "happypack": "^5.0.1",
     "lodash": "^4.17.21"
   },
   "browserslist": {
