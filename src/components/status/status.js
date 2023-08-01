@@ -13,6 +13,10 @@ export default function main() {
     status.url = window.location.href;
     const urlArr = status.url.split("/");
 
+    if (urlArr[urlArr.length -1] === '') {
+        urlArr.splice(urlArr.length -1, 1);
+    }
+
     status.user      = urlArr[3]; // 当前用户
     status.articleId = ''; // 文章ID
 
@@ -23,7 +27,9 @@ export default function main() {
     const par5 = typeof urlArr[5] !== 'undefined' ? urlArr[5] : '';
 
     // 判断当前页面类型
-    if (urlArr.length === 4 && !$('#topics').length) {
+    if (urlArr.length === 4
+        && !$('#topics').length
+    ) {
         status.pageType = 'home'; // 当前页面为主页
     } else {
         if ($('#bookListFlg').length) {
