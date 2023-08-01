@@ -11,6 +11,8 @@
 * 代码折叠 [(#381)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/381)
 * 自定义飘落背景特效 [(#382)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/382)
 * 文章评论背景 [(#386)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/386)
+* 适配博客园VIP样式 [(#397)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/397)
+* 统一使用webpack进行管理 [(#398)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/398)
 * 默认关闭文章页标题动效
 * 增加配置 `animate.homeBannerTitle` 用以配置主页 banner 上 name 的动效
 * 更新文档
