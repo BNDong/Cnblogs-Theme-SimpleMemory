@@ -1,4 +1,4 @@
-## **** - v2.1.3
+## 2023.08.01 - v2.1.3
 * 合并播放器功能 [(#388)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/388)
 * 侧边栏是否展开配置 [(#387)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/387)
 * 评论优化 [(#384)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/384)
@@ -13,6 +13,7 @@
 * 文章评论背景 [(#386)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/386)
 * 适配博客园VIP样式 [(#397)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/397)
 * 统一使用webpack进行管理 [(#398)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/398)
+* 当鼠标移动到右侧滚动条时，滚动条增加宽度 [(#399)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/399)
 * 默认关闭文章页标题动效
 * 增加配置 `animate.homeBannerTitle` 用以配置主页 banner 上 name 的动效
 * 更新文档
