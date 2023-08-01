@@ -515,6 +515,15 @@ p.article-info-text > .postMeta br {
     text-decoration: underline
 }
 
+img.sidebar-vip-logo {
+  height: 11px;
+  vertical-align: middle;
+  width: 11px;
+  position: absolute;
+  left: 76px;
+  top: 9px;
+}
+
 /*.div_my_zzk {*/
 /*    width: 175px;*/
 /*    position: relative;*/

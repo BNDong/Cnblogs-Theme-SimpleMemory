@@ -12,7 +12,7 @@ export default function main(_) {
     setTimeout(() =>  {
         let cpb         = $('#cnblogs_post_body')
             ,imgList    = $('#cnblogs_post_body img')
-            ,comImgList = $('.feedbackItem img')
+            ,comImgList = $('.feedbackCon img')
             ,data       = [];
 
         $.each(imgList, function (i) {
