@@ -75,24 +75,38 @@ export default function main(_) {
 
             case "jinrishici":
             default: // 今日诗词
-                settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://v2.jinrishici.com/one.json",
-                    "method": "GET"
-                };
 
-                $.ajax(settings).done((response) => {
-                    if (response && response.status === "success") {
-                        hitokoto.html(response.data.content).css('display', '-webkit-box');
-                        $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
-                    } else {
-                        let listIndex = _.__tools.randomNum(0, topTitleList.length - 1);
-                        hitokoto.html(topTitleList[listIndex]).css('display', '-webkit-box');
-                    }
+                _.__tools.dynamicLoadingJs('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(r => {
+                    jinrishici.load(function(response) {
+                        if (response && response.status === "success") {
+                            hitokoto.html(response.data.content).css('display', '-webkit-box');
+                            $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
+                        } else {
+                            let listIndex = _.__tools.randomNum(0, topTitleList.length - 1);
+                            hitokoto.html(topTitleList[listIndex]).css('display', '-webkit-box');
+                        }
+                    });
                     _.__tools.setDomHomePosition();
-                    return false;
-                });
+                }).catch(e => console.error('jinrishici.js', e))
+
+                // settings = {
+                //     "async": true,
+                //     "crossDomain": true,
+                //     "url": "https://v2.jinrishici.com/one.json",
+                //     "method": "GET"
+                // };
+                //
+                // $.ajax(settings).done((response) => {
+                //     if (response && response.status === "success") {
+                //         hitokoto.html(response.data.content).css('display', '-webkit-box');
+                //         $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
+                //     } else {
+                //         let listIndex = _.__tools.randomNum(0, topTitleList.length - 1);
+                //         hitokoto.html(topTitleList[listIndex]).css('display', '-webkit-box');
+                //     }
+                //     _.__tools.setDomHomePosition();
+                //     return false;
+                // });
                 break;
         }
     })();

@@ -102,7 +102,7 @@ export default function main(_) {
     (() => {
         window.setInterval( () => {
             let runDate = _.__tools.getRunDate(_.__config.info.startDate ? _.__config.info.startDate : '2021-01-01');
-            $('#blogRunTimeSpan').text('This blog has running : '+runDate.daysold+' d '+runDate.hrsold+' h '+runDate.minsold+' m '+runDate.seconds+' s');
+            $('#blogRunTimeSpan').text('博客已运行 : '+runDate.daysold+' 天 '+runDate.hrsold+' 时 '+runDate.minsold+' 分 '+runDate.seconds+' 秒');
         }, 500 );
     })();
 
