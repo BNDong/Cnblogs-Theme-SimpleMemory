@@ -45,17 +45,21 @@
 
 ## Introduce
 
+基于博客园 SimpleMemory 主题的扩展美化插件
+
 🍡 开箱即用：简单配置即可成功使用 
 
 🍭 高灵活性：界面配置化，可自定义调整显示内容
 
 🍬 多端兼容：兼容 PC 端、平板和移动端
 
-[查看演示站](https://www.cnblogs.com/bndong/)
+## Online Demo
+
+[View Demo](https://www.cnblogs.com/bndong/)
 
 ## Document
 
-[查看文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2.1/dist/)
+[View Document](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2.1/dist/)
 
 ## Project Status
 
