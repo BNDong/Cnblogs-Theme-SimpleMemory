@@ -7,7 +7,7 @@ export default defineConfig({
   head: [
     [
       'link',
-      { rel: 'icon', href: '/images/icon.png' }
+      { rel: 'icon', href: '/Cnblogs-Theme-SimpleMemory/v2.1/dist/images/icon.png' }
     ]
   ],
   lastUpdated: true,
