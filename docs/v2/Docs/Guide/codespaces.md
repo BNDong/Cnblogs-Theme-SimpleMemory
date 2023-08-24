@@ -1,3 +1,9 @@
+# 调试开发
+
+fork 仓库后，你依然可以使用 jsDelivr 加载自己仓库的插件，支持针对某个 commits 进行加载。
+
+jsDelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。
+
 # 使用Codespaces调试开发
 
 ?> fork仓库后，如果没有云资源又想要调试代码，这时候可以尝试github推出的codespaces云IDE。

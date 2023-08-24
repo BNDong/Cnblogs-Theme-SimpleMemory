@@ -88,25 +88,6 @@ export default function main(_) {
                     });
                     _.__tools.setDomHomePosition();
                 }).catch(e => console.error('jinrishici.js', e))
-
-                // settings = {
-                //     "async": true,
-                //     "crossDomain": true,
-                //     "url": "https://v2.jinrishici.com/one.json",
-                //     "method": "GET"
-                // };
-                //
-                // $.ajax(settings).done((response) => {
-                //     if (response && response.status === "success") {
-                //         hitokoto.html(response.data.content).css('display', '-webkit-box');
-                //         $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
-                //     } else {
-                //         let listIndex = _.__tools.randomNum(0, topTitleList.length - 1);
-                //         hitokoto.html(topTitleList[listIndex]).css('display', '-webkit-box');
-                //     }
-                //     _.__tools.setDomHomePosition();
-                //     return false;
-                // });
                 break;
         }
     })();
