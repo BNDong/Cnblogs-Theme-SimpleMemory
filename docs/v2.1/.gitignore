@@ -1,0 +1,7 @@
+/node_modules
+/.idea
+/.vscode
+.DS_Store
+!/docs/.vitepress/theme/*
+/docs/.vitepress/cache/
+!/docs/.vitepress/config.mts

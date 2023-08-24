@@ -1,0 +1,39 @@
+:root {
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #8722f2 30%, rgba(190, 34, 242, 0.45));
+    --vp-home-hero-image-background-image: linear-gradient(-45deg, rgba(240, 76, 252, 0.38) 50%, rgba(32, 253, 182, 0.47) 50%);
+    --vp-home-hero-image-filter: blur(40px);
+
+    --vp-c-brand: #cb49ef;
+    --vp-c-brand-dark: #c500fc;
+
+    --vp-c-brand-light: #c500fc;
+    --vp-button-brand-hover-bg: #9600bf;
+}
+
+.image-src {
+    max-width: 300px !important;
+    max-height: 300px !important;
+}
+
+.custom-block.tip {
+    border-color: #4565d8;
+    color: #4565d8;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --vp-home-hero-image-filter: blur(56px);
+    }
+}
+
+@media (min-width: 960px) {
+    :root {
+        --vp-home-hero-image-filter: blur(72px);
+    }
+
+    .image-src {
+        max-width: 300px !important;
+        max-height: 300px !important;
+    }
+}
