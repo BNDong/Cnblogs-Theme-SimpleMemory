@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import zhConfig from './locales/zh.config.js'
 export default defineConfig({
-  base: '',
+  base: '/Cnblogs-Theme-SimpleMemory/v2.1/dist/',
   title: "SMemory",
   description: "Documents",
   head: [
