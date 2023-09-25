@@ -153,7 +153,7 @@ export default function main(_) {
    * 设置文章手绘效果
    */
   (() => {
-    if (!_.__config.RoughNotation.enable) return;
+    if (!_.__config.articleContent.RoughNotation.enable) return;
     const tokenMap = {
       "~bk": "<mbk>",
       "bk~": "</mbk>",
@@ -171,7 +171,7 @@ export default function main(_) {
       "x~": "</mco>",
     };
 
-    const { cdn, options } = _.__config.RoughNotation;
+    const { cdn, options } = _.__config.articleContent.RoughNotation;
 
     const annotateElements = () => {
       const { annotate, annotationGroup } = window.RoughNotation;
