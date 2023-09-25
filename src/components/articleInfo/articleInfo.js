@@ -155,20 +155,20 @@ export default function main(_) {
   (() => {
     if (!_.__config.articleContent.RoughNotation.enable) return;
     const tokenMap = {
-      "~bk": "<mbk>",
-      "bk~": "</mbk>",
-      "~b": "<mbox>",
-      "b~": "</mbox>",
-      "~c": "<mc>",
-      "c~": "</mc>",
-      "~u": "<mu>",
-      "u~": "</mu>",
-      "~h": "<mhl>",
-      "h~": "</mhl>",
-      "~s": "<mst>",
-      "s~": "</mst>",
-      "~x": "<mco>",
-      "x~": "</mco>",
+        "~bk": "<mbk>",
+        "bk~": "</mbk>",
+        "~b": "<mbox>",
+        "b~": "</mbox>",
+        "~c": "<mc>",
+        "c~": "</mc>",
+        "~u": "<mu>",
+        "u~": "</mu>",
+        "~h": "<mhl>",
+        "h~": "</mhl>",
+        "~s": "<mst>",
+        "s~": "</mst>",
+        "~x": "<mco>",
+        "x~": "</mco>",
     };
 
     const { cdn, options } = _.__config.articleContent.RoughNotation;
