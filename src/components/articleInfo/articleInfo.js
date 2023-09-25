@@ -153,7 +153,7 @@ export default function main(_) {
    * 设置文章手绘效果
    */
   (() => {
-    if (!_.__config.articleContent.RoughNotation.enable) return;
+    if (!_.__config.articleContent.roughNotation.enable) return;
     const tokenMap = {
         "~bk": "<mbk>",
         "bk~": "</mbk>",
@@ -171,8 +171,7 @@ export default function main(_) {
         "x~": "</mco>",
     };
 
-    const { cdn, options } = _.__config.articleContent.RoughNotation;
-
+    const { cdn, options } = _.__config.articleContent.roughNotation;
 
     const configMap = {
         mu: options.underline,
@@ -183,7 +182,6 @@ export default function main(_) {
         mst: options.strikeThrough,
         mco: options.crossedOff,
     };
-
 
     const annotateElements = () => {
         const { annotate } = window.RoughNotation;

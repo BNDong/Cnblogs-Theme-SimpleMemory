@@ -1337,6 +1337,59 @@ window.cnblogsConfig = {
 }
 ```
 
+### roughNotation - 手绘注释
+
+?> [rough-notation](https://github.com/rough-stuff/rough-notation)
+
+* 类型：`Object`
+* 默认值：
+
+```json5
+{
+    enable: false,
+    cdn: {
+        roughNotation: "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/rough-notation/0.5.1/rough-notation.iife.min.js",
+    },
+    options: {
+        underline: { type: "underline", color: "blue" },
+        circle: { type: "circle", color: "red" },
+        box: { type: "box", color: "orange" },
+        highlight: {
+            type: "highlight",
+            color: "yellow",
+            iterations: 1,
+            multiline: true,
+        },
+        bracket: {
+            type: "bracket",
+            color: "red",
+            padding: [2, 10],
+            brackets: ["left", "right"],
+            strokeWidth: 3,
+        },
+        strikeThrough: { type: "strike-through", color: "red" },
+        crossedOff: { type: "crossed-off", color: "red" },
+    },
+}
+```
+
+手绘风格的注释，用于标记文章的内容, 具体写法请查看[书写规范](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2.1/dist/guide/writtenForm.html)
+
+```javascript
+window.cnblogsConfig = {
+    articleContent: {
+        roughNotation: {
+            enable: false,
+            cdn: {
+                roughNotation: ''
+            },
+            options: {}
+        }
+    },
+}
+```
+
+
 ## articleSuffix - 文章后缀
 
 ### imgUrl - 左侧图片 <Badge type="tip" text="v2.0.1" />

@@ -300,7 +300,7 @@
         ],
       },
     },
-    RoughNotation: {
+    roughNotation: {
       enable: false,
       cdn: {
         roughNotation: "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/rough-notation/0.5.1/rough-notation.iife.min.js",
