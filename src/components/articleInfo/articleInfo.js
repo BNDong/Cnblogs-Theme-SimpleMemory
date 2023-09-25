@@ -173,36 +173,38 @@ export default function main(_) {
 
     const { cdn, options } = _.__config.articleContent.RoughNotation;
 
+
+    const configMap = {
+        mu: options.underline,
+        mc: options.circle,
+        mbox: options.box,
+        mhl: options.highlight,
+        mbk: options.bracket,
+        mst: options.strikeThrough,
+        mco: options.crossedOff,
+    };
+
+
     const annotateElements = () => {
-      const { annotate, annotationGroup } = window.RoughNotation;
-
-      const annotations = {
-        a1: annotate(document.querySelector("mu"), options.underline),
-        a2: annotate(document.querySelector("mc"), options.circle),
-        a3: annotate(document.querySelector("mbox"), options.box),
-        a4: annotate(document.querySelector("mhl"), options.highlight),
-        a5: annotate(document.querySelector("mbk"), options.bracket),
-        a6: annotate(document.querySelector("mst"), options.strikeThrough),
-        a7: annotate(document.querySelector("mco"), options.crossedOff),
-      };
-
-      const group = annotationGroup(Object.values(annotations));
-      group.show();
+        const { annotate } = window.RoughNotation;
+        Object.keys(configMap).forEach((selector) => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((el) => {
+                annotate(el, configMap[selector]).show();
+            });
+        });
     };
 
     const init = async () => {
-      await _.__tools.dynamicLoadingJs(cdn.roughNotation);
+        await _.__tools.dynamicLoadingJs(cdn.roughNotation);
 
-      $(".blogpost-body p").html((i, c) => {
-        return c.replace(
-          /~[a-z]{1,2}|[a-z]{1,2}~/g,
-          (match) => tokenMap[match]
-        );
-      });
+        $(".blogpost-body p").html((i, c) => {
+            return c.replace(/~[a-z]{1,2}|[a-z]{1,2}~/g, (match) => tokenMap[match]);
+        });
 
-      setTimeout(() => {
-        annotateElements();
-      }, 2000);
+        setTimeout(() => {
+            annotateElements();
+        }, 2000);
     };
 
     init();
