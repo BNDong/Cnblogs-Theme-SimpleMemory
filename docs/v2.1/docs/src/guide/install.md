@@ -73,6 +73,9 @@
 </script>
 <!-- 插件文件引入 -->
 <script src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@{VERSION}/dist/simpleMemory.js" defer></script>
+
+<!-- 也可以使用下面的地址进行加载，CDN 使用哪家，大家自己权衡 -->
+<!--<script src="https://jsd.cdn.zzko.cn/gh/BNDong/Cnblogs-Theme-SimpleMemory@{VERSION}/dist/simpleMemory.js" defer></script>-->
 ```
 
 **关于插件文件的说明**
