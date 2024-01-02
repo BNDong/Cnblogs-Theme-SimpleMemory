@@ -24,8 +24,7 @@ export default function main() {
             let t = temp;
             $.each(list, function (i) {
                 let par = list[i];
-                let re = new RegExp('##' + par[0] + '##',"g");
-                t = t.replace(re, par[1]);
+                t = t.replaceAll(`##${par[0]}##`, par[1]);
             });
             return t;
         },
