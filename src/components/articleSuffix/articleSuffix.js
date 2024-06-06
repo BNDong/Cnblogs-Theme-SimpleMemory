@@ -49,7 +49,7 @@ export default function main(_) {
     // 复制文本携带版本声明
     (() => {
         const config = _.__config.articleSuffix.copyInfo;
-        const { enable, length = 30, copyright = copyrightHtml } = config;
+        const { enable, length, copyright = copyrightHtml } = config;
 
         if (enable) {
             const separator = '———————————————————————————————————————————————';
