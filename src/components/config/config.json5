@@ -238,7 +238,7 @@
     }
   },
 
-  // -- 代码 --
+  // -- 代码高亮 --
   code: {
     type: '',  // hljs
     options: {
@@ -259,6 +259,11 @@
     aboutHtml: '',
     copyrightHtml: '',
     supportHtml: '',
+    copyInfo: {
+      enable: false,
+      length: 100,
+      copyright: '',
+    },
   },
 
   // -- 文章目录 --
