@@ -25,7 +25,7 @@ export default function main(_) {
     };
 
     // 评论框打字特效
-    if ($.__config.animate.typing.enable) {
+    if (_.__config.animate.typing.enable) {
         const POWERMODE = require('./commentTyping/commentTyping');
         POWERMODE.colorful = _.__config.animate.typing.options.colorful;
         POWERMODE.shake = _.__config.animate.typing.options.shake;
