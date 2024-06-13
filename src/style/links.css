@@ -1,6 +1,6 @@
 #links-box {
     display: grid;
-    grid-template-columns: repeat(3,30%);
+    grid-template-columns: repeat(3, 30%);
     grid-column-gap: 30px;
     grid-row-gap: 10px;
     margin: 5px;
@@ -31,8 +31,8 @@
     border-radius: 6px;
     background-color: #fff;
     margin: 10px 5px;
-    color: rgba(107,114,128,1);
-    cursor:pointer;
+    color: rgba(107, 114, 128, 1);
+    cursor: pointer;
     justify-self: center;
 }
 
@@ -64,7 +64,7 @@
 #links-box .links-item .links-info .links-info-text {
     font-style: oblique;
     font-size: 14px;
-    font-family: ZCOOL XiaoWei,serif;
+    font-family: ZCOOL XiaoWei, serif;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -88,19 +88,20 @@
     border-radius: 6px;
     --transform-rotate: 45deg;
     transform: rotate(45deg);
-    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 0 #0000,0 0 #0000,var(--tw-shadow);
+    animation: rotation 3s linear infinite;
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 #0000, 0 0 #0000, var(--tw-shadow);
 }
 
-#links-box .links-item:nth-child(3n+0) .links-icon {
-    background-color: rgba(52,211,153,1);
+#links-box .links-item:nth-child(3n + 0) .links-icon {
+    background-color: rgba(52, 211, 153, 1);
 }
 
-#links-box .links-item:nth-child(3n+1) .links-icon {
-    background-color: rgba(167,139,250,1);
+#links-box .links-item:nth-child(3n + 1) .links-icon {
+    background-color: rgba(167, 139, 250, 1);
 }
 
-#links-box .links-item:nth-child(3n+2) .links-icon {
+#links-box .links-item:nth-child(3n + 2) .links-icon {
     background-color: #f87171;
 }
 
@@ -123,4 +124,13 @@
     top: 4px;
     left: 3px;
     font-size: 14px;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
