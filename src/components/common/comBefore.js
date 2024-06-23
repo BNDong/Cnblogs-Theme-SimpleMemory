@@ -5,21 +5,26 @@
  * ----------------------------------------------
  * @describe: 前置公共处理
  */
-import loading from "../loading/loading";
-import sidebar from "../sidebar/sidebar";
-import banner from "../banner/banner";
-import event from "../event/event";
-import "../../images/webp/rss.webp";
-import "../../style/asset.css";
-import "../../vendor/rotate/jquery.rotate.min"
+import loading from '../loading/loading';
+import sidebar from '../sidebar/sidebar';
+import banner from '../banner/banner';
+import event from '../event/event';
+import '../../images/webp/rss.webp';
+import '../../style/asset.css';
+import '../../vendor/rotate/jquery.rotate.min';
 
 export default function main(_) {
-
     // 默认字体图标库
     import(/* webpackChunkName: "fonticon" */ '../../style/fonticon.css');
 
     // 谷歌字体
     import(/* webpackChunkName: "google-fonts" */ '../../style/google-fonts.css');
+
+    /**
+     * 国家公祭日和自定义缅怀的日期
+     */
+    const today = _.__tools.getFormattedDate();
+    if (today == '12-13' || _.__config.memorialDays.includes(today)) $('html').css('filter', 'grayscale(100%)');
 
     let loadingObj = loading(_);
 

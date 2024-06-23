@@ -8,12 +8,11 @@
 
 export default function main() {
     return {
-
         /**
          * 模版替换
          */
         tempReplacement: (temp, par, str) => {
-            let re = new RegExp('##' + par + '##',"g");
+            let re = new RegExp('##' + par + '##', 'g');
             return temp.replace(re, str);
         },
 
@@ -33,9 +32,15 @@ export default function main() {
          * 加载CSS文件
          */
         dynamicLoadingCss: (path) => {
-            if (!path || path.length === 0) { throw new Error('argument "path" is required !'); }
-            let head = document.getElementsByTagName('head')[0], link = document.createElement('link');
-            link.href = path; link.rel = 'stylesheet'; link.type = 'text/css'; head.appendChild(link);
+            if (!path || path.length === 0) {
+                throw new Error('argument "path" is required !');
+            }
+            let head = document.getElementsByTagName('head')[0],
+                link = document.createElement('link');
+            link.href = path;
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            head.appendChild(link);
         },
 
         /**
@@ -49,21 +54,21 @@ export default function main() {
                     cache: true,
                     url,
                     success: function (data) {
-                        resolve(data)
+                        resolve(data);
                     },
                     error: function (err) {
-                        reject(err)
+                        reject(err);
                     },
-                })
-            })
+                });
+            });
         },
 
         /**
          * 过滤HTML中JavaScript代码
          */
         htmlFiltrationScript: (str) => {
-            let subStr = new RegExp('\<script.*\<\/script\>', 'ig');
-            return str.replace(subStr,"");
+            let subStr = new RegExp('<script.*</script>', 'ig');
+            return str.replace(subStr, '');
         },
 
         /**
@@ -77,29 +82,29 @@ export default function main() {
          * 滚动主体滚动条到指定位置
          */
         actScroll: (endScroll, time) => {
-            $('html,body').stop().animate({scrollTop: endScroll}, time);
+            $('html,body').stop().animate({ scrollTop: endScroll }, time);
         },
 
         /**
          * 获取页面滚动百分比
          */
         getScrollPercent: () => {
-            let scrollTo      = $(window).scrollTop(),
-                docHeight     = $(document).height(),
-                windowHeight  = $(window).height(),
-                scrollPercent = (scrollTo / (docHeight-windowHeight)) * 100;
+            let scrollTo = $(window).scrollTop(),
+                docHeight = $(document).height(),
+                windowHeight = $(window).height(),
+                scrollPercent = (scrollTo / (docHeight - windowHeight)) * 100;
             return scrollPercent.toFixed(0);
         },
 
         /**
          * 随机数
          */
-        randomNum: function(minNum, maxNum) {
-            switch(arguments.length){
+        randomNum: function (minNum, maxNum) {
+            switch (arguments.length) {
                 case 1:
-                    return parseInt(Math.random()*minNum+1);
+                    return parseInt(Math.random() * minNum + 1);
                 case 2:
-                    return parseInt(Math.random()*(maxNum-minNum+1)+minNum);
+                    return parseInt(Math.random() * (maxNum - minNum + 1) + minNum);
                 default:
                     return 0;
             }
@@ -118,15 +123,15 @@ export default function main() {
          */
         getNowFormatDate: () => {
             let date = new Date();
-            let seperator1 = "-";
+            let seperator1 = '-';
             let year = date.getFullYear();
             let month = date.getMonth() + 1;
             let strDate = date.getDate();
             if (month >= 1 && month <= 9) {
-                month = "0" + month;
+                month = '0' + month;
             }
             if (strDate >= 0 && strDate <= 9) {
-                strDate = "0" + strDate;
+                strDate = '0' + strDate;
             }
             return year + seperator1 + month + seperator1 + strDate;
         },
@@ -136,7 +141,7 @@ export default function main() {
          * @param dateString 年-月-日
          */
         getRunDate: (dateString) => {
-            dateString = (dateString).toString().split('-');
+            dateString = dateString.toString().split('-');
             let date = new Date();
             date.setUTCFullYear(dateString[0], dateString[1] - 1, dateString[2]);
             date.setUTCHours(0, 0, 0, 0);
@@ -157,7 +162,7 @@ export default function main() {
                 daysold: daysold,
                 hrsold: hrsold,
                 minsold: minsold,
-                seconds: seconds
+                seconds: seconds,
             };
         },
 
@@ -170,7 +175,7 @@ export default function main() {
         setCookie: (key, value, expires) => {
             let exp = new Date();
             exp.setTime(exp.getTime() + expires * 1000);
-            document.cookie = key + "=" + escape (value) + "; expires=" + exp.toGMTString() + "; path=/";
+            document.cookie = key + '=' + escape(value) + '; expires=' + exp.toGMTString() + '; path=/';
         },
 
         /**
@@ -179,7 +184,8 @@ export default function main() {
          * @returns {string|null}
          */
         getCookie: (key) => {
-            let arr, reg = new RegExp("(^| )"+key+"=([^;]*)(;|$)");
+            let arr,
+                reg = new RegExp('(^| )' + key + '=([^;]*)(;|$)');
             arr = document.cookie.match(reg);
             if (arr) return unescape(arr[2]);
             else return null;
@@ -190,7 +196,9 @@ export default function main() {
          */
         randomString: (len) => {
             len = len || 32;
-            let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length, pwd = '';
+            let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678',
+                maxPos = $chars.length,
+                pwd = '';
             for (let i = 0; i < len; i++) {
                 pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
             }
@@ -202,7 +210,7 @@ export default function main() {
          */
         minToTime: (min) => {
             let minTime = parseInt(min);
-            let second =  parseInt((min - minTime) * 60);
+            let second = parseInt((min - minTime) * 60);
             second = ('' + second).length === 1 ? '0' + second : second;
             return `${minTime}:${second}`;
         },
@@ -215,7 +223,7 @@ export default function main() {
          * @param {string} replacement 替换内容
          */
         htmlReplace: (id, reg, replacement) => {
-            $(id).html($(id).html().replace(reg, replacement))
+            $(id).html($(id).html().replace(reg, replacement));
         },
 
         /**
@@ -224,14 +232,29 @@ export default function main() {
          * @param type {number} 1为分类 2为标签
          */
         articleInfo: (obj, type) => {
-            let iconfont = type === 1 ? 'simple-memory-icon-marketing_fill' : 'simple-memory-icon-label-fill'
-            let style = type === 1 ? 'article-tag-class-color' : 'article-tag-color'
-            $.each(obj, i => {
-                let tag = $(obj[i])
-                tag.prepend(`<span class="simple-memory-iconfont simple-memory-${iconfont} iconfont ${iconfont}"></span>`)
-                $('#articleInfo').append(`<a href=" ${tag.attr('href')}" target="_blank"><span class="article-info-tag ${style}"> ${ tag.text()}</span></a>`)
-            })
-        }
-
+            let iconfont = type === 1 ? 'simple-memory-icon-marketing_fill' : 'simple-memory-icon-label-fill';
+            let style = type === 1 ? 'article-tag-class-color' : 'article-tag-color';
+            $.each(obj, (i) => {
+                let tag = $(obj[i]);
+                tag.prepend(
+                    `<span class="simple-memory-iconfont simple-memory-${iconfont} iconfont ${iconfont}"></span>`
+                );
+                $('#articleInfo').append(
+                    `<a href=" ${tag.attr(
+                        'href'
+                    )}" target="_blank"><span class="article-info-tag ${style}"> ${tag.text()}</span></a>`
+                );
+            });
+        },
+        /**
+         * 获取当前的日期并以月-日返回
+         * @returns string
+         */
+        getFormattedDate: () => {
+            const now = new Date();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+            return ('0' + month).slice(-2) + '-' + ('0' + day).slice(-2);
+        },
     };
 }
