@@ -81,8 +81,6 @@
     }
   },
 
-  memorialDays
-
   // -- fontIcon --
   fontIconExtend: '',
 
