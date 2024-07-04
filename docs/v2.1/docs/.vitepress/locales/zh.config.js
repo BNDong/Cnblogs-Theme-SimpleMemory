@@ -163,7 +163,7 @@ export default {
       },
     },
     footer: {
-      copyright: " ☘️ SimpleMemory © 2018-2023",
+      copyright: " ☘️ SimpleMemory © 2018-2024",
     },
   },
 };

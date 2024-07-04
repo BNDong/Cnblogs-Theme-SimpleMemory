@@ -8,11 +8,10 @@
 import defaultAvatarImg from './../../images/webp/default_avatar.webp';
 
 export default function main(_) {
-
     let avatarAnimate = () => {
         // 头像动效
         if (_.__config.animate.avatar.enable) {
-            let authorAvatar   = $('.author_avatar');
+            let authorAvatar = $('.author_avatar');
             let feedbackAvatar = $('.feedbackAvatar img');
 
             if (!authorAvatar.hasClass('img-rounded')) {
@@ -23,6 +22,14 @@ export default function main(_) {
                 feedbackAvatar.addClass('img-rounded').css('border-radius', '50%');
             }
         }
+    };
+
+    // 评论框打字特效
+    if (_.__config.animate.typing.enable) {
+        const POWERMODE = require('./commentTyping/commentTyping');
+        POWERMODE.colorful = _.__config.animate.typing.options.colorful;
+        POWERMODE.shake = _.__config.animate.typing.options.shake;
+        document.body.addEventListener('input', POWERMODE);
     }
 
     let setComment = () => {
@@ -42,12 +49,18 @@ export default function main(_) {
 
                     if ($.isArray(idTmp)) id = idTmp.join('');
 
-                    let op = $('#comment_' + id + '_avatar'), patch  = op.length > 0 ? $.trim(op.text())
-                        : defaultAvatarImg;
+                    let op = $('#comment_' + id + '_avatar'),
+                        patch = op.length > 0 ? $.trim(op.text()) : defaultAvatarImg;
 
-                    let ac = $('#a_comment_author_' + id), ah = ac.length ? ac.attr('href') : 'javascropt:void(0);';
+                    let ac = $('#a_comment_author_' + id),
+                        ah = ac.length ? ac.attr('href') : 'javascropt:void(0);';
 
-                    avatarHtml = '<div class="feedbackAvatar"><a href="' + ah + '" target="_blank"><img src="'+patch+'"/></a></div>';
+                    avatarHtml =
+                        '<div class="feedbackAvatar"><a href="' +
+                        ah +
+                        '" target="_blank"><img src="' +
+                        patch +
+                        '"/></a></div>';
                     obj.prepend(avatarHtml);
                 }
 
@@ -60,24 +73,22 @@ export default function main(_) {
 
             avatarAnimate();
         }
-    }
-
+    };
 
     let addComment = () => {
-        let userBlogAddress = $(".comment_my_posted a").attr('href'),
-            userName = $(".comment_my_posted a").text(),
-            commentInfo = $(".bq_post_comment").text();
+        let userBlogAddress = $('.comment_my_posted a').attr('href'),
+            userName = $('.comment_my_posted a').text(),
+            commentInfo = $('.bq_post_comment').text();
 
-
-       let comment =  `<div class="feedbackItem" style="padding-bottom: 0px;">
+        let comment = `<div class="feedbackItem" style="padding-bottom: 0px;">
                         <div class="feedbackAvatar">
                             <a href="${userBlogAddress}" target="_blank">
                                 <img src="${defaultAvatarImg}">
                             </a>
                         </div>
-                        <div class="feedbackListSubtitle ${ window.isBlogOwner && 'feedbackListSubtitle-louzhu'}">
-                            ${ window.isBlogOwner && `[<span class="louzhu">楼主</span>]`}
-                            <span class="comment_date">${(new Date).toLocaleString().replace(/\//g,'-')}</span>
+                        <div class="feedbackListSubtitle ${window.isBlogOwner && 'feedbackListSubtitle-louzhu'}">
+                            ${window.isBlogOwner && `[<span class="louzhu">楼主</span>]`}
+                            <span class="comment_date">${new Date().toLocaleString().replace(/\//g, '-')}</span>
                             <a id="a_comment_author_5168811" href="${userBlogAddress}" target="_blank">${userName}</a>
                         </div>
                         <div class="feedbackCon">
@@ -85,15 +96,15 @@ export default function main(_) {
                                 <p>${commentInfo}</p>
                             </div>
                         </div>
-                    </div>`
+                    </div>`;
 
-        $("#blog-comments-placeholder").append(comment)
-        $(".comment_my_posted").remove();
+        $('#blog-comments-placeholder').append(comment);
+        $('.comment_my_posted').remove();
 
         avatarAnimate();
-    }
+    };
 
-    _.__timeIds.commentTId = window.setInterval(() =>{
+    _.__timeIds.commentTId = window.setInterval(() => {
         if ($('.feedbackItem').length > 0) {
             setComment();
             _.__tools.clearIntervalTimeId(_.__timeIds.commentTId);
@@ -103,21 +114,20 @@ export default function main(_) {
     $(document).ajaxSuccess(function (event, xhr, settings) {
         // 评论重新排序
         if (settings.url.includes('GetComments.aspx')) {
-             _.__tools.clearIntervalTimeId(_.__timeIds.commentTId);
-            setComment()
+            _.__tools.clearIntervalTimeId(_.__timeIds.commentTId);
+            setComment();
         }
 
         // 新增评论
-        if (settings.url.includes('PostComment/Add.aspx')) addComment()
+        if (settings.url.includes('PostComment/Add.aspx')) addComment();
 
         // 删除评论
         if (settings.url.includes('comment/DeleteComment.aspx')) {
             let commentId = JSON.parse(settings?.data)?.commentId;
-            $(`#comment_body_${commentId}`).parent().parent().remove()
-            $(".feedbackItem:last").css("padding-bottom", "0")
+            $(`#comment_body_${commentId}`).parent().parent().remove();
+            $('.feedbackItem:last').css('padding-bottom', '0');
         }
 
         avatarAnimate();
     });
-
 }

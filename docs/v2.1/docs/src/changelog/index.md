@@ -1,5 +1,10 @@
 # 更新历史
 
+## 2024.07.04 - v2.1.5
+* 文章页复制内容携带版权信息 [(#429)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/429)
+* 文章页评论框打字动效 [(#431)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/431)
+* 友链页增加配置 [(#435)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/435)
+
 ## 2024.01.02 - v2.1.4
 * 修改了博客运行时间的文字描述
 * 调整了“今日诗词”获取的方式

@@ -1037,7 +1037,7 @@ window.cnblogsConfig = {
 ```
 
 ::: tip 提示
-img 建议使用 base64 转码后的图片，素材建议到 [花瓣网](https://huaban.com/follow) 寻找透明背景素材
+img 建议使用 base64 转码后的图片，素材建议透明背景素材
 :::
 
 ```javascript
@@ -1065,6 +1065,31 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
     animate: {
         avatar: {
+            enable: false
+        },
+    },
+}
+```
+
+### typing - 评论框打字动效 <Badge type="tip" text="v2.1.5" /> [(#431)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/431)
+
+-   类型：`Object`
+-   默认值：
+
+```json5
+{
+    enable: false, // 是否开启
+    options: {
+        colorful: true,  // 是否多彩
+        shake: false, // 是否震动
+    }
+}
+```
+
+```javascript
+window.cnblogsConfig = {
+    animate: {
+        typing: {
             enable: false
         },
     },
@@ -1396,6 +1421,33 @@ window.cnblogsConfig = {
     articleSuffix: {
         supportHtml: "声援...",
     },
+}
+```
+
+### copyInfo - 文章复制携带版权信息 <Badge type="tip" text="v2.1.5" /> [(#429)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/429)
+
+* 类型：`Object`
+* 默认值：
+
+```json5
+{
+    enable: false, // 是否开启
+    length: 100, // 当文章页面上选中多少文字后开始生效
+    copyright: '', //  复制携带版权信息，默认为 copyrightHtml
+}
+```
+
+文章页上，鼠标选中文字进行复制携带版权信息。
+
+```javascript
+window.cnblogsConfig = {
+    articleSuffix: {
+        copyInfo: {
+            enable: true,
+            length: 100,
+            copyright: '',
+        }
+    }
 }
 ```
 

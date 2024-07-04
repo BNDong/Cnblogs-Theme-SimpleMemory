@@ -29,32 +29,50 @@
 友链的配置，可以参考其他[配置](/reference/configs)的方式。例如：
 
 ```javascript
-window.cnblogsConfig = {
+window.cnblogsConfig = [
   links: {
     page: [
       {
-        name: 'BNDong', // 昵称
-        introduction: 'IT技术类博客', // 简介
-        avatar: 'https://blog.dbnuo.com/images/avatar.gif', // 头像
-        url: 'https://blog.dbnuo.com' // 友链地址
-      },
-    ],
-  },
-}
+        "title": "友情链接", // 标题
+        "icon": "icon-weibiaoti22", // 标题图标
+        "style": "color: #a78bfa;", // 标题样式
+        "links": [
+          {
+            name: 'BNDong', // 昵称
+            introduction: 'IT技术类博客', // 简介
+            avatar: 'https://blog.dbnuo.com/images/avatar.gif', // 头像
+            url: 'https://blog.dbnuo.com' // 友链地址
+          }
+        ]
+      }
+    ]
+  }
+];
 ```
 
 此配置可以单独出来。例如：
 
 ```javascript
 
-    //  正常配置
-    window.cnblogsConfig = {
-      links: {},
-    };
+//  正常配置
+window.cnblogsConfig = {
+  links: {},
+};
 
-    // 友链配置
-    window.cnblogsConfig.links.page = [
+// 友链页配置
+window.cnblogsConfig.links.page = [
+  {
+    "title": "友情链接",
+    "icon": "icon-weibiaoti22",
+    "style": "color: #a78bfa;",
+    "links": [
       {
+        name: 'BNDong',
+        introduction: 'IT技术类博客',
+        avatar: 'https://blog.dbnuo.com/images/avatar.gif',
+        url: 'https://blog.dbnuo.com'
+      },
+            {
         name: 'BNDong',
         introduction: 'IT技术类博客',
         avatar: 'https://blog.dbnuo.com/images/avatar.gif',
@@ -65,51 +83,21 @@ window.cnblogsConfig = {
         introduction: 'IT技术类博客',
         avatar: 'https://blog.dbnuo.com/images/avatar.gif',
         url: 'https://blog.dbnuo.com'
-      },
-      {
-        name: 'BNDong',
-        introduction: 'IT技术类博客',
-        avatar: 'https://blog.dbnuo.com/images/avatar.gif',
-        url: 'https://blog.dbnuo.com'
-      },
-      {
-        name: 'BNDong',
-        introduction: 'IT技术类博客',
-        avatar: 'https://blog.dbnuo.com/images/avatar.gif',
-        url: 'https://blog.dbnuo.com'
-      },
-      {
-        name: 'BNDong',
-        introduction: 'IT技术类博客',
-        avatar: 'https://blog.dbnuo.com/images/avatar.gif',
-        url: 'https://blog.dbnuo.com'
-      },
-      {
-        name: 'BNDong',
-        introduction: 'IT技术类博客',
-        avatar: 'https://blog.dbnuo.com/images/avatar.gif',
-        url: 'https://blog.dbnuo.com'
-      },
-      {
-        name: 'BNDong',
-        introduction: 'IT技术类博客',
-        avatar: 'https://blog.dbnuo.com/images/avatar.gif',
-        url: 'https://blog.dbnuo.com'
-      },
-      {
-        name: 'BNDong',
-        introduction: 'IT技术类博客',
-        avatar: 'https://blog.dbnuo.com/images/avatar.gif',
-        url: 'https://blog.dbnuo.com'
-      },
-    ];
+      }
+    ]
+  }
+];
 ```
 
 请按照此格式配置。
 
-|     **Key**      | **Description** |
-| :--------------: | :-------------: |
-|     **name**     |      昵称       |
-| **introduction** |      简介       |
-|    **avatar**    |      头像       |
-|     **url**      |    友链地址     |
+| **Key**                          | **Description** |
+| :------------------------------- | :-------------- |
+| **title**                        | 友链标题        |
+| **icon**                         | 标题图标        |
+| **style**                        | 标题扩展样式    |
+| **links**                        | 标题下友链配置  |
+| **links[<i>n</i>].name**         | 昵称            |
+| **links[<i>n</i>].introduction** | 简介            |
+| **links[<i>n</i>].avatar**       | 头像            |
+| **links[<i>n</i>].url**          | 友链地址        |
