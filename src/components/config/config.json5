@@ -260,20 +260,40 @@
         },
     },
 
-    // -- 文章后缀 --
-    articleSuffix: {
-        imgUrl: '',
-        aboutHtml: '',
-        copyrightHtml: '',
-        supportHtml: '',
+  // -- 代码高亮 --
+  code: {
+    type: '',  // hljs
+    options: {
+      hljs: {
+        theme: 'atom-one-dark-reasonable',
+        languages: []
+      },
+      maxHeight: '',
+      fontSize: 14,
+      line: false,
+      macStyle: true,
     },
+  },
 
-    // -- 文章目录 --
-    articleDirectory: {
-        position: 'right',
-        minBodyWeight: 900,
-        autoWidthScroll: false,
+  // -- 文章后缀 --
+  articleSuffix: {
+    imgUrl: '',
+    aboutHtml: '',
+    copyrightHtml: '',
+    supportHtml: '',
+    copyInfo: {
+      enable: false,
+      length: 100,
+      copyright: '',
     },
+  },
+
+  // -- 文章目录 --
+  articleDirectory: {
+    position: 'right',
+    minBodyWeight: 900,
+    autoWidthScroll: false
+  },
 
     // -- 文章评论 --
     articleComment: {

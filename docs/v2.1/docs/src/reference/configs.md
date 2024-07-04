@@ -1399,6 +1399,33 @@ window.cnblogsConfig = {
 }
 ```
 
+### copyInfo - 文章复制携带版权信息 <Badge type="tip" text="v2.1.5" /> [(#429)](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/pull/429)
+
+* 类型：`Object`
+* 默认值：
+
+```json5
+{
+    enable: false, // 是否开启
+    length: 100, // 当文章页面上选中多少文字后开始生效
+    copyright: '', //  复制携带版权信息，默认为 copyrightHtml
+}
+```
+
+文章页上，鼠标选中文字进行复制携带版权信息。
+
+```javascript
+window.cnblogsConfig = {
+    articleSuffix: {
+        copyInfo: {
+            enable: true,
+            length: 100,
+            copyright: '',
+        }
+    }
+}
+```
+
 ## consoleList - 控制台输出
 
 * 类型：`Array`
