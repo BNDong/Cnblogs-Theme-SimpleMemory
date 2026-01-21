@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "gsap": "^3.11.5",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "browserslist": {
     "development": [
