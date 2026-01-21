@@ -79,12 +79,23 @@ export default function main(_) {
         postBody.append(dirHtml);
 
         // 锚点监听
-        body.attr('data-bs-spy', 'scroll');
-        body.attr('data-bs-target', '#articleDirectory');
-        body.attr('data-bs-offset', '0');
-        body.attr('tabindex', '0');
-        body.scrollspy({ target: '#articleDirectory' });
+        // body.attr('data-bs-spy', 'scroll');
+        // body.attr('data-bs-target', '#articleDirectory');
+        // body.attr('data-bs-offset', '0');
+        // body.attr('tabindex', '0');
+        // body.scrollspy({ target: '#articleDirectory' });
 
+        // 锚点监听
+        setTimeout(() => {
+            const scrollSpy = new bootstrap.ScrollSpy(
+                document.documentElement,
+                {
+                    target: '#articleDirectory',
+                    offset: 80
+                }
+            );
+            scrollSpy.refresh();
+        }, 0);
 
         // 判断是否显示横向滚动条
         if (!_.__config.articleDirectory.autoWidthScroll) {
