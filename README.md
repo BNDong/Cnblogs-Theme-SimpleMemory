@@ -78,10 +78,10 @@ npm run build
     <img width="64" height="64" src="https://avatars.githubusercontent.com/u/36377605?v=4" alt="wangyang0210">
 </a>
 
-[![Star History Chart](https://api.star-history.com/chart?repos=bndong/cnblogs-theme-simplememory&type=date&legend=top-left)](https://www.star-history.com/?repos=bndong%2Fcnblogs-theme-simplememory&type=date&legend=top-left)
-
 ## Author
 
 **Cnblogs-Theme-SimpleMemory** © [BNDong](https://github.com/BNDong), Released under the [MIT](./LICENSE) License.<br>
 
 > Blog [@Blog](https://www.cnblogs.com/bndong/) · GitHub [@GitHub](https://github.com/BNDong) · Email dbnuo@foxmail.com
+
+[![Star History Chart](https://api.star-history.com/chart?repos=bndong/cnblogs-theme-simplememory&type=date&legend=top-left)](https://www.star-history.com/?repos=bndong%2Fcnblogs-theme-simplememory&type=date&legend=top-left)
