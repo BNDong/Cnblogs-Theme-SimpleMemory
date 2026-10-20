@@ -19,14 +19,14 @@ export default function main(words, id, conId, colors, isCycle, callback) {
     let waiting = false;
     let target = document.getElementById(id);
 
-    con.innerHTML = '_';
+    con.textContent = '_';
     target.setAttribute('style', 'color:' + colors[0]);
 
     let conTId = window.setInterval(function () {
 
         if (letterCount === 0 && waiting === false) {
             waiting = true;
-            target.innerHTML = words[0].substring(0, letterCount);
+            target.textContent = words[0].substring(0, letterCount);
 
             window.setTimeout(function () {
                 let usedColor = colors.shift();
@@ -47,7 +47,7 @@ export default function main(words, id, conId, colors, isCycle, callback) {
               waiting = false;
             }, 1000);
         } else if (waiting === false) {
-            target.innerHTML = words[0].substring(0, letterCount);
+            target.textContent = words[0].substring(0, letterCount);
             letterCount += x;
             
             // 在非循环模式下，当完整显示字符串后停止

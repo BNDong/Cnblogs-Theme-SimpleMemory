@@ -7,6 +7,7 @@
  */
 import postMeta from '../postMeta/postMeta';
 import { getPostReadMore, getPostTitles, getEntryTitles, getPostDescriptions } from '../../platform/cnblogs/dom';
+import { escapeHtml } from '../../utils/html';
 
 /**
  * 设置主页文章信息样式
@@ -33,10 +34,10 @@ export function setPostMeta() {
     function postMetaHtml(postDescText) {
         const { date, vnum, cnum, tnum } = postMeta(postDescText);
         return `<span class="postMeta">
-                <i class="simple-memory-iconfont simple-memory-icon-time1"></i>发表于 ${date}
-                <i class="simple-memory-iconfont simple-memory-icon-browse"></i>阅读：${vnum}
-                <i class="simple-memory-iconfont simple-memory-icon-interactive"></i>评论：${cnum}
-                <i class="simple-memory-iconfont simple-memory-icon-hot"></i>推荐：${tnum}
+                <i class="simple-memory-iconfont simple-memory-icon-time1"></i>发表于 ${escapeHtml(date)}
+                <i class="simple-memory-iconfont simple-memory-icon-browse"></i>阅读：${escapeHtml(vnum)}
+                <i class="simple-memory-iconfont simple-memory-icon-interactive"></i>评论：${escapeHtml(cnum)}
+                <i class="simple-memory-iconfont simple-memory-icon-hot"></i>推荐：${escapeHtml(tnum)}
             </span>`;
     }
 }

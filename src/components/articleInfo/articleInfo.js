@@ -9,6 +9,7 @@ import { getArticleNode, getArticleSelector } from '../../platform/cnblogs/artic
 import resources from '../../core/resources';
 import postMeta from "../../components/postMeta/postMeta";
 import consoleText from "../../vendor/consoleText/consoleText";
+import { escapeHtml } from '../../utils/html';
 
 export default function main(_) {
 
@@ -45,10 +46,10 @@ export default function main(_) {
             let textNum = getArticleNode('body').text().length;
 
             return `<span class="postMeta">
-            <i class="simple-memory-iconfont simple-memory-icon-time1"></i>${date}
-            <i class="simple-memory-iconfont simple-memory-icon-browse"></i>${vnum}
-            <i class="simple-memory-iconfont simple-memory-icon-interactive"></i>${cnum}
-            <i class="simple-memory-iconfont simple-memory-icon-hot"></i>${tnum}<br>
+            <i class="simple-memory-iconfont simple-memory-icon-time1"></i>${escapeHtml(date)}
+            <i class="simple-memory-iconfont simple-memory-icon-browse"></i>${escapeHtml(vnum)}
+            <i class="simple-memory-iconfont simple-memory-icon-interactive"></i>${escapeHtml(cnum)}
+            <i class="simple-memory-iconfont simple-memory-icon-hot"></i>${escapeHtml(tnum)}<br>
             <i class="simple-memory-iconfont simple-memory-icon-wenzi4"></i>${textNum}
             <i class="simple-memory-iconfont simple-memory-icon-shangwutubiao-"></i>${_.__tools.minToTime(textNum / 500)} ~ ${_.__tools.minToTime(textNum / 300)}</span>`;
         }

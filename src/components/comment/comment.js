@@ -7,6 +7,7 @@
  */
 import { getCommentNode, findCommentNode, isCommentRequest } from '../../platform/cnblogs/comment';
 import resources from '../../core/resources';
+import { escapeHtml } from '../../utils/html';
 import defaultAvatarImg from './../../images/webp/default_avatar.webp';
 
 export default function main(_) {
@@ -84,18 +85,18 @@ export default function main(_) {
 
         let comment = `<div class="feedbackItem" style="padding-bottom: 0px;">
                         <div class="feedbackAvatar">
-                            <a href="${userBlogAddress}" target="_blank">
+                            <a href="${escapeHtml(userBlogAddress)}" target="_blank">
                                 <img src="${defaultAvatarImg}">
                             </a>
                         </div>
                         <div class="feedbackListSubtitle ${window.isBlogOwner && 'feedbackListSubtitle-louzhu'}">
                             ${window.isBlogOwner && `[<span class="louzhu">楼主</span>]`}
                             <span class="comment_date">${new Date().toLocaleString().replace(/\//g, '-')}</span>
-                            <a id="a_comment_author_5168811" href="${userBlogAddress}" target="_blank">${userName}</a>
+                            <a id="a_comment_author_5168811" href="${escapeHtml(userBlogAddress)}" target="_blank">${escapeHtml(userName)}</a>
                         </div>
                         <div class="feedbackCon">
                             <div id="comment_body_5168811" data-format-type="Markdown" class="blog_comment_body cnblogs-markdown">
-                                <p>${commentInfo}</p>
+                                <p>${escapeHtml(commentInfo)}</p>
                             </div>
                         </div>
                     </div>`;

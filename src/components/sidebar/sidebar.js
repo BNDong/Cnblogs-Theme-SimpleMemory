@@ -7,6 +7,7 @@
  */
 import { getSidebarNode } from '../../platform/cnblogs/sidebar';
 import resources from '../../core/resources';
+import { escapeHtml } from '../../utils/html';
 import sidebarTemp from '../../template/sidebar.html';
 import navTemp from '../../template/sidebarNav.html';
 import '../../style/menu_bubble.css';
@@ -218,15 +219,15 @@ export default function main(_) {
                             textArr = $.trim(p.text()).split('.');
                         if (ret.test(textArr[0])) textArr.splice(0,1);
                         let text = $.trim(textArr.join('.'));
-                        o.length > 0 && o.html(text);
-                        html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + text + "</a>")
+                        o.length > 0 && o.text(text);
+                        html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + escapeHtml(text) + "</a>")
 
                             + '<div class="sb-recent_comment_body">'
-                            + $(body[i]).text()
+                            + escapeHtml($(body[i]).text())
                             + '</div>'
 
                             + '<div class="sb-recent_comment_author">'
-                            + $(author[i]).text()
+                            + escapeHtml($(author[i]).text())
                             + '</div></li>';
                     });
                 }
@@ -301,8 +302,8 @@ export default function main(_) {
                     textArr = $.trim(p.text()).split('.');
                 if (ret.test(textArr[0])) textArr.splice(0,1);
                 let text = $.trim(textArr.join('.'));
-                o.length > 0 && o.html(text);
-                html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : '<a href="javascript:void(0);">' + text + '</a>' ) + '</li>';
+                o.length > 0 && o.text(text);
+                html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : '<a href="javascript:void(0);">' + escapeHtml(text) + '</a>' ) + '</li>';
             });
             html += '</ul>';
             return html;

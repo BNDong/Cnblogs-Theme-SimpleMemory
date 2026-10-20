@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const terserPlugin = require("terser-webpack-plugin");
-const fileManagerPlugin = require('filemanager-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const miniCssExtractPlugin = require("mini-css-extract-plugin");
 const cssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -34,15 +33,19 @@ module.exports = {
         charset: true
     },
     plugins: [
-        new fileManagerPlugin({
-            events: {
-                onEnd: {
-                    copy: [
-                        { source: './dist/simpleMemory.js', destination: './dist/simpleMemory.' + randomString(8) + '.js' },
-                    ],
-                }
+        {
+            apply(compiler) {
+                compiler.hooks.thisCompilation.tap('EntryAliasPlugin', compilation => {
+                    compilation.hooks.processAssets.tap({
+                        name: 'EntryAliasPlugin',
+                        stage: webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
+                    }, () => {
+                        const entry = compilation.getAsset('simpleMemory.js');
+                        compilation.emitAsset('simpleMemory.' + randomString(8) + '.js', entry.source, entry.info);
+                    });
+                });
             }
-        }),
+        },
         new miniCssExtractPlugin({
             filename: 'style/[name].[contenthash:8].css',
             chunkFilename:'style/[name].[contenthash:8].css',

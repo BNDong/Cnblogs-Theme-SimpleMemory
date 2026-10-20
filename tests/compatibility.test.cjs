@@ -8,11 +8,13 @@ const path = require('node:path');
 const vm = require('node:vm');
 const test = require('node:test');
 const babel = require('@babel/core');
+const { JSDOM } = require('jsdom');
+const parserWindow = new JSDOM('').window;
 const root = path.resolve(__dirname, '..');
 
 function runtime(globals = {}, stubs = {}) {
     const cache = new Map();
-    const context = vm.createContext({ console, ...globals });
+    const context = vm.createContext({ console, DOMParser: parserWindow.DOMParser, ...globals });
     function load(relative) {
         const filename = path.resolve(root, relative);
         if (Object.hasOwn(stubs, filename)) return stubs[filename];
@@ -549,4 +551,273 @@ test('blogIcon 未配置时不修改页面图标', () => {
     assert.equal(h.elements.length, 1);
     assert.equal(h.elements[0].href, '/default.ico');
     assert.equal(h.elements[0].type, 'image/x-icon');
+});
+
+function directoryHost(markup, number = true) {
+    const dom = new JSDOM(`<!doctype html><style>html { overflow-y: visible; } body { overflow-y: auto; }</style>
+        <div id="cnblogs_post_body">${markup}</div>`, { url: 'https://example.com/article' });
+    const { window } = dom;
+    const { document } = window;
+    const $ = require('jquery')(window);
+    const observers = [];
+    class IntersectionObserver {
+        constructor(callback, options) {
+            this.callback = callback;
+            this.options = options;
+            this.targets = [];
+            this.disconnected = false;
+            observers.push(this);
+        }
+        observe(target) { this.targets.push(target); }
+        disconnect() { this.disconnected = true; }
+    }
+    const headers = Array.from(document.querySelectorAll('h1, h2, h3'));
+    headers.forEach((header, index) => {
+        const top = 200 + index * 400;
+        Object.defineProperty(header, 'offsetTop', { value: top });
+        header.getClientRects = () => [{ top }];
+        header.getBoundingClientRect = () => ({ top, left: 0, width: 200, height: 30 });
+    });
+    const bootstrapPath = path.join(root, 'src/components/articleDirectory/bootstrap.js');
+    const stubs = {
+        [path.join(root, 'src/style/articleDirectory.css')]: {},
+        [path.join(root, 'src/template/articleDirectory.html')]:
+            fs.readFileSync(path.join(root, 'src/template/articleDirectory.html'), 'utf8'),
+    };
+    const load = runtime({ window, document, $, IntersectionObserver,
+        Element: window.Element, Node: window.Node, Event: window.Event,
+        getComputedStyle: window.getComputedStyle }, stubs);
+    stubs[bootstrapPath] = { ScrollSpy: load('node_modules/bootstrap/js/dist/scrollspy.js') };
+    let nextId = 0;
+    const scrolls = [];
+    const context = {
+        __config: { articleDirectory: { number, autoWidthScroll: true } },
+        __tools: {
+            randomString: () => String(++nextId).padStart(6, 'a'),
+            tempReplacement: (template, name, html) => template.replace(`##${name}##`, html),
+            actScroll: (...args) => scrolls.push(args),
+        },
+        __event: { scroll: { handle: [], temScroll: 0, docScroll: 0, homeScroll: 0 }, resize: { handle: [] } },
+    };
+    return { dom, document, $, observers, headers, context, scrolls, load };
+}
+
+test('目录跟踪文档滚动，分级标题前后滚动均切换高亮，保留编号和点击定位', t => {
+    const h = directoryHost('<h1 id="intro">介绍</h1><h2>配置</h2><h3>详细配置</h3>');
+    t.after(() => h.dom.window.close());
+    h.load('src/components/articleDirectory/articleDirectory.js').default(h.context);
+    const links = Array.from(h.document.querySelectorAll('#articleDirectory .nav-link'));
+    assert.equal(links.length, 3);
+    assert.deepEqual(links.map(link => link.textContent.trim()), ['1. 介绍', '1.1. 配置', '1.1.1. 详细配置']);
+    assert.equal(links[0].getAttribute('href'), '#intro');
+    assert.equal(h.headers[0].id, 'intro');
+    const observer = h.observers[0];
+    assert.equal(h.observers.length, 1);
+    assert.equal(observer.options.root, null);
+    assert.deepEqual(observer.targets, h.headers);
+    const entry = (index, isIntersecting) => ({ target: h.headers[index], isIntersecting });
+    const active = () => links.findIndex(link => link.classList.contains('active'));
+    observer.callback([entry(0, true)]);
+    assert.equal(active(), 0);
+    h.document.documentElement.scrollTop = 650;
+    observer.callback([entry(0, false), entry(1, true)]);
+    assert.equal(active(), 1);
+    h.document.documentElement.scrollTop = 1050;
+    observer.callback([entry(1, false), entry(2, true)]);
+    assert.equal(active(), 2);
+    h.document.documentElement.scrollTop = 650;
+    observer.callback([entry(2, false), entry(1, true)]);
+    assert.equal(active(), 1);
+    h.$(links[1]).triggerHandler('click');
+    assert.deepEqual(h.scrolls, [[603, 500]]);
+});
+
+test('目录销毁释放 ScrollSpy 和自身监听，保留外部点击处理', t => {
+    const h = directoryHost('<h1>介绍</h1><h2>配置</h2>', false);
+    t.after(() => h.dom.window.close());
+    h.load('src/components/articleDirectory/articleDirectory.js').default(h.context);
+    const links = h.$('#articleDirectory .nav-link');
+    assert.deepEqual(links.map((index, link) => link.textContent.trim()).get(), ['介绍', '配置']);
+    let externalClicks = 0;
+    links.on('click.external', () => externalClicks++);
+    const dispose = h.load('src/core/resources.js').default(h.context).dispose;
+    dispose();
+    dispose();
+    assert.equal(h.observers[0].disconnected, true);
+    assert.equal(h.context.__event.scroll.handle.length, 0);
+    assert.equal(h.context.__event.resize.handle.length, 0);
+    links.eq(0).triggerHandler('click');
+    assert.equal(externalClicks, 1);
+    assert.equal(h.scrolls.length, 0);
+});
+
+test('正文没有标题时不创建目录和滚动观察器', t => {
+    const h = directoryHost('<p>正文</p>');
+    t.after(() => h.dom.window.close());
+    h.load('src/components/articleDirectory/articleDirectory.js').default(h.context);
+    assert.equal(h.document.querySelector('#articleDirectory'), null);
+    assert.equal(h.observers.length, 0);
+    assert.equal(h.context.__event.scroll.handle.length, 0);
+    assert.equal(h.context.__event.resize.handle.length, 0);
+});
+
+function domHost(markup, stubs = {}) {
+    const dom = new JSDOM(`<!doctype html>${markup}`, { url: 'https://example.com/article' });
+    const { window } = dom;
+    const { document } = window;
+    const $ = require('jquery')(window);
+    const intervals = new Map(), timeouts = new Map();
+    let nextId = 0;
+    window.setInterval = (callback, delay) => { intervals.set(++nextId, { callback, delay }); return nextId; };
+    window.clearInterval = id => intervals.delete(id);
+    window.setTimeout = (callback, delay) => { timeouts.set(++nextId, { callback, delay }); return nextId; };
+    window.clearTimeout = id => timeouts.delete(id);
+    const load = runtime({ window, document, $, DOMParser: window.DOMParser }, stubs);
+    const context = {
+        __config: require('json5').parse(fs.readFileSync(path.join(root, 'src/components/config/config.json5'), 'utf8')),
+        __status: { user: 'demo', articleId: 1, url: 'https://example.com/article', homeUrl: 'https://example.com/' },
+        __timeIds: {}, __event: { scroll: { handle: [] }, resize: { handle: [] } },
+        __tools: load('src/utils/tools.js').default(),
+    };
+    return { dom, window, document, $, intervals, timeouts, context, load };
+}
+
+test('HTML 转义保留字面文本，脚本过滤处理多行、相邻及嵌套模板中的脚本', () => {
+    const html = runtime()('src/utils/html.js');
+    const value = '<img alt="a&b" onerror=\'alert(1)\'>&lt;';
+    const encoded = html.escapeHtml(value);
+    const parsed = new parserWindow.DOMParser().parseFromString(`<p>${encoded}</p>`, 'text/html');
+    assert.equal(parsed.querySelector('p').textContent, value);
+    assert.equal(parsed.querySelector('img'), null);
+    const clean = html.removeScripts('<style>p{color:red}</style><p>正文</p><script\ntype="text/javascript">one()</script><SCRIPT>two()</SCRIPT><template><script>three()</script><b>模板</b></template>');
+    assert(!/<script/i.test(clean));
+    assert(clean.includes('<p>正文</p>'));
+    assert(clean.includes('<style>p{color:red}</style>'));
+    assert(clean.includes('<template><b>模板</b></template>'));
+});
+
+test('分类、标签和推荐数中的 HTML 字符保持为文本', t => {
+    const h = domHost('<div id="articleInfo"></div><a id="tag"></a><span id="digg_count"></span><div id="main"><div class="postTitle"><a>标题</a></div><div class="postDesc">posted @ 2026-10-20 00:00</div></div>');
+    t.after(() => h.dom.window.close());
+    const payload = '<img src=x onerror="alert(1)">';
+    h.$('#tag').text(payload).attr('href', '/tag?name=" onclick="alert(1)');
+    h.context.__tools.articleInfo(h.$('#tag'), 2);
+    const tag = h.document.querySelector('#articleInfo a');
+    assert.equal(tag.querySelector('span').textContent, ' ' + payload);
+    assert.equal(tag.hasAttribute('onclick'), false);
+    h.$('#digg_count').text(payload);
+    h.load('src/components/postList/postList.js').setPostMeta();
+    assert(h.$('.postMeta').text().includes(payload));
+    assert.equal(h.$('#articleInfo img, .postMeta img').length, 0);
+});
+
+test('打字标题包含 HTML 标记时逐字显示文本，不创建元素', t => {
+    const h = domHost('<div id="title"></div><span id="cursor"></span>');
+    t.after(() => h.dom.window.close());
+    const value = '<img src=x onerror="alert(1)">';
+    h.load('src/vendor/consoleText/consoleText.js').default([value], 'title', 'cursor', undefined, false);
+    const typing = Array.from(h.intervals.values()).find(timer => timer.delay === 180).callback;
+    for (let index = 0; index < value.length; index++) typing();
+    assert.equal(h.$('#title').text(), value);
+    assert.equal(h.$('#title img').length, 0);
+    assert.equal(h.$('#cursor').text(), '_');
+});
+
+test('图片灯箱保留尺寸、样式和字面 alt，属性内容不能创建额外元素或事件', t => {
+    const h = domHost('<div id="cnblogs_post_body"><img src="/photo.png"><img class="code_img_closed" src="/code.png"></div>', {
+        [path.join(root, 'src/vendor/fancybox/jquery.fancybox')]: {},
+        [path.join(root, 'src/vendor/fancybox/jquery.fancybox.min.css')]: {},
+    });
+    t.after(() => h.dom.window.close());
+    const alt = '"><img src=x onerror="alert(1)">';
+    h.$('#cnblogs_post_body img').first().attr({ alt, width: '200', height: '100', style: 'width: 50%;' });
+    h.load('src/components/imgBox/imgBox.js').default(h.context);
+    Array.from(h.timeouts.values()).find(timer => timer.delay === 800).callback();
+    assert.equal(h.$('[data-fancybox="gallery"]').length, 1);
+    const image = h.$('[data-fancybox="gallery"] img');
+    assert.equal(image.attr('alt'), alt);
+    assert.equal(image.attr('width'), '200');
+    assert.equal(image.attr('height'), '100');
+    assert.equal(image.attr('style'), 'width: 50%;');
+    assert.equal(h.$('[onerror]').length, 0);
+    assert.equal(h.$('#cnblogs_post_body img').length, 2);
+});
+
+test('新评论的用户名和正文保持字面文本，链接属性不会变成事件', t => {
+    const h = domHost('<div id="blog-comments-placeholder"></div><div class="comment_my_posted"><a></a></div><div class="bq_post_comment"></div>', {
+        [path.join(root, 'src/images/webp/default_avatar.webp')]: '/avatar.webp',
+    });
+    t.after(() => h.dom.window.close());
+    h.context.__config.animate.avatar.enable = false;
+    h.context.__config.animate.typing.enable = false;
+    const payload = '<img src=x onerror="alert(1)">';
+    h.$('.comment_my_posted a').text(payload).attr('href', '/user?name=" onclick="alert(1)');
+    h.$('.bq_post_comment').text(payload);
+    h.load('src/components/comment/comment.js').default(h.context);
+    h.$(h.document).triggerHandler('ajaxSuccess', [{}, { url: 'PostComment/Add.aspx' }]);
+    assert.equal(h.$('.blog_comment_body p').text(), payload);
+    assert.equal(h.$('#a_comment_author_5168811').text(), payload);
+    assert.equal(h.$('.feedbackItem [onclick], .feedbackItem [onerror]').length, 0);
+    assert.equal(h.$('.feedbackItem img').length, 1);
+});
+
+test('复制声明保留自定义 HTML，选中文本和作者不能注入 HTML', t => {
+    const h = domHost('<div id="cnblogs_post_body"></div>', {
+        [path.join(root, 'src/template/articleSuffix.html')]: fs.readFileSync(path.join(root, 'src/template/articleSuffix.html'), 'utf8'),
+        [path.join(root, 'src/style/articleSuffix.css')]: {},
+        [path.join(root, 'src/images/webp/default_avatar.webp')]: '/avatar.webp',
+    });
+    t.after(() => h.dom.window.close());
+    const payload = '<img src=x onerror="alert(1)">';
+    h.context.__config.info.name = payload;
+    h.context.__config.articleSuffix.aboutHtml = '<em>自定义介绍</em>';
+    h.context.__config.articleSuffix.copyInfo = { enable: true, length: 0, copyright: '<strong>版权所有 &amp; 保留</strong>' };
+    h.window.getSelection = () => ({ toString: () => payload });
+    h.load('src/components/articleSuffix/articleSuffix.js').default(h.context);
+    assert.equal(h.$('#articleSuffix em').text(), '自定义介绍');
+    assert.equal(h.$('#articleSuffix [onerror]').length, 0);
+    const clipboard = {};
+    const event = new h.window.Event('copy', { bubbles: true, cancelable: true });
+    Object.defineProperty(event, 'clipboardData', { value: { setData: (type, value) => { clipboard[type] = value; } } });
+    h.document.body.dispatchEvent(event);
+    const result = new h.window.DOMParser().parseFromString(clipboard['text/html'], 'text/html');
+    assert.equal(result.querySelector('img'), null);
+    assert.equal(result.querySelector('strong').textContent, '版权所有 & 保留');
+    assert(result.body.textContent.includes(payload));
+    assert(clipboard['text/plain'].includes('版权所有&保留'));
+    assert(clipboard['text/plain'].startsWith(payload));
+});
+
+test('侧栏最新评论保留标题链接和编号处理，正文、作者和标题不解释为 HTML', t => {
+    const h = domHost('<div id="sidebar_recentcomments"><ul><li class="recent_comment_title"><a href="/article#comment">1. 标题</a></li><li class="recent_comment_body"></li><li class="recent_comment_author"></li></ul></div><div id="sb-recentComments"></div>', {
+        [path.join(root, 'src/template/sidebar.html')]: '',
+        [path.join(root, 'src/template/sidebarNav.html')]: '',
+        [path.join(root, 'src/style/menu_bubble.css')]: {},
+        [path.join(root, 'src/components/sidebar/lib/main4.js')]: () => ({}),
+        [path.join(root, 'src/images/webp/default_avatar.webp')]: '/avatar.webp',
+        [path.join(root, 'src/images/sidebar_bg_4.png')]: '/sidebar.png',
+    });
+    t.after(() => h.dom.window.close());
+    const payload = '<img src=x onerror="alert(1)">';
+    h.$('.recent_comment_title a').text('1. ' + payload);
+    h.$('.recent_comment_body, .recent_comment_author').text(payload);
+    h.load('src/components/sidebar/sidebar.js').default(h.context);
+    h.intervals.get(h.context.__timeIds.commentsTId).callback();
+    assert.equal(h.$('#sb-recentComments a').text(), payload);
+    assert.equal(h.$('#sb-recentComments a').attr('href'), '/article#comment');
+    assert.equal(h.$('#sb-recentComments .sb-recent_comment_body').text(), payload);
+    assert.equal(h.$('#sb-recentComments .sb-recent_comment_author').text(), payload);
+    assert.equal(h.$('#sb-recentComments img').length, 0);
+});
+
+test('文章信息中的推荐数不会从文本重新解释为 HTML', t => {
+    const h = domHost('<div id="articleInfo"></div><div id="cnblogs_post_body"></div><a id="cb_post_title_url">标题</a><div class="postDesc">posted @ 2026-10-20 00:00</div><span id="post_view_count">1</span><span id="post_comment_count">2</span><span id="digg_count"></span>');
+    t.after(() => h.dom.window.close());
+    const payload = '<img src=x onerror="alert(1)">';
+    h.context.__config.animate.articleTitle.enable = false;
+    h.$('#digg_count').text(payload);
+    h.load('src/components/articleInfo/articleInfo.js').default(h.context);
+    h.intervals.get(h.context.__timeIds.postDescTid).callback();
+    assert(h.$('#articleInfo .postMeta').text().includes(payload));
+    assert.equal(h.$('#articleInfo img').length, 0);
 });

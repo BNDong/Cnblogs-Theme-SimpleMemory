@@ -7,16 +7,14 @@
  */
 
 import { getHome, getHeader } from '../platform/cnblogs/dom';
+import { escapeHtml, removeScripts } from './html';
 
 export default function main() {
     return {
         /**
          * 过滤HTML中JavaScript代码
          */
-        htmlFiltrationScript: (str) => {
-            let subStr = new RegExp('<script.*</script>', 'ig');
-            return str.replace(subStr, '');
-        },
+        htmlFiltrationScript: (str) => removeScripts(str),
 
         /**
          * 滚动主体滚动条到指定位置
@@ -63,9 +61,9 @@ export default function main() {
                     `<span class="simple-memory-iconfont simple-memory-${iconfont} iconfont ${iconfont}"></span>`
                 );
                 $('#articleInfo').append(
-                    `<a href=" ${tag.attr(
+                    `<a href=" ${escapeHtml(tag.attr(
                         'href'
-                    )}" target="_blank"><span class="article-info-tag ${style}"> ${tag.text()}</span></a>`
+                    ))}" target="_blank"><span class="article-info-tag ${style}"> ${escapeHtml(tag.text())}</span></a>`
                 );
             });
         },

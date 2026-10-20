@@ -7,6 +7,7 @@
  */
 import { getArticleNode } from '../../platform/cnblogs/article';
 import resources from '../../core/resources';
+import { escapeHtml } from '../../utils/html';
 import suffixTemp from '../../template/articleSuffix.html';
 import '../../style/articleSuffix.css';
 import defaultAvatarImg from './../../images/webp/default_avatar.webp';
@@ -36,10 +37,10 @@ export default function main(_) {
 
     let re = [
         ['origin', origin],
-        ['imgUrl', imgUrl],
-        ['homeUrl', homeUrl],
-        ['author', author],
-        ['source', source],
+        ['imgUrl', escapeHtml(imgUrl)],
+        ['homeUrl', escapeHtml(homeUrl)],
+        ['author', escapeHtml(author)],
+        ['source', escapeHtml(source)],
         ['aboutHtml', aboutHtml],
         ['copyrightHtml', copyrightHtml],
         ['supportHtml', supportHtml],
@@ -65,8 +66,8 @@ export default function main(_) {
                     const clipboardData = event.clipboardData || window.clipboardData;
 
                     if (clipboardData) {
-                        const cleanedCopyright = copyright.replace(/<\/?.+?>/g, '').replace(/ /g, '');
-                        const htmlData = `${selection}${htmlSeparator}${copyright}<br />\n作者：${author}<br />\n原文链接：${source}<br />\n`;
+                        const cleanedCopyright = new DOMParser().parseFromString(copyright, 'text/html').body.textContent.replace(/ /g, '');
+                        const htmlData = `${escapeHtml(selection)}${htmlSeparator}${copyright}<br />\n作者：${escapeHtml(author)}<br />\n原文链接：${escapeHtml(source)}<br />\n`;
                         const textData = `${selection}${newline}${separator}${newline}${cleanedCopyright}${newline}作者：${author}${newline}原文链接：${source}${newline}`;
 
                         clipboardData.setData('text/html', htmlData);
