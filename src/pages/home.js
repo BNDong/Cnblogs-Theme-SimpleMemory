@@ -5,17 +5,14 @@
  * ----------------------------------------------
  * @describe: 主页处理
  */
-import postMeta from "../components/postMeta/postMeta";
+import resources from '../core/resources';
+import { setPostMeta, setPostDescriptions } from "../components/postList/postList";
 
 export default function main(_) {
-    /**
-     * 设置主页标语
-     */
     (() => {
 
         $('#homeTopTitle span').text(_.__config.info.name);
 
-        // 判断用户是否自定义了设置
         let configTitle = _.__config.banner.home.title,
             hitokoto = $('#hitokoto');
 
@@ -43,7 +40,7 @@ export default function main(_) {
         ], settings = {};
 
         switch (_.__config.banner.home.titleSource) {
-            case "one": //  ONE . 每日一句
+            case "one":
                 settings = {
                     "async": true,
                     "crossDomain": true,
@@ -74,7 +71,7 @@ export default function main(_) {
                 break;
 
             case "jinrishici":
-            default: // 今日诗词
+            default:
 
                 _.__tools.dynamicLoadingJs('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(r => {
                     jinrishici.load(function(response) {
@@ -92,69 +89,16 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 头图点击滚动到内容位置
-     */
     (() => {
-        $('.scroll-down').click(function () {
+        resources(_).onJQuery($('.scroll-down'), 'click', function () {
             let endScroll;
             endScroll = $('#home').offset().top + 10; _.__tools.actScroll(endScroll, 500);})
     })();
 
-    /**
-     * 设置主页文章信息样式
-     */
-    (() => {
-        let read = $('#main .c_b_p_desc_readmore'), titleList = $('#main .postTitle');
-        read.text('阅读全文 »');
-        $.each(titleList, (i) => {
-            let title = $(titleList[i]),
-                titleText = title.text(),
-                postDescText = title.nextAll('.postDesc:eq(0)').text();
-            title.after(postMetaHtml(postDescText));
-            if (/\[置顶\]/.test(titleText)) title.append('<span class="postSticky">置顶</span>');
-            title.find('a').text(titleText.replace('[置顶]', ''));
-        });
+    setPostMeta();
 
-        titleList = $('#main .entrylistPosttitle');
-        $.each(titleList, (i) => {
-            let title = $(titleList[i]),
-                postDescText = title.nextAll('.entrylistItemPostDesc:eq(0)').text();
-            title.after(postMetaHtml(postDescText));
-        });
+    setPostDescriptions();
 
-        function postMetaHtml(postDescText) {
-            const { date, vnum, cnum, tnum } = postMeta(postDescText);
-            return `<span class="postMeta">
-                <i class="simple-memory-iconfont simple-memory-icon-time1"></i>发表于 ${date}
-                <i class="simple-memory-iconfont simple-memory-icon-browse"></i>阅读：${vnum}
-                <i class="simple-memory-iconfont simple-memory-icon-interactive"></i>评论：${cnum}
-                <i class="simple-memory-iconfont simple-memory-icon-hot"></i>推荐：${tnum}
-            </span>`;
-        }
-    })();
-
-    /**
-     * 设置摘要文章
-     */
-    (() => {
-        let desc = $('.c_b_p_desc');
-        $.each(desc, (i) => {
-            let obj = $(desc[i]), img = obj.find('img.desc_img');
-            if (img.length > 0) {
-                let src = img.attr('src');
-                img.hide();
-                obj.css('width', '60%');
-                obj.parent('div').css('min-height', '150px');
-                let html = '<div class="c_b_p_desc_img"><div style="background: url(\''+ src +'\') center center / contain no-repeat;"></div></div>';
-                obj.after(html);
-            }
-        });
-    })();
-
-    /**
-     * 主页banner动效
-     */
     (() => {
         if (_.__config.animate.homeBanner.enable) {
             import(/* webpackChunkName: "circleMagic" */ '../vendor/circleMagic/circleMagic').then(module => {

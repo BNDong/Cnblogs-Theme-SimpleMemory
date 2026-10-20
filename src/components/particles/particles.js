@@ -5,13 +5,13 @@
  * ----------------------------------------------
  * @describe: 背景鼠标滚动动画
  */
+import resources from '../../core/resources';
 import particlesTemp from '../../template/particles.html';
 import TweenMax from '../../vendor/TweenMax/TweenMax.min';
 import '../../style/particles.css';
 
 export default function main(_) {
 
-    // 添加模版
     $('#footer').after(particlesTemp);
 
     let wrapper = document.getElementById("particles"),
@@ -44,7 +44,11 @@ export default function main(_) {
         });
     }
 
-    document.addEventListener("mousemove", particlesMousemove);
+    resources(_).add(() => {
+        particlesList.forEach(layer => TweenMax.killTweensOf(layer.el));
+    });
+
+    resources(_).on(document, "mousemove", particlesMousemove);
 
     function particlesMousemove(t) {
         let e = {

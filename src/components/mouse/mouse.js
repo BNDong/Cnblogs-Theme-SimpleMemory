@@ -5,6 +5,7 @@
  * ----------------------------------------------
  * @describe: 鼠标移动特效
  */
+import resources from '../../core/resources';
 import '../../style/mouse.css';
 import {gsap} from "gsap/all";
 
@@ -25,6 +26,11 @@ export default function main(_) {
 
     document.body.appendChild(cursor);
     document.body.appendChild(cursorF);
+    resources(_).add(() => {
+        gsap.killTweensOf([cursor, cursorF]);
+        cursor.remove();
+        cursorF.remove();
+    });
 
     if ('ontouchstart' in window) {
         cursor.style.display = 'none';
@@ -34,7 +40,7 @@ export default function main(_) {
     cursor.style.setProperty('--size', size + 'px');
     cursorF.style.setProperty('--size', sizeF + 'px');
 
-    window.addEventListener('mousemove', function (e) {
+    resources(_).on(window, 'mousemove', function (e) {
         pageX = e.pageX;
         pageY = e.pageY;
         cursor.style.top = pageY - size / 2 + 'px';
@@ -61,7 +67,7 @@ export default function main(_) {
         );
         cursorF.style.left = cursorFLeft + 'px';
 
-        requestAnimationFrame(loop);
+        resources(_).frame(loop);
     }
 
     loop();
@@ -84,20 +90,19 @@ export default function main(_) {
 
         endY = e.clientY || endY;
         if (clicked && startY && Math.abs(startY - endY) >= 40) {
-            // go(!Math.min(0, startY - endY) ? 1 : -1);
             clicked = false;
             startY = null;
             endY = null;
         }
     }
 
-    window.addEventListener('mousedown', mousedown, false);
-    window.addEventListener('touchstart', mousedown, false);
-    window.addEventListener('touchmove', function (e) {
+    resources(_).on(window, 'mousedown', mousedown, false);
+    resources(_).on(window, 'touchstart', mousedown, false);
+    resources(_).on(window, 'touchmove', function (e) {
         if (clicked) {
             endY = e.touches[0].clientY || e.targetTouches[0].clientY;
         }
     }, false);
-    window.addEventListener('touchend', mouseup, false);
-    window.addEventListener('mouseup', mouseup, false);
+    resources(_).on(window, 'touchend', mouseup, false);
+    resources(_).on(window, 'mouseup', mouseup, false);
 }

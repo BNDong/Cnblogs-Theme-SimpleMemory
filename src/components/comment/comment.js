@@ -5,13 +5,14 @@
  * ----------------------------------------------
  * @describe: 评论处理
  */
+import { getCommentNode, findCommentNode, isCommentRequest } from '../../platform/cnblogs/comment';
+import resources from '../../core/resources';
 import defaultAvatarImg from './../../images/webp/default_avatar.webp';
 
 export default function main(_) {
     let avatarAnimate = () => {
-        // 头像动效
         if (_.__config.animate.avatar.enable) {
-            let authorAvatar = $('.author_avatar');
+            let authorAvatar = getCommentNode('authorAvatars');
             let feedbackAvatar = $('.feedbackAvatar img');
 
             if (!authorAvatar.hasClass('img-rounded')) {
@@ -24,22 +25,21 @@ export default function main(_) {
         }
     };
 
-    // 评论框打字特效
     if (_.__config.animate.typing.enable) {
         const POWERMODE = require('./commentTyping/commentTyping');
         POWERMODE.colorful = _.__config.animate.typing.options.colorful;
         POWERMODE.shake = _.__config.animate.typing.options.shake;
-        document.body.addEventListener('input', POWERMODE);
+        resources(_).on(document.body, 'input', POWERMODE);
     }
 
     let setComment = () => {
-        let feedbackItem = $('.feedbackItem');
+        let feedbackItem = getCommentNode('items');
         if (feedbackItem.length > 0) {
             $.each(feedbackItem, (i) => {
                 let obj = $(feedbackItem[i]),
-                    feedbackCon = obj.find('.feedbackCon'),
-                    feedbackListSubtitle = obj.find('.feedbackListSubtitle'),
-                    commentBody = feedbackCon.length ? feedbackCon.find('.blog_comment_body') : [],
+                    feedbackCon = findCommentNode(obj, 'content'),
+                    feedbackListSubtitle = findCommentNode(obj, 'subtitle'),
+                    commentBody = feedbackCon.length ? findCommentNode(feedbackCon, 'body') : [],
                     avatarHtml = '',
                     idInfo = commentBody.length ? commentBody.attr('id').split('_') : undefined;
 
@@ -49,10 +49,10 @@ export default function main(_) {
 
                     if ($.isArray(idTmp)) id = idTmp.join('');
 
-                    let op = $('#comment_' + id + '_avatar'),
+                    let op = getCommentNode('avatar', id),
                         patch = op.length > 0 ? $.trim(op.text()) : defaultAvatarImg;
 
-                    let ac = $('#a_comment_author_' + id),
+                    let ac = getCommentNode('author', id),
                         ah = ac.length ? ac.attr('href') : 'javascropt:void(0);';
 
                     avatarHtml =
@@ -64,7 +64,7 @@ export default function main(_) {
                     obj.prepend(avatarHtml);
                 }
 
-                if (feedbackListSubtitle.length && feedbackListSubtitle.find('.louzhu').length) {
+                if (feedbackListSubtitle.length && findCommentNode(feedbackListSubtitle, 'owner').length) {
                     feedbackListSubtitle.addClass('feedbackListSubtitle-louzhu');
                 }
             });
@@ -76,9 +76,9 @@ export default function main(_) {
     };
 
     let addComment = () => {
-        let userBlogAddress = $('.comment_my_posted a').attr('href'),
-            userName = $('.comment_my_posted a').text(),
-            commentInfo = $('.bq_post_comment').text();
+        let userBlogAddress = getCommentNode('postedAuthor').attr('href'),
+            userName = getCommentNode('postedAuthor').text(),
+            commentInfo = getCommentNode('postedText').text();
 
         let comment = `<div class="feedbackItem" style="padding-bottom: 0px;">
                         <div class="feedbackAvatar">
@@ -98,34 +98,31 @@ export default function main(_) {
                         </div>
                     </div>`;
 
-        $('#blog-comments-placeholder').append(comment);
-        $('.comment_my_posted').remove();
+        getCommentNode('placeholder').append(comment);
+        getCommentNode('posted').remove();
 
         avatarAnimate();
     };
 
-    _.__timeIds.commentTId = window.setInterval(() => {
-        if ($('.feedbackItem').length > 0) {
+    _.__timeIds.commentTId = resources(_).interval(() => {
+        if (getCommentNode('items').length > 0) {
             setComment();
             _.__tools.clearIntervalTimeId(_.__timeIds.commentTId);
         }
     }, 1000);
 
-    $(document).ajaxSuccess(function (event, xhr, settings) {
-        // 评论重新排序
-        if (settings.url.includes('comments-block')) {
+    resources(_).onJQuery($(document), 'ajaxSuccess', function (event, xhr, settings) {
+        if (isCommentRequest(settings.url, 'list')) {
             _.__tools.clearIntervalTimeId(_.__timeIds.commentTId);
             setComment();
         }
 
-        // 新增评论
-        if (settings.url.includes('PostComment/Add.aspx')) addComment();
+        if (isCommentRequest(settings.url, 'add')) addComment();
 
-        // 删除评论
-        if (settings.url.includes('comment/DeleteComment.aspx')) {
+        if (isCommentRequest(settings.url, 'remove')) {
             let commentId = JSON.parse(settings?.data)?.commentId;
-            $(`#comment_body_${commentId}`).parent().parent().remove();
-            $('.feedbackItem:last').css('padding-bottom', '0');
+            getCommentNode('body', commentId).parent().parent().remove();
+            getCommentNode('lastItem').css('padding-bottom', '0');
         }
 
         avatarAnimate();

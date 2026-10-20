@@ -35,9 +35,6 @@
   <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/blob/master/LICENSE" style="text-decoration:none;">
     <img alt="GitHub license" src="https://img.shields.io/github/license/esofar/cnblogs-theme-silence.svg">
   </a>
-  <a href="https://github.com/BNDong/Cnblogs-Theme-SimpleMemory" style="text-decoration:none;">
-    <img alt="compatibility" src="https://camo.githubusercontent.com/31ac3f0ce805dc34a29b615131caa26cbf4dc127/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f62726f777365722d2532306368726f6d6525323025374325323066697265666f782532302537432532306f706572612532302537432532307361666172692532302537432532306965253230253345253344253230392d6c69676874677265792e737667">
-  </a>
 </div>
 
 <br>
@@ -64,6 +61,14 @@
 ## Project Status
 
 ![Status](https://repobeats.axiom.co/api/embed/51764e075e7f11d8175d32e700a5c0c9938a9b2b.svg)
+
+## Development
+
+```sh
+npm install
+npm test
+npm run build
+```
 
 ## Contributors
 

@@ -1,14 +1,19 @@
+/* 夜间主题颜色可通过 --simple-memory-night-* 变量设置。 */
 #cnblogs_post_body table, .feedbackCon table, #cnblogs_post_body table td, .feedbackCon table td, body {
-    background-color: #333
+    background-color: #333;
+    background-color: var(--simple-memory-night-background, #333)
 }
 
 #cnblogs_post_body table td, #cnblogs_post_body table th, .feedbackCon table td, .feedbackCon table th {
     border-bottom: 1px solid #2a2a2a;
-    border-right: 1px solid #2a2a2a
+    border-bottom: 1px solid var(--simple-memory-night-surface, #2a2a2a);
+    border-right: 1px solid #2a2a2a;
+    border-right: 1px solid var(--simple-memory-night-surface, #2a2a2a)
 }
 
 body {
-    color: #ddd
+    color: #ddd;
+    color: var(--simple-memory-night-text, #ddd)
 }
 
 #home {
@@ -18,6 +23,7 @@ body {
 
 #links-box .links-item {
     background: #2a2a2a;
+    background: var(--simple-memory-night-surface, #2a2a2a);
     box-shadow: 0 4px 11px 0 rgb(0 0 0/20%),0 1px 3px 0 rgb(0 0 0/20%);
 }
 
@@ -27,6 +33,7 @@ body {
 
 #links-box .links-item .links-info .links-info-name {
     color: #999;
+    color: var(--simple-memory-night-muted, #999);
 }
 
 #links-box .links-item .links-icon {
@@ -35,25 +42,30 @@ body {
 
 #cnblogs_post_body h6, blockquote {
     background: #2a2a2a !important;
+    background: var(--simple-memory-night-surface, #2a2a2a) !important;
     border-left: 4px solid #222 !important;
     color: #ddd !important;
+    color: var(--simple-memory-night-text, #ddd) !important;
     box-shadow: 0 4px 11px 0 rgb(0 0 0/20%),0 1px 3px 0 rgb(0 0 0/20%)!important;
 }
 
 .blogpost-body p.tip {
     background-color: rgb(66 185 131 / 10%)!important;
     color: #ddd !important;
+    color: var(--simple-memory-night-text, #ddd) !important;
 }
 
 .blogpost-body p.warn {
     background-color: rgb(255 102 102 / 10%)!important;
     color: #ddd !important;
+    color: var(--simple-memory-night-text, #ddd) !important;
 }
 
 #div_digg .diggit {
     float: left;
     border: 1px solid #365E4A;
     background: #333;
+    background: var(--simple-memory-night-background, #333);
     color: #44916A;
 }
 
@@ -65,30 +77,39 @@ body {
 #div_digg .buryit {
     float: right;
     border: 1px solid #777;
+    border: 1px solid var(--simple-memory-night-border, #777);
     background: #333;
+    background: var(--simple-memory-night-background, #333);
     color: #999;
+    color: var(--simple-memory-night-muted, #999);
 }
 
 #div_digg .buryit .burynum {
     color: #999;
+    color: var(--simple-memory-night-muted, #999);
     font-size: 16px;
 }
 
 .postBody {
-    color: #ddd
+    color: #ddd;
+    color: var(--simple-memory-night-text, #ddd)
 }
 
 .header__dev {
-    color: #ddd !important
+    color: #ddd !important;
+    color: var(--simple-memory-night-text, #ddd) !important
 }
 
 .dev__fe i, .dev__ux i {
-    color: #ddd
+    color: #ddd;
+    color: var(--simple-memory-night-text, #ddd)
 }
 
 #cnblogs_post_body table, .feedbackCon table {
     border: 1px solid #2a2a2a;
-    color: #ddd
+    border: 1px solid var(--simple-memory-night-surface, #2a2a2a);
+    color: #ddd;
+    color: var(--simple-memory-night-text, #ddd)
 }
 
 #cnblogs_post_body table th, .feedbackCon table th {
@@ -105,7 +126,8 @@ body {
 }
 
 .comment_textarea, textarea {
-    background-color: #333
+    background-color: #333;
+    background-color: var(--simple-memory-night-background, #333)
 }
 
 #comment_form_container .comment_textarea {
@@ -122,8 +144,10 @@ footer-background {
 
 #articleSuffix {
     background: #2a2a2a !important;
+    background: var(--simple-memory-night-surface, #2a2a2a) !important;
     border-color: #555 !important;
     color: #ddd !important;
+    color: var(--simple-memory-night-text, #ddd) !important;
     box-shadow: 0 4px 11px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 20%) !important;
 }
 
@@ -145,6 +169,7 @@ footer-background {
 #rightMenuSite .rightMenuSpan::before
 {
     color: #999 !important;
+    color: var(--simple-memory-night-muted, #999) !important;
 }
 
 .catalog-btn-shadow,
@@ -170,6 +195,7 @@ div#rightMenu .rightMenuItem,
 
 div#rightMenu .rightMenuItem {
     background: #333 !important;
+    background: var(--simple-memory-night-background, #333) !important;
 }
 
 #articleDirectory {
@@ -205,7 +231,8 @@ div#rightMenu .rightMenuItem {
 }
 
 .postTitle a:active, .postTitle a:link, .postTitle a:visited, .entrylistPosttitle a:active, .entrylistPosttitle a:link, .entrylistPosttitle a:visited {
-    color: #ddd
+    color: #ddd;
+    color: var(--simple-memory-night-text, #ddd)
 }
 
 .postTitle a:hover, .entrylistPosttitle a:hover {
@@ -213,15 +240,18 @@ div#rightMenu .rightMenuItem {
 }
 
 .entrylistPostSummary, .postCon {
-    color: #ddd
+    color: #ddd;
+    color: var(--simple-memory-night-text, #ddd)
 }
 
 .c_b_p_desc_readmore {
-    color: #999 !important
+    color: #999 !important;
+    color: var(--simple-memory-night-muted, #999) !important
 }
 
 .postMeta {
-    color: #999
+    color: #999;
+    color: var(--simple-memory-night-muted, #999)
 }
 
 .day, .entrylistItem:not(:last-of-type) {
@@ -231,6 +261,7 @@ div#rightMenu .rightMenuItem {
 .day:after, .entrylistItem:not(:last-of-type):after {
     border: 1px solid #555;
     background: #333;
+    background: var(--simple-memory-night-background, #333);
     box-shadow: rgba(51,51,51,.7) 0 0 0 5px;
 }
 
@@ -262,6 +293,7 @@ span.cnblogs_code, #home code:not([class]) {
 
 .postBody h1, .postBody h2, .postBody h3, .postBody h4, .postBody h5 {
     color: #ddd !important;
+    color: var(--simple-memory-night-text, #ddd) !important;
 }
 
 #articleDirectory ul li a:hover, #articleDirectory ul li a.active {
@@ -275,15 +307,18 @@ span.cnblogs_code, #home code:not([class]) {
 
 .book-card {
     background: #2a2a2a;
+    background: var(--simple-memory-night-surface, #2a2a2a);
     box-shadow: 0 1px 20px 0 rgba(0,0,0,.5),inset 0 0 0 0 rgba(0,0,0,.5)!important
 }
 
 .book-cards .book-name {
     color: #999;
+    color: var(--simple-memory-night-muted, #999);
 }
 
 .book-cards .book-by {
     color: #777;
+    color: var(--simple-memory-night-border, #777);
 }
 
 .book-cards .book-rate i {
@@ -293,6 +328,7 @@ span.cnblogs_code, #home code:not([class]) {
 .book-cards .book-card-img {
     box-shadow: 0 1px 7px 2px #222;
     border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid var(--simple-memory-night-surface, #2a2a2a);
 }
 
 code-box, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #green_channel, .main-header, #btn_comment_submit {
@@ -301,12 +337,15 @@ code-box, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #gree
 
 .list .inc .conmts {
     color: #ddd;
+    color: var(--simple-memory-night-text, #ddd);
     background: unset;
 }
 
 .feedbackListSubtitle {
     color: #999;
+    color: var(--simple-memory-night-muted, #999);
     background-color: #2a2a2a;
+    background-color: var(--simple-memory-night-surface, #2a2a2a);
     border: 1px solid #555;
     border-bottom: 1px solid #555;
 }
@@ -314,6 +353,7 @@ code-box, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #gree
 .feedbackCon {
     border: 1px solid #555;
     background: #333;
+    background: var(--simple-memory-night-background, #333);
 }
 
 .feedbackListSubtitle-louzhu {
@@ -339,14 +379,17 @@ code-box, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #gree
 
 .feedbackListSubtitle:after {
     border-right-color: #2a2a2a;
+    border-right-color: var(--simple-memory-night-surface, #2a2a2a);
 }
 
 #tbCommentBody, #tbCommentBodyPreview {
     color: #ddd;
+    color: var(--simple-memory-night-text, #ddd);
 }
 
 .cnblogs_code_collapse {
     background-color: #333;
+    background-color: var(--simple-memory-night-background, #333);
 }
 
 .aplayer {

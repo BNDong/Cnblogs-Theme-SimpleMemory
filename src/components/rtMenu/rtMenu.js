@@ -5,17 +5,15 @@
  * ----------------------------------------------
  * @describe: 右下角菜单处理
  */
+import resources from '../../core/resources';
 import rtMenuTemp from '../../template/rtMenu.html';
 
 export default function main(_) {
     $('#blog-news').prepend(rtMenuTemp);
     const rightMenu = $('#rightMenu');
 
-    /**
-     * 公共事件
-     */
     (() => {
-        rightMenu.find('i').on({
+        resources(_).onJQuery(rightMenu.find('i'), {
             mouseover : function () {
                 typeof $(this).attr('banmv') === 'undefined' && $(this).rotate({animateTo:-60, duration: 250, callback: function () {
                         $(this).rotate({animateTo:60, duration: 250, callback: function () {
@@ -29,7 +27,7 @@ export default function main(_) {
             }
         });
 
-        rightMenu.find('.rightMenuItem').on({
+        resources(_).onJQuery(rightMenu.find('.rightMenuItem'), {
             mouseover : function () {
                 $(this).find('.rightMenuSpan').stop().fadeIn(300);
             },
@@ -39,13 +37,9 @@ export default function main(_) {
         });
     })();
 
-    /**
-     * 上下滚动
-     */
     (() => {
 
-        // 点击事件
-        $('#toUpDown').click(function () {
+        resources(_).onJQuery($('#toUpDown'), 'click', function () {
             let ac = $(this).attr('data');
             if (ac === 'down') {
                 let downScroll;
@@ -63,14 +57,13 @@ export default function main(_) {
             }
         });
 
-        // 滚动事件
-        _.__event.scroll.handle.push(() => {
+        resources(_).subscribe(_.__event.scroll.handle, () => {
             let toUpDown     = $("#toUpDown"),
                 toUpDownI    = $("#toUpDownI"),
                 toUpDownSpan = $('.toUpDownSpan');
 
-            _.__event.scroll.docScroll  = $(document).scrollTop(); // 当前滚动位置
-            _.__event.scroll.homeScroll = $('#home').offset().top - 40; // 主体滚动
+            _.__event.scroll.docScroll  = $(document).scrollTop();
+            _.__event.scroll.homeScroll = $('#home').offset().top - 40;
 
             if (_.__event.scroll.homeScroll <= _.__event.scroll.docScroll) {
                 toUpDownI.rotate({animateTo:0});
@@ -84,19 +77,14 @@ export default function main(_) {
         });
     })();
 
-    /**
-     * 设置
-     */
     (() => {
-        // 旋转
         let angle = 0;
-        setInterval(function(){
+        resources(_).interval(function(){
             angle += 7;
             $('#rightMenuSite i').rotate(angle);
         }, 30);
 
-        // 点击事件
-        $('#rightMenuSite').click(function () {
+        resources(_).onJQuery($('#rightMenuSite'), 'click', function () {
             let flg = $(this).attr('clickflg');
             if (flg === 'true') {
                 $('#rightMenuSite .rightMenuSpan').text('点击关闭');
@@ -109,11 +97,8 @@ export default function main(_) {
         });
     })();
 
-    /**
-     * 关注
-     */
     (() => {
-        _.__timeIds.followTId = window.setInterval(() => {
+        _.__timeIds.followTId = resources(_).interval(() => {
             let followObj = $('#p_b_follow');
             if (followObj.length > 0) {
                 let clickStr = followObj.text() !== '' ? $('#p_b_follow a').attr('onclick') : '';
@@ -129,19 +114,12 @@ export default function main(_) {
         }, 1000);
     })();
 
-    /**
-     * 二维码
-     */
     (() => {
         if (_.__config.rtMenu.qrCode) {
             $('#rightGzh').show().find('.ds-gzh img').attr('src', _.__config.rtMenu.qrCode);
         }
     })();
 
-
-    /**
-     * 打赏
-     */
     (() => {
         if (_.__config.rtMenu.reward.alipay || _.__config.rtMenu.reward.wechatpay) {
             $('#rightDashang').show();
@@ -154,13 +132,9 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 顶踩
-     */
     (() => {
 
-        // 顶
-        _.__timeIds.diggitTId = window.setInterval(() => {
+        _.__timeIds.diggitTId = resources(_).interval(() => {
             let diggit = $(".diggit");
             if (diggit.length > 0) {
                 diggit.prepend('<i class="simple-memory-iconfont simple-memory-icon-zan1"></i>');
@@ -171,7 +145,7 @@ export default function main(_) {
                 rightDiggit.attr('onclick', diggit.attr("onclick"));
                 rightMenuSpan.text($('#digg_count').text());
 
-                rightDiggit.show().click(function () {
+                resources(_).onJQuery(rightDiggit.show(), 'click', function () {
                     clickHdl($(this), rightMenuSpan, $('#digg_count').text());
                 });
 
@@ -179,8 +153,7 @@ export default function main(_) {
             }
         }, 1000);
 
-        // 踩
-        _.__timeIds.buryitTId = window.setInterval(() => {
+        _.__timeIds.buryitTId = resources(_).interval(() => {
             let buryit = $(".buryit");
             if (buryit.length > 0) {
                 buryit.prepend('<i class="simple-memory-iconfont simple-memory-icon-buzan"></i>');
@@ -191,7 +164,7 @@ export default function main(_) {
                 rightBuryit.attr('onclick', buryit.attr("onclick"));
                 rightMenuSpan.text($('#bury_count').text());
 
-                rightBuryit.show().click(function () {
+                resources(_).onJQuery(rightBuryit.show(), 'click', function () {
                     clickHdl($(this), rightMenuSpan, $('#bury_count').text());
                 });
 
@@ -199,32 +172,27 @@ export default function main(_) {
             }
         }, 1000);
 
-        // 处理顶踩数值更新
         function clickHdl(obj, subObj, cun) {
             if (obj.attr('clickflg') === 'false') {
                 obj.attr('clickflg', 'true');
                 subObj.text('提交中.');
 
-                setTimeout(() => { subObj.text('提交中..') }, 300);
-                setTimeout(() => { subObj.text('提交中...') }, 600);
-                setTimeout(() => { subObj.text('更新中.') }, 900);
-                setTimeout(() => { subObj.text('更新中..') }, 1200);
-                setTimeout(() => { subObj.text('更新中...') }, 1500);
-                setTimeout(() => { subObj.text(cun); obj.attr('clickflg', 'false');}, 1800);
+                resources(_).timeout(() => { subObj.text('提交中..') }, 300);
+                resources(_).timeout(() => { subObj.text('提交中...') }, 600);
+                resources(_).timeout(() => { subObj.text('更新中.') }, 900);
+                resources(_).timeout(() => { subObj.text('更新中..') }, 1200);
+                resources(_).timeout(() => { subObj.text('更新中...') }, 1500);
+                resources(_).timeout(() => { subObj.text(cun); obj.attr('clickflg', 'false');}, 1800);
             }
         }
     })();
 
-    /**
-     * 文章目录
-     */
     (() => {
         if (_.__status.pageType !== 'home') {
             let rtaDirectory = $('#rtaDirectory');
             rtaDirectory.show();
 
-            // 点击事件
-            rtaDirectory.click(function () {
+            resources(_).onJQuery(rtaDirectory, 'click', function () {
                 let articleDirectory = $('#articleDirectory');
                 if (articleDirectory.length) {
                     articleDirectory.is(':hidden') ? articleDirectory.fadeIn(300) : articleDirectory.fadeOut(300);
@@ -233,16 +201,12 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 主页
-     */
     (() => {
         if (_.__status.pageType !== 'home') {
             let rightMenuHome = $('#rightMenuHome');
             rightMenuHome.show();
 
-            // 点击事件
-            rightMenuHome.click(function () {
+            resources(_).onJQuery(rightMenuHome, 'click', function () {
                 window.location.href = _.__status.homeUrl;
             });
         }

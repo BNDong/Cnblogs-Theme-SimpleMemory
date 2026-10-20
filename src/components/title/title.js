@@ -5,6 +5,7 @@
  * ----------------------------------------------
  * @describe: 页面title处理
  */
+import resources from '../../core/resources';
 
 export default function main(_) {
 
@@ -29,17 +30,17 @@ export default function main(_) {
     }
 
     let handleVisibilityChange = () => {
-        if (timer) clearTimeout(timer);
+        if (timer) resources(_).clearTimeout(timer);
         if (document[hidden]) {
             if (onblurTime >= 0) {
-                timer = setTimeout(() => {
+                timer = resources(_).timeout(() => {
                     document.title = onblur + ' - ' + RelTitle.split(' - ')[0];
                 }, onblurTime);
             }
         } else {
             if (focusTime >= 0) {
                 document.title = focus;
-                timer = setTimeout(() => {
+                timer = resources(_).timeout(() => {
                     document.title = RelTitle;
                 }, focusTime);
             } else {
@@ -48,6 +49,6 @@ export default function main(_) {
         }
     }
     if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
-        document.addEventListener(visibilityChange, handleVisibilityChange, false);
+        resources(_).on(document, visibilityChange, handleVisibilityChange, false);
     }
 }

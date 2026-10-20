@@ -5,6 +5,7 @@
  * ----------------------------------------------
  * @describe: 前置公共处理
  */
+import resources from '../../core/resources';
 import loading from '../loading/loading';
 import sidebar from '../sidebar/sidebar';
 import banner from '../banner/banner';
@@ -12,71 +13,47 @@ import event from '../event/event';
 import '../../images/webp/rss.webp';
 import '../../style/asset.css';
 import '../../vendor/rotate/jquery.rotate.min';
+import { clearIntervalTimeId } from '../../core/resources';
+import loadFonts from '../fonts/fonts';
 
 export default function main(_) {
-    // 默认字体图标库
     import(/* webpackChunkName: "fonticon" */ '../../style/fonticon.css');
 
-    // 谷歌字体
-    import(/* webpackChunkName: "google-fonts" */ '../../style/google-fonts.css');
+    loadFonts(_);
 
-    /**
-     * 国家公祭日和自定义缅怀的日期
-     */
     const today = _.__tools.getFormattedDate();
     if (today === '12-13' || _.__config.memorialDays.includes(today)) $('html').css('filter', 'grayscale(100%)');
 
     let loadingObj = loading(_);
 
-    /**
-     * 开启 loading
-     */
     (() => {
         loadingObj.start();
     })();
 
-    /**
-     * 定时清除全部计时器
-     */
     (() => {
-        setTimeout(() => {
+        resources(_).timeout(() => {
             $.each(_.__timeIds, (e) => {
-                null != _.__timeIds[e] && window.clearInterval(_.__timeIds[e]);
+                clearIntervalTimeId(_.__timeIds[e]);
             });
         }, 30000);
     })();
 
-    /**
-     * 事件绑定
-     */
     (() => {
         event(_).init();
     })();
 
-    /**
-     * 侧边栏
-     */
     (() => {
         sidebar(_);
     })();
 
-    /**
-     * 头图
-     */
     (() => {
         banner(_);
     })();
 
-    /**
-     * 添加扩展字体图标库
-     */
     (() => {
         if (_.__config.fontIconExtend !== '') _.__tools.dynamicLoadingCss(_.__config.fontIconExtend);
     })();
 
-    /**
-     * 关闭 loading
-     */
     (() => {
         loadingObj.stop();
     })();

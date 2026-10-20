@@ -79,6 +79,11 @@
   },
   // -- fontIcon --
   fontIconExtend: '',
+  // -- 按需加载字体；空数组加载全部字体，支持以下字体名称 --
+  // Long Cang、Noto Sans SC、Noto Serif SC、Playball、Ubuntu Mono、ZCOOL XiaoWei
+  fonts: {
+    families: [],
+  },
   // -- 进度条 --
   progressBar: {
     id: 'top-progress-bar',
@@ -239,6 +244,7 @@
     options: {
       hljs: {
         theme: 'atom-one-dark-reasonable',
+        // 空数组加载全部语言；指定语言时按需加载，包括正文显式语言及语法依赖。
         languages: [],
       },
       maxHeight: '',

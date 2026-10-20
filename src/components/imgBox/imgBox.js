@@ -5,14 +5,17 @@
  * ----------------------------------------------
  * @describe: 图片灯箱处理
  */
+import { getArticleNode } from '../../platform/cnblogs/article';
+import { getCommentNode } from '../../platform/cnblogs/comment';
+import resources from '../../core/resources';
 import "../../vendor/fancybox/jquery.fancybox";
 import "../../vendor/fancybox/jquery.fancybox.min.css";
 
 export default function main(_) {
-    setTimeout(() =>  {
-        let cpb         = $('#cnblogs_post_body')
+    resources(_).timeout(() =>  {
+        let cpb         = getArticleNode('body')
             ,imgList    = $('#cnblogs_post_body img')
-            ,comImgList = $('.feedbackCon img')
+            ,comImgList = getCommentNode('images')
             ,data       = [];
 
         $.each(imgList, function (i) {

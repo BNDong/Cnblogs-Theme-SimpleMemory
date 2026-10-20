@@ -5,6 +5,7 @@
  * ----------------------------------------------
  * @describe: 代码高亮处理
  */
+import resources from '../../core/resources';
 import ClipboardJS from "clipboard";
 import beforeCode from "../../hooks/beforeCode";
 import afterCode from "../../hooks/afterCode";
@@ -14,22 +15,16 @@ export default function main(_) {
 
     beforeCode(_);
 
-    /**
-     * 初始化代码结构
-     */
     (() => {
         $.each(preList, function (i) {
             let pre = $(preList[i]);
             let boxId = 'code-' + _.__tools.randomString(6);
 
-            // 设置外部标签
             pre.wrap('<code-box id="' + boxId + '"></code-box>');
             pre.attr('boxid', boxId);
 
-            // 设置代码字体大小
             pre.css('font-size', _.__config.code.options.fontSize);
 
-            // 增加语言标签
             let preCode = pre.find('code');
             if (preCode.length > 0) {
                 let codeClass = preCode.attr('class');
@@ -43,9 +38,6 @@ export default function main(_) {
         });
     })();
 
-    /**
-     * 工具条
-     */
     (() => {
         if (_.__config.code.options.macStyle) {
             let codeBox = $('code-box');
@@ -57,9 +49,6 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 复制代码
-     */
     (() => {
         let codeBox = $('code-box');
         $.each(codeBox, function (i) {
@@ -70,14 +59,15 @@ export default function main(_) {
             code.prepend(copyHtml);
         });
 
-        // 点击效果
-        $('code-box .code-copay-btn').click(function () {
+        resources(_).onJQuery($('code-box .code-copay-btn'), 'click', function () {
             $(this).find('i').removeClass('simple-memory-icon-fuzhi1').addClass('simple-memory-icon-right');
-            setTimeout("$('code-box button[boxid="+$(this).attr('boxid')+"] i').removeClass('simple-memory-icon-right').addClass('simple-memory-icon-fuzhi1')", 1500);
+            const boxId = $(this).attr('boxid');
+            resources(_).timeout(() => {
+                $('code-box button[boxid='+boxId+'] i').removeClass('simple-memory-icon-right').addClass('simple-memory-icon-fuzhi1');
+            }, 1500);
         });
 
-        // 显示/隐藏
-        codeBox.on({
+        resources(_).onJQuery(codeBox, {
             mouseover : function () {
                 $(this).find('.code-copay-btn').css({
                     opacity: 1,
@@ -92,21 +82,15 @@ export default function main(_) {
             }
         });
 
-        // 拷贝
-        new ClipboardJS('.clipboard');
+        const clipboard = new ClipboardJS('.clipboard');
+        resources(_).add(() => clipboard.destroy());
     })();
 
-    /**
-     * 限制代码框高度
-     */
     (() => {
         if (_.__config.code.options.maxHeight)
             $('code-box pre').css('max-height', _.__config.code.options.maxHeight);
     })();
 
-    /**
-     * 渲染代码
-     */
     (() => {
         switch (_.__config.code.type.toLowerCase()) {
             case 'hljs':
@@ -131,9 +115,6 @@ export default function main(_) {
         afterCode(_);
     })();
 
-    /**
-     * 设置代码行号
-     */
     function setCodeLine() {
         if (!_.__config.code.options.line) return true;
 

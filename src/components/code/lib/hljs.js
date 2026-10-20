@@ -5,13 +5,17 @@
  * ----------------------------------------------
  * @describe: hljs渲染代码
  */
-import hljs from 'highlight.js';
+import resources from '../../../core/resources';
+import loadHighlighter from './languages';
 
 export default function main(_, setCodeLine) {
     let theme = _.__config.code.options.hljs.theme.toLowerCase();
 
-    import(/* webpackChunkName: "hljs/[request]" */ `highlight.js/styles/${theme}.css`).then(module => {
-        let code  = $('code-box pre');
+    Promise.all([
+        import(/* webpackChunkName: "hljs/[request]" */ `highlight.js/styles/${theme}.css`),
+        loadHighlighter(_.__config.code.options.hljs.languages, $('code-box pre')),
+    ]).then(([module, hljs]) => {
+        let code = $('code-box pre');
         let bgFlg = $.inArray(theme, [
             'github-gist', 'googlecode', 'grayscale',
             'idea', 'isbl-editor-light', 'qtcreator_light',
@@ -19,41 +23,28 @@ export default function main(_, setCodeLine) {
             'ascetic', 'color-brewer', 'lightfair'
         ]) !== -1;
 
-        /**
-         * 渲染代码
-         */
         (() => {
-            // 语言范围设置
             if (_.__config.code.options.hljs.languages.length) {
                 hljs.configure({
                     languages: _.__config.code.options.hljs.languages
                 });
             }
 
-            // 渲染代码
             $.each(code, function (i, e) {
                 let obj = $(code[i]);
 
-                // 做一次换行兼容处理
                 obj.css('white-space', 'pre').html().replace(/\<br\>/g, '\n');
 
-                // 清除代码原有样式
                 obj.text(obj.text());
 
-                // 替换白色背景的主题
                 bgFlg && obj.css('background', '#f5f5fa');
 
-                // 开始渲染代码
                 hljs.highlightElement(e);
 
-                // 设置复制按钮颜色
                 $('.clipboard[boxid='+ obj.attr('boxid') +']').addClass('hljs-comment');
             });
         })();
 
-        /**
-         * 显示自动识别语言
-         */
         let setCodeHljsLen = () => {
             let codeBox = $('code-box');
             $.each(codeBox, function (i, e) {
@@ -69,11 +60,8 @@ export default function main(_, setCodeLine) {
             });
         }
 
-        /**
-         * 设置工具条背景色 & 添加语言标签
-         */
         (() => {
-            _.__timeIds.hljsCodeTId = window.setInterval(() => {
+            _.__timeIds.hljsCodeTId = resources(_).interval(() => {
                 let preHljs = $('pre.hljs');
                 if (preHljs.length > 0) {
                     $('code-box .code-tools').css('background', $('pre.hljs').css('background'))
@@ -85,9 +73,6 @@ export default function main(_, setCodeLine) {
             }, 1000);
         })();
 
-        /**
-         * 设置行号
-         */
         (() => {
             setCodeLine();
         })();

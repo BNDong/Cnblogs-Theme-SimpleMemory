@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test tests/compatibility.test.cjs",
     "dev": "webpack --mode development",
     "build": "npx webpack --config ./webpack.config.js && npx postcss ./src/style/simpleMemory.css > ./dist/simpleMemory.css",
     "server": "npx http-server dist -p 3100 --cors"

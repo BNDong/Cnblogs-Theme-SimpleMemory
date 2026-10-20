@@ -11,22 +11,15 @@ import linksTemp from '../template/links.html';
 import articleDirectory from '../components/articleDirectory/articleDirectory';
 
 export default function main(_) {
-    /**
-     * 文章页公共处理
-     */
     (() => {
         comArticle(_);
     })();
 
-    /**
-     * 添加友链
-     */
     (() => {
         if (_.__config.links.page.length) {
             const postBody = $('#cnblogs_post_body');
             const articleSuffixFlg = $('.articleSuffix-flg');
 
-            // 生成友链的html
             const generateLinkHtml = (link, index) => {
                 const { avatar = '', name = '', introduction = '', url = '' } = link;
                 const icons = ['icon-collection_fill', 'icon-like_fill', 'icon-flashlight_fill'];
@@ -40,7 +33,6 @@ export default function main(_) {
                 ]);
             };
 
-            // 生成完整的友链分类的html
             const generateSectionHtml = (data) => {
                 const { title, icon, style, links } = data;
                 const sectionTitle = title ? `<h1 class="simple-memory-iconfont simple-memory-${icon} iconfont ${icon}" style="${style}">${title}</h1>` : '';
@@ -50,14 +42,10 @@ export default function main(_) {
 
             const linksHtml = _.__config.links.page.map(generateSectionHtml).join('');
 
-            // 插入模版
             articleSuffixFlg.length ? articleSuffixFlg.before(linksHtml) : postBody.append(linksHtml);
         }
     })();
 
-    /**
-     * 设置文章目录
-     */
     (() => {
         articleDirectory(_);
     })();

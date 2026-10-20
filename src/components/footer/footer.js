@@ -5,6 +5,7 @@
  * ----------------------------------------------
  * @describe: footer
  */
+import resources from '../../core/resources';
 import footerTemp from '../../template/footer.html';
 import aplayerTemp from '../../template/aplayer.html';
 import footerImg from './../../images/webp/footer.webp';
@@ -20,9 +21,6 @@ export default function main(_) {
     let config = _.__config.footer;
     let footerHtml = _.__tools.tempReplacement(footerTemp, 'footerText', footerText);
 
-    /**
-     * 设置标语
-     */
     (() => {
         if (config.text.left || config.text.right) {
             let re = [
@@ -39,9 +37,6 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 设置友情链接
-     */
     (() => {
         if (_.__config.links.footer.length > 0) {
             let linksHtml = '友情链接：';
@@ -58,23 +53,10 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 设置网站统计ID（已废弃）
-     */
-    // (() => {
-    //     if (_.__config.cnzz) footerHtml = _.__tools.tempReplacement(footerHtml, 'cnzzId', _.__config.cnzz);
-    // })();
-
-    /**
-     * 添加页脚
-     */
     (() => {
         footer.html(footerHtml);
     })();
 
-    /**
-     * 页脚样式
-     */
     (() => {
         switch (parseInt(config.style)) {
             case 1:
@@ -96,44 +78,13 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 设置运行时间
-     */
     (() => {
-        window.setInterval( () => {
+        resources(_).interval( () => {
             let runDate = _.__tools.getRunDate(_.__config.info.startDate ? _.__config.info.startDate : '2021-01-01');
             $('#blogRunTimeSpan').text('博客已运行 : '+runDate.daysold+' 天 '+runDate.hrsold+' 时 '+runDate.minsold+' 分 '+runDate.seconds+' 秒');
         }, 500 );
     })();
 
-    // /**
-    //  * 定时网站统计（已废弃）
-    //  */
-    // (() => {
-    //     if (_.__config.cnzz) {
-    //         _.__timeIds.cnzzTId = window.setInterval( () => {
-    //             let cnzzStat = $('.id_cnzz_stat_icon a');
-    //             if (cnzzStat.length > 0) {
-    //                 let cnzzInfo = [];
-    //                 let cnzzArr  = $(cnzzStat[1]).text().split('|');
-    //                 $.each(cnzzArr, (i) => {
-    //                     let str = $.trim(cnzzArr[i]);
-    //                     if (str !== '') {
-    //                         str = str.replace('今日','Today').replace('昨日','Yesterday').replace('[',':').replace(']','');
-    //                         cnzzInfo.push(str)
-    //                     }
-    //                 });
-    //                 cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线','Online').replace('[',':').replace(']',''));
-    //                 $('#cnzzInfo').text(cnzzInfo.join(' | ')).show();
-    //                 _.__tools.clearIntervalTimeId(_.__timeIds.cnzzTId);
-    //             }
-    //         }, 1000 );
-    //     }
-    // })();
-
-    /**
-     * 设置音乐播放器
-     */
     (() => {
         if (config.aplayer.enable) {
             Promise.all([_.__tools.dynamicLoadingJs(config.aplayer.cdn.aplayer), _.__tools.dynamicLoadingJs(config.aplayer.cdn.meting)])

@@ -5,6 +5,7 @@
  * ----------------------------------------------
  * @describe: 文章信息
  */
+import { getArticleNode } from '../../platform/cnblogs/article';
 
 export default function main(postDescText) {
     const postDescTextClean = postDescText.replace(/[\r\n]/g, '');
@@ -21,7 +22,7 @@ export default function main(postDescText) {
     }, []);
     
     const [, date, vnum, cnum, tnum] = match;
-    const diggCount = $('#digg_count');
+    const diggCount = getArticleNode('diggCount');
     
     return {
         date: date || '1970-01-01 00:00',

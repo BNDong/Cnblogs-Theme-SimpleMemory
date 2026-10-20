@@ -5,12 +5,13 @@
  * ----------------------------------------------
  * @describe: 侧边栏处理
  */
+import resources from '../../../core/resources';
 import cla from './classie';
 import Snap from 'snapsvg-cjs';
 import optiscroll from 'optiscroll';
 import 'optiscroll/dist/optiscroll.css'
 
-export default function main() {
+export default function main(_ = {}) {
 
 	let bodyEl = document.body,
 		content = document.querySelector( '.content-wrap' ),
@@ -30,17 +31,9 @@ export default function main() {
 	let myOptiscrollInstance;
 
 	function init() {
-		// 防止移动端滚动
-		// $("#mainContent").on("touchmove",function(event){
-		// 	event.preventDefault;
-		// }, false)
-		// $("#content-wrap").on("touchmove",function(event){
-		// 	event.preventDefault;
-		// }, false)
 
 		initEvents();
 
-		// 初始化滚动条
 		myOptiscrollInstance = new optiscroll(document.querySelector('#menuWrap'), {
 			preventParentScroll: true,
 			forceScrollbars: true
@@ -48,13 +41,12 @@ export default function main() {
 	}
 
 	function initEvents() {
-		openbtn.addEventListener( 'click', toggleMenu );
+		resources(_).on( openbtn, 'click', toggleMenu );
 		if( closebtn ) {
-			closebtn.addEventListener( 'click', toggleMenu );
+			resources(_).on( closebtn, 'click', toggleMenu );
 		}
 
-		// close the menu element if the target it麓s not the menu element or one of its descendants..
-		content.addEventListener( 'click', function(ev) {
+		resources(_).on( content, 'click', function(ev) {
 			let target = ev.target;
 			if( isOpen && target !== openbtn ) {
 				toggleMenu();
@@ -63,8 +55,6 @@ export default function main() {
 	}
 
 	function toggleMenu() {
-		// if( isAnimating ) return false;
-		// isAnimating = true;
 		$('.menu-wrap').show();
 
 		let homeMarginLeft = $('#home').css('margin-left');
@@ -74,46 +64,27 @@ export default function main() {
 
 			$(bodyEl).removeClass('show-menu');
 
-			//setTimeout( "$('body').removeClass('show-menu');", 25);
-
 			$('#content-wrap').fadeOut(300);
 			$(bodyEl).css('overflow', 'auto');
 			$("#mainContent").off("touchmove");
 
-			// animate path
-			// setTimeout( function() {
-				// reset path
-				path.attr( 'd', initialPath );
-				isAnimating = false;
-			// }, 300 );
+			path.attr( 'd', initialPath );
+			isAnimating = false;
 		}
 		else {
 			classie.add( bodyEl, 'show-menu' );
 
-			// animate path
-			// let pos = 0,
-			// 	nextStep = function( pos ) {
-			// 		if( pos > stepsTotal - 1 ) {
-			// 			isAnimating = false;
-			// 			return;
-			// 		}
-			// 		path.animate( { 'path' : steps[pos] }, pos === 0 ? 400 : 500, pos === 0 ? mina.easein : mina.elastic, function() { nextStep(pos); } );
-			// 		pos++;
-			// 	};
-
-			// $('#content-wrap').fadeIn(300);
 			$('#content-wrap').show();
 			$('body').css('overflow', 'hidden');
 
-			// 初始化滚动条到顶部位置
 			myOptiscrollInstance.scrollTo(false, 'top');
 
-			// nextStep(pos);
 		}
 		isOpen = !isOpen;
 	}
 
 	init();
+	resources(_).add(() => myOptiscrollInstance.destroy());
 
 	return {
 		myOptiscrollInstance: myOptiscrollInstance

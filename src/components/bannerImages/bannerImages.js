@@ -5,20 +5,19 @@
  * ----------------------------------------------
  * @describe: banner 背景切换处理
  */
+import resources from '../../core/resources';
 import {gsap, Power4} from "gsap/all";
 
-export default function main(id, images, cols, time, sort, current) {
+export default function main(id, images, cols, time, sort, current, _ = {}) {
     const main = document.getElementById(id);
 
-    let parts   = []; // 列容器对象
-    let playing = false; // 是否执行动画
+    let parts   = [];
+    let playing = false;
 
-    // 生成图片对象
     for (let i in images) {
         new Image().src = images[i];
     }
 
-    // 生成列dom
     for (let col = 0; col < cols; col++) {
         let part = document.createElement('div');
         part.className = 'part';
@@ -36,12 +35,10 @@ export default function main(id, images, cols, time, sort, current) {
         parts.push(part);
     }
 
-    // 动画配置
     let animOptions = {
         duration: 2.3,
         ease: Power4.easeInOut
     };
-
 
     function go(dir) {
         if (!playing) {
@@ -83,8 +80,7 @@ export default function main(id, images, cols, time, sort, current) {
         }
     }
 
-    // 定时执行
-    window.setInterval(() => {
+    resources(_).interval(() => {
         go(sort);
     }, time);
 }

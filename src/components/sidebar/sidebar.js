@@ -5,6 +5,8 @@
  * ----------------------------------------------
  * @describe: 侧边栏处理
  */
+import { getSidebarNode } from '../../platform/cnblogs/sidebar';
+import resources from '../../core/resources';
 import sidebarTemp from '../../template/sidebar.html';
 import navTemp from '../../template/sidebarNav.html';
 import '../../style/menu_bubble.css';
@@ -16,65 +18,47 @@ export default function main(_) {
 
     let mainObj;
 
-    /**
-     * 设置侧边栏渲染
-     */
     (() => {
-        $('#sidebar_news').prepend(sidebarTemp);
-        mainObj = main4();
+        getSidebarNode('news').prepend(sidebarTemp);
+        mainObj = main4(_);
     })();
 
-    /**
-     * 设置菜单信息
-     */
     (() => {
-        // ------- 设置导航 -------
         let navHtml = _.__tools.tempReplacement(navTemp, 'user', _.__status.user);
         $('.sidebar-footer').html(navHtml);
 
-        // ------- 设置头像 -------
         let blogAvatar = _.__config.info.avatar ? _.__config.info.avatar : defaultAvatarImg;
         $('#menuBlogAvatar').append("<img class='img-responsive' alt='用户头像' src='"+blogAvatar+"'>");
 
-        // 头像动效
         if (_.__config.animate.avatar.enable) {
             $('#menuBlogAvatar').css('border-radius', '50%')
             $('#menuBlogAvatar .img-responsive').addClass('img-rounded')
         }
 
-        // ------- 设置侧边栏信息 -------
         $('.sidebar-title-msg').text(_.__config.sidebar.titleMsg);
     })();
 
-    /**
-     * 设置菜单个人信息背景图片
-     */
     (() => {
         let mbg = _.__config.sidebar.infoBackground ? _.__config.sidebar.infoBackground : defaultSidebarBgImg;
         $('.container .menu-wrap').css('background-image', 'url(\''+mbg+'\')');
     })();
 
-    /**
-     * 定时拉取数据
-     */
     (() => {
         let timeout = 1000;
 
-        // ------- 用户个人信息 -------
-        _.__timeIds.introduceTId = window.setInterval(() => {
-            let introduceHtml = $('#profile_block').html(),
+        _.__timeIds.introduceTId = resources(_).interval(() => {
+            let introduceHtml = getSidebarNode('profile').html(),
                 menuIntroduce = $('.sidebar-userinfo#introduce');
-            if($('#profile_block img')[0]) introduceHtml = introduceHtml.replace('<br>', '')
+            if(getSidebarNode('profileImages')[0]) introduceHtml = introduceHtml.replace('<br>', '')
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html(_.__tools.htmlFiltrationScript(introduceHtml));
                 _.__tools.clearIntervalTimeId(_.__timeIds.introduceTId);
             }
         }, timeout);
 
-        // ------- 博客统计 -------
-        _.__timeIds.blogStatsTId = window.setInterval(() => {
-            let blogStatsObj   = $('.blogStats'),
-                statsPostCount = $('#stats_post_count'),
+        _.__timeIds.blogStatsTId = resources(_).interval(() => {
+            let blogStatsObj   = getSidebarNode('stats'),
+                statsPostCount = getSidebarNode('postCount'),
                 menuBlogStats  = $('.sidebar-stats');
             if (blogStatsObj.length > 0 && statsPostCount.length > 0) {
                 menuBlogStats.html(_.__tools.htmlFiltrationScript(blogStatsObj.html())).show();
@@ -83,24 +67,22 @@ export default function main(_) {
             }
         }, timeout);
 
-        // ------- 日历 -------
-        _.__timeIds.calendarTId = window.setInterval(() => {
-            let calendarTable = $('#blogCalendar'),
-                calendar      = $('#blog-calendar'),
+        _.__timeIds.calendarTId = resources(_).interval(() => {
+            let calendarTable = getSidebarNode('calendarTable'),
+                calendar      = getSidebarNode('calendar'),
                 menuCalendar  = $('#calendar-box');
 
             if (calendarTable.length > 0 && menuCalendar.html() === ''){
                 let calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
                 calendar.remove();
                 menuCalendar.html(calendarHtml).show();
-                $('#blog-calendar').css('visibility', 'visible');
+                getSidebarNode('calendar').css('visibility', 'visible');
                 _.__tools.clearIntervalTimeId(_.__timeIds.calendarTId);
             }
         }, timeout);
 
-        // ------- 找找看 -------
-        _.__timeIds.searchTId = window.setInterval(() => {
-            let sidebarSearch = $('#sidebar_search_box'),
+        _.__timeIds.searchTId = resources(_).interval(() => {
+            let sidebarSearch = getSidebarNode('search'),
                 menuSearchBox = $('#sb-sidebarSearchBox');
 
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
@@ -110,92 +92,82 @@ export default function main(_) {
             }
         }, timeout);
 
-        // ------- 积分与排名 -------
-        _.__timeIds.scorerankTId = window.setInterval(() => {
+        _.__timeIds.scorerankTId = resources(_).interval(() => {
             listHdl(
-                $('#sidebar_scorerank ul li'),
+                getSidebarNode('scoreRank'),
                 $('#sb-sidebarScorerank'),
                 _.__timeIds.scorerankTId
             );
         }, timeout);
 
-        // ------- 最新随笔 -------
-        _.__timeIds.newEssayTId = window.setInterval(() => {
+        _.__timeIds.newEssayTId = resources(_).interval(() => {
             listHdl(
-                $('#sidebar_recentposts ul li'),
+                getSidebarNode('recentPosts'),
                 $('#sb-sidebarRecentposts'),
                 _.__timeIds.newEssayTId
             );
         }, timeout);
 
-        // ------- 我的标签 -------
-        _.__timeIds.topTagsTId = window.setInterval(() => {
+        _.__timeIds.topTagsTId = resources(_).interval(() => {
             listHdl(
-                $('#sidebar_toptags ul li'),
+                getSidebarNode('tags'),
                 $('#sb-toptags'),
                 _.__timeIds.topTagsTId
             );
         }, timeout);
 
-        // ------- 随笔分类 -------
-        _.__timeIds.classifyTId = window.setInterval(() => {
+        _.__timeIds.classifyTId = resources(_).interval(() => {
             listHdl(
-                $('#sidebar_postcategory ul li'),
+                getSidebarNode('postCategories'),
                 $('#sb-classify'),
                 _.__timeIds.classifyTId
             );
         }, timeout);
 
-        // ------- 文章分类 -------
-        _.__timeIds.articleCategoryTId = window.setInterval(() => {
+        _.__timeIds.articleCategoryTId = resources(_).interval(() => {
             listHdl(
-                $('#sidebar_articlecategory ul li'),
+                getSidebarNode('articleCategories'),
                 $('#sb-ArticleCategory'),
                 _.__timeIds.articleCategoryTId
             );
         }, timeout);
 
-        // ------- 随笔档案 -------
-        _.__timeIds.recordTId = window.setInterval(() => {
+        _.__timeIds.recordTId = resources(_).interval(() => {
             listHdl(
-                $('#sidebar_postarchive ul li'),
+                getSidebarNode('postArchive'),
                 $('#sb-record'),
                 'icon-task_fill',
                 _.__timeIds.recordTId
             );
         }, timeout);
 
-        // ------- 文章档案 -------
-        _.__timeIds.articleTId = window.setInterval(() => {
+        _.__timeIds.articleTId = resources(_).interval(() => {
             listHdl(
-                $('#sidebar_articlearchive ul li'),
+                getSidebarNode('articleArchive'),
                 $('#sb-articlearchive'),
                 'icon-document_fill',
                 _.__timeIds.articleTId
             );
         }, timeout);
 
-        // ------- 阅读排行 -------
-        _.__timeIds.topViewTId = window.setInterval(() => {
+        _.__timeIds.topViewTId = resources(_).interval(() => {
             listHdl(
-                $('#TopViewPostsBlock ul li'),
+                getSidebarNode('topViews'),
                 $('#sb-topview'),
                 _.__timeIds.topViewTId
             );
         }, timeout);
 
-        // ------- 推荐排行 -------
-        _.__timeIds.topDiggPostsTId = window.setInterval(() => {
+        _.__timeIds.topDiggPostsTId = resources(_).interval(() => {
             listHdl(
-                $('#TopDiggPostsBlock ul li'),
+                getSidebarNode('topDiggs'),
                 $('#sb-topDiggPosts'),
                 _.__timeIds.topDiggPostsTId
             );
         }, timeout);
 
-        // ------- 最新评论 -------
-        _.__timeIds.commentsTId = window.setInterval(() => {
-            let recentComments     = $('#sidebar_recentcomments ul'),
+        _.__timeIds.commentsTId = resources(_).interval(() => {
+            let recentComments     = getSidebarNode('comments'),
                 menuRecentComments = $('#sb-recentComments');
 
             let getMenuCommentsData = (obj) => {
@@ -239,7 +211,6 @@ export default function main(_) {
             }
         }, timeout);
 
-        // ------- 自定义导航 -------
         (() => {
             let navList = _.__config.sidebar.navList;
             let navHtml = '';
@@ -254,7 +225,6 @@ export default function main(_) {
             }
         })();
 
-        // ------- 自定义列表 -------
         (() => {
             let customData = _.__config.sidebar.customList;
             if (Object.keys(customData).length > 0) {
@@ -281,7 +251,6 @@ export default function main(_) {
             }
         })();
 
-        // ------- 公共函数 -------
         function listHdl(old, nld, tid) {
             if (old.length > 0 && nld.html() === '') {
                 nld.html(getMenuData(old));
@@ -307,25 +276,20 @@ export default function main(_) {
         }
     })();
 
-    /**
-     * 设置菜单展开收缩
-     */
     (() => {
-        $('.sidebar-menu a.sidebar-dropdown-box').on('click', function () {
+        resources(_).onJQuery($('.sidebar-menu a.sidebar-dropdown-box'), 'click', function () {
            let obj  = $(this);
            let pObj = obj.parent('li.sidebar-dropdown');
            let lObj = pObj.find('.sidebar-submenu');
            if (lObj.length > 0) {
                if (pObj.hasClass('active')) {
-                   // 收起
                    pObj.removeClass('active');
                    lObj.slideUp(300);
                } else {
-                   // 展开
                    pObj.addClass('active');
                    lObj.slideDown(300);
                }
-               setTimeout(function () {
+               resources(_).timeout(function () {
                    if (mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') {
                        mainObj.myOptiscrollInstance.update();
                    }
@@ -334,12 +298,9 @@ export default function main(_) {
         });
     })();
 
-    /**
-     * 窗口大小变化处理
-     */
     (() => {
-        _.__event.resize.handle.push(() => {
-            setTimeout(function () {
+        resources(_).subscribe(_.__event.resize.handle, () => {
+            resources(_).timeout(function () {
                 if ($('body').hasClass('show-menu') && mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') {
                     mainObj.myOptiscrollInstance.update();
                 }
@@ -347,9 +308,6 @@ export default function main(_) {
         });
     })();
 
-    /**
-     * 设置是否默认展开菜单栏
-     */
     (() => {
         let submenuShow = (obj)  => {
             obj.show().parent('li.sidebar-dropdown').addClass('active');
