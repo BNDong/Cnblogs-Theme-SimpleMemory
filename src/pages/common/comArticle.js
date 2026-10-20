@@ -15,11 +15,17 @@ import greenChannel from "../../components/greenChannel/greenChannel";
 
 export default function main(_) {
 
+    /**
+     * 设置文章banner动效
+     */
     (() => {
         if (_.__config.animate.articleBanner.enable)
             import(/* webpackChunkName: "nhBannerAnimation" */ '../../style/nhBannerAnimation.css');
     })();
 
+    /**
+     * 清除文章页冲突样式
+     */
     (() => {
         for (let i = 0; i <= 10; i++) {
             resources(_).timeout(function timer(){
@@ -30,24 +36,39 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 设置文章信息
+     */
     (() => {
         articleInfo(_);
     })();
 
+    /**
+     * 设置文章目录
+     */
     (() => {
         if (_.__status.pageType !== 'books') {
             articleDirectory(_);
         }
     })();
 
+    /**
+     * 设置文章底部信息按钮
+     */
     (() => {
         greenChannel(_);
     })();
 
+    /**
+     * 设置文章后缀
+     */
     (() => {
         articleSuffix(_);
     })();
 
+    /**
+     * 设置评论框
+     */
     (() => {
         comment(_);
     })();

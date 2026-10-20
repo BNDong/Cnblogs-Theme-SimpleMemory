@@ -9,6 +9,9 @@ import comGallery from "./common/comGallery";
 
 export default function main(_) {
 
+    /**
+     * 相册页公共处理
+     */
     (() => {
         comGallery(_);
     })();

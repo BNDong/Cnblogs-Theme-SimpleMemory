@@ -8,6 +8,9 @@
 import postMeta from '../postMeta/postMeta';
 import { getPostReadMore, getPostTitles, getEntryTitles, getPostDescriptions } from '../../platform/cnblogs/dom';
 
+/**
+ * 设置主页文章信息样式
+ */
 export function setPostMeta() {
     let read = getPostReadMore(), titleList = getPostTitles();
     read.text('阅读全文 »');
@@ -38,6 +41,9 @@ export function setPostMeta() {
     }
 }
 
+/**
+ * 设置摘要文章
+ */
 export function setPostDescriptions() {
     let desc = getPostDescriptions();
     $.each(desc, (i) => {

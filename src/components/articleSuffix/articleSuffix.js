@@ -12,8 +12,10 @@ import '../../style/articleSuffix.css';
 import defaultAvatarImg from './../../images/webp/default_avatar.webp';
 
 export default function main(_) {
+    // 图片
     let imgUrl = _.__config.articleSuffix.imgUrl || _.__config.info.avatar || defaultAvatarImg;
 
+    // 本文作者 & 本文链接
     let articleAuthor = $('#articleAuthor');
     let articleSource = $('#articleSource');
     let author = articleAuthor.length ? articleAuthor.val() : _.__config.info.name,
@@ -21,11 +23,15 @@ export default function main(_) {
         homeUrl = articleSource.length ? articleSource.val() : _.__status.homeUrl,
         origin = articleAuthor.length || articleSource.length ? '原' : '本';
 
+    // 默认值
     const defaultAboutHtml = `评论和私信会在第一时间回复。或者<a href="https://msg.cnblogs.com/msg/send/${_.__status.user}" target="_blank">直接私信</a>我。`;
     const defaultCopyrightHtml = `本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" alt="BY-NC-SA" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！`;
     const defaultSupportHtml = `如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost(${_.__status.articleId},'Digg')" href="javascript:void(0);">推荐</a>】</span></strong>一下。`;
+    // 关于博主
     let aboutHtml = _.__config.articleSuffix.aboutHtml || defaultAboutHtml;
+    // 版权声明
     let copyrightHtml = _.__config.articleSuffix.copyrightHtml || defaultCopyrightHtml;
+    // 声援博主
     let supportHtml = _.__config.articleSuffix.supportHtml || defaultSupportHtml;
 
     let re = [
@@ -42,6 +48,7 @@ export default function main(_) {
 
     getArticleNode('body').append(suffixHtml);
 
+    // 复制文本携带版本声明
     (() => {
         const config = _.__config.articleSuffix.copyInfo;
         const { enable, length, copyright = copyrightHtml } = config;

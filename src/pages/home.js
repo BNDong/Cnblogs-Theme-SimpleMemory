@@ -9,10 +9,14 @@ import resources from '../core/resources';
 import { setPostMeta, setPostDescriptions } from "../components/postList/postList";
 
 export default function main(_) {
+    /**
+     * 设置主页标语
+     */
     (() => {
 
         $('#homeTopTitle span').text(_.__config.info.name);
 
+        // 判断用户是否自定义了设置
         let configTitle = _.__config.banner.home.title,
             hitokoto = $('#hitokoto');
 
@@ -40,7 +44,7 @@ export default function main(_) {
         ], settings = {};
 
         switch (_.__config.banner.home.titleSource) {
-            case "one":
+            case "one": // ONE . 每日一句
                 settings = {
                     "async": true,
                     "crossDomain": true,
@@ -71,7 +75,7 @@ export default function main(_) {
                 break;
 
             case "jinrishici":
-            default:
+            default: // 今日诗词
 
                 _.__tools.dynamicLoadingJs('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(r => {
                     jinrishici.load(function(response) {
@@ -89,16 +93,28 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 头图点击滚动到内容位置
+     */
     (() => {
         resources(_).onJQuery($('.scroll-down'), 'click', function () {
             let endScroll;
             endScroll = $('#home').offset().top + 10; _.__tools.actScroll(endScroll, 500);})
     })();
 
+    /**
+     * 设置主页文章信息样式
+     */
     setPostMeta();
 
+    /**
+     * 设置摘要文章
+     */
     setPostDescriptions();
 
+    /**
+     * 主页banner动效
+     */
     (() => {
         if (_.__config.animate.homeBanner.enable) {
             import(/* webpackChunkName: "circleMagic" */ '../vendor/circleMagic/circleMagic').then(module => {

@@ -11,13 +11,15 @@ import {gsap, Power4} from "gsap/all";
 export default function main(id, images, cols, time, sort, current, _ = {}) {
     const main = document.getElementById(id);
 
-    let parts   = [];
-    let playing = false;
+    let parts   = []; // 列容器对象
+    let playing = false; // 是否执行动画
 
+    // 生成图片对象
     for (let i in images) {
         new Image().src = images[i];
     }
 
+    // 生成列dom
     for (let col = 0; col < cols; col++) {
         let part = document.createElement('div');
         part.className = 'part';
@@ -35,6 +37,7 @@ export default function main(id, images, cols, time, sort, current, _ = {}) {
         parts.push(part);
     }
 
+    // 动画配置
     let animOptions = {
         duration: 2.3,
         ease: Power4.easeInOut
@@ -80,6 +83,7 @@ export default function main(id, images, cols, time, sort, current, _ = {}) {
         }
     }
 
+    // 定时执行
     resources(_).interval(() => {
         go(sort);
     }, time);

@@ -15,10 +15,15 @@ export default function main(_) {
     $('#sidebar_news').prepend(bannerTemp);
 
     // 在 loading 结束前设置头图高度。
+    /**
+     * 设置banner背景图片，初始化高度
+     * （该处理需在loading结束之前处理）
+     */
     (() => {
         let mainHeader = $('#main-header');
         let topImg, bgImg, height;
 
+        // 设置图片
         if (_.__status.pageType === 'home') {
             topImg = _.__config.banner.home.background.length > 0
                 ? _.__config.banner.home.background : [homeTopBg];
@@ -32,9 +37,12 @@ export default function main(_) {
             $('#cb_post_title_url').addClass('post-del-title');
         }
 
+        // 设置高度
         if (height) mainHeader.css('height', height);
 
+        // banner动效
         if (_.__config.animate.bannerImages.enable) {
+            // 开启图片自动切换
             import(/* webpackChunkName: "bannerImages" */ '../bannerImages/bannerImages').then(module => {
                 let bannerImages = module.default;
                 bannerImages(
@@ -50,6 +58,7 @@ export default function main(_) {
                 );
             });
         } else {
+            // 随机指定一个图片
             topImg.length > 0 ?
                 (topImg.length > 1 ? bgImg = topImg[_.__tools.randomNum(0, topImg.length - 1)] : bgImg = topImg[0])
                 : bgImg = "";
@@ -61,29 +70,33 @@ export default function main(_) {
         }
     })();
 
+    // banner title 动效
     (() => {
         if (_.__config.animate.homeBannerTitle.enable) {
             $('#main-header h1.page-title').addClass('page-title-hover');
         }
     })();
 
+    // 添加事件监听
     resources(_).subscribe(_.__event.scroll.handle, () => {
         let openButton = $('#open-button');
 
-        if (_.__event.scroll.temScroll < _.__event.scroll.docScroll) {
+        if (_.__event.scroll.temScroll < _.__event.scroll.docScroll) { // 向下滚动
 
-            if (_.__event.scroll.homeScroll <= _.__event.scroll.docScroll) {
+            if (_.__event.scroll.homeScroll <= _.__event.scroll.docScroll) { // 滚过头图
 
+                // 设置菜单按钮
                 if (!openButton.hasClass('menu-button-scroll')) {
                     openButton.addClass('menu-button-scroll');
                     openButton.text('');
                 }
             }
 
-        } else {
+        } else { // 向上滚动
 
-            if (_.__event.scroll.homeScroll >= _.__event.scroll.docScroll) {
+            if (_.__event.scroll.homeScroll >= _.__event.scroll.docScroll) { // 滚入头图
 
+                // 设置菜单按钮
                 if (openButton.hasClass('menu-button-scroll')) {
                     openButton.removeClass('menu-button-scroll');
                     openButton.text('MENU');

@@ -18,34 +18,51 @@ export default function main(_) {
 
     let mainObj;
 
+    /**
+     * 设置侧边栏渲染
+     */
     (() => {
         getSidebarNode('news').prepend(sidebarTemp);
         mainObj = main4(_);
     })();
 
+    /**
+     * 设置菜单信息
+     */
     (() => {
+        // ------- 设置导航 -------
         let navHtml = _.__tools.tempReplacement(navTemp, 'user', _.__status.user);
         $('.sidebar-footer').html(navHtml);
 
+        // ------- 设置头像 -------
         let blogAvatar = _.__config.info.avatar ? _.__config.info.avatar : defaultAvatarImg;
         $('#menuBlogAvatar').append("<img class='img-responsive' alt='用户头像' src='"+blogAvatar+"'>");
 
+        // 头像动效
         if (_.__config.animate.avatar.enable) {
             $('#menuBlogAvatar').css('border-radius', '50%')
             $('#menuBlogAvatar .img-responsive').addClass('img-rounded')
         }
 
+        // ------- 设置侧边栏信息 -------
         $('.sidebar-title-msg').text(_.__config.sidebar.titleMsg);
     })();
 
+    /**
+     * 设置菜单个人信息背景图片
+     */
     (() => {
         let mbg = _.__config.sidebar.infoBackground ? _.__config.sidebar.infoBackground : defaultSidebarBgImg;
         $('.container .menu-wrap').css('background-image', 'url(\''+mbg+'\')');
     })();
 
+    /**
+     * 定时拉取数据
+     */
     (() => {
         let timeout = 1000;
 
+        // ------- 用户个人信息 -------
         _.__timeIds.introduceTId = resources(_).interval(() => {
             let introduceHtml = getSidebarNode('profile').html(),
                 menuIntroduce = $('.sidebar-userinfo#introduce');
@@ -56,6 +73,7 @@ export default function main(_) {
             }
         }, timeout);
 
+        // ------- 博客统计 -------
         _.__timeIds.blogStatsTId = resources(_).interval(() => {
             let blogStatsObj   = getSidebarNode('stats'),
                 statsPostCount = getSidebarNode('postCount'),
@@ -67,6 +85,7 @@ export default function main(_) {
             }
         }, timeout);
 
+        // ------- 日历 -------
         _.__timeIds.calendarTId = resources(_).interval(() => {
             let calendarTable = getSidebarNode('calendarTable'),
                 calendar      = getSidebarNode('calendar'),
@@ -81,6 +100,7 @@ export default function main(_) {
             }
         }, timeout);
 
+        // ------- 找找看 -------
         _.__timeIds.searchTId = resources(_).interval(() => {
             let sidebarSearch = getSidebarNode('search'),
                 menuSearchBox = $('#sb-sidebarSearchBox');
@@ -92,6 +112,7 @@ export default function main(_) {
             }
         }, timeout);
 
+        // ------- 积分与排名 -------
         _.__timeIds.scorerankTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('scoreRank'),
@@ -100,6 +121,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 最新随笔 -------
         _.__timeIds.newEssayTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('recentPosts'),
@@ -108,6 +130,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 我的标签 -------
         _.__timeIds.topTagsTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('tags'),
@@ -116,6 +139,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 随笔分类 -------
         _.__timeIds.classifyTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('postCategories'),
@@ -124,6 +148,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 文章分类 -------
         _.__timeIds.articleCategoryTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('articleCategories'),
@@ -132,6 +157,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 随笔档案 -------
         _.__timeIds.recordTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('postArchive'),
@@ -141,6 +167,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 文章档案 -------
         _.__timeIds.articleTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('articleArchive'),
@@ -150,6 +177,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 阅读排行 -------
         _.__timeIds.topViewTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('topViews'),
@@ -158,6 +186,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 推荐排行 -------
         _.__timeIds.topDiggPostsTId = resources(_).interval(() => {
             listHdl(
                 getSidebarNode('topDiggs'),
@@ -166,6 +195,7 @@ export default function main(_) {
             );
         }, timeout);
 
+        // ------- 最新评论 -------
         _.__timeIds.commentsTId = resources(_).interval(() => {
             let recentComments     = getSidebarNode('comments'),
                 menuRecentComments = $('#sb-recentComments');
@@ -211,6 +241,7 @@ export default function main(_) {
             }
         }, timeout);
 
+        // ------- 自定义导航 -------
         (() => {
             let navList = _.__config.sidebar.navList;
             let navHtml = '';
@@ -225,6 +256,7 @@ export default function main(_) {
             }
         })();
 
+        // ------- 自定义列表 -------
         (() => {
             let customData = _.__config.sidebar.customList;
             if (Object.keys(customData).length > 0) {
@@ -251,6 +283,7 @@ export default function main(_) {
             }
         })();
 
+        // ------- 公共函数 -------
         function listHdl(old, nld, tid) {
             if (old.length > 0 && nld.html() === '') {
                 nld.html(getMenuData(old));
@@ -276,6 +309,9 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 设置菜单展开收缩
+     */
     (() => {
         resources(_).onJQuery($('.sidebar-menu a.sidebar-dropdown-box'), 'click', function () {
            let obj  = $(this);
@@ -283,9 +319,11 @@ export default function main(_) {
            let lObj = pObj.find('.sidebar-submenu');
            if (lObj.length > 0) {
                if (pObj.hasClass('active')) {
+                   // 收起
                    pObj.removeClass('active');
                    lObj.slideUp(300);
                } else {
+                   // 展开
                    pObj.addClass('active');
                    lObj.slideDown(300);
                }
@@ -298,6 +336,9 @@ export default function main(_) {
         });
     })();
 
+    /**
+     * 窗口大小变化处理
+     */
     (() => {
         resources(_).subscribe(_.__event.resize.handle, () => {
             resources(_).timeout(function () {
@@ -308,6 +349,9 @@ export default function main(_) {
         });
     })();
 
+    /**
+     * 设置是否默认展开菜单栏
+     */
     (() => {
         let submenuShow = (obj)  => {
             obj.show().parent('li.sidebar-dropdown').addClass('active');

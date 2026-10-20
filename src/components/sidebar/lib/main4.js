@@ -34,6 +34,7 @@ export default function main(_ = {}) {
 
 		initEvents();
 
+		// 初始化滚动条
 		myOptiscrollInstance = new optiscroll(document.querySelector('#menuWrap'), {
 			preventParentScroll: true,
 			forceScrollbars: true
@@ -77,6 +78,7 @@ export default function main(_ = {}) {
 			$('#content-wrap').show();
 			$('body').css('overflow', 'hidden');
 
+			// 初始化滚动条到顶部位置
 			myOptiscrollInstance.scrollTo(false, 'top');
 
 		}

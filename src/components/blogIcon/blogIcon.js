@@ -7,15 +7,24 @@
  */
 
 export default function main(_) {
-    if (_.__config.info.blogIcon) {
-        const faviconElement = $('#favicon');
-        if (faviconElement.length) {
-          faviconElement.attr('href',  _.__config.info.blogIcon);
-        } else {
-            let linkObject  = document.createElement('link');
-            linkObject.rel  = "shortcut icon";
-            linkObject.href = _.__config.info.blogIcon;
-            document.getElementsByTagName("head")[0].appendChild(linkObject);
-        }
+    const iconUrl = _.__config.info.blogIcon;
+    if (!iconUrl) return;
+
+    const head = document.getElementsByTagName('head')[0];
+    const favicons = head.querySelectorAll('link[rel~="icon"], link#favicon');
+
+    if (favicons.length) {
+        Array.prototype.forEach.call(favicons, icon => {
+            icon.rel = 'icon';
+            icon.removeAttribute('type');
+            icon.removeAttribute('sizes');
+            icon.href = iconUrl;
+        });
+    } else {
+        const icon = document.createElement('link');
+        icon.id = 'favicon';
+        icon.rel = 'icon';
+        icon.href = iconUrl;
+        head.appendChild(icon);
     }
 }

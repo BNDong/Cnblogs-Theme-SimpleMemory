@@ -12,6 +12,9 @@ import consoleText from "../../vendor/consoleText/consoleText";
 
 export default function main(_) {
 
+    /**
+     * 设置文章标题
+     */
     (() => {
         const sbTitle = getArticleNode('title').text();
         if (_.__config.animate.articleTitle.enable) {
@@ -23,6 +26,9 @@ export default function main(_) {
         _.__tools.setDomHomePosition();
     })();
 
+    /**
+     * 设置文章信息
+     */
     (() => {
         $('#articleInfo').append('<p class="article-info-text"></p>');
         _.__timeIds.postDescTid = resources(_).interval( () => {
@@ -48,6 +54,9 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 设置文章信息-分类
+     */
     (() => {
         _.__timeIds.articleInfoClassTId = resources(_).interval(() => {
             let obj = getArticleNode('categories').find('a');
@@ -60,6 +69,9 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 设置文章信息-标签
+     */
     (() => {
         _.__timeIds.articleInfoTagTId = resources(_).interval(() => {
             let obj = getArticleNode('tags').find('a');
@@ -72,6 +84,9 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 设置文章引用 | 扩展markdown语法
+     */
     (() => {
         getArticleNode('paragraphs').html((i, c) => {
             if (/^\?&gt;/.test(c)) return '<p class="tip">' + c.slice(5).trim() + '</p>'
@@ -79,6 +94,9 @@ export default function main(_) {
         })
     })();
 
+    /**
+     * 设置文章标题-iconfont
+     */
     (() => {
         let titleInfo = getArticleNode('body').find(':header')
         if (_.__config.articleContent.prefixIcon.enable && titleInfo.length > 0) {

@@ -10,6 +10,9 @@ import '../../style/customBtn.css';
 
 export default function main(_) {
 
+    /**
+     * 好文要顶
+     */
     (() => {
         _.__timeIds.greenChannelDiggTId = resources(_).interval(() => {
             let greenChannelDigg = $('#green_channel_digg');
@@ -21,6 +24,9 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 关注我
+     */
     (() => {
         _.__timeIds.greenChannelFollowTId = resources(_).interval(() => {
             let greenChannelFollow = $('#green_channel_follow');
@@ -31,6 +37,9 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 收藏该文
+     */
     (() => {
         _.__timeIds.greenChannelFavoriteTId = resources(_).interval(() => {
             let greenChannelFavorite = $('#green_channel_favorite');
@@ -41,6 +50,9 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 微博
+     */
     (() => {
         _.__timeIds.greenChannelWeiboTId = resources(_).interval(() => {
             let greenChannelWeibo = $('#green_channel_weibo');
@@ -51,6 +63,9 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 微信
+     */
     (() => {
         _.__timeIds.greenChannelWechatTId = resources(_).interval(() => {
             let greenChannelWechat = $('#green_channel_wechat');

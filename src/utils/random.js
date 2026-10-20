@@ -8,6 +8,9 @@
 
 export default function main() {
     return {
+        /**
+         * 随机数
+         */
         randomNum: function (minNum, maxNum) {
             switch (arguments.length) {
                 case 1:
@@ -19,6 +22,9 @@ export default function main() {
             }
         },
 
+        /**
+         * 随机字符串
+         */
         randomString: (len) => {
             len = len || 32;
             let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678',

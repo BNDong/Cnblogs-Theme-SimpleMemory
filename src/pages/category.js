@@ -10,12 +10,19 @@ import { setPostMeta, setPostDescriptions } from "../components/postList/postLis
 
 export default function main(_) {
 
+    /**
+     * 设置文章banner动效
+     */
     (() => {
         if (_.__config.animate.articleBanner.enable)
             import(/* webpackChunkName: "nhBannerAnimation" */ '../style/nhBannerAnimation.css');
     })();
 
+    /**
+     * 设置分类标题
+     */
     (() => {
+        // 从分类页面的HTML结构中提取分类标题
         let sbTitle = $('.entrylistTitle .category-crumb-item').text().trim() || '分类页面';
         
         if (_.__config.animate.articleTitle.enable) {
@@ -27,7 +34,13 @@ export default function main(_) {
         _.__tools.setDomHomePosition();
     })();
 
+    /**
+     * 设置主页文章信息样式
+     */
     setPostMeta();
 
+    /**
+     * 设置摘要文章
+     */
     setPostDescriptions();
 }

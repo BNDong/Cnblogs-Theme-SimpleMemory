@@ -12,6 +12,9 @@ export default function main(_) {
     $('#blog-news').prepend(rtMenuTemp);
     const rightMenu = $('#rightMenu');
 
+    /**
+     * 公共事件
+     */
     (() => {
         resources(_).onJQuery(rightMenu.find('i'), {
             mouseover : function () {
@@ -37,8 +40,12 @@ export default function main(_) {
         });
     })();
 
+    /**
+     * 上下滚动
+     */
     (() => {
 
+        // 点击事件
         resources(_).onJQuery($('#toUpDown'), 'click', function () {
             let ac = $(this).attr('data');
             if (ac === 'down') {
@@ -57,13 +64,14 @@ export default function main(_) {
             }
         });
 
+        // 滚动事件
         resources(_).subscribe(_.__event.scroll.handle, () => {
             let toUpDown     = $("#toUpDown"),
                 toUpDownI    = $("#toUpDownI"),
                 toUpDownSpan = $('.toUpDownSpan');
 
-            _.__event.scroll.docScroll  = $(document).scrollTop();
-            _.__event.scroll.homeScroll = $('#home').offset().top - 40;
+            _.__event.scroll.docScroll  = $(document).scrollTop(); // 当前滚动位置
+            _.__event.scroll.homeScroll = $('#home').offset().top - 40; // 主体滚动
 
             if (_.__event.scroll.homeScroll <= _.__event.scroll.docScroll) {
                 toUpDownI.rotate({animateTo:0});
@@ -77,13 +85,18 @@ export default function main(_) {
         });
     })();
 
+    /**
+     * 设置
+     */
     (() => {
+        // 旋转
         let angle = 0;
         resources(_).interval(function(){
             angle += 7;
             $('#rightMenuSite i').rotate(angle);
         }, 30);
 
+        // 点击事件
         resources(_).onJQuery($('#rightMenuSite'), 'click', function () {
             let flg = $(this).attr('clickflg');
             if (flg === 'true') {
@@ -97,6 +110,9 @@ export default function main(_) {
         });
     })();
 
+    /**
+     * 关注
+     */
     (() => {
         _.__timeIds.followTId = resources(_).interval(() => {
             let followObj = $('#p_b_follow');
@@ -114,12 +130,18 @@ export default function main(_) {
         }, 1000);
     })();
 
+    /**
+     * 二维码
+     */
     (() => {
         if (_.__config.rtMenu.qrCode) {
             $('#rightGzh').show().find('.ds-gzh img').attr('src', _.__config.rtMenu.qrCode);
         }
     })();
 
+    /**
+     * 打赏
+     */
     (() => {
         if (_.__config.rtMenu.reward.alipay || _.__config.rtMenu.reward.wechatpay) {
             $('#rightDashang').show();
@@ -132,8 +154,12 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 顶踩
+     */
     (() => {
 
+        // 顶
         _.__timeIds.diggitTId = resources(_).interval(() => {
             let diggit = $(".diggit");
             if (diggit.length > 0) {
@@ -153,6 +179,7 @@ export default function main(_) {
             }
         }, 1000);
 
+        // 踩
         _.__timeIds.buryitTId = resources(_).interval(() => {
             let buryit = $(".buryit");
             if (buryit.length > 0) {
@@ -172,6 +199,7 @@ export default function main(_) {
             }
         }, 1000);
 
+        // 处理顶踩数值更新
         function clickHdl(obj, subObj, cun) {
             if (obj.attr('clickflg') === 'false') {
                 obj.attr('clickflg', 'true');
@@ -187,11 +215,15 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 文章目录
+     */
     (() => {
         if (_.__status.pageType !== 'home') {
             let rtaDirectory = $('#rtaDirectory');
             rtaDirectory.show();
 
+            // 点击事件
             resources(_).onJQuery(rtaDirectory, 'click', function () {
                 let articleDirectory = $('#articleDirectory');
                 if (articleDirectory.length) {
@@ -201,11 +233,15 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 主页
+     */
     (() => {
         if (_.__status.pageType !== 'home') {
             let rightMenuHome = $('#rightMenuHome');
             rightMenuHome.show();
 
+            // 点击事件
             resources(_).onJQuery(rightMenuHome, 'click', function () {
                 window.location.href = _.__status.homeUrl;
             });

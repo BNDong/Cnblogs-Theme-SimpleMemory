@@ -28,6 +28,9 @@ export default function main() {
         dynamicLoadingCss: resource.dynamicLoadingCss,
         dynamicLoadingJs: resource.dynamicLoadingJs,
         htmlFiltrationScript: dom.htmlFiltrationScript,
+        /**
+         * 清除单个定时器
+         */
         clearIntervalTimeId: (timeId) => {
             clearIntervalTimeId(timeId);
         },

@@ -15,16 +15,22 @@ export default function main(_) {
 
     beforeCode(_);
 
+    /**
+     * 初始化代码结构
+     */
     (() => {
         $.each(preList, function (i) {
             let pre = $(preList[i]);
             let boxId = 'code-' + _.__tools.randomString(6);
 
+            // 设置外部标签
             pre.wrap('<code-box id="' + boxId + '"></code-box>');
             pre.attr('boxid', boxId);
 
+            // 设置代码字体大小
             pre.css('font-size', _.__config.code.options.fontSize);
 
+            // 增加语言标签
             let preCode = pre.find('code');
             if (preCode.length > 0) {
                 let codeClass = preCode.attr('class');
@@ -38,6 +44,9 @@ export default function main(_) {
         });
     })();
 
+    /**
+     * 工具条
+     */
     (() => {
         if (_.__config.code.options.macStyle) {
             let codeBox = $('code-box');
@@ -49,6 +58,9 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 复制代码
+     */
     (() => {
         let codeBox = $('code-box');
         $.each(codeBox, function (i) {
@@ -59,6 +71,7 @@ export default function main(_) {
             code.prepend(copyHtml);
         });
 
+        // 点击效果
         resources(_).onJQuery($('code-box .code-copay-btn'), 'click', function () {
             $(this).find('i').removeClass('simple-memory-icon-fuzhi1').addClass('simple-memory-icon-right');
             const boxId = $(this).attr('boxid');
@@ -67,6 +80,7 @@ export default function main(_) {
             }, 1500);
         });
 
+        // 显示/隐藏
         resources(_).onJQuery(codeBox, {
             mouseover : function () {
                 $(this).find('.code-copay-btn').css({
@@ -82,15 +96,22 @@ export default function main(_) {
             }
         });
 
+        // 拷贝
         const clipboard = new ClipboardJS('.clipboard');
         resources(_).add(() => clipboard.destroy());
     })();
 
+    /**
+     * 限制代码框高度
+     */
     (() => {
         if (_.__config.code.options.maxHeight)
             $('code-box pre').css('max-height', _.__config.code.options.maxHeight);
     })();
 
+    /**
+     * 渲染代码
+     */
     (() => {
         switch (_.__config.code.type.toLowerCase()) {
             case 'hljs':
@@ -115,6 +136,9 @@ export default function main(_) {
         afterCode(_);
     })();
 
+    /**
+     * 设置代码行号
+     */
     function setCodeLine() {
         if (!_.__config.code.options.line) return true;
 

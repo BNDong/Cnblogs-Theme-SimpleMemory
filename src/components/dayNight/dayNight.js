@@ -19,7 +19,7 @@ export default function main(_) {
         cookieKey = 'cnblogs_config_isNight',
         exp       =  4 * 3600,
         daySwitch;
-    _.__status.dayNightCssHref = '';
+    _.__status.dayNightCssHref = ''; // 夜间模式css样式文件路径，用于记录webpack打包后路径
 
     const commentBackgroundHandler = (dayStatus) => {
         if (!_.__config.articleComment.background.enable) return;
@@ -28,6 +28,9 @@ export default function main(_) {
             : $('textarea').css('background', _.__config.articleComment.background.options.night)
     };
 
+    /**
+     * 判断当前日/夜模式
+     */
     (() => {
         switch (_.__tools.getCookie(cookieKey)) {
             case 'day':
@@ -42,27 +45,39 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 判断是否强制夜间
+     */
     (() => {
         if (_.__config.switchDayNight.nightMode) daySwitch = '';
     })();
 
+    /**
+     * 设置基础模版
+     */
     (() => {
         $('body').prepend(_.__tools.tempReplacement(dayNightTemp, 'daySwitch', daySwitch));
     })();
 
+    /**
+     * 初始化样式
+     */
     (() => {
         if (!daySwitch) loadDarkCss();
     })();
 
+    /**
+     * 模式切换事件
+     */
     (() => {
         resources(_).onJQuery($('#dayNightSwitch .onOff'), 'click', function () {
-            if ($(this).hasClass('daySwitch')) {
+            if ($(this).hasClass('daySwitch')) { // 夜间
                 _.__tools.setCookie(cookieKey, 'night', exp);
                 $(this).removeClass('daySwitch');
                 loadDarkCss();
                 dayNightControl(_, 'night');
                 commentBackgroundHandler('night');
-            } else {
+            } else { // 日间
                 _.__tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
@@ -72,11 +87,19 @@ export default function main(_) {
         });
     })();
 
+    /**
+     * 设置评论框背景
+     */
     (() => {
         daySwitch ? commentBackgroundHandler('day') : commentBackgroundHandler('night');
     })();
 
     // 首次通过 import 加载并记录样式路径，之后直接创建 link。
+    /**
+     * 加载夜间模式样式文件
+     * 第一次初始化使用 import 加载并记录路径
+     * 第二次及以后使用标签构建文件加载
+     */
     function loadDarkCss() {
         if (_.__status.dayNightCssHref) {
             $('head').append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+_.__status.dayNightCssHref+'">');

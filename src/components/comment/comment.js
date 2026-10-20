@@ -11,6 +11,7 @@ import defaultAvatarImg from './../../images/webp/default_avatar.webp';
 
 export default function main(_) {
     let avatarAnimate = () => {
+        // 头像动效
         if (_.__config.animate.avatar.enable) {
             let authorAvatar = getCommentNode('authorAvatars');
             let feedbackAvatar = $('.feedbackAvatar img');
@@ -25,6 +26,7 @@ export default function main(_) {
         }
     };
 
+    // 评论框打字特效
     if (_.__config.animate.typing.enable) {
         const POWERMODE = require('./commentTyping/commentTyping');
         POWERMODE.colorful = _.__config.animate.typing.options.colorful;
@@ -112,13 +114,16 @@ export default function main(_) {
     }, 1000);
 
     resources(_).onJQuery($(document), 'ajaxSuccess', function (event, xhr, settings) {
+        // 评论重新排序
         if (isCommentRequest(settings.url, 'list')) {
             _.__tools.clearIntervalTimeId(_.__timeIds.commentTId);
             setComment();
         }
 
+        // 新增评论
         if (isCommentRequest(settings.url, 'add')) addComment();
 
+        // 删除评论
         if (isCommentRequest(settings.url, 'remove')) {
             let commentId = JSON.parse(settings?.data)?.commentId;
             getCommentNode('body', commentId).parent().parent().remove();

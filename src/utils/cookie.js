@@ -8,14 +8,20 @@
 
 export default function main() {
     return {
-        /** @param {number} expires 有效期，单位秒 */
+        /**
+         * 设置 cookie
+         * @param {number} expires 有效期，单位秒
+         */
         setCookie: (key, value, expires) => {
             let exp = new Date();
             exp.setTime(exp.getTime() + expires * 1000);
             document.cookie = key + '=' + escape(value) + '; expires=' + exp.toGMTString() + '; path=/';
         },
 
-        /** @returns {string|null} */
+        /**
+         * 获取 cookie
+         * @returns {string|null}
+         */
         getCookie: (key) => {
             let arr,
                 reg = new RegExp('(^| )' + key + '=([^;]*)(;|$)');

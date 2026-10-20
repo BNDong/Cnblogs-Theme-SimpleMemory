@@ -12,6 +12,7 @@ export default function main(_) {
     $('#blog-news').prepend('<div id="progressBar"></div>');
     let progressBar = ToProgress && new window.ToProgress(_.__config.progressBar, '#progressBar');
 
+    // 添加事件监听
     resources(_).subscribe(_.__event.scroll.handle, () => {
         progressBar.setProgress(_.__tools.getScrollPercent());
     });

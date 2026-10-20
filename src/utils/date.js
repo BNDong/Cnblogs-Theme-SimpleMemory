@@ -8,6 +8,9 @@
 
 export default function main() {
     return {
+        /**
+         * 获取日期
+         */
         getNowFormatDate: () => {
             let date = new Date();
             let seperator1 = '-';
@@ -23,7 +26,10 @@ export default function main() {
             return year + seperator1 + month + seperator1 + strDate;
         },
 
-        /** @param {string} dateString 起始日期，格式 YYYY-MM-DD */
+        /**
+         * 运行时间
+         * @param {string} dateString 起始日期，格式 YYYY-MM-DD
+         */
         getRunDate: (dateString) => {
             dateString = dateString.toString().split('-');
             let date = new Date();
@@ -50,6 +56,9 @@ export default function main() {
             };
         },
 
+        /**
+         * 分钟转换为时间格式
+         */
         minToTime: (min) => {
             let minTime = parseInt(min);
             let second = parseInt((min - minTime) * 60);
@@ -57,6 +66,9 @@ export default function main() {
             return `${minTime}:${second}`;
         },
 
+        /**
+         * 获取当前的日期并以月-日返回
+         */
         getFormattedDate: () => {
             const now = new Date();
             const month = now.getMonth() + 1;

@@ -21,6 +21,9 @@ export default function main(_) {
     let config = _.__config.footer;
     let footerHtml = _.__tools.tempReplacement(footerTemp, 'footerText', footerText);
 
+    /**
+     * 设置标语
+     */
     (() => {
         if (config.text.left || config.text.right) {
             let re = [
@@ -37,6 +40,9 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 设置友情链接
+     */
     (() => {
         if (_.__config.links.footer.length > 0) {
             let linksHtml = '友情链接：';
@@ -53,10 +59,16 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 添加页脚
+     */
     (() => {
         footer.html(footerHtml);
     })();
 
+    /**
+     * 页脚样式
+     */
     (() => {
         switch (parseInt(config.style)) {
             case 1:
@@ -78,6 +90,9 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 设置运行时间
+     */
     (() => {
         resources(_).interval( () => {
             let runDate = _.__tools.getRunDate(_.__config.info.startDate ? _.__config.info.startDate : '2021-01-01');
@@ -85,6 +100,9 @@ export default function main(_) {
         }, 500 );
     })();
 
+    /**
+     * 设置音乐播放器
+     */
     (() => {
         if (config.aplayer.enable) {
             Promise.all([_.__tools.dynamicLoadingJs(config.aplayer.cdn.aplayer), _.__tools.dynamicLoadingJs(config.aplayer.cdn.meting)])

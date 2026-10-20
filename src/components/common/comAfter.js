@@ -15,22 +15,37 @@ import console from "../console/console";
 
 export default function main(_) {
 
+    /**
+     * 页脚
+     */
     (() => {
         footer(_);
     })();
 
+    /**
+     * 右下角菜单
+     */
     (() => {
         rtMenu(_);
     })();
 
+    /**
+     * 日/夜模式
+     */
     (() => {
         dayNight(_);
     })();
 
+    /**
+     * 进度条
+     */
     (() => {
         progress(_);
     })();
 
+    /**
+     * 背景动效
+     */
     (() => {
         if (_.__config.animate.background.enable) {
             import(/* webpackChunkName: "ribbonsEffect" */ '../../vendor/ribbonsEffect/ribbonsEffect').then(module => {
@@ -53,6 +68,9 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 鼠标动效
+     */
     (() => {
         if (_.__config.animate.mouse.enable) {
             import(/* webpackChunkName: "mouse" */ '../mouse/mouse').then(module => {
@@ -62,14 +80,23 @@ export default function main(_) {
         }
     })();
 
+    /**
+     * 网站图标
+     */
     (() => {
         blogIcon(_);
     })();
 
+    /**
+     * 页面title
+     */
     (() => {
         title(_);
     })();
 
+    /**
+     * 控制台输出
+     */
     (() => {
         console(_);
     })();

@@ -12,6 +12,7 @@ import '../../style/particles.css';
 
 export default function main(_) {
 
+    // 添加模版
     $('#footer').after(particlesTemp);
 
     let wrapper = document.getElementById("particles"),

@@ -37,6 +37,9 @@ export default function main(_) {
             that.spinner = new Spinner(settings);
         }
 
+        /**
+         * 开启 loading
+         */
         this.start = () => {
             beforeLoading(_);
             $('#blog-news').prepend('<div id="loading"></div>');
@@ -45,6 +48,9 @@ export default function main(_) {
             that.spinner.init(that.spring, true);
         }
 
+        /**
+         * 结束 loading
+         */
         this.stop = () => {
             $('body').css('overflow', 'auto');
             that.spinner.setComplete();

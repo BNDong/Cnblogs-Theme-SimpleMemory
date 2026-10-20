@@ -8,6 +8,9 @@
 
 export default function main() {
     return {
+        /**
+         * 加载CSS文件
+         */
         dynamicLoadingCss: (path) => {
             if (!path || path.length === 0) {
                 throw new Error('argument "path" is required !');
@@ -20,6 +23,9 @@ export default function main() {
             head.appendChild(link);
         },
 
+        /**
+         * 加载JS文件
+         */
         dynamicLoadingJs: (url) => {
             return new Promise((resolve, reject) => {
                 $.ajax({

@@ -20,6 +20,7 @@ export default function main(_) {
         const tagList = header.map((index, element) => parseInt(element.tagName.replace(/H/g, ''))).get();
         const uniqueTags = [...new Set(tagList)].sort();
         
+        // 用于跟踪各级标题的编号
         const counters = {};
         uniqueTags.forEach(level => {
             counters[level] = 0;
@@ -46,6 +47,7 @@ export default function main(_) {
                 
                 let numberPrefix = '';
                 if (_.__config.articleDirectory.number) {
+                    // 当前级别计数器加1
                     counters[h]++;
                     
                     // 重置更低级别的计数器
@@ -55,6 +57,7 @@ export default function main(_) {
                         }
                     });
                     
+                    // 生成编号
                     const numberParts = [];
                     uniqueTags.forEach(level => {
                         if (level <= h && counters[level] > 0) {
@@ -77,17 +80,20 @@ export default function main(_) {
 
         postBody.append(dirHtml);
 
+        // 锚点监听
         body.attr('data-bs-spy', 'scroll');
         body.attr('data-bs-target', '#articleDirectory');
         body.attr('data-bs-offset', '0');
         body.attr('tabindex', '0');
         body.scrollspy({ target: '#articleDirectory' });
 
+        // 判断是否显示横向滚动条
         if (!_.__config.articleDirectory.autoWidthScroll) {
             $('#articleDirectory ul li').addClass('articleDirectory-overflow');
             $('#articleDirectory ul li a').addClass('articleDirectory-overflow');
         }
 
+        // 滚动监听
         const articleDirectory = $('#articleDirectory');
         resources(_).subscribe(_.__event.scroll.handle, () => {
             const { temScroll, docScroll, homeScroll } = _.__event.scroll;
@@ -101,6 +107,7 @@ export default function main(_) {
             }
         });
 
+        // 窗口大小变化监听
         resources(_).subscribe(_.__event.resize.handle, () => {
             const bodyWidth = parseFloat(document.body.clientWidth),
                 articleDirectory = $('#articleDirectory');
@@ -137,6 +144,7 @@ export default function main(_) {
             }
         });
 
+        // 点击事件
         resources(_).onJQuery($('#articleDirectory .nav-link'), 'click', function () {
             let titleH = $(':header[tid="' + $(this).attr('goto') + '"]');
             titleH.length && _.__tools.actScroll(titleH.offset().top + 3, 500);

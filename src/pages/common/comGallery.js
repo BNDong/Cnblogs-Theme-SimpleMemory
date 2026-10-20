@@ -9,11 +9,17 @@ import consoleText from "../../vendor/consoleText/consoleText";
 
 export default function main(_) {
 
+    /**
+     * 设置文章banner动效
+     */
     (() => {
         if (_.__config.animate.articleBanner.enable)
             import(/* webpackChunkName: "nhBannerAnimation" */ '../../style/nhBannerAnimation.css');
     })();
 
+    /**
+     * 设置相册标题
+     */
     (() => {
         const sbTitle = $('#mainContent .thumbTitle').text();
         if (_.__config.animate.articleTitle.enable) {

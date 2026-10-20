@@ -11,10 +11,16 @@ import articleDirectory from "../components/articleDirectory/articleDirectory";
 import comArticle from "./common/comArticle";
 
 export default function main(_) {
+    /**
+     * 文章页公共处理
+     */
     (() => {
         comArticle(_);
     })();
 
+    /**
+     * 书单页处理
+     */
     (() => {
         if (_.__config.bookList.length) {
             let postBody = $('#cnblogs_post_body'),
@@ -27,6 +33,7 @@ export default function main(_) {
                 $.each(list.books, (j) => {
                     let cardHtml = booksTemp, books = list.books[j];
 
+                    // 评星
                     let scoreHtml = '';
                     if (typeof books.score !== 'undefined' && books.score > 0) {
                         scoreHtml += '<i class="simple-memory-iconfont simple-memory-icon-pingjixingquanxing"></i>'.repeat(parseInt(books.score));
@@ -38,6 +45,7 @@ export default function main(_) {
                         scoreHtml += '<i class="simple-memory-iconfont simple-memory-icon-pingjixingxiantiao"></i>'.repeat(5);
                     }
 
+                    // 图书信息
                     let infoHtml = '';
                     if (typeof books.formerName !== 'undefined' && books.formerName)
                         infoHtml += '<span title="' + books.formerName + '">原　名：' + books.formerName + '</span><br>';
@@ -54,12 +62,14 @@ export default function main(_) {
                     if (typeof books.year !== 'undefined' && books.year)
                         infoHtml += '<span title="' + books.year + '">出版年：' + books.year + '</span>';
 
+                    // 阅读时间 & 进度
                     let readDate = typeof books.readDate !== 'undefined' ? books.readDate : '';
                     let readDateStyle = readDate ? 'initial;' : 'none';
 
                     let readPercentage = typeof books.readPercentage !== 'undefined' ? books.readPercentage : '';
                     let readPercentageStyle = readPercentage ? 'initial;' : 'none';
 
+                    // 处理模版
                     cardHtml = _.__tools.batchTempReplacement(cardHtml, [
                         ['cover', typeof books.cover !== 'undefined' ? books.cover : ''],
                         ['name', typeof books.name !== 'undefined' ? books.name : ''],
@@ -75,11 +85,15 @@ export default function main(_) {
                 html += '</div>';
             });
 
+            // 插入模版
             let articleSuffixFlg = $('.articleSuffix-flg');
             articleSuffixFlg.length ? articleSuffixFlg.before(html) : postBody.append(html);
         }
     })();
 
+    /**
+     * 设置文章目录
+     */
     (() => {
         articleDirectory(_);
     })();

@@ -481,3 +481,72 @@ test('选定语言与原全量版本输出一致，含 JSX、嵌套 CSS、Ruby �
             full.highlight(source, { language, ignoreIllegals: true }).value, language);
     }
 });
+
+function faviconHost(links = []) {
+    const elements = links.map(attrs => ({ ...attrs, removeAttribute(name) { delete this[name]; } }));
+    const head = {
+        querySelectorAll(selector) {
+            assert.equal(selector, 'link[rel~="icon"], link#favicon');
+            return elements.filter(link => (link.rel || '').split(/\s+/).includes('icon') || link.id === 'favicon');
+        },
+        appendChild(link) { elements.push(link); },
+    };
+    const document = {
+        getElementsByTagName: name => name === 'head' ? [head] : [],
+        createElement: name => { assert.equal(name, 'link'); return { removeAttribute(key) { delete this[key]; } }; },
+    };
+    const $ = selector => {
+        assert.equal(selector, '#favicon');
+        const matches = elements.filter(link => link.id === 'favicon');
+        return { length: matches.length, attr(name, value) { matches.forEach(link => { link[name] = value; }); } };
+    };
+    return { document, elements, $ };
+}
+
+test('blogIcon 同步更新 ICO 和 SVG 声明，清除格式与尺寸提示，保留其他链接', () => {
+    const h = faviconHost([
+        { id: 'favicon', rel: 'icon', type: 'image/x-icon', sizes: '32x32', href: '/favicon.ico' },
+        { id: 'favicon_svg', rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'stylesheet', href: '/theme.css' },
+    ]);
+    const apply = runtime(h)('src/components/blogIcon/blogIcon.js').default;
+    const context = { __config: { info: { blogIcon: 'https://example.com/custom.png' } } };
+    apply(context);
+    apply(context);
+    assert.equal(h.elements.length, 4);
+    for (const icon of h.elements.slice(0, 2)) {
+        assert.equal(icon.href, context.__config.info.blogIcon);
+        assert.equal(icon.type, undefined);
+        assert.equal(icon.sizes, undefined);
+        assert.equal(icon.rel, 'icon');
+    }
+    assert.equal(h.elements[0].id, 'favicon');
+    assert.equal(h.elements[1].id, 'favicon_svg');
+    assert.equal(h.elements[2].href, '/apple-touch-icon.png');
+    assert.equal(h.elements[3].href, '/theme.css');
+});
+
+test('blogIcon 支持无图标页面、无 ID 的图标以及旧 shortcut icon 声明', () => {
+    for (const links of [[], [{ rel: 'icon', href: '/default.svg' }], [{ id: 'favicon', rel: 'shortcut icon', href: '/default.ico' }]]) {
+        const h = faviconHost(links);
+        const apply = runtime(h)('src/components/blogIcon/blogIcon.js').default;
+        const context = { __config: { info: { blogIcon: '/custom.svg' } } };
+        apply(context);
+        apply(context);
+        assert.equal(h.elements.length, 1);
+        assert.equal(h.elements[0].rel, 'icon');
+        assert.equal(h.elements[0].href, '/custom.svg');
+        if (!links.length) assert.equal(h.elements[0].id, 'favicon');
+    }
+});
+
+test('blogIcon 未配置时不修改页面图标', () => {
+    const h = faviconHost([{ id: 'favicon', rel: 'icon', type: 'image/x-icon', href: '/default.ico' }]);
+    const apply = runtime(h)('src/components/blogIcon/blogIcon.js').default;
+    apply({ __config: { info: { blogIcon: '' } } });
+    apply({ __config: { info: {} } });
+    assert.equal(h.elements.length, 1);
+    assert.equal(h.elements[0].href, '/default.ico');
+    assert.equal(h.elements[0].type, 'image/x-icon');
+});

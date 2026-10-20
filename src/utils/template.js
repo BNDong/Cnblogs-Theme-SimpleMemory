@@ -8,11 +8,17 @@
 
 export default function main() {
     return {
+        /**
+         * 模版替换
+         */
         tempReplacement: (temp, par, str) => {
             let re = new RegExp('##' + par + '##', 'g');
             return temp.replace(re, str);
         },
 
+        /**
+         * 批量模版替换
+         */
         batchTempReplacement: (temp, list) => {
             let t = temp;
             $.each(list, function (i) {
