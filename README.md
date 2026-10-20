@@ -58,9 +58,7 @@
 
 [View Document](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2.1/dist/)
 
-## Project Status
-
-![Status](https://repobeats.axiom.co/api/embed/51764e075e7f11d8175d32e700a5c0c9938a9b2b.svg)
+[![Star History Chart](https://api.star-history.com/chart?repos=bndong/cnblogs-theme-simplememory&type=date&legend=top-left)](https://www.star-history.com/?repos=bndong%2Fcnblogs-theme-simplememory&type=date&legend=top-left)
 
 ## Development
 
