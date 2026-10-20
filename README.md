@@ -58,8 +58,6 @@
 
 [View Document](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2.1/dist/)
 
-[![Star History Chart](https://api.star-history.com/chart?repos=bndong/cnblogs-theme-simplememory&type=date&legend=top-left)](https://www.star-history.com/?repos=bndong%2Fcnblogs-theme-simplememory&type=date&legend=top-left)
-
 ## Development
 
 ```sh
@@ -79,6 +77,8 @@ npm run build
 <a href="https://github.com/wangyang0210">
     <img width="64" height="64" src="https://avatars.githubusercontent.com/u/36377605?v=4" alt="wangyang0210">
 </a>
+
+[![Star History Chart](https://api.star-history.com/chart?repos=bndong/cnblogs-theme-simplememory&type=date&legend=top-left)](https://www.star-history.com/?repos=bndong%2Fcnblogs-theme-simplememory&type=date&legend=top-left)
 
 ## Author
 
