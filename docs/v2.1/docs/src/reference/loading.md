@@ -1,35 +1,27 @@
 # Loading
 
-Loading 使用开源项目：[claudiocalautti/spring-loaders](https://github.com/claudiocalautti/spring-loaders)
+插件使用 [spring-loaders](https://github.com/claudiocalautti/spring-loaders) 显示加载动画，参数写在 `window.cnblogsConfig.loading` 中。默认参数和示例见[Loading 配置](./config/loading)。
 
-大家可以根据该项目文档修改 `window.cnblogsConfig.loading` 的配置。
+## 页面一直显示加载动画
 
-### 关于网页快照显示空白页
+先检查浏览器控制台和 Network 面板，确认插件配置没有语法错误，入口脚本及后续资源能正常加载。隐藏动画不能解决加载中断的问题。
 
-::: info 信息
-此方案由网友 [蓝天上的云℡](https://www.cnblogs.com/yucloud/) 提供。
-:::
+## 隐藏遮罩
 
-::: danger 注意
-应用此方案，会导致进入网页有闪屏的现象，大家自己权衡使用。
-:::
-
-在页首 HTML 里添加
+如果不希望显示遮罩，可以在博客园后台「页首 HTML 代码」中添加：
 
 ```html
 <style>
-body  {overflow: auto}
-div#loading, a[name=top] {    display: none   }
+body {
+  overflow: auto !important;
+}
+#loading,
+a[name="top"] {
+  display: none !important;
+}
 </style>
 ```
 
-即可关闭 Loading，然后在侧边栏公告JS的顶部里添加
+这只隐藏遮罩，插件的加载流程和钩子仍会执行。页面可能在样式加载完成前短暂显示原始内容。删除这段样式即可恢复显示。
 
-```html
-<script type="text/javascript">
-  let css0 = document.styleSheets[0];
-  let css0Last = css0.cssRules.length;
-  css0.insertRule("body {overflow: hidden;}", css0Last+0);
-  css0.insertRule("div#loading, a[name=top] {  display: auto }", css0Last+1);
-</script>
-```
+无需读取或修改 `document.styleSheets`。当前没有 `loading.enable` 配置，不能通过添加这个字段关闭加载流程。

@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "SimpleMemory"
-  text: "Theme Extension"
+  text: "博客园主题扩展"
   tagline: 基于博客园 SimpleMemory 主题的扩展美化插件
   image:
     src: /images/logo.png
@@ -17,10 +17,10 @@ hero:
       link: /guide/install
 
 features:
-  - title: 🍡 开箱即用
-    details: 简单配置即可成功使用
-  - title: 🍭 高灵活性
-    details: 界面配置化，可自定义调整显示内容
-  - title: 🍬 多端兼容
-    details: 兼容 PC 端、平板和移动端
+  - title: 安装
+    details: 在博客园后台添加 CSS、配置和插件脚本
+  - title: 配置
+    details: 头图、侧边栏、文章目录和代码样式等均可调整
+  - title: 适配
+    details: 支持桌面、平板与手机，提供日夜模式
 ---

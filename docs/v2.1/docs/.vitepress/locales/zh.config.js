@@ -10,7 +10,7 @@ export default {
       { text: "更新历史", link: "/changelog/", activeMatch: "/changelog/" },
     ],
     sidebar: {
-      '/guide/': [
+      "/guide/": [
         {
           "text": "入门",
           "collapsed": false,
@@ -18,11 +18,19 @@ export default {
             {
               "text": "安装配置",
               "link": "/guide/install"
+            },
+            {
+              "text": "版本切换",
+              "link": "/guide/versionSwitch"
+            },
+            {
+              "text": "常见问题",
+              "link": "/guide/faq"
             }
           ]
         },
         {
-          "text": "写作",
+          "text": "使用",
           "collapsed": false,
           "items": [
             {
@@ -30,58 +38,8 @@ export default {
               "link": "/guide/writtenForm"
             },
             {
-              "text": "菜单数据",
-              "link": "/guide/menuData"
-            },
-            {
-              "text": "标题/目录",
+              "text": "文章标题与目录",
               "link": "/guide/articleDirectory"
-            },
-          ]
-        },
-        {
-          "text": "其它",
-          "collapsed": false,
-          "items": [
-            {
-              "text": "资源托管",
-              "link": "/guide/resourceCdn"
-            },
-            {
-              "text": "版本切换",
-              "link": "/guide/versionSwitch"
-            },
-            {
-              "text": "调试开发",
-              "link": "/guide/codespaces"
-            },
-            {
-              "text": "关于项目",
-              "link": "/guide/my"
-            },
-          ]
-        }
-      ],
-      "/reference/": [
-        {
-          "text": "参考",
-          // "collapsed": false,
-          "items": [
-            {
-              "text": "配置项",
-              "link": "/reference/configs"
-            },
-            {
-              "text": "转载文章",
-              "link": "/reference/reprinted"
-            },
-            {
-              "text": "字体图标",
-              "link": "/reference/fonticon"
-            },
-            {
-              "text": "Loading",
-              "link": "/reference/loading"
             },
             {
               "text": "书单页",
@@ -92,9 +50,114 @@ export default {
               "link": "/reference/links"
             },
             {
+              "text": "转载文章",
+              "link": "/reference/reprinted"
+            }
+          ]
+        },
+        {
+          "text": "排查与开发",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "侧边栏数据",
+              "link": "/guide/menuData"
+            },
+            {
+              "text": "资源托管",
+              "link": "/guide/resourceCdn"
+            },
+            {
+              "text": "调试开发",
+              "link": "/guide/codespaces"
+            },
+            {
+              "text": "文档维护",
+              "link": "/guide/documentation"
+            },
+            {
+              "text": "关于项目",
+              "link": "/guide/my"
+            }
+          ]
+        }
+      ],
+      "/reference/": [
+        {
+          "text": "配置参考",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "配置总览",
+              "link": "/reference/configs"
+            },
+            {
+              "text": "基础配置",
+              "link": "/reference/config/basic"
+            },
+            {
+              "text": "外观配置",
+              "link": "/reference/config/appearance"
+            },
+            {
+              "text": "文章配置",
+              "link": "/reference/config/article"
+            },
+            {
+              "text": "代码配置",
+              "link": "/reference/config/code"
+            },
+            {
+              "text": "动效配置",
+              "link": "/reference/config/animation"
+            },
+            {
+              "text": "Loading 配置",
+              "link": "/reference/config/loading"
+            }
+          ]
+        },
+        {
+          "text": "扩展用法",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "书单页",
+              "link": "/reference/bookList"
+            },
+            {
+              "text": "友链页",
+              "link": "/reference/links"
+            },
+            {
+              "text": "转载文章",
+              "link": "/reference/reprinted"
+            },
+            {
+              "text": "字体图标",
+              "link": "/reference/fonticon"
+            },
+            {
+              "text": "Loading 排查",
+              "link": "/reference/loading"
+            },
+            {
               "text": "钩子",
               "link": "/reference/hook"
+            }
+          ]
+        },
+        {
+          "text": "使用帮助",
+          "items": [
+            {
+              "text": "常见问题",
+              "link": "/guide/faq"
             },
+            {
+              "text": "侧边栏数据",
+              "link": "/guide/menuData"
+            }
           ]
         }
       ]
@@ -113,7 +176,7 @@ export default {
       pattern: 'https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/edit/v2/docs/v2.1/docs/src/:path',
       text: "编辑此页面"
     },
-    outline: "deep",
+    outline: [2, 3],
     outlineTitle: "文档导读",
     search: {
       provider: "local",
@@ -163,7 +226,7 @@ export default {
       },
     },
     footer: {
-      copyright: " ☘️ SimpleMemory © 2018-2024",
+      copyright: "SimpleMemory · MIT License",
     },
   },
 };

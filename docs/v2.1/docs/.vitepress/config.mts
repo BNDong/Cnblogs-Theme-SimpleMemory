@@ -1,9 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { fileURLToPath } from 'node:url'
 import zhConfig from './locales/zh.config.js'
 export default defineConfig({
   base: '/Cnblogs-Theme-SimpleMemory/v2.1/dist/',
-  title: "SMemory",
-  description: "Documents",
+  title: "SimpleMemory",
+  description: "博客园 SimpleMemory 扩展插件的安装、配置与开发文档",
   head: [
     [
       'link',
@@ -12,6 +13,8 @@ export default defineConfig({
   ],
   lastUpdated: true,
   srcDir: './src',
+  outDir: fileURLToPath(new URL('../../dist', import.meta.url)),
+  transformHtml: (html) => html.replace(/^[\t ]+$/gm, ''),
   locales: {
     root: zhConfig,
   },

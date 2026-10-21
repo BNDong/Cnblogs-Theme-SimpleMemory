@@ -40,7 +40,7 @@ window.cnblogsConfig = {
 
     //  正常配置
     window.cnblogsConfig = {
-        ...
+        // 其他配置
     };
 
     // 书单配置

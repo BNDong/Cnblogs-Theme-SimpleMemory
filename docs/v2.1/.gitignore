@@ -5,3 +5,5 @@
 !/docs/.vitepress/theme/*
 /docs/.vitepress/cache/
 !/docs/.vitepress/config.mts
+/docs/.vitepress/dist/
+!package-lock.json
