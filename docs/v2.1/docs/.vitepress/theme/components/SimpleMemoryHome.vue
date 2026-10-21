@@ -4,27 +4,9 @@ import { withBase } from 'vitepress'
 
 const previewMode = ref('home')
 const previewViews = [
-  {
-    key: 'home',
-    title: '首页',
-    image: '/images/preview/home.jpg',
-    alt: '示例博客首页：整屏云层头图、居中的 BNDong 标题和左上角菜单',
-    link: 'https://www.cnblogs.com/bndong/'
-  },
-  {
-    key: 'posts',
-    title: '文章列表',
-    image: '/images/preview/posts.jpg',
-    alt: '示例博客文章列表：头图下方居中的文章摘要、发布时间和阅读全文入口',
-    link: 'https://www.cnblogs.com/bndong/#home'
-  },
-  {
-    key: 'article',
-    title: '文章页',
-    image: '/images/preview/article.jpg',
-    alt: '示例博客文章页：横幅头图、文章标题、居中的正文和右侧文章目录',
-    link: 'https://www.cnblogs.com/bndong/p/9132439.html'
-  }
+  { key: 'home', title: '首页', description: '首页布局：整屏头图、居中标题、左上角菜单和底部滚动入口' },
+  { key: 'posts', title: '文章列表', description: '文章列表布局：顶部头图、居中的文章摘要列表和分隔线' },
+  { key: 'article', title: '文章页', description: '文章页布局：横幅头图、居中正文和右侧文章目录' }
 ]
 const entries = [
   { title: '开始安装', text: '后台设置、CSS 和插件脚本', link: '/guide/install.html', number: '01' },
@@ -52,33 +34,53 @@ const entries = [
       </div>
 
       <div class="sm-visual-wrap">
-        <div class="sm-preview" aria-label="示例博客截图">
+        <div class="sm-preview" aria-label="主题布局预览">
           <div class="sm-preview-bar">
             <span class="sm-window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="sm-preview-title">cnblogs.com/bndong</span>
+            <span class="sm-preview-title">SimpleMemory</span>
           </div>
-          <a
+          <div
             v-for="view in previewViews"
             v-show="previewMode === view.key"
             :id="`sm-preview-${view.key}`"
             :key="view.key"
-            class="sm-site-preview"
-            :href="view.link"
-            :aria-label="`打开示例博客${view.title}（新窗口）`"
-            target="_blank"
-            rel="noopener noreferrer"
+            class="sm-theme-skeleton"
+            :class="`sm-skeleton-${view.key}`"
+            role="img"
+            :aria-label="view.description"
           >
-            <img
-              class="sm-site-image"
-              :src="withBase(view.image)"
-              :alt="view.alt"
-              width="1440"
-              height="775"
-              :loading="view.key === 'home' ? 'eager' : 'lazy'"
-              decoding="async"
-            >
-            <span class="sm-preview-open" aria-hidden="true">打开示例 <span class="vp-external-link-icon"></span></span>
-          </a>
+            <div class="sm-sk-cover" aria-hidden="true">
+              <span class="sm-sk-menu"><i></i><i></i><i></i></span>
+              <span class="sm-sk-theme"><i></i></span>
+              <div v-if="view.key !== 'posts'" class="sm-sk-cover-title">
+                <span></span><i></i><i v-if="view.key === 'article'"></i>
+              </div>
+              <span v-if="view.key !== 'article'" class="sm-sk-down"></span>
+            </div>
+            <div v-if="view.key === 'posts'" class="sm-sk-feed" aria-hidden="true">
+              <div v-for="post in 3" :key="post" class="sm-sk-post">
+                <div class="sm-sk-post-heading"><span></span><i v-if="post < 3"></i></div>
+                <span class="sm-sk-meta"></span>
+                <span class="sm-sk-line"></span>
+                <span class="sm-sk-line sm-sk-short"></span>
+                <span class="sm-sk-read"></span>
+              </div>
+            </div>
+            <div v-else-if="view.key === 'article'" class="sm-sk-article" aria-hidden="true">
+              <div class="sm-sk-prose">
+                <span class="sm-sk-brand"></span>
+                <span class="sm-sk-description"></span>
+                <span class="sm-sk-section"></span>
+                <span v-for="line in 4" :key="line" class="sm-sk-line"></span>
+                <span class="sm-sk-section"></span>
+                <span class="sm-sk-line"></span>
+                <span class="sm-sk-line sm-sk-short"></span>
+              </div>
+              <div class="sm-sk-outline">
+                <span v-for="item in 5" :key="item"></span>
+              </div>
+            </div>
+          </div>
           <div class="sm-preview-tabs" aria-label="选择预览页面">
             <button
               v-for="view in previewViews"
@@ -90,7 +92,7 @@ const entries = [
             >{{ view.title }}</button>
           </div>
         </div>
-        <p class="sm-caption">示例博客截图<span>点击图片访问示例</span></p>
+        <p class="sm-caption">主题布局示意<span>首页 · 文章列表 · 文章页</span></p>
       </div>
     </section>
 

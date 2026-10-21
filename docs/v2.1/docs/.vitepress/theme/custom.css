@@ -143,12 +143,66 @@
 .sm-preview-tabs button { min-height: 36px; padding: 6px 14px; border-radius: 6px; color: var(--vp-c-text-2); font-size: 12px; cursor: pointer; transition: background .2s, color .2s; }
 .sm-preview-tabs button[aria-pressed='true'] { color: var(--vp-c-brand-1); background: var(--sm-soft); font-weight: 600; }
 .sm-preview-tabs button:hover { background: var(--sm-soft); }
-.sm-site-preview { position: relative; display: block; aspect-ratio: 3728 / 2066; overflow: hidden; background: #154b69; }
-/* Clip the browser sidebar from the supplied captures without altering the page. */
-.sm-site-image { display: block; width: 103.005%; max-width: none; height: auto; margin-left: -3.005%; }
-.sm-preview-open { position: absolute; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 4px; border: 1px solid rgba(255, 255, 255, .25); border-radius: 6px; padding: 5px 9px; background: rgba(20, 17, 30, .8); color: #fff; font-size: 11px; opacity: 0; transition: opacity .2s; }
-.sm-preview-open .vp-external-link-icon::after { color: inherit; }
-.sm-site-preview:hover .sm-preview-open, .sm-site-preview:focus-visible .sm-preview-open { opacity: 1; }
+.sm-theme-skeleton {
+  container-type: inline-size;
+  --sm-sk-line: color-mix(in srgb, var(--vp-c-brand-1) 16%, var(--sm-panel));
+  --sm-sk-title: color-mix(in srgb, var(--vp-c-brand-1) 30%, var(--sm-panel));
+  --sm-sk-cover: color-mix(in srgb, var(--vp-c-brand-1) 32%, var(--sm-panel));
+  position: relative;
+  height: clamp(230px, 27vw, 330px);
+  overflow: hidden;
+  background: var(--vp-c-bg-alt);
+  animation: sm-skeleton-enter .3s ease both;
+}
+.sm-theme-skeleton span, .sm-theme-skeleton i { display: block; }
+.sm-sk-cover { position: relative; height: 100%; background: var(--sm-sk-cover); }
+.sm-sk-menu { position: absolute; top: 13px; left: 14px; display: flex !important; flex-direction: column; justify-content: center; gap: 2px; width: 32px; height: 19px; padding-left: 8px; border: 1px solid rgba(255, 255, 255, .55); border-radius: 3px; }
+.sm-sk-menu i { width: 8px; height: 1px; background: rgba(255, 255, 255, .85); }
+.sm-sk-theme { position: absolute; top: 17px; right: 14px; width: 24px; height: 11px; padding: 2px; border-radius: 8px; background: rgba(255, 255, 255, .35); }
+.sm-sk-theme i { width: 7px; height: 7px; margin-left: auto; border-radius: 50%; background: rgba(255, 255, 255, .85); }
+.sm-sk-cover-title { position: absolute; top: 47%; left: 50%; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 62%; transform: translate(-50%, -50%); }
+.sm-sk-cover-title span { width: 43%; height: 14px; border-radius: 4px; background: rgba(255, 255, 255, .85); }
+.sm-sk-cover-title i { width: 62%; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, .5); }
+.sm-sk-down { position: absolute; left: calc(50% - 5px); bottom: 18px; width: 10px; height: 10px; border-right: 1.5px solid rgba(255, 255, 255, .85); border-bottom: 1.5px solid rgba(255, 255, 255, .85); transform: rotate(45deg); }
+.sm-skeleton-posts .sm-sk-cover { height: 23%; }
+.sm-skeleton-posts .sm-sk-down { bottom: 12px; }
+.sm-sk-feed { height: 77%; width: 65%; margin: 0 auto; padding: 0 15px; background: var(--sm-panel); }
+.sm-sk-post { height: 33.333%; padding: clamp(7px, 2.3cqw, 12px) 0 6px; border-bottom: 1px solid var(--vp-c-divider); }
+.sm-sk-post:last-child { border-bottom: 0; }
+.sm-sk-post-heading { display: flex; align-items: center; gap: 5px; margin-bottom: 6px; }
+.sm-sk-post-heading span { width: 39%; height: 8px; border-radius: 3px; background: var(--sm-sk-title); }
+.sm-sk-post:nth-child(2) .sm-sk-post-heading span { width: 56%; }
+.sm-sk-post:nth-child(3) .sm-sk-post-heading span { width: 48%; }
+.sm-sk-post-heading i { width: 15px; height: 7px; border-radius: 2px; background: var(--sm-sk-cover); }
+.sm-sk-meta { width: 48%; height: 3px; margin-bottom: 8px; border-radius: 2px; background: var(--sm-sk-line); }
+.sm-sk-line { width: 100%; height: 4px; margin-top: 5px; border-radius: 3px; background: var(--sm-sk-line); }
+.sm-sk-short { width: 76%; }
+.sm-sk-read { width: 24px; height: 3px; margin-top: 8px; border-radius: 2px; background: var(--sm-sk-title); }
+.sm-skeleton-article .sm-sk-cover { height: 34%; }
+.sm-skeleton-article .sm-sk-cover-title { top: 53%; gap: 7px; }
+.sm-skeleton-article .sm-sk-cover-title span { width: 48%; height: 9px; }
+.sm-skeleton-article .sm-sk-cover-title i { height: 3px; }
+.sm-skeleton-article .sm-sk-cover-title i:last-child { width: 12%; height: 6px; border-radius: 2px; }
+.sm-sk-article { position: relative; height: 66%; }
+.sm-sk-prose { width: 60%; height: 100%; margin: 0 auto; padding: clamp(10px, 3.4cqw, 18px) 12px; background: var(--sm-panel); }
+.sm-sk-brand { width: 34%; height: 14px; margin: 0 auto 12px; border-radius: 4px; background: var(--sm-sk-title); }
+.sm-sk-description { width: 60%; height: 3px; margin: 0 auto 17px; border-radius: 2px; background: var(--sm-sk-line); }
+.sm-sk-section { width: 28%; height: 7px; margin: clamp(8px, 2.6cqw, 14px) 0 6px; border-radius: 2px; background: var(--sm-sk-title); }
+.sm-sk-outline { position: absolute; top: 10px; left: calc(80% + 6px); width: 16%; padding: 8px 7px; border: 1px solid var(--vp-c-divider); border-radius: 2px; background: var(--sm-panel); }
+.sm-sk-outline span { width: 76%; height: 3px; margin: 0 0 7px; border-radius: 2px; background: var(--sm-sk-line); }
+.sm-sk-outline span:first-child { width: 88%; background: var(--vp-c-brand-1); }
+.sm-sk-outline span:last-child { margin-bottom: 0; }
+@keyframes sm-skeleton-enter { from { opacity: .5; } to { opacity: 1; } }
+@container (max-width: 400px) {
+  .sm-sk-post-heading { margin-bottom: 4px; }
+  .sm-sk-post-heading span { height: 6px; }
+  .sm-sk-meta { height: 2px; margin-bottom: 5px; }
+  .sm-sk-line { height: 3px; margin-top: 4px; }
+  .sm-sk-read { height: 2px; margin-top: 5px; }
+  .sm-sk-brand { height: 10px; margin-bottom: 9px; }
+  .sm-sk-description { margin-bottom: 10px; }
+  .sm-sk-section { height: 6px; }
+}
 .sm-caption { position: relative; display: flex; justify-content: space-between; gap: 12px; margin: 12px 4px 0; color: var(--vp-c-text-2); font-size: 11px; }
 .sm-entries { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
 .sm-entry { display: flex; flex-direction: column; padding: 22px 24px; border: 1px solid var(--vp-c-divider); border-radius: 10px; background: var(--sm-panel); cursor: pointer; animation: sm-enter .55s .22s both; transition: transform .2s, border-color .2s, box-shadow .2s; }
