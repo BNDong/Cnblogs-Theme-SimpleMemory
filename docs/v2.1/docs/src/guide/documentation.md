@@ -10,6 +10,8 @@ npm ci
 npm run docs:dev
 ```
 
+开发服务使用站点根路径，按终端输出的地址访问，例如 `http://localhost:5173/`。构建和预览使用线上子路径 `/Cnblogs-Theme-SimpleMemory/v2.1/dist/`。
+
 ## 检查与构建
 
 ```sh
@@ -32,4 +34,6 @@ npm run docs:preview
 
 不要直接编辑 `dist/` 中的 HTML、JavaScript 或 CSS，它们会在下次构建时被覆盖。CI 会检查并构建文档，但不会自动提交构建结果或修改 Pages 的发布设置。
 
-图片放在 `docs/v2.1/docs/src/public/images/` 下，引用时写 `/images/...`。配置默认值以 `src/components/config/config.json5` 和实际使用代码为准；新增配置时应同时补充文档。
+图片放在 `docs/v2.1/docs/src/public/images/` 下，使用 Markdown 图片语法引用，例如 `![说明](/images/install/install_03.png)`。VitePress 在构建时会补上发布路径，不要在 Markdown 中手动写死线上前缀。
+
+配置默认值以 `src/components/config/config.json5` 和实际使用代码为准；新增配置时应同时补充文档。
