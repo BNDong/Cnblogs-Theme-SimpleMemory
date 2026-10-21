@@ -1,8 +1,6 @@
 <div align="center">
   <img src="./src/images/simple2.png" width="420" alt="SimpleMemory Logo" />
 
-  <h1>SimpleMemory</h1>
-
   <p>基于博客园 SimpleMemory 皮肤的扩展美化插件</p>
 
   <p>
