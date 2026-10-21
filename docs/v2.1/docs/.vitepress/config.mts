@@ -21,7 +21,6 @@ export default defineConfig(({ mode }) => {
       root: zhConfig,
     },
     themeConfig: {
-      logo: '/images/logo.png',
       search: {
         provider: 'local',
       },

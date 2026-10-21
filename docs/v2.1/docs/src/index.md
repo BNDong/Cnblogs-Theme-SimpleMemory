@@ -1,26 +1,7 @@
 ---
 layout: home
-
-hero:
-  name: "SimpleMemory"
-  text: "博客园主题扩展"
-  tagline: 基于博客园 SimpleMemory 主题的扩展美化插件
-  image:
-    src: /images/logo.png
-    alt: SimpleMemory
-  actions:
-    - theme: brand
-      text: 示例博客
-      link: https://www.cnblogs.com/bndong
-    - theme: alt
-      text: 快速开始
-      link: /guide/install
-
-features:
-  - title: 安装
-    details: 在博客园后台添加 CSS、配置和插件脚本
-  - title: 配置
-    details: 头图、侧边栏、文章目录和代码样式等均可调整
-  - title: 适配
-    details: 支持桌面、平板与手机，提供日夜模式
+markdownStyles: false
+title: 安装、配置与使用文档
 ---
+
+<SimpleMemoryHome />
