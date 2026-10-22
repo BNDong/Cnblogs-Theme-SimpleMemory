@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath } from 'node:url'
 import zhConfig from './locales/zh.config.js'
+import codeTheme from './code-theme.mjs'
 export default defineConfig(({ mode }) => {
   const base = mode === 'development' ? '/' : '/Cnblogs-Theme-SimpleMemory/v2.1/dist/'
   return {
@@ -17,10 +18,20 @@ export default defineConfig(({ mode }) => {
     srcDir: './src',
     outDir: fileURLToPath(new URL('../../dist', import.meta.url)),
     transformHtml: (html) => html.replace(/^[\t ]+$/gm, ''),
+    vite: {
+      resolve: {
+        alias: [
+          // Share the configuration label layout between desktop and mobile outlines.
+          { find: './VPDocOutlineItem.vue', replacement: fileURLToPath(new URL('./theme/components/DocOutlineItem.vue', import.meta.url)) }
+        ]
+      }
+    },
     locales: {
       root: zhConfig,
     },
     themeConfig: {
+      logo: { src: '/images/logo.png', alt: 'SimpleMemory' },
+      siteTitle: false,
       search: {
         provider: 'local',
       },
@@ -29,6 +40,7 @@ export default defineConfig(({ mode }) => {
       ]
     },
     markdown: {
+      theme: codeTheme,
       lineNumbers: true
     }
   }

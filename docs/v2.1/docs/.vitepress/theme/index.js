@@ -7,7 +7,6 @@ import './custom.css'
 export default {
   extends: DefaultTheme,
   Layout: () => h(DefaultTheme.Layout, null, {
-    'nav-bar-title-after': () => h('span', { class: 'sm-docs-version' }, 'DOCS / v2.1'),
     'layout-bottom': () => h(DocImageViewer)
   }),
   enhanceApp({ app }) {
